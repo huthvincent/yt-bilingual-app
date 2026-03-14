@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# 设置你的 Gemini API Key
-export GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE" # 请替换为你的 Gemini API Key
+# 从 .env 文件加载 API Key（不会上传到 GitHub）
+SCRIPT_DIR_ENV="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -f "$SCRIPT_DIR_ENV/.env" ]; then
+    export $(grep -v '^#' "$SCRIPT_DIR_ENV/.env" | xargs)
+fi
 
 # 尝试清理旧的端口占用
 lsof -ti:8000 | xargs kill -9 2>/dev/null
