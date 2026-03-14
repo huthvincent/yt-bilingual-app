@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+backend/venv/
+.env
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# History data
+history/
