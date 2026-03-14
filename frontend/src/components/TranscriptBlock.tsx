@@ -7,18 +7,14 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-// Highlight logic: Exact substring replacement using split and regex
-const HighlightedText: React.FC<{ text: string; highlights: Array<{ word: string; color: string }> }> = ({ text, highlights }) => {
+// Highlight logic: Exact substring replacement with optional annotation (e.g. Chinese translation in parentheses)
+const HighlightedText: React.FC<{ text: string; highlights: Array<{ word: string; color: string; annotation?: string }> }> = ({ text, highlights }) => {
     if (!highlights || highlights.length === 0) return <span>{text}</span>;
-
-    // We want to highlight exactly the substrings.
-    // One way to do this reliably while preserving the rest of the text is to build an array of elements.
-    // For simplicity, we find indices of all matches.
 
     const parts: React.ReactNode[] = [];
     let currentIndex = 0;
 
-    // Since there could be multiple highlights, we need to sort them by index to process left to right
+    // Sort highlights by their position in the text (left to right)
     const matches = highlights.map(hl => {
         const idx = text.indexOf(hl.word);
         return { ...hl, index: idx, length: hl.word.length };
@@ -45,6 +41,14 @@ const HighlightedText: React.FC<{ text: string; highlights: Array<{ word: string
                 {text.slice(match.index, match.index + match.length)}
             </span>
         );
+        // Show Chinese annotation in parentheses after the highlighted word
+        if (match.annotation) {
+            parts.push(
+                <span key={`ann-${i}`} className="text-xs text-purple-300/70 ml-0.5">
+                    ({match.annotation})
+                </span>
+            );
+        }
         currentIndex = match.index + match.length;
     });
 
@@ -79,7 +83,9 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, en
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     };
 
-    const enHighlights = useMemo(() => highlights.map(h => ({ word: h.en_word, color: h.color })), [highlights]);
+    // English highlights include annotation (zh_word shown in parentheses after the word)
+    const enHighlights = useMemo(() => highlights.map(h => ({ word: h.en_word, color: h.color, annotation: h.zh_word })), [highlights]);
+    // Chinese highlights: no annotation needed
     const zhHighlights = useMemo(() => highlights.map(h => ({ word: h.zh_word, color: h.color })), [highlights]);
 
     return (
