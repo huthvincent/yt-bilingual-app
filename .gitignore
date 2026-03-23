@@ -18,3 +18,6 @@ dist/
 
 # History data
 history/
+
+# Subtitle files (downloaded separately)
+subtitles/

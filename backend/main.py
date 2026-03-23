@@ -476,6 +476,266 @@ def get_channel_updates(request: ChannelUpdatesRequest):
                 
     return {"updates": updates}
 
+# ====================================================
+# Local Subtitle (SRT) Integration
+# ====================================================
+
+SUBTITLES_DIR = os.path.join(os.path.dirname(__file__), "..", "subtitles")
+
+# Show metadata for display purposes
+SHOW_METADATA = {
+    "house-of-cards": {
+        "title": "House of Cards",
+        "title_zh": "纸牌屋",
+        "thumbnail": "https://m.media-amazon.com/images/M/MV5BODM1MDU2NjY3NF5BMl5BanBnXkFtZTgwMDkxNTcwNjE@._V1_.jpg",
+        "seasons": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 8}
+    }
+}
+
+def parse_srt(content: str) -> list:
+    """Parse SRT subtitle content into a list of blocks with start, end, text."""
+    blocks = []
+    # Split by double newline to get individual subtitle entries
+    entries = re.split(r'\n\s*\n', content.strip())
+    
+    for entry in entries:
+        lines = entry.strip().split('\n')
+        if len(lines) < 3:
+            continue
+        
+        # Parse timestamp line (format: 00:01:07,317 --> 00:01:09,194)
+        time_match = re.match(
+            r'(\d{2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d{2}):(\d{2}):(\d{2})[,.](\d{3})',
+            lines[1]
+        )
+        if not time_match:
+            continue
+        
+        h1, m1, s1, ms1, h2, m2, s2, ms2 = time_match.groups()
+        start = int(h1) * 3600 + int(m1) * 60 + int(s1) + int(ms1) / 1000
+        end = int(h2) * 3600 + int(m2) * 60 + int(s2) + int(ms2) / 1000
+        
+        # Join remaining lines as the subtitle text
+        text = ' '.join(lines[2:]).strip()
+        # Remove HTML tags sometimes found in SRT files
+        text = re.sub(r'<[^>]+>', '', text)
+        
+        if text:
+            blocks.append({"start": start, "end": end, "text": text})
+    
+    return blocks
+
+def group_srt_blocks(blocks: list) -> list:
+    """Group short SRT subtitle snippets into sentence-level blocks."""
+    grouped = []
+    current = None
+    
+    for block in blocks:
+        text = block["text"].strip()
+        
+        if current is None:
+            current = {
+                "start": block["start"],
+                "end": block["end"],
+                "text": text
+            }
+        else:
+            current["text"] += " " + text
+            current["end"] = block["end"]
+        
+        text_so_far = current["text"].strip()
+        
+        # End block on sentence-ending punctuation or length limit
+        ends_with_punct = bool(re.search(r'[.!?]["\'"]?\s*$', text_so_far))
+        is_too_long = len(text_so_far) > 160
+        
+        # Check for a pause between blocks (> 1.5s gap)
+        next_idx = blocks.index(block) + 1
+        has_pause = False
+        if next_idx < len(blocks):
+            if blocks[next_idx]["start"] - block["end"] > 1.5:
+                has_pause = True
+        
+        if ends_with_punct or is_too_long or has_pause:
+            grouped.append(current)
+            current = None
+    
+    if current:
+        grouped.append(current)
+    
+    return grouped
+
+
+@app.get("/api/shows")
+def list_shows():
+    """List available local shows with subtitles."""
+    shows = []
+    if os.path.exists(SUBTITLES_DIR):
+        for show_dir in sorted(os.listdir(SUBTITLES_DIR)):
+            show_path = os.path.join(SUBTITLES_DIR, show_dir)
+            if os.path.isdir(show_path):
+                meta = SHOW_METADATA.get(show_dir, {
+                    "title": show_dir.replace("-", " ").title(),
+                    "title_zh": show_dir,
+                    "thumbnail": "",
+                    "seasons": {}
+                })
+                
+                # Count actual available seasons and episodes
+                seasons_available = {}
+                for season_dir in sorted(os.listdir(show_path)):
+                    season_path = os.path.join(show_path, season_dir)
+                    if os.path.isdir(season_path) and season_dir.startswith("S"):
+                        season_num = int(season_dir[1:])
+                        episodes = [f for f in os.listdir(season_path) if f.endswith('.srt')]
+                        if episodes:
+                            seasons_available[season_num] = len(episodes)
+                
+                if seasons_available:
+                    shows.append({
+                        "id": show_dir,
+                        "title": meta["title"],
+                        "title_zh": meta["title_zh"],
+                        "thumbnail": meta["thumbnail"],
+                        "seasons_available": seasons_available,
+                        "total_episodes": sum(seasons_available.values())
+                    })
+    
+    return {"shows": shows}
+
+
+@app.get("/api/shows/{show_id}/seasons")
+def list_seasons(show_id: str):
+    """List available seasons for a show."""
+    show_path = os.path.join(SUBTITLES_DIR, show_id)
+    if not os.path.exists(show_path):
+        raise HTTPException(status_code=404, detail="Show not found")
+    
+    meta = SHOW_METADATA.get(show_id, {})
+    seasons = []
+    
+    for season_dir in sorted(os.listdir(show_path)):
+        season_path = os.path.join(show_path, season_dir)
+        if os.path.isdir(season_path) and season_dir.startswith("S"):
+            season_num = int(season_dir[1:])
+            episodes = sorted([f for f in os.listdir(season_path) if f.endswith('.srt')])
+            seasons.append({
+                "season": season_num,
+                "episode_count": len(episodes),
+                "episodes": [int(e.replace("E", "").replace(".srt", "")) for e in episodes]
+            })
+    
+    return {
+        "show_id": show_id,
+        "title": meta.get("title", show_id),
+        "title_zh": meta.get("title_zh", ""),
+        "seasons": seasons
+    }
+
+
+class SubtitleRequest(BaseModel):
+    show_id: str
+    season: int
+    episode: int
+
+
+@app.post("/api/process-subtitle")
+async def process_subtitle(request: SubtitleRequest):
+    """Process a local SRT subtitle file through Gemini translation."""
+    srt_path = os.path.join(
+        SUBTITLES_DIR, request.show_id,
+        f"S{request.season:02d}", f"E{request.episode:02d}.srt"
+    )
+    
+    if not os.path.exists(srt_path):
+        raise HTTPException(status_code=404, detail="Subtitle file not found")
+    
+    # Check if already processed (cached in history)
+    cache_filename = f"{request.show_id}_S{request.season:02d}E{request.episode:02d}.json"
+    cache_path = os.path.join(HISTORY_DIR, cache_filename)
+    
+    if os.path.exists(cache_path):
+        print(f"Loading cached subtitles: {cache_filename}")
+        with open(cache_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    
+    # Parse SRT file
+    with open(srt_path, "r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+    
+    raw_blocks = parse_srt(content)
+    blocks = group_srt_blocks(raw_blocks)
+    
+    # Assign IDs
+    for idx, b in enumerate(blocks):
+        b["id"] = idx + 1
+    
+    # Get show metadata
+    meta = SHOW_METADATA.get(request.show_id, {})
+    show_title = meta.get("title", request.show_id)
+    show_title_zh = meta.get("title_zh", "")
+    
+    metadata = {
+        "title": f"{show_title} S{request.season:02d}E{request.episode:02d}",
+        "channel": show_title_zh or show_title,
+        "upload_date": "",
+        "thumbnail": meta.get("thumbnail", ""),
+        "is_local_subtitle": True
+    }
+    
+    # Process through Gemini translation (same batching as YouTube)
+    processed_blocks = []
+    batch_size = 20
+    
+    print(f"Processing {len(blocks)} subtitle blocks for {show_title} S{request.season:02d}E{request.episode:02d}...")
+    
+    for i in range(0, len(blocks), batch_size):
+        batch = blocks[i:i + batch_size]
+        print(f"Processing batch {i//batch_size + 1}/{(len(blocks)-1)//batch_size + 1}")
+        
+        max_retries = 3
+        retry_delay = 10
+        success = False
+        
+        for attempt in range(max_retries):
+            try:
+                batch_result = await process_llm_batch(batch)
+                processed_blocks.extend(batch_result)
+                await asyncio.sleep(4)
+                success = True
+                break
+            except Exception as e:
+                error_msg = str(e).lower()
+                if "429" in error_msg or "quota" in error_msg or "exhausted" in error_msg:
+                    if attempt < max_retries - 1:
+                        print(f"Rate limit hit. Retrying in {retry_delay}s... (Attempt {attempt + 1}/{max_retries})")
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2
+                    else:
+                        print(f"Rate limit hit persistently. Falling back to mock.")
+                else:
+                    print(f"Batch failed: {e}")
+                    break
+        
+        if not success:
+            mock_result = await mock_llm_processing(batch)
+            processed_blocks.extend(mock_result)
+    
+    result_payload = {
+        "videoId": f"{request.show_id}-S{request.season:02d}E{request.episode:02d}",
+        "metadata": metadata,
+        "transcript": processed_blocks,
+        "summary": f"📺 {show_title_zh} 第{request.season}季 第{request.episode}集"
+    }
+    
+    # Cache the result
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(result_payload, f, ensure_ascii=False, indent=2)
+    
+    return result_payload
+
+
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
+

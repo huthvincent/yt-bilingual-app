@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Loader2, Play, Youtube, Clock } from 'lucide-react';
+import { Search, Loader2, Play, Youtube, Clock, Tv } from 'lucide-react';
 import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
+import { ShowBrowser } from './ShowBrowser';
 
 interface InputScreenProps {
     onSubmit: (url: string) => void;
     onLoadHistory: (filename: string) => void;
+    onSelectEpisode: (showId: string, season: number, episode: number) => void;
     isLoading: boolean;
     subscriptions?: { id: string; name: string }[];
 }
 
-export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, isLoading, subscriptions = [] }) => {
+export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, subscriptions = [] }) => {
     const [url, setUrl] = useState('');
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
@@ -150,6 +152,17 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         </button>
                     </div>
                 </form>
+            </div>
+
+            {/* Local Shows Section */}
+            <div className="w-full max-w-xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.2s_forwards] mt-8">
+                <div className="flex items-center gap-2 mb-4 text-gray-400 border-b border-gray-800 pb-2">
+                    <Tv className="w-5 h-5 text-emerald-400" />
+                    <h3 className="font-semibold text-lg text-white">本地剧集学习</h3>
+                </div>
+                <div className="bg-gray-800/30 rounded-2xl border border-gray-800 p-5">
+                    <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={isLoading} />
+                </div>
             </div>
 
             {history.length > 0 && (

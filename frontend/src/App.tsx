@@ -142,6 +142,31 @@ function App() {
     }
   };
 
+  const handleSelectEpisode = async (showId: string, season: number, episode: number) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/process-subtitle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ show_id: showId, season, episode }),
+      });
+
+      if (!response.ok) throw new Error('Failed to process subtitle');
+
+      const data = await response.json();
+      setTranscript(data.transcript);
+      setSummary(data.summary || '');
+      setMetadata({ ...data.metadata, is_local_subtitle: true });
+      setVideoId(data.videoId);
+      setVideoUrl(''); // No video URL for local subtitles
+    } catch (error) {
+      console.error(error);
+      alert('Failed to process subtitle file.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleLoadHistory = async (filename: string) => {
     setIsLoading(true);
     try {
@@ -203,13 +228,15 @@ function App() {
           <InputScreen
             onSubmit={handleUrlSubmit}
             onLoadHistory={handleLoadHistory}
+            onSelectEpisode={handleSelectEpisode}
             isLoading={isLoading}
             subscriptions={subscriptions}
           />
         </div>
       ) : (
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
-          {/* Left Column: Video */}
+          {/* Left Column: Video (hidden in subtitle-only mode) */}
+          {!metadata?.is_local_subtitle && (
           <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col pt-4 md:pt-0">
             <div className="flex-1 min-h-0 relative">
               <VideoPlayer
@@ -284,9 +311,16 @@ function App() {
               )}
             </div>
           </div>
+          )}
 
-          {/* Right Column: Transcript */}
-          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800">
+          {/* Right Column (or full width in subtitle mode): Transcript */}
+          <div className={`${metadata?.is_local_subtitle ? 'w-full' : 'w-full md:w-1/2'} h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`}>
+            {metadata?.is_local_subtitle && (
+              <div className="flex-none bg-gray-900 border-b border-gray-800 px-6 py-3">
+                <h2 className="text-lg font-bold text-white">{metadata?.title}</h2>
+                <p className="text-gray-400 text-sm">{summary}</p>
+              </div>
+            )}
             <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-gray-900 to-transparent z-10 pointer-events-none"></div>
             <TranscriptView
               transcript={transcript}
