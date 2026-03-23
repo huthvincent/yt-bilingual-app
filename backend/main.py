@@ -686,6 +686,7 @@ async def process_subtitle(request: SubtitleRequest):
     # Process through Gemini translation (same batching as YouTube)
     processed_blocks = []
     batch_size = 20
+    has_mock_fallback = False  # Track if any batch used mock
     
     print(f"Processing {len(blocks)} subtitle blocks for {show_title} S{request.season:02d}E{request.episode:02d}...")
     
@@ -693,15 +694,15 @@ async def process_subtitle(request: SubtitleRequest):
         batch = blocks[i:i + batch_size]
         print(f"Processing batch {i//batch_size + 1}/{(len(blocks)-1)//batch_size + 1}")
         
-        max_retries = 3
-        retry_delay = 10
+        max_retries = 5
+        retry_delay = 15
         success = False
         
         for attempt in range(max_retries):
             try:
                 batch_result = await process_llm_batch(batch)
                 processed_blocks.extend(batch_result)
-                await asyncio.sleep(4)
+                await asyncio.sleep(6)  # Longer delay between batches
                 success = True
                 break
             except Exception as e:
@@ -718,6 +719,7 @@ async def process_subtitle(request: SubtitleRequest):
                     break
         
         if not success:
+            has_mock_fallback = True
             mock_result = await mock_llm_processing(batch)
             processed_blocks.extend(mock_result)
     
@@ -728,9 +730,13 @@ async def process_subtitle(request: SubtitleRequest):
         "summary": f"📺 {show_title_zh} 第{request.season}季 第{request.episode}集"
     }
     
-    # Cache the result
-    with open(cache_path, "w", encoding="utf-8") as f:
-        json.dump(result_payload, f, ensure_ascii=False, indent=2)
+    # Only cache if all batches succeeded (no mock fallback)
+    if not has_mock_fallback:
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(result_payload, f, ensure_ascii=False, indent=2)
+        print(f"Cached result: {cache_filename}")
+    else:
+        print(f"⚠️ Result contains mock translations, NOT caching. Retry later for full translation.")
     
     return result_payload
 
