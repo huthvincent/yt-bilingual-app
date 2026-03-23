@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Star } from 'lucide-react';
 import { InputScreen } from './components/InputScreen';
 import { VideoPlayer } from './components/VideoPlayer';
@@ -30,6 +30,41 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
   const [externalVideoUrl, setExternalVideoUrl] = useState('');
+
+  // Local subtitle playback timer
+  const subtitleTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [isSubtitlePlaying, setIsSubtitlePlaying] = useState(false);
+
+  const startSubtitleTimer = (fromTime: number) => {
+    // Stop any existing timer
+    if (subtitleTimerRef.current) clearInterval(subtitleTimerRef.current);
+    setCurrentTime(fromTime);
+    setIsSubtitlePlaying(true);
+    const startWall = Date.now();
+    const startOffset = fromTime;
+    subtitleTimerRef.current = setInterval(() => {
+      const elapsed = (Date.now() - startWall) / 1000;
+      setCurrentTime(startOffset + elapsed);
+    }, 100);
+  };
+
+  const pauseSubtitleTimer = () => {
+    if (subtitleTimerRef.current) clearInterval(subtitleTimerRef.current);
+    subtitleTimerRef.current = null;
+    setIsSubtitlePlaying(false);
+  };
+
+  const stopSubtitleTimer = () => {
+    pauseSubtitleTimer();
+    setCurrentTime(0);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (subtitleTimerRef.current) clearInterval(subtitleTimerRef.current);
+    };
+  }, []);
 
   // Favorites logic
   const [favorites, setFavorites] = useState<FavoriteItem[]>(() => {
@@ -362,6 +397,17 @@ function App() {
                     </svg>
                     打开视频窗口
                   </button>
+                  {isSubtitlePlaying && (
+                    <button
+                      onClick={pauseSubtitleTimer}
+                      className="w-full py-3 px-4 bg-amber-600 hover:bg-amber-500 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      暂停自动滚动
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -376,7 +422,13 @@ function App() {
               currentTime={currentTime}
               videoId={videoId}
               favorites={favorites.map(f => f.id)}
-              onTranscriptClick={(time) => setSeekCommand({ time, timestamp: Date.now() })}
+              onTranscriptClick={(time) => {
+                if (metadata?.is_local_subtitle) {
+                  startSubtitleTimer(time);
+                } else {
+                  setSeekCommand({ time, timestamp: Date.now() });
+                }
+              }}
               onToggleFavorite={handleToggleFavorite}
             />
             <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-gray-900 to-transparent z-10 pointer-events-none"></div>
