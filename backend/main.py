@@ -657,7 +657,77 @@ async def process_subtitle(request: SubtitleRequest):
     if os.path.exists(cache_path):
         print(f"Loading cached subtitles: {cache_filename}")
         with open(cache_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            cached_data = json.load(f)
+        
+        # Check for mock translations that need re-processing
+        mock_indices = []
+        for i, block in enumerate(cached_data.get("transcript", [])):
+            zh = block.get("zh_text", "")
+            if "模拟中文翻译" in zh:
+                mock_indices.append(i)
+        
+        if not mock_indices:
+            return cached_data  # All good, return cached
+        
+        print(f"Found {len(mock_indices)} blocks with mock translations, re-processing...")
+        
+        # Re-process only mock blocks in batches
+        transcript = cached_data["transcript"]
+        batch_size = 20
+        remaining_mock = False
+        
+        for batch_start in range(0, len(mock_indices), batch_size):
+            batch_indices = mock_indices[batch_start:batch_start + batch_size]
+            batch_blocks = []
+            for idx in batch_indices:
+                batch_blocks.append({
+                    "id": transcript[idx].get("id"),
+                    "start": transcript[idx]["start"],
+                    "end": transcript[idx]["end"],
+                    "text": transcript[idx]["en_text"]
+                })
+            
+            max_retries = 5
+            retry_delay = 15
+            success = False
+            
+            for attempt in range(max_retries):
+                try:
+                    batch_result = await process_llm_batch(batch_blocks)
+                    # Replace mock blocks with real translations
+                    for j, idx in enumerate(batch_indices):
+                        if j < len(batch_result):
+                            transcript[idx] = batch_result[j]
+                    success = True
+                    await asyncio.sleep(6)
+                    break
+                except Exception as e:
+                    error_msg = str(e).lower()
+                    if "429" in error_msg or "quota" in error_msg or "exhausted" in error_msg:
+                        if attempt < max_retries - 1:
+                            print(f"Rate limit. Retrying in {retry_delay}s... ({attempt+1}/{max_retries})")
+                            await asyncio.sleep(retry_delay)
+                            retry_delay *= 2
+                        else:
+                            print(f"Still rate limited. Mock blocks remain.")
+                    else:
+                        print(f"Batch re-process failed: {e}")
+                        break
+            
+            if not success:
+                remaining_mock = True
+        
+        cached_data["transcript"] = transcript
+        # Always save progress (even partial)
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(cached_data, f, ensure_ascii=False, indent=2)
+        
+        if remaining_mock:
+            print(f"⚠️ Some mock blocks still remain. Retry later.")
+        else:
+            print(f"✅ All mock blocks re-translated successfully!")
+        
+        return cached_data
     
     # Parse SRT file
     with open(srt_path, "r", encoding="utf-8", errors="ignore") as f:
