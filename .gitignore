@@ -16,8 +16,5 @@ dist/
 *.swo
 .DS_Store
 
-# History data
-history/
-
-# Subtitle files (downloaded separately)
-subtitles/
+# Zip archives (SRT files already extracted)
+*.zip

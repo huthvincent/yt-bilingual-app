@@ -1,0 +1,3683 @@
+{
+  "videoId": "VyR8nqD3sQ8",
+  "metadata": {
+    "title": "How I'd build a one-person business (if I started over in 2026)",
+    "channel": "Dan Koe",
+    "channel_url": "https://www.youtube.com/channel/UCWXYDYv5STLk-zoxMP2I1Lw",
+    "upload_date": "20260103",
+    "thumbnail": "https://i.ytimg.com/vi/VyR8nqD3sQ8/maxresdefault.jpg"
+  },
+  "transcript": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 13.04,
+      "en_text": "I think it's obvious that everything is changing right now. Business, the internet, social media, coding, art. It feels like what worked just last year doesn't work anymore. And since we're",
+      "zh_text": "我觉得现在一切都在变化是显而易见的。商业、互联网、社交媒体、编程、艺术。感觉去年还奏效的东西现在已经不行了。既然我们",
+      "highlights": [
+        {
+          "en_word": "obvious",
+          "zh_word": "显而易见的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "what worked just last year doesn't work anymore",
+          "zh_word": "去年还奏效的东西现在已经不行了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 11.28,
+      "end": 18.88,
+      "en_text": "here to talk about the oneperson business or just online business as a whole, because it applies to everything,",
+      "zh_text": "我们来这里讨论一人公司或者说整体上的在线业务，因为它适用于所有事物。",
+      "highlights": [
+        {
+          "en_word": "as a whole",
+          "zh_word": "整体上的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "applies to",
+          "zh_word": "适用于",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 16.72,
+      "end": 29.439,
+      "en_text": "I'm not here to give you just some recycled advice, right? It's 2026. We're going into 2026. Everyone's creating the the best business model to start in 2026 videos. I am too for the views. But with",
+      "zh_text": "我来这里不是为了给你一些老生常谈的建议，对吧？现在是2026年，我们正迈入2026年。每个人都在制作关于“2026年最佳商业模式”的视频。我也是为了点击量。但是",
+      "highlights": [
+        {
+          "en_word": "recycled advice",
+          "zh_word": "老生常谈的建议",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "going into",
+          "zh_word": "迈入",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 27.84,
+      "end": 33.6,
+      "en_text": "most of those videos, they're just saying the same thing they did in 2025.",
+      "zh_text": "那些视频大多只是在重复2025年说过的话。",
+      "highlights": []
+    },
+    {
+      "id": 5,
+      "start": 32.0,
+      "end": 42.160000000000004,
+      "en_text": "And that was okay when they were saying it last year and the year before because not much changed. So I'm not going to tell you to start an agency. I'm not going to tell you to start freelancing.",
+      "zh_text": "去年和前年他们这么说的时候还行，因为没有太大变化。所以我不会告诉你去开一家中介公司。我也不会告诉你去做自由职业。",
+      "highlights": [
+        {
+          "en_word": "the year before",
+          "zh_word": "前年",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "freelancing",
+          "zh_word": "自由职业",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 40.32,
+      "end": 51.36,
+      "en_text": "I'm not going to tell you to even build an info product. I'm not even going to tell you to start coaching or consulting or whatever the popular business model was like starting a community or",
+      "zh_text": "我也不会告诉你去开发信息产品。我甚至不会告诉你去做教练或咨询，或者其他任何流行的商业模式，比如建立一个社群或",
+      "highlights": [
+        {
+          "en_word": "info product",
+          "zh_word": "信息产品",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "consulting",
+          "zh_word": "咨询",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 49.68,
+      "end": 61.52,
+      "en_text": "anything. And I've already talked about those plenty of times in the past. Just go look at the oneperson business playlist on my channel. But instead, I want to show you the business model that",
+      "zh_text": "任何东西。我过去已经多次谈论过这些了。你只要去我的频道上看看一人公司播放列表就行了。但相反，我想向你展示那种商业模式",
+      "highlights": [
+        {
+          "en_word": "plenty of times",
+          "zh_word": "多次",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "playlist",
+          "zh_word": "播放列表",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 58.719,
+      "end": 68.64,
+      "en_text": "I think makes sense right now for the next two to three years, maybe. And the reason I'm making this video is because",
+      "zh_text": "我认为在接下来的两三年里是合理的。我制作这个视频的原因是",
+      "highlights": [
+        {
+          "en_word": "makes sense",
+          "zh_word": "是合理的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 65.92,
+      "end": 78.79899999999999,
+      "en_text": "I keep seeing online, because they're trying to get views, too, that valuebased content is dead or info products are dead or coaching is dead.",
+      "zh_text": "我一直在线上看到（因为他们也想获得点击量），说基于价值的内容已死，或者信息产品已死，或者教练服务已死。",
+      "highlights": [
+        {
+          "en_word": "keep seeing",
+          "zh_word": "一直看到",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "valuebased content",
+          "zh_word": "基于价值的内容",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 77.2,
+      "end": 89.04,
+      "en_text": "And what that's doing is it's making people feel like they just shouldn't start as a creator. they should just give up and not even try because they don't know what to do. But that's just",
+      "zh_text": "而这导致人们觉得他们不应该作为创作者开始。他们应该放弃，甚至不尝试，因为他们不知道该怎么做。但这只是",
+      "highlights": [
+        {
+          "en_word": "give up",
+          "zh_word": "放弃",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "as a creator",
+          "zh_word": "作为创作者",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 86.799,
+      "end": 99.36,
+      "en_text": "kind of how things go when a new paradigm starts to emerge because it's not like that paradigm is figured out yet. It's it's not clear. Nobody can just tell you what to do. You kind of",
+      "zh_text": "当一个新的范式开始出现时，事情就是这样发展的，因为那个范式还没有被完全理解。它还不清楚。没有人能直接告诉你该怎么做。你有点",
+      "highlights": [
+        {
+          "en_word": "paradigm",
+          "zh_word": "范式",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "figured out",
+          "zh_word": "被完全理解",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 97.52,
+      "end": 110.399,
+      "en_text": "have to try new things and experiment until you create the new thing. So let's talk about how the oneperson business is changing and then let's talk about the future of education and specifically",
+      "zh_text": "必须尝试新事物并进行实验，直到你创造出新的东西。所以，让我们谈谈一人公司是如何变化的，然后我们再谈谈教育的未来，特别是",
+      "highlights": [
+        {
+          "en_word": "experiment",
+          "zh_word": "进行实验",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "specifically",
+          "zh_word": "特别是",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 108.159,
+      "end": 120.71900000000001,
+      "en_text": "education products and then how you can actually take advantage of this like what you can literally start doing and learning today. So part one the oneperson business model is evolving",
+      "zh_text": "教育产品，以及你如何真正利用这一点，比如你今天就可以开始做和学什么。所以第一部分，一人公司模式正在演变。",
+      "highlights": [
+        {
+          "en_word": "take advantage of",
+          "zh_word": "利用",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "evolving",
+          "zh_word": "演变",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 118.399,
+      "end": 130.239,
+      "en_text": "because for the past few decades info products and coaching just reign supreme. That's what you did. If you wanted to be a creator and you didn't want to rely on sponsorships and ad",
+      "zh_text": "因为在过去的几十年里，信息产品和教练服务占据主导地位。如果你想成为一名创作者，并且不想依赖赞助和广告收入，你就会这样做。",
+      "highlights": [
+        {
+          "en_word": "reign supreme",
+          "zh_word": "占据主导地位",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "rely on",
+          "zh_word": "依赖",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 128.16,
+      "end": 143.2,
+      "en_text": "revenue, you would build an info product or you would do coaching. And I think those were great things because with the internet, as one person, those were kind of your only options. That's how as one",
+      "zh_text": "收入，你就会开发一个信息产品或者提供教练服务。我认为这些都是很棒的事情，因为在互联网时代，作为一个人，这些几乎是你唯一的选择。作为一个",
+      "highlights": [
+        {
+          "en_word": "revenue",
+          "zh_word": "收入",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "options",
+          "zh_word": "选择",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 141.2,
+      "end": 157.84,
+      "en_text": "singular person, that is the caveat here, one singular person, not a team, you could start an entire business online. That's crazy. That's insane. One single person could be their own",
+      "zh_text": "个体，这里的关键是，一个单独的个体，而不是一个团队，你就可以在线上创办一整个企业。这太疯狂了。这太不可思议了。一个单独的人就可以成为自己的",
+      "highlights": [
+        {
+          "en_word": "singular person",
+          "zh_word": "个体",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "caveat",
+          "zh_word": "关键",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 154.4,
+      "end": 165.92,
+      "en_text": "marketing content, sales, product, and even I guess HR department. You write content to get traffic without needing a physical business in the right location.",
+      "zh_text": "营销内容、销售、产品，甚至我想说的人力资源部门。你写内容来获取流量，而不需要在正确的地点拥有实体业务。",
+      "highlights": [
+        {
+          "en_word": "HR department",
+          "zh_word": "人力资源部门",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "traffic",
+          "zh_word": "流量",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 164.08,
+      "end": 176.319,
+      "en_text": "You do something interesting with your life or learn one of your passions enough until you become somewhat of an expert. And then you share that thing with others in an educational or",
+      "zh_text": "你做一些你生活中感兴趣的事情，或者充分学习你的一个爱好，直到你成为某种程度上的专家。然后你以教育或",
+      "highlights": [
+        {
+          "en_word": "somewhat of an expert",
+          "zh_word": "某种程度上的专家",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "educational",
+          "zh_word": "教育",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 173.92,
+      "end": 178.39999999999998,
+      "en_text": "entertaining way. Your brand is you.",
+      "zh_text": "娱乐的方式。你的品牌就是你自己。",
+      "highlights": [
+        {
+          "en_word": "entertaining way",
+          "zh_word": "娱乐的方式",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 176.319,
+      "end": 189.11999999999998,
+      "en_text": "Your content are little pieces of your mind. And your products are processes that solved a problem in your life and led to something better. Many people over complicate that. One example that I",
+      "zh_text": "你的内容是你思想的碎片。你的产品是解决你生活中问题并带来更好结果的过程。很多人把这事搞得过于复杂。我举一个例子",
+      "highlights": [
+        {
+          "en_word": "over complicate",
+          "zh_word": "过于复杂",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "led to",
+          "zh_word": "带来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 186.72,
+      "end": 198.159,
+      "en_text": "would always give is if you love productivity, that was one of your passions. You studied productivity. Then you start talking about productivity online. You iterate because your content",
+      "zh_text": "总是会给出的是，如果你热爱生产力，那是你的一大爱好。你研究生产力。然后你开始在线上谈论生产力。你不断迭代，因为你的内容",
+      "highlights": [
+        {
+          "en_word": "iterate",
+          "zh_word": "迭代",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 196.4,
+      "end": 208.4,
+      "en_text": "isn't going to be good at first. So you improve it until it gets good and you start growing and then you use that traffic to feed into a product. What do you build for a product? I don't know.",
+      "zh_text": "起初不会很好。所以你不断改进，直到它变得优秀，你开始成长，然后你利用这些流量来推广产品。你会为产品打造什么？我不知道。",
+      "highlights": [
+        {
+          "en_word": "feed into",
+          "zh_word": "推广",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 206.0,
+      "end": 218.879,
+      "en_text": "What do you buy? What did you buy that helped you with productivity? Was it a planner? In that case, you go to Amazon, you order the top five planners, you break them down, you use them, you",
+      "zh_text": "你买什么？你买了什么来帮助你提高生产力？是一个规划器吗？在这种情况下，你上亚马逊，订购销量前五的规划器，你把它们分解，使用它们，你",
+      "highlights": [
+        {
+          "en_word": "break them down",
+          "zh_word": "把它们分解",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 216.799,
+      "end": 222.959,
+      "en_text": "deconstruct them, you understand what you do and don't like about the planners, and then you create your own.",
+      "zh_text": "解构它们，你理解你喜欢和不喜欢这些规划器的哪些地方，然后你创建自己的。",
+      "highlights": [
+        {
+          "en_word": "deconstruct",
+          "zh_word": "解构",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 221.519,
+      "end": 235.76,
+      "en_text": "It doesn't even have to be a physical product. You can create a notion template or even a printable planner or a course plus those things. It It's really up to you. And in order to make",
+      "zh_text": "它甚至不必是一个实体产品。你可以创建一个Notion模板，甚至是一个可打印的规划器，或者一个课程加上这些东西。这真的取决于你。为了赚到",
+      "highlights": [
+        {
+          "en_word": "printable planner",
+          "zh_word": "可打印的规划器",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 232.48,
+      "end": 244.72,
+      "en_text": "50,000, $100,000, $500,000 a year, it's really just those two levers, right? You write content, you get traffic, and depending on the amount of traffic you get and how good your product actually",
+      "zh_text": "每年五万、十万、五十万美元，这真的只是这两个杠杆，对吧？你创作内容，你获得流量，这取决于你获得的流量和你产品实际的质量。",
+      "highlights": [
+        {
+          "en_word": "levers",
+          "zh_word": "杠杆",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 242.48,
+      "end": 254.239,
+      "en_text": "is, that results in the amount of money that you make. And the beautiful thing there is that your value isn't determined by an employer. Your value is practically uncapped depending on how",
+      "zh_text": "最终决定了你赚多少钱。其中美妙之处在于你的价值不是由雇主决定的。你的价值实际上是无限的，取决于你",
+      "highlights": [
+        {
+          "en_word": "uncapped",
+          "zh_word": "无限的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 252.239,
+      "end": 264.32,
+      "en_text": "many people you reach. So this quickly forces you to kind of remove the employment mindset from your mind because you can make so much more just as one person. The thing here is that",
+      "zh_text": "触达多少人。所以这很快迫使你从脑海中消除雇佣思维，因为你作为一个个体可以赚到更多。这里的关键是",
+      "highlights": [
+        {
+          "en_word": "employment mindset",
+          "zh_word": "雇佣思维",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 262.079,
+      "end": 275.68,
+      "en_text": "this is never going to go away, but the vessel by which you do it will continue to change. So it may not be a planner that you print out anymore. Now my entire goal with my brand and these",
+      "zh_text": "这永远不会消失，但你完成它的“载体”将持续改变。所以它可能不再是你打印出来的规划器了。现在，我的品牌和这些",
+      "highlights": [
+        {
+          "en_word": "vessel",
+          "zh_word": "载体",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 273.52,
+      "end": 279.04,
+      "en_text": "videos is to help you become futureproof. That's one of my passions.",
+      "zh_text": "视频的目标是帮助你变得“未来可期”。那是我的爱好之一。",
+      "highlights": [
+        {
+          "en_word": "futureproof",
+          "zh_word": "未来可期",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 277.52,
+      "end": 288.56,
+      "en_text": "That's what I like educating and entertaining around. And becoming futurep proof to me is built around two pillars. The first is how do you figure out what you want in life which",
+      "zh_text": "那是我喜欢围绕教育和娱乐做的事情。对我来说，变得“经得起未来考验”是建立在两大支柱之上的。第一是如何弄清楚你生活中想要什么，这",
+      "highlights": [
+        {
+          "en_word": "built around two pillars",
+          "zh_word": "建立在两大支柱之上",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 286.639,
+      "end": 299.59999999999997,
+      "en_text": "incorporates psychology, philosophy and personal development. And then number two is how do you succeed with that in today's world to reach that to what you want in life and that involves skill",
+      "zh_text": "包含心理学、哲学和个人发展。第二是，在当今世界如何成功实现你生活中想要达到的目标，这涉及到技能",
+      "highlights": [
+        {
+          "en_word": "personal development",
+          "zh_word": "个人发展",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 297.199,
+      "end": 310.96000000000004,
+      "en_text": "acquisition business technology and now AI. So previously on the internet the second part of that how do you succeed in today's world especially as one person that was largely handled by",
+      "zh_text": "获取、商业技术和现在的AI。所以以前在互联网上，第二部分，即作为一个个体如何在当今世界取得成功，这主要通过",
+      "highlights": [
+        {
+          "en_word": "skill acquisition",
+          "zh_word": "技能获取",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 309.039,
+      "end": 319.52,
+      "en_text": "having a personal brand and creating an information product or coaching information and product and coaching they're kind of the same thing just one is one-on-one the other is mass scale",
+      "zh_text": "拥有个人品牌并创造信息产品或提供辅导。信息产品和辅导有点像一回事，只是一个是一对一，另一个是大规模的。",
+      "highlights": [
+        {
+          "en_word": "information product",
+          "zh_word": "信息产品",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "mass scale",
+          "zh_word": "大规模的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 317.6,
+      "end": 330.24,
+      "en_text": "and that info product could evolve from a simple ebook level one a course level two a cohort level three and a community level four but now since valuebased content and info products are dead I",
+      "zh_text": "这种信息产品可以从简单的电子书（一级）、课程（二级）、社群（三级）和社区（四级）演变而来。但现在，由于基于价值的内容和信息产品已“过时”，我",
+      "highlights": [
+        {
+          "en_word": "cohort",
+          "zh_word": "社群",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "valuebased content",
+          "zh_word": "基于价值的内容",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 328.8,
+      "end": 340.32,
+      "en_text": "think there's something a bit deeper at play here. You still pursue your curiosities and interests and share it with other people. But the vessel for doing that is no longer a static PDF, a",
+      "zh_text": "认为这里有一些更深层的东西在起作用。你仍然追求你的好奇心和兴趣，并与他人分享。但完成此事的载体不再是静态PDF、",
+      "highlights": [
+        {
+          "en_word": "at play",
+          "zh_word": "在起作用",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "static PDF",
+          "zh_word": "静态PDF",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 338.32,
+      "end": 350.96000000000004,
+      "en_text": "course, or a community. Now, before we continue into the things you're actually here for, I want to make something very clear. I am not on the jaded side that just thinks all info products are a",
+      "zh_text": "课程，或社区。现在，在我们继续讨论你真正为此而来的事情之前，我想把一些事情讲清楚。我不是那种认为所有信息产品都是骗局的“厌倦派”。",
+      "highlights": [
+        {
+          "en_word": "jaded side",
+          "zh_word": "厌倦派",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 348.88,
+      "end": 362.16,
+      "en_text": "scam. I think they are life-changing in many ways. Yes, sure, some are scams, obviously. I think they are the antidote to the negative aspects of traditional education, i.e. conformity and getting",
+      "zh_text": "骗局。我认为它们在许多方面都能改变生活。是的，当然，有些是骗局，这很明显。我认为它们是传统教育负面影响的“解药”，即墨守成规和被",
+      "highlights": [
+        {
+          "en_word": "antidote",
+          "zh_word": "解药",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "conformity",
+          "zh_word": "墨守成规",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 359.84,
+      "end": 372.31899999999996,
+      "en_text": "trained into a job that you hate and not seeing any other option, the default path. I do not think that info products are going away for good. I do not think that they are dead. What I say in this",
+      "zh_text": "训练去做一份你讨厌的工作，并且看不到其他选择，即“默认路径”。我并不认为信息产品会永远消失。我也不认为它们已经死了。我在这段视频中说的",
+      "highlights": [
+        {
+          "en_word": "default path",
+          "zh_word": "默认路径",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "going away for good",
+          "zh_word": "永远消失",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 370.08,
+      "end": 385.199,
+      "en_text": "video will not apply to every single industry or niche. But as with any career sector right now, especially thanks to AI, the baseline that gets results has been raised. An average",
+      "zh_text": "内容不适用于每个行业或利基市场。但就像现在任何职业领域一样，特别是由于人工智能，获得结果的“基线”已经被提高了。一个普通的",
+      "highlights": [
+        {
+          "en_word": "niche",
+          "zh_word": "利基市场",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "baseline",
+          "zh_word": "基线",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 382.8,
+      "end": 396.8,
+      "en_text": "person at a low level of development can take the quick and easy route very easily. You can tell AI to generate an ebook on this topic, to write viral content on this topic, to generate some",
+      "zh_text": "发展水平较低的人可以非常轻易地走捷径。你可以告诉AI围绕这个话题生成一本电子书，写出爆款内容，生成一些",
+      "highlights": [
+        {
+          "en_word": "take the quick and easy route",
+          "zh_word": "走捷径",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "viral content",
+          "zh_word": "爆款内容",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 394.639,
+      "end": 408.71999999999997,
+      "en_text": "images and assets and call it art, and those can make some form of money. But those people will never compete with those who understand what's going on. In other words, it's never been easier to",
+      "zh_text": "图片和资产，并称之为艺术，这些也能赚点钱。但这些人永远无法与那些真正了解情况的人竞争。换句话说，现在开始",
+      "highlights": [
+        {
+          "en_word": "what's going on",
+          "zh_word": "了解情况",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "In other words",
+          "zh_word": "换句话说",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 405.84,
+      "end": 419.52,
+      "en_text": "start a mediocre oneperson business. But if you don't want to be in the lower class, I hate saying that of the creator economy. and the lower the lower class absolutely exists. You need to",
+      "zh_text": "一个平庸的单人企业变得从未如此容易。但如果你不想成为创作者经济中的“下层阶级”——我讨厌这样说，但下层阶级确实存在——你需要",
+      "highlights": [
+        {
+          "en_word": "mediocre",
+          "zh_word": "平庸的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "creator economy",
+          "zh_word": "创作者经济",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 417.68,
+      "end": 428.71999999999997,
+      "en_text": "understand something very important. So that leads into part two which is why info products are dying. And I promise you have to understand this. I know this is just theory before we actually get",
+      "zh_text": "理解一些非常重要的事情。这就引出了第二部分：为什么信息产品正在消亡。我向你保证，你必须理解这一点。我知道这只是理论，在我们真正进入之前",
+      "highlights": [
+        {
+          "en_word": "leads into",
+          "zh_word": "引出了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "info products",
+          "zh_word": "信息产品",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 427.199,
+      "end": 431.039,
+      "en_text": "into but you have to change your mind.",
+      "zh_text": "但你必须改变你的想法。",
+      "highlights": []
+    },
+    {
+      "id": 46,
+      "start": 428.72,
+      "end": 432.56,
+      "en_text": "You have to understand what's going on.",
+      "zh_text": "你必须了解正在发生什么。",
+      "highlights": [
+        {
+          "en_word": "what's going on",
+          "zh_word": "正在发生什么",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 431.039,
+      "end": 441.919,
+      "en_text": "You don't understand by me giving you practical steps. If you just want the practical steps and you want to fail, then go take this YouTube video, paste it into some transcription tool like",
+      "zh_text": "我给你实际的步骤，你不会因此而理解。如果你只是想要实际的步骤并想失败，那就拿这个YouTube视频，粘贴到某个转录工具，比如",
+      "highlights": [
+        {
+          "en_word": "practical steps",
+          "zh_word": "实际的步骤",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "transcription tool",
+          "zh_word": "转录工具",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 440.0,
+      "end": 450.08,
+      "en_text": "Eden and go ahead try and follow it and fail. Info products are dying because markets move through predictable stages of awareness and saturation. So Eugene",
+      "zh_text": "Eden，然后去尝试照做然后失败。信息产品正在消亡，因为市场会经历可预测的认知和饱和阶段。所以，Eugene",
+      "highlights": [
+        {
+          "en_word": "saturation",
+          "zh_word": "饱和",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "predictable stages",
+          "zh_word": "可预测的阶段",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 448.16,
+      "end": 460.639,
+      "en_text": "Schwarz, legendary copywriter, categorized these into five stages. At level one, when nobody is in the market yet, you just state what your product does and that tends to do the job. Then",
+      "zh_text": "Schwarz，这位传奇文案撰稿人，将这些分为五个阶段。在第一阶段，当市场上还没有人时，你只需说明你的产品功能，这通常就能奏效。然后",
+      "highlights": [
+        {
+          "en_word": "legendary copywriter",
+          "zh_word": "传奇文案撰稿人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "tends to do the job",
+          "zh_word": "通常就能奏效",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 458.72,
+      "end": 470.56,
+      "en_text": "competitors arrive and you have to make bigger claims. Then the market gets skeptical. So you explain your mechanism. So saying I will help you make money online started to sound like",
+      "zh_text": "竞争者出现，你就必须提出更大的主张。然后市场会变得怀疑。所以你要解释你的运作机制。因此，说“我将帮助你在线赚钱”开始听起来像是",
+      "highlights": [
+        {
+          "en_word": "make bigger claims",
+          "zh_word": "提出更大的主张",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "skeptical",
+          "zh_word": "怀疑",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 467.84,
+      "end": 481.199,
+      "en_text": "a scam and you had to be more specific like implement the two-hour content ecosystem. Shout out to you if you know what that's from. But then competitors copy that mechanism and finally everyone",
+      "zh_text": "一个骗局，你必须更具体，比如实施“两小时内容生态系统”。如果你知道这出自哪里，就为你点赞。但随后竞争者复制了这种机制，最终每个人",
+      "highlights": [
+        {
+          "en_word": "content ecosystem",
+          "zh_word": "内容生态系统",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "Shout out to you",
+          "zh_word": "为你点赞",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 478.8,
+      "end": 490.87899999999996,
+      "en_text": "is exhausted by claims altogether and brand starts to be the major differentiator which is happening right now with personal branding. People crave the sense of belonging they get from",
+      "zh_text": "都对各种宣传感到厌倦，品牌开始成为主要的差异化因素，这正是目前个人品牌领域正在发生的事情。人们渴望从",
+      "highlights": [
+        {
+          "en_word": "differentiator",
+          "zh_word": "差异化因素",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "personal branding",
+          "zh_word": "个人品牌",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 488.72,
+      "end": 502.0,
+      "en_text": "joining a tribe with a mission. And I've talked about that before. I'll link a newsletter that I wrote on how your mission is your niche rather than a specific skill or topic. That will help",
+      "zh_text": "加入一个有共同使命的“部落”。我之前也谈过这一点。我会附上我写过的一篇关于“你的使命就是你的利基，而不是某种特定技能或话题”的简报链接。那会很有帮助",
+      "highlights": [
+        {
+          "en_word": "tribe with a mission",
+          "zh_word": "有共同使命的“部落”",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "niche",
+          "zh_word": "利基",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 499.039,
+      "end": 503.84,
+      "en_text": "you a lot if you don't know that yet.",
+      "zh_text": "如果你还不知道的话。",
+      "highlights": []
+    },
+    {
+      "id": 55,
+      "start": 502.0,
+      "end": 514.4789999999999,
+      "en_text": "But community and authenticity matter more than who has the best sounding product. The thing is we've hit the final stage of market sophistication across the board with info products. So",
+      "zh_text": "但社区和真实性比谁拥有听起来最好的产品更重要。问题是，我们已经全面达到了信息产品市场成熟的最后阶段。所以",
+      "highlights": [
+        {
+          "en_word": "authenticity",
+          "zh_word": "真实性",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "market sophistication",
+          "zh_word": "市场成熟",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 512.32,
+      "end": 525.3599999999999,
+      "en_text": "the really really good ones are still going to do really really good but the average ones which is average which is the majority most people are going to do really bad. And that also means that",
+      "zh_text": "那些真正好的产品仍然会表现出色，但那些普通的——也就是大多数人——将会表现得很糟糕。这也意味着",
+      "highlights": [
+        {
+          "en_word": "average ones",
+          "zh_word": "普通的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "the majority",
+          "zh_word": "大多数人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 522.959,
+      "end": 535.92,
+      "en_text": "since we're kind of like at the top of this level, that authenticity in and of itself doesn't make a difference anymore. People are just tired of seeing courses and coaching. And it sucks",
+      "zh_text": "既然我们差不多处于这个水平的顶端，那么真实性本身已经不再重要了。人们厌倦了各种课程和辅导。这很糟糕",
+      "highlights": [
+        {
+          "en_word": "in and of itself",
+          "zh_word": "本身",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "coaching",
+          "zh_word": "辅导",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 533.92,
+      "end": 546.8,
+      "en_text": "because those things are impactful if you're a clear thinker. But there's more to this. The select few who are smart enough to transcend info products as a whole will be the ones who win. Now,",
+      "zh_text": "因为如果你是一个思路清晰的人，那些东西是很有影响力的。但事情不止于此。那些足够聪明能够整体超越信息产品的人，才会是赢家。现在，",
+      "highlights": [
+        {
+          "en_word": "impactful",
+          "zh_word": "有影响力的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "transcend",
+          "zh_word": "超越",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "start": 544.8,
+      "end": 559.279,
+      "en_text": "transcending doesn't mean that you just leave them behind. It means that you evolve to the next level and integrate them because education and learning as a whole is just never going to go away.",
+      "zh_text": "“超越”并不意味着你把它们抛在后面。它意味着你进化到下一个层次并整合它们，因为教育和学习作为一个整体永远不会消失。",
+      "highlights": [
+        {
+          "en_word": "evolve to the next level",
+          "zh_word": "进化到下一个层次",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "integrate",
+          "zh_word": "整合",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 556.56,
+      "end": 570.8000000000001,
+      "en_text": "But since you are competing in the space as one single person, things can become saturated quite quickly. So what I'm going to tell you isn't going to be secure for long because the next level",
+      "zh_text": "但既然你作为一个个体在这个领域竞争，事情很快就会饱和。所以我要告诉你的内容不会长久安全，因为下一个层次",
+      "highlights": [
+        {
+          "en_word": "competing in the space",
+          "zh_word": "在这个领域竞争",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "saturated",
+          "zh_word": "饱和",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "start": 568.72,
+      "end": 580.7199999999999,
+      "en_text": "is just around the corner. Info products didn't last that long. Maybe like a decade, 10 years, 15 years. And the next phase isn't going to even last that long. maybe two to three years and who",
+      "zh_text": "就在眼前。信息产品并没有持续那么久。可能十年、十五年。而下一个阶段甚至不会持续那么久，可能两到三年，谁",
+      "highlights": [
+        {
+          "en_word": "around the corner",
+          "zh_word": "就在眼前",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "last that long",
+          "zh_word": "持续那么久",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "start": 579.279,
+      "end": 592.959,
+      "en_text": "knows what business is going to look like after that. We will be building for tomorrow rather than building for a year from now. Imagine that. That speed of iteration is just going to continue to",
+      "zh_text": "知道在那之后商业会变成什么样子。我们将为明天而建设，而不是为一年以后而建设。想象一下。这种迭代速度只会继续",
+      "highlights": [
+        {
+          "en_word": "look like",
+          "zh_word": "变成什么样子",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "rather than",
+          "zh_word": "而不是",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "start": 590.32,
+      "end": 601.4399999999999,
+      "en_text": "pick up. So you have to be very speedy because that's the main advantage of being one person, right? Speed and adaptability. You don't have all of this overhead. You don't have this team. You",
+      "zh_text": "加快。所以你必须非常迅速，因为那是一个人主要的优势，对吗？速度和适应性。你没有所有这些开销。你没有这个团队。你",
+      "highlights": [
+        {
+          "en_word": "pick up",
+          "zh_word": "加快",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "overhead",
+          "zh_word": "开销",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "start": 599.279,
+      "end": 603.4399999999999,
+      "en_text": "can pick up and change things tomorrow.",
+      "zh_text": "明天就可以迅速改变。",
+      "highlights": [
+        {
+          "en_word": "pick up and change things",
+          "zh_word": "迅速改变",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "start": 601.44,
+      "end": 613.519,
+      "en_text": "You must constantly be moving and iterating if you want to reach the escape velocity that actually gives you the advantage that can't be taken away from from one person. What I mean is",
+      "zh_text": "如果你想达到让你拥有无法从个人手中夺走的优势的“逃逸速度”，就必须不断前进和迭代。我的意思是",
+      "highlights": [
+        {
+          "en_word": "escape velocity",
+          "zh_word": "逃逸速度",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "taken away from",
+          "zh_word": "夺走",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "start": 611.36,
+      "end": 621.04,
+      "en_text": "moving beyond the one person business after you've seen a good amount of success because you'll just be competing with the same amount of people forever.",
+      "zh_text": "在你取得一定程度的成功后，超越单人业务，因为你将永远与相同数量的人竞争。",
+      "highlights": [
+        {
+          "en_word": "moving beyond",
+          "zh_word": "超越",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "a good amount of",
+          "zh_word": "一定程度的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "start": 619.04,
+      "end": 630.959,
+      "en_text": "And of course, AI is just going to continue to make it easier and easier to copy the front runners. So, you're not going to be a front runner for long. I see this with my content, so to say, for",
+      "zh_text": "当然，人工智能只会让模仿领先者变得越来越容易。所以，你不会长时间地成为领先者。我在我的内容中看到了这一点，可以说，在",
+      "highlights": [
+        {
+          "en_word": "front runners",
+          "zh_word": "领先者",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "so to say",
+          "zh_word": "可以说",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "start": 628.88,
+      "end": 640.0,
+      "en_text": "the longest time. I'm not like this crazy guy who just creates all these trends, but once I have like an original idea for once, it gets copied very quick and then it doesn't even seem like an",
+      "zh_text": "很长一段时间里。我不是那种制造所有潮流的疯狂家伙，但一旦我难得有一个原创想法，它很快就会被复制，然后甚至不再看起来像一个",
+      "highlights": [
+        {
+          "en_word": "for once",
+          "zh_word": "难得有一个",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "creates all these trends",
+          "zh_word": "制造所有潮流",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "start": 637.76,
+      "end": 651.279,
+      "en_text": "original idea anymore. And that that time from something being original to being non-original is just happening like really really fast. But there's good news here. Most people just don't",
+      "zh_text": "原创想法了。而从一个想法是原创到它不再是原创的时间，正在非常非常快地发生。但这里有个好消息。大多数人只是不",
+      "highlights": [
+        {
+          "en_word": "non-original",
+          "zh_word": "非原创",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "good news",
+          "zh_word": "好消息",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "start": 649.36,
+      "end": 660.079,
+      "en_text": "do anything. That sounds harsh, but you're probably in an internet echo chamber of like ambitious people. If you're watching my videos, you're probably in that echo chamber. But the",
+      "zh_text": "做任何事。这听起来很刺耳，但你可能身处一个充满雄心壮志的人的互联网回音室。如果你在看我的视频，你可能就在那个回音室里。但是",
+      "highlights": [
+        {
+          "en_word": "harsh",
+          "zh_word": "刺耳",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "echo chamber",
+          "zh_word": "回音室",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "start": 657.839,
+      "end": 670.24,
+      "en_text": "average person just still treats AI as like somewhere to ask questions or they hate AI. And that may never change because the average person doesn't use their free time to learn and explore.",
+      "zh_text": "普通人仍然把人工智能当作提问的地方，或者他们讨厌人工智能。这可能永远不会改变，因为普通人不会利用他们的空闲时间去学习和探索。",
+      "highlights": [
+        {
+          "en_word": "treats AI as",
+          "zh_word": "把人工智能当作",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "free time",
+          "zh_word": "空闲时间",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "start": 668.32,
+      "end": 682.56,
+      "en_text": "The average person just thinks that they can do one thing, see some success, then do it for the rest of their life, and then never do anything again because they were sold this elucory retirement",
+      "zh_text": "普通人只是认为他们可以做一件事，看到一些成功，然后余生都在做这件事，然后就再也不做任何事了，因为他们被兜售了这种虚假的退休生活",
+      "highlights": [
+        {
+          "en_word": "for the rest of their life",
+          "zh_word": "余生",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "elucory retirement",
+          "zh_word": "虚假的退休生活",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "start": 680.32,
+      "end": 694.399,
+      "en_text": "where all of their efforts pay off and they can just chill for the rest of their life. And we all know that's not meaningful at all. The mechanical or linear way of life is not something to",
+      "zh_text": "在其中，他们所有的努力都得到了回报，他们就可以余生安享清闲。我们都知道那根本毫无意义。机械或线性的生活方式不值得你",
+      "highlights": [
+        {
+          "en_word": "pay off",
+          "zh_word": "得到回报",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "chill",
+          "zh_word": "安享清闲",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "start": 692.24,
+      "end": 706.24,
+      "en_text": "bet your future on because meaning is generated from struggle, status, and curiosity. The day you stop following one of those drives is the day that your life continues to get considerably",
+      "zh_text": "把未来押注其上，因为意义来源于奋斗、地位和好奇心。你停止追随其中一个驱动力的那一天，就是你的生活会继续变得相当",
+      "highlights": [
+        {
+          "en_word": "bet your future on",
+          "zh_word": "把未来押注其上",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "considerably",
+          "zh_word": "相当",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "start": 704.24,
+      "end": 714.64,
+      "en_text": "worse. And finally, that leads to part three, which is the future of education products. And I want to start this off with a quote from my book, Purpose and",
+      "zh_text": "更糟。最后，这引出了第三部分，即教育产品的未来。我想用我书中的一句话来开启这个话题，《目的与",
+      "highlights": [
+        {
+          "en_word": "leads to",
+          "zh_word": "引出了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "start this off with",
+          "zh_word": "开启这个话题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "start": 712.72,
+      "end": 723.839,
+      "en_text": "Profit, that's free to read on my Substack. It's no longer about sitting in front of a government-trained expert and learning the same thing as everyone else to end up with a soontobe",
+      "zh_text": "利润》，在我Substack上可免费阅读。它不再是坐在政府培训的专家面前，学习与其他人相同的东西，最终得到一个很快就会",
+      "highlights": [
+        {
+          "en_word": "free to read",
+          "zh_word": "免费阅读",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "end up with",
+          "zh_word": "最终得到",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "start": 722.079,
+      "end": 729.36,
+      "en_text": "irrelevant skill stack. It's about finding someone you relate with, someone with a shared vision for the future.",
+      "zh_text": "无关紧要的技能组合。它关乎找到一个你认同的人，一个对未来有共同愿景的人。",
+      "highlights": [
+        {
+          "en_word": "irrelevant",
+          "zh_word": "无关紧要的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "relate with",
+          "zh_word": "认同",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "start": 727.68,
+      "end": 738.8,
+      "en_text": "Now, if you've watched my videos, you know I've always held this firm belief, even when everyone else thinks that information products are a scam, that the creator economy is this",
+      "zh_text": "现在，如果你看过我的视频，你就知道我一直坚信这一点，即使其他人认为信息产品是骗局，即创作者经济是一种",
+      "highlights": [
+        {
+          "en_word": "firm belief",
+          "zh_word": "坚信",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "a scam",
+          "zh_word": "骗局",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "start": 736.16,
+      "end": 749.04,
+      "en_text": "interestbased education system that is far more effective than traditional schooling at teaching people the skills that are actually relevant. Right now, I believe that people learn more faster",
+      "zh_text": "基于兴趣的教育体系，它在教授人们真正相关的技能方面比传统学校教育有效得多。现在，我相信人们学习得更快",
+      "highlights": [
+        {
+          "en_word": "far more effective",
+          "zh_word": "有效得多",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "relevant",
+          "zh_word": "相关的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "start": 747.68,
+      "end": 760.24,
+      "en_text": "when they learn it from someone that they relate with. I believe that anyone can follow four to five people on a topic and become very good at that thing very fast. I still hold the belief that",
+      "zh_text": "当他们从自己认同的人那里学习时。我相信任何人都可以关注一个话题的四到五个人，并很快在那个领域变得非常擅长。我仍然坚信",
+      "highlights": [
+        {
+          "en_word": "relate with",
+          "zh_word": "认同",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "very good at",
+          "zh_word": "非常擅长",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "start": 757.839,
+      "end": 772.079,
+      "en_text": "there is knowledge and experience that only you can acquire. And I think it's noble to both acquire it and pass it down. But the format or vessel of how we pass down that knowledge needs to evolve",
+      "zh_text": "有些知识和经验是只有你能获得的。我认为获取并传承这些知识是高尚的。但是我们传承知识的形式或载体需要演变。",
+      "highlights": [
+        {
+          "en_word": "noble",
+          "zh_word": "高尚的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "vessel",
+          "zh_word": "载体",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "start": 769.92,
+      "end": 781.9200000000001,
+      "en_text": "as it always has from speaking by the fire to sending letters to building libraries to the day everything changed when the internet was born. Static courses don't cut it anymore. And I mean",
+      "zh_text": "正如它一直以来的那样，从围炉夜谈到寄送信件，再到建立图书馆，直到互联网诞生，一切都改变了。静态课程已经不行了。我的意思是",
+      "highlights": [
+        {
+          "en_word": "Static courses",
+          "zh_word": "静态课程",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "don't cut it",
+          "zh_word": "不行了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "start": 779.68,
+      "end": 793.2,
+      "en_text": "they do, but it because it's not like they just go to zero one day, but the general market sentiment is burnt out. A 10-hour video library where someone just like sits down and watches it for 10",
+      "zh_text": "它们确实如此，但这不是说它们某天就会归零，而是普遍的市场情绪已经“倦怠”了。一个人们坐下来看10小时的视频库，",
+      "highlights": [
+        {
+          "en_word": "market sentiment",
+          "zh_word": "市场情绪",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "burnt out",
+          "zh_word": "倦怠",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "start": 790.8,
+      "end": 804.399,
+      "en_text": "hours isn't something that people want that much anymore. It feels slow and they know that there is something out there that is more efficient. Plus, it doesn't help that 90% of people that buy",
+      "zh_text": "这样的东西人们已经不那么想要了。它感觉很慢，而且他们知道市面上有更高效的东西。另外，90%购买课程的人",
+      "highlights": [
+        {
+          "en_word": "efficient",
+          "zh_word": "高效的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "it doesn't help that",
+          "zh_word": "并没有帮助",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "start": 802.16,
+      "end": 814.5600000000001,
+      "en_text": "a course don't actually go through it and don't even get results from it. And now with AI, anyone can just generate that information if they know what to ask, which is kind of unlikely because",
+      "zh_text": "并没有真正学完，甚至没有从中获得任何结果。现在有了AI，如果人们知道要问什么，任何人都可以生成这些信息，但这不太可能，因为",
+      "highlights": [
+        {
+          "en_word": "go through it",
+          "zh_word": "学完",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "unlikely",
+          "zh_word": "不太可能",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "start": 812.8,
+      "end": 825.04,
+      "en_text": "why would they be interested in the info product in the first place if they knew what to ask? That said, the future of education in my eyes is learning experiences rather than static courses.",
+      "zh_text": "如果他们知道要问什么，当初又为何会对信息产品感兴趣呢？话虽如此，在我看来，教育的未来是学习体验，而不是静态课程。",
+      "highlights": [
+        {
+          "en_word": "in the first place",
+          "zh_word": "当初",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "That said",
+          "zh_word": "话虽如此",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "start": 823.44,
+      "end": 835.04,
+      "en_text": "You're not only selling information anymore. You're practically selling a second version of your mind. You're selling your coaching services, so to say, but you aren't there. Instead, you",
+      "zh_text": "你不再仅仅是销售信息。你实际上是在销售你思维的第二版本。可以说，你是在销售你的辅导服务，但你本人并不在那里。相反，你",
+      "highlights": [
+        {
+          "en_word": "practically",
+          "zh_word": "实际上",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "so to say",
+          "zh_word": "可以说",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "start": 832.959,
+      "end": 838.8,
+      "en_text": "pass off everything you know to the AI and let people learn at their own speed.",
+      "zh_text": "把你所知道的一切都传给AI，让人们以自己的速度学习。",
+      "highlights": [
+        {
+          "en_word": "pass off",
+          "zh_word": "传给",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "at their own speed",
+          "zh_word": "以自己的速度",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "start": 837.199,
+      "end": 843.3599999999999,
+      "en_text": "Now, the question here is like, oh, but what about schools that are implementing",
+      "zh_text": "现在，问题是，那些正在实施",
+      "highlights": [
+        {
+          "en_word": "implementing",
+          "zh_word": "实施",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "start": 840.8,
+      "end": 854.8,
+      "en_text": "AI to teach like this? Aren't you competing with them? No. Because schools teach people what they need to operate within society. Preferably, you're teaching people something that very few",
+      "zh_text": "这种AI教学的学校呢？你不是在和他们竞争吗？不。因为学校教导人们如何在社会中运作。最好是你教给人们一些很少有人",
+      "highlights": [
+        {
+          "en_word": "operate within society",
+          "zh_word": "在社会中运作",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "Preferably",
+          "zh_word": "最好是",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "start": 852.959,
+      "end": 866.48,
+      "en_text": "people know about and schools wouldn't even think to teach. You are placing a price tag on your own curiosity and self-improvement. So that leads into part four, which is how this actually",
+      "zh_text": "知道，甚至学校都不会想到去教的东西。你正在为自己的好奇心和自我提升贴上价格标签。这就引出了第四部分，即这实际上是如何",
+      "highlights": [
+        {
+          "en_word": "price tag",
+          "zh_word": "价格标签",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "self-improvement",
+          "zh_word": "自我提升",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "start": 863.519,
+      "end": 877.12,
+      "en_text": "works. AI is great for utility based tasks, but not so much for meaning based tasks. That is unless you find a way to work it into your workflow in a meaningful way, which I plan to talk",
+      "zh_text": "运作的。AI非常适合基于实用性的任务，但不太适合基于意义的任务。除非你找到一种方法，以有意义的方式将其融入你的工作流程，我计划谈谈",
+      "highlights": [
+        {
+          "en_word": "utility based tasks",
+          "zh_word": "基于实用性的任务",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "workflow",
+          "zh_word": "工作流程",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "start": 875.04,
+      "end": 888.959,
+      "en_text": "about. I plan to do a video on the future of writing, but that will really apply to almost any skill. It's worth watching even if you're not a writer. As an example, I had AI do a ton of writing",
+      "zh_text": "这个。我计划做一个关于写作未来的视频，但这几乎适用于任何技能。即使你不是作家，也值得一看。举个例子，上个月我让AI做了大量的写作工作，",
+      "highlights": [
+        {
+          "en_word": "apply to",
+          "zh_word": "适用于",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "a ton of",
+          "zh_word": "大量的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "start": 886.72,
+      "end": 899.36,
+      "en_text": "for me last month. I'm talking like 30 articles in 2 hours. But this isn't the typical writing that I would do in my newsletters that I derive a lot of meaning from because I would have to be",
+      "zh_text": "我说的是2小时写了30篇文章。但这并非我通常在时事通讯中进行的、能从中获得很多意义的写作，因为我必须对AI所写的内容",
+      "highlights": [
+        {
+          "en_word": "newsletters",
+          "zh_word": "时事通讯",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "derive a lot of meaning from",
+          "zh_word": "从中获得很多意义",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "start": 896.959,
+      "end": 903.44,
+      "en_text": "a lot more critical of what the AI writes. So for this little project where",
+      "zh_text": "更加批判性地审视。所以在这个小项目中，",
+      "highlights": [
+        {
+          "en_word": "critical of",
+          "zh_word": "批判性地审视",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "start": 901.68,
+      "end": 914.16,
+      "en_text": "I generated these 30 articles, I was building a help center for Eden for my software. That way I could have the support agent or future support agents reference that as a knowledge base when",
+      "zh_text": "我生成了这30篇文章，我正在为我的软件Eden构建一个帮助中心。这样一来，支持代理或未来的支持代理就可以将其作为知识库来参考，当",
+      "highlights": [
+        {
+          "en_word": "help center",
+          "zh_word": "帮助中心",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "knowledge base",
+          "zh_word": "知识库",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "start": 912.32,
+      "end": 923.4399999999999,
+      "en_text": "they have questions or they can ask questions to it because you can just ask questions with AI. So rather than reading through all of those 30 articles, the support agent can just",
+      "zh_text": "他们有问题时，或者他们可以直接向它提问，因为你可以直接用AI提问。所以，支持代理无需阅读所有这30篇文章，他们可以",
+      "highlights": [
+        {
+          "en_word": "rather than",
+          "zh_word": "无需",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "reading through",
+          "zh_word": "阅读",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "start": 921.76,
+      "end": 932.72,
+      "en_text": "surface the right answer when they need it. And since I wrote these and I have them all inside of a AI project, I can just add to them at any time. Whenever we release a new feature, I can just be",
+      "zh_text": "在需要时找到正确的答案。而且由于这些都是我写的，并且我把它们都放在一个AI项目中，我可以随时添加内容。每当我们发布新功能时，我就可以",
+      "highlights": [
+        {
+          "en_word": "surface",
+          "zh_word": "找到",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "release a new feature",
+          "zh_word": "发布新功能",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "start": 931.279,
+      "end": 941.12,
+      "en_text": "like, \"Hey, I need to write a help center article for this. Here's exactly what it does. ask me clarifying questions if you need. It's going to pull from the other help center articles",
+      "zh_text": "这样说：“嘿，我需要为这个写一篇帮助中心文章。这是它的具体功能。如果你需要，可以问我澄清问题。它会从其他帮助中心文章中提取内容，",
+      "highlights": [
+        {
+          "en_word": "help center article",
+          "zh_word": "帮助中心文章",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "clarifying questions",
+          "zh_word": "澄清问题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "start": 938.959,
+      "end": 949.12,
+      "en_text": "and present like an outline for it. And then I'm going to be like, \"Okay, looks good. Fill it in.\" And then I'm going to read over that and make sure it's all accurate. Which is funny because all of",
+      "zh_text": "并呈现一个大纲。然后我就会说：“好的，看起来不错。填充进去。”然后我会通读一遍，确保所有内容都准确无误。这很有趣，因为所有",
+      "highlights": [
+        {
+          "en_word": "outline",
+          "zh_word": "大纲",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "accurate",
+          "zh_word": "准确无误",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "start": 947.36,
+      "end": 953.36,
+      "en_text": "the anti-AI people, they always say like, \"Oh, AI makes so much mistakes.\"",
+      "zh_text": "那些反AI的人总是说：“哦，AI犯了这么多错误。”",
+      "highlights": [
+        {
+          "en_word": "anti-AI",
+          "zh_word": "反AI",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "start": 951.6,
+      "end": 963.759,
+      "en_text": "Just read through and correct the mistakes. And that still saves you a ton of time. That doesn't mean that AI isn't good. And the other thing here is that we use Intercom, which is an incredible",
+      "zh_text": "只要通读并纠正错误就行了。那仍然能为你节省大量时间。这并不意味着AI不好。而这里还有一件事是，我们使用Intercom，它是一个令人难以置信的",
+      "highlights": [
+        {
+          "en_word": "a ton of time",
+          "zh_word": "大量时间",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "incredible",
+          "zh_word": "令人难以置信的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "start": 961.36,
+      "end": 965.6800000000001,
+      "en_text": "software. They are on the front lines.",
+      "zh_text": "软件。他们冲在最前线。",
+      "highlights": [
+        {
+          "en_word": "on the front lines",
+          "zh_word": "冲在最前线",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "start": 963.759,
+      "end": 975.6,
+      "en_text": "I'm actually surprised of how such a large corporation can change things so fast because they have Finn, their AI agent, which can now reference this knowledge base from our website and",
+      "zh_text": "我实际上很惊讶这么大的公司能如此迅速地改变事情，因为他们有Finn，他们的AI代理，它现在可以参考我们网站上的这个知识库并",
+      "highlights": [
+        {
+          "en_word": "corporation",
+          "zh_word": "公司",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "knowledge base",
+          "zh_word": "知识库",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "start": 973.519,
+      "end": 985.519,
+      "en_text": "answer questions before our support agent does, which helps resolve the like redundant questions where there doesn't need to be a human in the loop. And if you're interested in how I did this, I",
+      "zh_text": "在我们的客服代理之前回答问题，这有助于解决那些不需要人工干预的冗余问题。如果你对我是怎么做到的感兴趣，我",
+      "highlights": [
+        {
+          "en_word": "redundant questions",
+          "zh_word": "冗余问题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "in the loop",
+          "zh_word": "人工干预",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "start": 983.519,
+      "end": 997.4399999999999,
+      "en_text": "really just went into Claude and I asked it, \"Hey, go and research how other big companies like Notion or Miro or other companies structure their help center and propose a list of all the articles I",
+      "zh_text": "实际上只是去了Claude，问它：“嘿，去研究一下像Notion、Miro这样的大公司是如何构建他们的帮助中心，并提出一份我需要的所有文章列表。”",
+      "highlights": [
+        {
+          "en_word": "structure",
+          "zh_word": "构建",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "help center",
+          "zh_word": "帮助中心",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "start": 995.6,
+      "end": 1000.48,
+      "en_text": "need. Here's information about my company. Here's the features we have.\"",
+      "zh_text": "所需的。这是关于我公司的信息。这是我们拥有的功能。”",
+      "highlights": [
+        {
+          "en_word": "features",
+          "zh_word": "功能",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "start": 999.12,
+      "end": 1009.279,
+      "en_text": "And then it spat out a list. And he's like, \"Okay, do you want me to go through and write these?\" I'm like, \"Yes, but ask clarifying questions along the way so that they're accurate. Do not",
+      "zh_text": "然后它吐出了一份清单。然后它问：“好的，你想让我去编写这些吗？”我说：“是的，但要一路提出澄清问题，确保它们准确无误。不要",
+      "highlights": [
+        {
+          "en_word": "spat out",
+          "zh_word": "吐出",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "clarifying questions",
+          "zh_word": "澄清问题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "start": 1007.279,
+      "end": 1019.8389999999999,
+      "en_text": "make assumptions.\" And then I just spent like an hour or two going through answering the questions and all of the articles were spit out. And two hours sounds like a lot of time, but 30",
+      "zh_text": "做假设。”然后我花了一两个小时回答问题，所有的文章都吐出来了。两个小时听起来很长，但30篇",
+      "highlights": [
+        {
+          "en_word": "make assumptions",
+          "zh_word": "做假设",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "spit out",
+          "zh_word": "吐出来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "start": 1016.24,
+      "end": 1028.799,
+      "en_text": "articles, 30 decent articles takes a long time to write and it's just annoying, mind-numbing. Answering questions with the AI is like kind of more enjoyable. It's kind of like a",
+      "zh_text": "文章，30篇不错的文章需要很长时间才能写出来，而且很烦人，令人麻木。用AI回答问题反而更享受。它有点像一个",
+      "highlights": [
+        {
+          "en_word": "decent articles",
+          "zh_word": "不错的文章",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "mind-numbing",
+          "zh_word": "令人麻木",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "start": 1026.88,
+      "end": 1040.4,
+      "en_text": "game. It's fun. So outside of the help center, just take that same concept and apply it to courses or coaching or info products. Imagine a course, but the course material was actually a knowledge",
+      "zh_text": "游戏。这很有趣。所以，除了帮助中心，只需将相同的概念应用于课程、辅导或信息产品。想象一门课程，但课程材料实际上是一个知识",
+      "highlights": [
+        {
+          "en_word": "concept",
+          "zh_word": "概念",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "info products",
+          "zh_word": "信息产品",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "start": 1038.319,
+      "end": 1050.48,
+      "en_text": "base. And the chatbot that you have isn't for support. The chatbot instead is there to help people learn, practice, and implement the knowledge base or the course. That's not on the front end.",
+      "zh_text": "库。你拥有的聊天机器人不是为了支持。相反，这个聊天机器人是为了帮助人们学习、练习和实施知识库或课程。这不在前端。",
+      "highlights": [
+        {
+          "en_word": "implement",
+          "zh_word": "实施",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "on the front end",
+          "zh_word": "在前端",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "start": 1049.2,
+      "end": 1059.039,
+      "en_text": "That's not something that people go through. They learn it in a more interactive manner. And I'm just talking about something that is relatively beginner level here, right? You're not",
+      "zh_text": "那不是人们会经历的东西。他们以更互动的方式学习。我在这里谈论的只是相对初级的东西，对吗？你不是",
+      "highlights": [
+        {
+          "en_word": "interactive manner",
+          "zh_word": "互动的方式",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "beginner level",
+          "zh_word": "初级水平",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "start": 1056.4,
+      "end": 1068.96,
+      "en_text": "going and building the next like uh billion-dollar software company. You're building something small scale that is the next level up from an info product that one person businesses can sell to a",
+      "zh_text": "去建立下一个像……十亿美元的软件公司。你正在建立一些小规模的东西，它比一个信息产品高一个级别，这种产品可以由一人公司出售给一个",
+      "highlights": [
+        {
+          "en_word": "billion-dollar software company",
+          "zh_word": "十亿美元的软件公司",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "next level up",
+          "zh_word": "高一个级别",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "start": 1066.72,
+      "end": 1078.8799999999999,
+      "en_text": "specific person on a specific topic. The thing here is that an AI helping you do something like write a newsletter or learn to write or write social media content kind of like a coach that's",
+      "zh_text": "特定的人，针对特定的话题。这里的关键是，AI帮助你做一些事情，比如写时事通讯，学习写作，或者撰写社交媒体内容，这有点像一个教练，他",
+      "highlights": [
+        {
+          "en_word": "newsletter",
+          "zh_word": "时事通讯",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "social media content",
+          "zh_word": "社交媒体内容",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "start": 1076.799,
+      "end": 1090.24,
+      "en_text": "sitting next to you and correcting you and helping you learn is much more effective than the course itself. And so the distinction here is everyone thinks they should go and build the next thing",
+      "zh_text": "坐在你旁边，纠正你，帮助你学习，这比课程本身有效得多。所以这里的区别在于，每个人都认为他们应该去构建下一个",
+      "highlights": [
+        {
+          "en_word": "effective",
+          "zh_word": "有效",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "distinction",
+          "zh_word": "区别",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "start": 1088.0,
+      "end": 1098.32,
+      "en_text": "that does all of it for you, right? the agent that just writes all of your social media content when I don't think that's the way to go, right? We're still talking about education products here.",
+      "zh_text": "为你做所有事情，对吧？那个能为你撰写所有社交媒体内容的代理，我不认为那是正确的方式，对吧？我们这里仍然在谈论教育产品。",
+      "highlights": [
+        {
+          "en_word": "the way to go",
+          "zh_word": "正确的方式",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "education products",
+          "zh_word": "教育产品",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "start": 1096.96,
+      "end": 1109.2,
+      "en_text": "And I think those are inherently more valuable because people have the drive to learn and it's just a valuable thing to do. To think that AI is just going to make learning irrelevant is kind of",
+      "zh_text": "我认为这些本身就更有价值，因为人们有学习的动力，而且学习本身就是一件有价值的事情。认为AI只会让学习变得无关紧要，这有点",
+      "highlights": [
+        {
+          "en_word": "inherently",
+          "zh_word": "本身就",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "irrelevant",
+          "zh_word": "无关紧要",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "start": 1107.2,
+      "end": 1116.5590000000002,
+      "en_text": "silly. So this is what I mean by learning experiences. They're actually interacting. They're getting feedback.",
+      "zh_text": "傻。所以这就是我所说的学习体验。它们实际上是在互动。它们正在获得反馈。",
+      "highlights": [
+        {
+          "en_word": "learning experiences",
+          "zh_word": "学习体验",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "getting feedback",
+          "zh_word": "获得反馈",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "start": 1113.919,
+      "end": 1118.3200000000002,
+      "en_text": "They're doing the thing with guidance.",
+      "zh_text": "他们在指导下完成工作。",
+      "highlights": [
+        {
+          "en_word": "with guidance",
+          "zh_word": "在指导下",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "start": 1116.559,
+      "end": 1128.799,
+      "en_text": "That's the main differentiator. That's the main value proposition because learning by doing is the best way to learn. So hopefully people just aren't stuck in tutorial hell anymore going",
+      "zh_text": "这是主要的区别因素。这是主要价值主张，因为边做边学是最好的学习方式。所以希望人们不再陷入“教程地狱”了。",
+      "highlights": [
+        {
+          "en_word": "differentiator",
+          "zh_word": "区别因素",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "tutorial hell",
+          "zh_word": "教程地狱",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "start": 1126.799,
+      "end": 1130.8799999999999,
+      "en_text": "through endless tutorials and courses.",
+      "zh_text": "通过无休止的教程和课程。",
+      "highlights": []
+    },
+    {
+      "id": 123,
+      "start": 1128.799,
+      "end": 1141.3600000000001,
+      "en_text": "They come away from your quote unquote learning experience with something. They a final product just by nature of how you go through it because a lot of people that go through a course aren't",
+      "zh_text": "他们从你所谓的学习体验中有所收获。他们会得到一个最终产品，这仅仅是由于你学习方式的本质，因为很多完成课程的人并不会真正去",
+      "highlights": [
+        {
+          "en_word": "quote unquote",
+          "zh_word": "所谓的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "by nature of",
+          "zh_word": "由于你学习方式的本质",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "start": 1139.679,
+      "end": 1145.84,
+      "en_text": "actually going to do the thing. The other thing here is that this isn't new.",
+      "zh_text": "真正去做这件事。另一点是，这并非新鲜事。",
+      "highlights": []
+    },
+    {
+      "id": 125,
+      "start": 1143.52,
+      "end": 1155.6000000000001,
+      "en_text": "Before mass education existed, this is exactly how knowledge was passed down, through apprenticeship. A blacksmith didn't hand his apprentice a manual and just say, \"Figure it out.\" He worked",
+      "zh_text": "在大众教育出现之前，知识正是通过学徒制传承下来的。铁匠不会把一本手册递给他的学徒，然后说“自己想办法”。他会",
+      "highlights": [
+        {
+          "en_word": "mass education",
+          "zh_word": "大众教育",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "apprenticeship",
+          "zh_word": "学徒制",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 126,
+      "start": 1153.52,
+      "end": 1164.16,
+      "en_text": "alongside him, corrected his grip in real time, and pointed out mistakes as they happened. This is why I continue saying that we're going through the return of the artisan or the next",
+      "zh_text": "陪在他身边，实时纠正他的姿势，并在错误发生时指出。这就是为什么我一直说我们正在经历工匠精神的回归，或者说是下一次",
+      "highlights": [
+        {
+          "en_word": "in real time",
+          "zh_word": "实时",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "artisan",
+          "zh_word": "工匠",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "start": 1162.72,
+      "end": 1173.3600000000001,
+      "en_text": "renaissance because we're kind of looping back to a lot more meaningful things. We're kind of correcting the mistakes that came with industrialization because after that",
+      "zh_text": "文艺复兴，因为我们正在回归许多更有意义的事物。我们正在纠正工业化带来的错误，因为在那之后",
+      "highlights": [
+        {
+          "en_word": "renaissance",
+          "zh_word": "文艺复兴",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "industrialization",
+          "zh_word": "工业化",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "start": 1171.6,
+      "end": 1183.4399999999998,
+      "en_text": "period of apprenticeship, we industrialized education. We needed to train thousands of workers quickly. So, we created the lecture model. One teacher, many students, standardized",
+      "zh_text": "学徒制时期之后，我们使教育工业化了。我们需要快速培训成千上万的工人。于是，我们创造了讲座模式：一名教师，许多学生，标准化",
+      "highlights": [
+        {
+          "en_word": "industrialized education",
+          "zh_word": "教育工业化",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "lecture model",
+          "zh_word": "讲座模式",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "start": 1181.679,
+      "end": 1194.24,
+      "en_text": "curriculum. It's efficient for scale, but it's terrible for actually learning, but it turned out to be great for indoctrinating. So, for the first time since the apprenticeship model, we can",
+      "zh_text": "课程。它对于规模化是高效的，但对于实际学习来说却很糟糕，不过它在灌输思想方面非常有效。所以，自学徒制模式以来，我们第一次可以",
+      "highlights": [
+        {
+          "en_word": "efficient for scale",
+          "zh_word": "对于规模化是高效的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "indoctrinating",
+          "zh_word": "灌输思想",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 130,
+      "start": 1191.76,
+      "end": 1204.08,
+      "en_text": "have personalized interactive guidance at scale. This won't click yet for people that just think AI is the worst thing in the world because they don't see this as an option. They see AI as a",
+      "zh_text": "大规模地提供个性化互动指导。对于那些认为人工智能是世界上最糟糕事物的人来说，这还无法理解，因为他们不认为这是一种选择。他们将人工智能视为一个",
+      "highlights": [
+        {
+          "en_word": "personalized interactive guidance",
+          "zh_word": "个性化互动指导",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "won't click",
+          "zh_word": "无法理解",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "start": 1202.16,
+      "end": 1214.64,
+      "en_text": "thing that just does everything and removes all of the meaningful things from our lives. But that is a choice. So if I were to do this as an example, I have my course, the 2-hour writer. I",
+      "zh_text": "能做所有事情，并从我们的生活中移除所有有意义的事物的东西。但那是一个选择。所以，如果我拿这个作为例子，我有我的课程，《2小时作家》。我",
+      "highlights": []
+    },
+    {
+      "id": 132,
+      "start": 1212.559,
+      "end": 1220.16,
+      "en_text": "would create the modules for it and that would turn into a knowledge base. This is already done since I have the course.",
+      "zh_text": "会为它创建模块，然后将其转化为一个知识库。既然我已经有这门课程了，这部分工作就已经完成了。",
+      "highlights": [
+        {
+          "en_word": "modules",
+          "zh_word": "模块",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "knowledge base",
+          "zh_word": "知识库",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "start": 1217.919,
+      "end": 1221.6000000000001,
+      "en_text": "So you don't really skip that process.",
+      "zh_text": "所以你不会真正跳过那个过程。",
+      "highlights": []
+    },
+    {
+      "id": 134,
+      "start": 1220.16,
+      "end": 1228.9599999999998,
+      "en_text": "And then I would build some kind of interactive chatbot. I don't know exactly what it would look like. I'm not going to do this. I haven't done this.",
+      "zh_text": "然后我会构建某种互动式聊天机器人。我不知道它具体会是什么样子。我不会做这个。我还没有做这个。",
+      "highlights": [
+        {
+          "en_word": "interactive chatbot",
+          "zh_word": "互动式聊天机器人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 135,
+      "start": 1226.799,
+      "end": 1231.2,
+      "en_text": "I'm building two companies right now.",
+      "zh_text": "我现在正在创办两家公司。",
+      "highlights": []
+    },
+    {
+      "id": 136,
+      "start": 1228.96,
+      "end": 1235.76,
+      "en_text": "But if I were still a oneperson business, then this is probably something that I would take seriously.",
+      "zh_text": "但如果我仍然是一个单人企业，那么这可能是我会认真对待的事情。",
+      "highlights": [
+        {
+          "en_word": "oneperson business",
+          "zh_word": "单人企业",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "take seriously",
+          "zh_word": "认真对待",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 137,
+      "start": 1234.24,
+      "end": 1240.799,
+      "en_text": "So, I built something like a small software, right? And this would take me a bit because I'm not a programmer. And",
+      "zh_text": "所以，我构建了一个类似小型软件的东西，对吧？这会花我一点时间，因为我不是程序员。而且",
+      "highlights": []
+    },
+    {
+      "id": 138,
+      "start": 1239.28,
+      "end": 1250.72,
+      "en_text": "I understand that the programming or vibe coding tools today still require you to learn a decent amount if you don't want to uh make a mistake and then not be able to solve it and then either",
+      "zh_text": "我明白，今天的编程或“氛围编程”工具仍然需要你学习相当多的东西，如果你不想犯错，然后无法解决，然后要么",
+      "highlights": [
+        {
+          "en_word": "vibe coding tools",
+          "zh_word": "氛围编程工具",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "a decent amount",
+          "zh_word": "相当多",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 139,
+      "start": 1249.12,
+      "end": 1260.6399999999999,
+      "en_text": "have to hire someone or just quit. So, you're going to have to learn. But for something like this, an interactive chatbot, I think this is one of the simpler things that you can do. So in my",
+      "zh_text": "不得不雇人或者干脆放弃。所以，你还是得学习。但对于像这种互动式聊天机器人来说，我认为这是你可以做的比较简单的事情之一。所以在我的",
+      "highlights": [
+        {
+          "en_word": "interactive chatbot",
+          "zh_word": "互动式聊天机器人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 140,
+      "start": 1258.159,
+      "end": 1270.32,
+      "en_text": "example, the software would have like three tabs. There would be learn, practice, and create. And each of those would have their own prompts, which we'll talk about in a bit. So there'd be",
+      "zh_text": "例子中，这款软件会有三个选项卡。分别是学习、练习和创作。每个选项卡都会有自己的提示，我们稍后会讨论。所以会有",
+      "highlights": [
+        {
+          "en_word": "tabs",
+          "zh_word": "选项卡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "prompts",
+          "zh_word": "提示",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "start": 1268.32,
+      "end": 1280.24,
+      "en_text": "a learning prompt that guides people through how to learn. Or there'd be multiple prompts on each page, so people can click in order and kind of go through the interactive lessons, I guess",
+      "zh_text": "一个引导人们学习的学习提示。或者每页会有多个提示，人们可以按顺序点击，然后通过这些互动课程，我想是这样。",
+      "highlights": [
+        {
+          "en_word": "guides people through",
+          "zh_word": "引导人们学习",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "interactive lessons",
+          "zh_word": "互动课程",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "start": 1278.559,
+      "end": 1283.919,
+      "en_text": "you could say. And then in the practice tab, it would be kind of the same thing.",
+      "zh_text": "你可以这样说。然后在练习选项卡中，也会是类似的东西。",
+      "highlights": [
+        {
+          "en_word": "practice tab",
+          "zh_word": "练习选项卡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "kind of the same thing",
+          "zh_word": "类似的东西",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 143,
+      "start": 1281.679,
+      "end": 1293.28,
+      "en_text": "It'd be prompts that take from the lessons and tell them to try something and then grades them on it. And then there would be the create tab, which is again kind of the same thing. So this",
+      "zh_text": "它会是取自课程的提示，告诉他们尝试一些东西，然后对他们进行评分。然后会有一个创建选项卡，那也差不多是同样的东西。所以这个",
+      "highlights": [
+        {
+          "en_word": "grades them on it",
+          "zh_word": "对他们进行评分",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "create tab",
+          "zh_word": "创建选项卡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 144,
+      "start": 1291.28,
+      "end": 1304.159,
+      "en_text": "leads into part five, which is how to build a micro SAS or software as a service. And this is going to be non-exhaustive. So again, I don't think that info products are going to be dead",
+      "zh_text": "引出了第五部分，即如何构建一个微型软件即服务（micro SAS）。这不会是详尽无遗的。所以，我再次强调，我不认为信息产品会很快消亡",
+      "highlights": [
+        {
+          "en_word": "micro SAS",
+          "zh_word": "微型软件即服务",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "non-exhaustive",
+          "zh_word": "详尽无遗的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "start": 1301.36,
+      "end": 1308.159,
+      "en_text": "completely anytime soon. Education is just too important for the human brain.",
+      "zh_text": "在短期内完全消失。教育对于人脑来说实在太重要了。",
+      "highlights": [
+        {
+          "en_word": "anytime soon",
+          "zh_word": "短期内",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "human brain",
+          "zh_word": "人脑",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 146,
+      "start": 1306.0,
+      "end": 1318.0,
+      "en_text": "and choosing what to be educated on based on goals you derived for yourself is still one of the last moes. Learning is too foundational to the human experience to ever be fully",
+      "zh_text": "而根据你为自己设定的目标来选择受教育的内容，仍然是最后的护城河之一。学习对于人类经验来说是如此基础，以至于永远不会完全被",
+      "highlights": [
+        {
+          "en_word": "last moes",
+          "zh_word": "最后的护城河",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "foundational to",
+          "zh_word": "基础",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 147,
+      "start": 1315.52,
+      "end": 1329.1200000000001,
+      "en_text": "commoditized. With that said, I think that info products are going to look more like software over the next few years. Rather than having an ebook to download, you have a website to visit or",
+      "zh_text": "商品化。话虽如此，我认为在未来几年里，信息产品会更像软件。与其下载电子书，不如访问网站或",
+      "highlights": [
+        {
+          "en_word": "commoditized",
+          "zh_word": "商品化",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "With that said",
+          "zh_word": "话虽如此",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 148,
+      "start": 1326.4,
+      "end": 1338.64,
+      "en_text": "an app to install. And idea just came to mind. I feel like a lot of the course platforms are going to pivot in some large way to help people create courses better, right? Cuz they're all",
+      "zh_text": "安装一个应用程序。我突然想到一个主意。我觉得很多课程平台都会以某种重要方式转型，以帮助人们更好地创建课程，对吗？因为它们都",
+      "highlights": [
+        {
+          "en_word": "came to mind",
+          "zh_word": "突然想到",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "pivot",
+          "zh_word": "转型",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 149,
+      "start": 1336.64,
+      "end": 1343.8400000000001,
+      "en_text": "implementing agents and things that you can use to help you like build the course. But what about on the end user?",
+      "zh_text": "正在实施代理和你可以用来帮助你构建课程的功能。但对于最终用户来说呢？",
+      "highlights": [
+        {
+          "en_word": "implementing agents",
+          "zh_word": "实施代理",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "end user",
+          "zh_word": "最终用户",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 150,
+      "start": 1342.32,
+      "end": 1354.72,
+      "en_text": "How are they how is the AI going to bring value to the end user? So if you want to get into that industry of building a course or information product platform, then help people do this.",
+      "zh_text": "人工智能将如何为最终用户带来价值？所以如果你想进入构建课程或信息产品平台的行业，那么就帮助人们做这件事。",
+      "highlights": [
+        {
+          "en_word": "bring value to",
+          "zh_word": "带来价值",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "information product platform",
+          "zh_word": "信息产品平台",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "start": 1352.72,
+      "end": 1365.5200000000002,
+      "en_text": "Rather than having an ebook to download, you would have a website to visit or an app to install. I have a few business friends who are already doing this. I know one that created an offer creation",
+      "zh_text": "与其下载电子书，不如访问网站或安装应用程序。我有一些商业朋友已经在做这件事了。我认识一个人，他创建了一个产品/服务（offer）创建",
+      "highlights": [
+        {
+          "en_word": "offer creation",
+          "zh_word": "产品/服务创建",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "business friends",
+          "zh_word": "商业朋友",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 152,
+      "start": 1363.6,
+      "end": 1374.559,
+      "en_text": "app that helps you identify your best ideas, turn them into a compelling offer, and go beyond that. As another example, rather than selling something like a how to talk to girls ebook,",
+      "zh_text": "应用程序，可以帮助你识别你最好的想法，将它们转化为一个有吸引力的产品/服务，并超越它。另一个例子是，与其销售一本关于如何与女孩交谈的电子书，",
+      "highlights": [
+        {
+          "en_word": "compelling offer",
+          "zh_word": "有吸引力的产品/服务",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "go beyond that",
+          "zh_word": "超越它",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 153,
+      "start": 1372.72,
+      "end": 1384.48,
+      "en_text": "course, or coaching program, you create a chatbot that simulates them talking to girls. This is a really this is a copout example, but it like teaches you how to",
+      "zh_text": "课程或辅导项目，不如创建一个聊天机器人，模拟他们与女孩交流。这确实是一个敷衍的例子，但它教你如何",
+      "highlights": [
+        {
+          "en_word": "coaching program",
+          "zh_word": "辅导项目",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "copout example",
+          "zh_word": "敷衍的例子",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "start": 1381.679,
+      "end": 1394.159,
+      "en_text": "text, right? That's one very profitable industry, which is unfortunate. But another example is rather than a productivity course, you create an AI that helps them identify their vision",
+      "zh_text": "发短信，对吗？这是一个非常有利可图的行业，这很不幸。但另一个例子是，与其提供一个生产力课程，不如创建一个人工智能来帮助他们识别他们的愿景",
+      "highlights": [
+        {
+          "en_word": "profitable industry",
+          "zh_word": "有利可图的行业",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "identify their vision",
+          "zh_word": "识别他们的愿景",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 155,
+      "start": 1392.24,
+      "end": 1401.84,
+      "en_text": "and outline their priority tasks and gives them notifications when things aren't complete. And it can even be integrated into like a simple to-do app.",
+      "zh_text": "并概述他们的优先任务，并在事情未完成时给予他们通知。它甚至可以整合到一个简单的待办事项应用程序中。",
+      "highlights": [
+        {
+          "en_word": "outline their priority tasks",
+          "zh_word": "概述他们的优先任务",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "integrated into",
+          "zh_word": "整合到一个",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 156,
+      "start": 1399.84,
+      "end": 1410.72,
+      "en_text": "But that's just much more enticing than something like buy my course. Now, if you've been following any of my videos at all or if you've seen the prompts that I've given out, you kind of know",
+      "zh_text": "但这比“购买我的课程”之类的东西诱人得多。如果你一直关注我的任何视频，或者你看到过我发出的提示，你大概知道",
+      "highlights": [
+        {
+          "en_word": "enticing",
+          "zh_word": "诱人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "given out",
+          "zh_word": "发出",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 157,
+      "start": 1408.96,
+      "end": 1413.44,
+      "en_text": "what I'm getting at here. So, any of the prompts that I've sent to my email list,",
+      "zh_text": "我在这里的意思。所以，我发给我的邮件列表的任何提示，",
+      "highlights": [
+        {
+          "en_word": "getting at",
+          "zh_word": "意思",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "email list",
+          "zh_word": "邮件列表",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 158,
+      "start": 1412.32,
+      "end": 1422.799,
+      "en_text": "I'll link some of those in the description. Those could easily be turned into a micros software. You just have to create a UI for those things and set that as the system instructions.",
+      "zh_text": "我会把其中一些链接放在描述中。那些可以很容易地变成一个微型软件。你只需为这些东西创建一个用户界面（UI），并将其设置为系统指令。",
+      "highlights": [
+        {
+          "en_word": "micros software",
+          "zh_word": "微型软件",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "system instructions",
+          "zh_word": "系统指令",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 159,
+      "start": 1420.64,
+      "end": 1434.32,
+      "en_text": "I've also taught how to create good prompts in my video how to use AI better than 99% of people. I think it's a few videos ago, but these would become the system prompts of your little AI app. So",
+      "zh_text": "我还教过如何在我的视频《如何比99%的人更好地使用人工智能》中创建好的提示。我想那是几个视频以前了，但这些会成为你的小AI应用程序的系统提示。所以",
+      "highlights": [
+        {
+          "en_word": "system prompts",
+          "zh_word": "系统提示",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "AI app",
+          "zh_word": "AI应用程序",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 160,
+      "start": 1432.4,
+      "end": 1443.44,
+      "en_text": "rather than creating a very general chat GBT, you create a hyperspecific chat or software that helps people learn, practice, and do the thing you were teaching about in the first place with",
+      "zh_text": "与其创建一个非常通用的ChatGPT，不如创建一个超具体的聊天或软件，帮助人们学习、练习和做你最初教导的事情，并",
+      "highlights": [
+        {
+          "en_word": "hyperspecific",
+          "zh_word": "超具体",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "in the first place",
+          "zh_word": "最初",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 161,
+      "start": 1441.44,
+      "end": 1454.3200000000002,
+      "en_text": "the info product. The question here is, \"But Dan, isn't building a chat GPT wrapper cheating?\" Well, by that logic, building anything on the internet is cheating. Type form, a billion-dollar",
+      "zh_text": "信息产品。这里的问题是：“但是丹，构建一个ChatGPT封装器不算作弊吗？”嗯，按照这种逻辑，在互联网上构建任何东西都是作弊。Typeform，一家价值十亿美元的",
+      "highlights": [
+        {
+          "en_word": "wrapper",
+          "zh_word": "封装器",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "by that logic",
+          "zh_word": "按照这种逻辑",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 162,
+      "start": 1451.76,
+      "end": 1463.679,
+      "en_text": "company, is just an HTML wrapper. Cursor is a GPT wrapper. Any info product you build is wrapped by the platform you build it on. And if AI is like the next cloud solution, which I think it is,",
+      "zh_text": "公司，也只是一个HTML封装器。Cursor是一个GPT封装器。你构建的任何信息产品都由你构建它的平台所封装。如果AI是下一个云解决方案，我认为它就是，",
+      "highlights": [
+        {
+          "en_word": "cloud solution",
+          "zh_word": "云解决方案",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "info product",
+          "zh_word": "信息产品",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 163,
+      "start": 1462.08,
+      "end": 1475.1200000000001,
+      "en_text": "every piece of software on the internet will be a wrapper. So yes, as one person who has to be savvy with their resources and use thirdparty tools, a chat GBT rapper is a great way to go. So you",
+      "zh_text": "互联网上的每一款软件都将是一个封装器。所以，是的，作为一个必须精通资源并使用第三方工具的人，一个ChatGPT封装器是个不错的选择。所以你",
+      "highlights": [
+        {
+          "en_word": "savvy with their resources",
+          "zh_word": "精通资源",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "a great way to go",
+          "zh_word": "是个不错的选择",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 164,
+      "start": 1473.2,
+      "end": 1478.8799999999999,
+      "en_text": "create the course kind of like you would the knowledge base for a help center.",
+      "zh_text": "创建课程，就像你会为帮助中心创建知识库一样。",
+      "highlights": [
+        {
+          "en_word": "knowledge base",
+          "zh_word": "知识库",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "help center",
+          "zh_word": "帮助中心",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 165,
+      "start": 1477.36,
+      "end": 1488.4,
+      "en_text": "You build out all the articles. You practically create the course and then you create what's called a system prompt or multiple of these. So like we just talked about, a system prompt is a set",
+      "zh_text": "你构建了所有的文章。你实际上创建了课程，然后创建了所谓的系统提示或多个这样的提示。就像我们刚才谈到的，系统提示是一组",
+      "highlights": [
+        {
+          "en_word": "build out",
+          "zh_word": "构建",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "system prompt",
+          "zh_word": "系统提示",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 166,
+      "start": 1486.4,
+      "end": 1498.08,
+      "en_text": "of instructions you give to an AI before it talks to anyone. It defines the AI's personality, knowledge boundaries, and behavior rules. You think of this as programming the AI's identity. For",
+      "zh_text": "在AI与任何人交谈之前你给予它的指令。它定义了AI的个性、知识边界和行为规则。你可以把这看作是编程AI的身份。例如，",
+      "highlights": [
+        {
+          "en_word": "knowledge boundaries",
+          "zh_word": "知识边界",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "programming the AI's identity",
+          "zh_word": "编程AI的身份",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 167,
+      "start": 1496.32,
+      "end": 1507.84,
+      "en_text": "example, if you're creating an AI writing coach, your system prompt might include the AI's role, so how the AI should act, its instructions, what exactly it should do step by step. Its",
+      "zh_text": "比如，如果你正在创建一个AI写作教练，你的系统提示可能包括AI的角色，也就是AI应该如何表现，它的指令，即它应该一步一步做什么。它的",
+      "highlights": [
+        {
+          "en_word": "AI writing coach",
+          "zh_word": "AI写作教练",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "step by step",
+          "zh_word": "一步一步",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 168,
+      "start": 1506.64,
+      "end": 1517.52,
+      "en_text": "knowledge base, so all of your frameworks, processes, and examples, its boundaries, what it should and shouldn't help with, and its personality, so how it talks, what tone it uses, how harsh",
+      "zh_text": "知识库，也就是你所有的框架、流程和示例，它的边界，即它应该和不应该帮助什么，以及它的个性，即它如何说话，使用什么语气，有多严厉",
+      "highlights": [
+        {
+          "en_word": "frameworks",
+          "zh_word": "框架",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "tone",
+          "zh_word": "语气",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 169,
+      "start": 1515.36,
+      "end": 1529.279,
+      "en_text": "or supportive it is. And the prompt is what makes your AI different from everyone else's. It's your specific knowledge, your frameworks, and your voice that can help thousands of people",
+      "zh_text": "或者有多支持。而提示就是让你的AI与众不同的地方。正是你的特定知识、你的框架和你的声音，才能帮助成千上万的人",
+      "highlights": [
+        {
+          "en_word": "supportive",
+          "zh_word": "支持",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "specific knowledge",
+          "zh_word": "特定知识",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 170,
+      "start": 1526.4,
+      "end": 1531.039,
+      "en_text": "at once. Now, can people steal this?",
+      "zh_text": "一次性地。那么，人们能偷走这个吗？",
+      "highlights": [
+        {
+          "en_word": "at once",
+          "zh_word": "一次性地",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 171,
+      "start": 1529.279,
+      "end": 1541.6,
+      "en_text": "Probably. But they could have stolen anything you build. That's just like never a valid response. So, what if they steal my idea? Again, most people just don't do anything. And now, part six,",
+      "zh_text": "可能吧。但他们本来就可以窃取你构建的任何东西。这从来都不是一个有效的回应。那么，如果他们偷了我的想法怎么办？再说一次，大多数人根本什么都不做。现在，第六部分，",
+      "highlights": [
+        {
+          "en_word": "valid response",
+          "zh_word": "有效的回应",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "steal my idea",
+          "zh_word": "偷了我的想法",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 172,
+      "start": 1539.52,
+      "end": 1546.559,
+      "en_text": "how to actually build the software. And you just use a tool like Replet or",
+      "zh_text": "如何实际构建软件。你只需要使用像Replet这样的工具，或者",
+      "highlights": [
+        {
+          "en_word": "actually build",
+          "zh_word": "实际构建",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 173,
+      "start": 1544.0,
+      "end": 1556.0,
+      "en_text": "Cursor, or you can even try Claude Code, which is a terminal app. And I haven't done this, but inside of Claude, there's like a code tab that you can click on.",
+      "zh_text": "Cursor，甚至可以尝试Claude Code，这是一个终端应用程序。我没做过这个，但在Claude里面，有一个你可以点击的代码选项卡。",
+      "highlights": [
+        {
+          "en_word": "terminal app",
+          "zh_word": "终端应用程序",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "code tab",
+          "zh_word": "代码选项卡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 174,
+      "start": 1553.44,
+      "end": 1564.4,
+      "en_text": "So maybe try that. And the thing here is that yes, you will have to learn how to use this, right? We've we've heard the",
+      "zh_text": "所以也许可以试试那个。而这里的关键是，是的，你必须学习如何使用这个，对吧？我们已经听过",
+      "highlights": [
+        {
+          "en_word": "the thing here is that",
+          "zh_word": "这里的关键是",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 175,
+      "start": 1561.12,
+      "end": 1574.48,
+      "en_text": "AI hype and we know that AI just at least now isn't this thing that just solves all of our problems and lets us do nothing and just can execute commands exactly how we ask. I don't think it can",
+      "zh_text": "AI的炒作，我们知道至少现在AI并不是那种能解决我们所有问题，让我们什么都不做，并且能完全按照我们要求执行命令的东西。我不认为它能",
+      "highlights": [
+        {
+          "en_word": "AI hype",
+          "zh_word": "AI的炒作",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "execute commands",
+          "zh_word": "执行命令",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 176,
+      "start": 1572.4,
+      "end": 1582.08,
+      "en_text": "ever do that, right? Cuz how can you get so much context into one sentence, right? You can say, \"Hey, create this",
+      "zh_text": "做到那一点，对吧？因为你如何能将如此多的背景信息浓缩到一句话中呢？对吧？你可以说：“嘿，创建这个",
+      "highlights": [
+        {
+          "en_word": "so much context into one sentence",
+          "zh_word": "如此多的背景信息浓缩到一句话中",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 177,
+      "start": 1580.32,
+      "end": 1590.6399999999999,
+      "en_text": "YouTube video for me.\" How is it going to know what kind of YouTube video, what kind of this, what kind of this? How is it structured? What's the pacing? What's the tone? How long? What are all of the",
+      "zh_text": "YouTube视频给我。”它怎么会知道是什么类型的YouTube视频，是什么类型的这个，是什么类型的那个？它的结构是怎样的？节奏是怎样的？语气是怎样的？多长？所有的",
+      "highlights": [
+        {
+          "en_word": "structured",
+          "zh_word": "结构",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "pacing",
+          "zh_word": "节奏",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 178,
+      "start": 1589.52,
+      "end": 1599.12,
+      "en_text": "ideas that you're going to include in there? Is it just going to assume those and make those up and then you're going to put it under your name? That's not how this stuff works. So, the best way",
+      "zh_text": "你会包含在里面的想法是什么？它会仅仅假设并编造这些东西，然后你把它们归到你的名下吗？这不是这些东西的工作方式。所以，最好的方法是",
+      "highlights": [
+        {
+          "en_word": "make those up",
+          "zh_word": "编造这些东西",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "put it under your name",
+          "zh_word": "归到你的名下",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "start": 1596.96,
+      "end": 1602.6399999999999,
+      "en_text": "to learn something like this is to one, just start tinkering and experimenting.",
+      "zh_text": "学习这种东西的方法是，第一，就是开始修修补补和实验。",
+      "highlights": [
+        {
+          "en_word": "tinkering and experimenting",
+          "zh_word": "修修补补和实验",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 180,
+      "start": 1601.44,
+      "end": 1607.279,
+      "en_text": "Once you start tinkering and experimenting, then start watching",
+      "zh_text": "一旦你开始修修补补和实验，然后就开始观看",
+      "highlights": [
+        {
+          "en_word": "tinkering and experimenting",
+          "zh_word": "修修补补和实验",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 181,
+      "start": 1604.799,
+      "end": 1616.1589999999999,
+      "en_text": "YouTube tutorials on how to use those things. And you have to have a project that you're building toward. You have to have an idea for this quote unquote info product or evolved info product that",
+      "zh_text": "关于如何使用这些东西的YouTube教程。你必须有一个你正在努力实现的项目。你必须有一个关于这个“所谓的”信息产品或“进化版”信息产品的想法，它...",
+      "highlights": [
+        {
+          "en_word": "building toward",
+          "zh_word": "努力实现",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "quote unquote",
+          "zh_word": "所谓的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "start": 1614.799,
+      "end": 1624.559,
+      "en_text": "you're building. And then when you watch the YouTube tutorials, they're not going to be about how to build that. So, you're going to have to adapt and apply what they teach to what you're doing.",
+      "zh_text": "你正在搭建的。然后当你观看YouTube教程时，它们不会是关于如何搭建那个东西的。所以，你必须适应并应用他们所教的知识到你正在做的事情上。",
+      "highlights": [
+        {
+          "en_word": "adapt and apply",
+          "zh_word": "适应并应用",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 183,
+      "start": 1622.72,
+      "end": 1635.2,
+      "en_text": "And if you get stuck, you can just ask AI how to do specific things. I do this all the time right now. I literally ask it how to do things in Photoshop or framer all the time and it pulls from",
+      "zh_text": "如果你遇到困难，你可以直接问AI如何做具体的事情。我现在一直都这么做。我简直是无时无刻不在问它如何在Photoshop或Framer中操作，它会从...",
+      "highlights": [
+        {
+          "en_word": "get stuck",
+          "zh_word": "遇到困难",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "all the time",
+          "zh_word": "无时无刻",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "start": 1632.799,
+      "end": 1645.84,
+      "en_text": "the help centers of those things or forums. An example of what you can do here is you can just ask like give me a comprehensive guide on how to vibe code correctly and then you can ask it to",
+      "zh_text": "那些东西的帮助中心或论坛。这里你能做的一个例子是，你可以直接问：“给我一份关于如何正确地‘vibe code’的综合指南”，然后你可以要求它...",
+      "highlights": [
+        {
+          "en_word": "comprehensive guide",
+          "zh_word": "综合指南",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "start": 1642.88,
+      "end": 1657.919,
+      "en_text": "create a comprehensive guide on what you're trying to build, right? How create a comprehensive guide on building this AI chat app with these many tabs on this specific topic with this knowledge",
+      "zh_text": "创建一份关于你正在尝试构建的东西的综合指南，对吗？如何创建一个关于构建这个AI聊天应用程序的综合指南，它有这么多标签，关于这个特定主题，带有这个知识...",
+      "highlights": [
+        {
+          "en_word": "comprehensive guide",
+          "zh_word": "综合指南",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "specific topic",
+          "zh_word": "特定主题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 186,
+      "start": 1656.0,
+      "end": 1669.44,
+      "en_text": "base. ask clarifying questions on the product if you need it and I'm one singular person with this budget so on and so forth and you just converse. Now the thing here is that this is just like",
+      "zh_text": "库。如果你需要的话，就产品提出澄清问题，我是一个拥有这个预算的个体，等等等等，你只需对话。现在的问题是，这就像...",
+      "highlights": [
+        {
+          "en_word": "clarifying questions",
+          "zh_word": "澄清问题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "so on and so forth",
+          "zh_word": "等等等等",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "start": 1666.799,
+      "end": 1679.1200000000001,
+      "en_text": "any other skill, right? You don't start riding a bike immediately. You kind of fall off and then you try again and it gets frustrating. Everyone's in this like like super they need the quick",
+      "zh_text": "任何其他技能一样，对吗？你不会立刻就开始骑自行车。你会摔倒，然后再次尝试，这会让人感到沮丧。每个人都处于这种...他们需要快速的...",
+      "highlights": [
+        {
+          "en_word": "fall off",
+          "zh_word": "摔倒",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "gets frustrating",
+          "zh_word": "让人感到沮丧",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 188,
+      "start": 1677.36,
+      "end": 1685.76,
+      "en_text": "result really fast. If they don't get results the first time around then they quit. But that's not how skill acquisition works. You're going to feel weird. You're going to feel overwhelmed.",
+      "zh_text": "结果非常快。如果他们第一次尝试没有得到结果，他们就会放弃。但技能习得不是这样运作的。你会感觉奇怪。你会感到不知所措。",
+      "highlights": [
+        {
+          "en_word": "the first time around",
+          "zh_word": "第一次尝试",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "skill acquisition",
+          "zh_word": "技能习得",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 189,
+      "start": 1684.88,
+      "end": 1694.48,
+      "en_text": "you're going to feel like you're not making progress for a bit. That's just how it goes. You're going to have to build three to four apps before you feel like you can actually put a price tag on",
+      "zh_text": "你会觉得你有一段时间没有进步。事情就是这样。你必须构建三到四个应用程序，然后你才会觉得你可以真正给它定价。",
+      "highlights": [
+        {
+          "en_word": "making progress",
+          "zh_word": "进步",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "put a price tag on",
+          "zh_word": "定价",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "start": 1692.88,
+      "end": 1705.039,
+      "en_text": "one. That's why it's important to start now because remember what I talked about is that the change is going to happen really fast. It's going to happen faster than before. Info products died in 10 to",
+      "zh_text": "一个。这就是为什么现在开始很重要，因为记住我谈过的是变化会发生得非常快。它会比以前发生得更快。信息产品在10到...年内消亡。",
+      "highlights": [
+        {
+          "en_word": "talked about",
+          "zh_word": "谈过",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "died in",
+          "zh_word": "消亡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "start": 1702.799,
+      "end": 1713.6,
+      "en_text": "15 years. This may die in 2 to 3 years and then after that we don't even know what things are going to look like and you're going to have to adapt on the fly. So the question now is where does",
+      "zh_text": "15年。这可能在2到3年内消亡，然后我们甚至不知道事情会变成什么样子，你将不得不即时适应。所以现在的问题是，你的优势在哪里？",
+      "highlights": [
+        {
+          "en_word": "adapt on the fly",
+          "zh_word": "即时适应",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "start": 1711.12,
+      "end": 1724.6399999999999,
+      "en_text": "your advantage actually lie? Your advantage isn't doing what AI can't do because that's a losing game. Your advantage is doing what only you would think to do with AI. Not everyone types",
+      "zh_text": "你的优势到底在哪里？你的优势不是做AI不能做的事情，因为那是徒劳的。你的优势是做只有你会想到用AI做的事情。不是每个人都打字...",
+      "highlights": [
+        {
+          "en_word": "losing game",
+          "zh_word": "徒劳的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "start": 1722.72,
+      "end": 1733.7600000000002,
+      "en_text": "the same thing into chat GPT or rep letter cursor. Meaning the output of those things are infinitely unique. Your unique combination of interests, experiences, and insights leads to",
+      "zh_text": "相同的东西到ChatGPT或rep letter cursor。这意味着这些东西的输出是无限独特的。你兴趣、经验和洞察力的独特结合导致...",
+      "highlights": [
+        {
+          "en_word": "infinitely unique",
+          "zh_word": "无限独特的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "unique combination",
+          "zh_word": "独特结合",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 194,
+      "start": 1731.919,
+      "end": 1744.399,
+      "en_text": "prompts and products that nobody else would create. Naval Ravocant explains this as specific knowledge. Specific knowledge can't be trained for. It comes from pursuing genuine curiosity.",
+      "zh_text": "别人无法创建的提示和产品。Naval Ravocant 将此解释为特定知识。特定知识无法通过训练获得。它来自于追求真正的 curiosity。",
+      "highlights": [
+        {
+          "en_word": "specific knowledge",
+          "zh_word": "特定知识",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "pursuing genuine curiosity",
+          "zh_word": "追求真正的 curiosity",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "start": 1742.24,
+      "end": 1746.559,
+      "en_text": "building it will feel like play to you.",
+      "zh_text": "建造它对你来说会像玩耍一样。",
+      "highlights": []
+    },
+    {
+      "id": 196,
+      "start": 1744.399,
+      "end": 1756.72,
+      "en_text": "It's often at the edge of knowledge. The person who spent 10 years obsessing over productivity and then they go and build this AI software is going to build something so much more nuanced and",
+      "zh_text": "它通常处于知识的边缘。那个花了10年时间痴迷于生产力，然后去构建这款AI软件的人，将会构建出远比...更细致入微和...",
+      "highlights": [
+        {
+          "en_word": "at the edge of knowledge",
+          "zh_word": "知识的边缘",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "obsessing over",
+          "zh_word": "痴迷于",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 197,
+      "start": 1754.799,
+      "end": 1765.9189999999999,
+      "en_text": "detailed than someone who hasn't spent that much time in their domain. And it's going to be so much better and more nuanced than the person who just goes to chat GPT or Claude and tells them to",
+      "zh_text": "那些没有在自己领域投入那么多时间的人所做的。它会比那些只去ChatGPT或Claude并让他们去做的人所做的更好，也更细致入微。",
+      "highlights": [
+        {
+          "en_word": "in their domain",
+          "zh_word": "在自己的领域",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "nuanced",
+          "zh_word": "细致入微",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 198,
+      "start": 1764.0,
+      "end": 1775.84,
+      "en_text": "build a productivity app. And if that obsessed person has built an audience on social media with said specific knowledge around productivity, then they're at even more of an advantage.",
+      "zh_text": "构建一个生产力应用程序。如果那个痴迷的人在社交媒体上凭借所述的关于生产力的特定知识建立了受众，那么他们就拥有更大的优势。",
+      "highlights": [
+        {
+          "en_word": "built an audience",
+          "zh_word": "建立了受众",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "said specific knowledge",
+          "zh_word": "所述的特定知识",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 199,
+      "start": 1774.159,
+      "end": 1786.559,
+      "en_text": "So, we talked about how info products are dead in this video. We're going to talk about the whole valuebased content thing is dead in another video. So, the irony here is that AI is making human",
+      "zh_text": "所以，我们在这段视频中讨论了信息产品如何消亡。我们将在另一段视频中讨论整个“基于价值的内容”这个事情也消亡了。所以，这里的讽刺之处在于，AI正在使人类的...",
+      "highlights": [
+        {
+          "en_word": "info products are dead",
+          "zh_word": "信息产品消亡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "valuebased content",
+          "zh_word": "基于价值的内容",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "start": 1783.76,
+      "end": 1788.72,
+      "en_text": "knowledge more valuable, not less.",
+      "zh_text": "知识变得更有价值，而不是更少。",
+      "highlights": []
+    },
+    {
+      "id": 201,
+      "start": 1786.559,
+      "end": 1793.039,
+      "en_text": "That's crazy. That's like a crazy insight because AI made everyone fast.",
+      "zh_text": "这太疯狂了。这是一个疯狂的洞察，因为人工智能让每个人都变得快速。",
+      "highlights": [
+        {
+          "en_word": "insight",
+          "zh_word": "洞察",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "start": 1791.2,
+      "end": 1797.76,
+      "en_text": "Anyone can make a course. Anyone can write content. Anyone can copy. anyone.",
+      "zh_text": "任何人都可以制作课程。任何人都可以撰写内容。任何人都可以复制。任何人。",
+      "highlights": []
+    },
+    {
+      "id": 203,
+      "start": 1795.039,
+      "end": 1808.3990000000001,
+      "en_text": "But very few people are uncopyable. Very few people have spent years developing so much fine-tuned experience or taste that nobody would think to copy the details that make it work. Build the",
+      "zh_text": "但很少有人是无法复制的。很少有人投入多年时间培养了如此多的精细经验或品味，以至于没有人会想到去复制那些让它发挥作用的细节。建造那个",
+      "highlights": [
+        {
+          "en_word": "uncopyable",
+          "zh_word": "无法复制的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "fine-tuned experience or taste",
+          "zh_word": "精细经验或品味",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "start": 1805.919,
+      "end": 1819.039,
+      "en_text": "thing that only you would build. Links in the description for the things that I mentioned throughout this video. If you want to be notified when these videos go out or you want to read the newsletter",
+      "zh_text": "只有你会建造的东西。本视频中我提到的内容的链接都在描述中。如果你想在这些视频发布时收到通知，或者你想阅读新闻稿",
+      "highlights": [
+        {
+          "en_word": "go out",
+          "zh_word": "发布",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "start": 1817.12,
+      "end": 1828.4799999999998,
+      "en_text": "version of this video, subscribe to my newsletter and you'll get that. And if you download the Substack app, you'll also get a a mobile notification when that newsletter goes out. And of course,",
+      "zh_text": "版本的视频，请订阅我的时事通讯，你就能收到。如果你下载Substack应用程序，当该时事通讯发布时，你还会收到移动通知。当然，",
+      "highlights": [
+        {
+          "en_word": "newsletter",
+          "zh_word": "时事通讯",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "goes out",
+          "zh_word": "发布",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "start": 1826.96,
+      "end": 1833.2,
+      "en_text": "you can sign up for the Eden weight list, which is the AI canvas and drive.",
+      "zh_text": "你可以注册伊甸园的等候名单，它是AI画布和驱动器。",
+      "highlights": [
+        {
+          "en_word": "wait list",
+          "zh_word": "等候名单",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "start": 1831.12,
+      "end": 1838.64,
+      "en_text": "So you can add any of your files. You can paste links like a YouTube video and it downloads them and transcribes them.",
+      "zh_text": "所以你可以添加任何文件。你可以粘贴像YouTube视频这样的链接，它会下载并转录它们。",
+      "highlights": [
+        {
+          "en_word": "transcribes",
+          "zh_word": "转录",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 208,
+      "start": 1837.2,
+      "end": 1848.08,
+      "en_text": "So they can be searched and referenced with AI and then you can drag them onto a canvas. Any of your files, connect them to AI chats and work in this unique and different way. And the next round of",
+      "zh_text": "这样它们就可以用人工智能进行搜索和引用，然后你可以把它们拖到画布上。你的任何文件都可以连接到AI聊天，并以这种独特而不同的方式工作。下一批",
+      "highlights": [
+        {
+          "en_word": "referenced",
+          "zh_word": "引用",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 209,
+      "start": 1846.159,
+      "end": 1852.1589999999999,
+      "en_text": "people that we bring into Eden off of the wait list will happen late",
+      "zh_text": "我们从等候名单中引入伊甸园的人将在晚些时候到来",
+      "highlights": [
+        {
+          "en_word": "off of the wait list",
+          "zh_word": "从等候名单中",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 210,
+      "start": 1850.64,
+      "end": 1854.0800000000002,
+      "en_text": "Januaryish.",
+      "zh_text": "一月左右。",
+      "highlights": [
+        {
+          "en_word": "Januaryish",
+          "zh_word": "一月左右",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 211,
+      "start": 1852.159,
+      "end": 1863.44,
+      "en_text": "And then we'll start prepping for our full public launch. So, thank you for watching. Like, subscribe if you're still here. As always, it's just a button. I'll see you in the next video.",
+      "zh_text": "然后我们将开始为全面公开发布做准备。所以，感谢您的观看。如果你还在，请点赞、订阅。一如既往，这只是一个按钮。下个视频再见。",
+      "highlights": [
+        {
+          "en_word": "prepping for",
+          "zh_word": "为…做准备",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "full public launch",
+          "zh_word": "全面公开发布",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 212,
+      "start": 1860.96,
+      "end": 1863.44,
+      "en_text": "Bye.",
+      "zh_text": "再见。",
+      "highlights": []
+    }
+  ],
+  "summary": "以下是YouTube视频内容的中文摘要：\n\n*   **时代背景与挑战：** 当前商业、互联网、社交媒体等领域正经历快速变革，过去一年有效的模式现在可能已不再适用。2026年及未来，个人在线业务需要新的策略，旧的建议（如代理、自由职业、信息产品、教练）已显过时。\n*   **个人业务模式的演变：**\n    *   **过去：** 信息产品和教练服务是个人创作者的主流模式，使一个人就能独立运营在线业务，通过分享热情与专业知识、内容引流和产品解决问题来实现价值。这种模式曾赋予个人无限的收入潜力。\n    *   **现状：** 这种模式的“载体”正在发生变化。单纯依赖个人品牌、信息产品或传统教练服务已不足以在当前的竞争环境中脱颖而出。\n*   **信息产品“消亡”或进化的原因：**\n    *   **市场饱和与用户疲劳：** 市场已进入成熟阶段，消费者对传统课程和教练模式感到厌倦。品牌和社群归属感变得比产品本身更重要。\n    *   **人工智能 (AI) 的影响：** AI极大地降低了内容和产品创作的门槛，使得生成平庸的作品变得异常容易。然而，这些低门槛的产品难以与那些真正理解市场和深层知识的优质产品竞争。\n    *   **迭代速度加快：** 市场变化速度前所未有，过去可能持续十多年的商业模式，现在可能仅两三年就会被淘汰。个人经营者必须具备极快的适应和持续迭代能力。\n    *   **原创性优势缩短：** AI加速了原创想法的模仿和普及，使得“先行者”的优势难以持久。\n*   **未来教育产品的方向：**\n    *   **从“静态课程”转向“学习体验”：** 未来的教育产品不再仅仅是信息集合，而是成为一种“你思想的第二版本”——一种由AI辅助的、可扩展的、个性化学习和教练服务，让学习者能按照自己的节奏深度学习。\n    *   **定位独特知识：** 未来教育产品应专注于教授传统教育体系未触及的、源于个人好奇心和自我提升的独特知识，而非与学校教育竞争。\n*   **实际应用策略：**\n    *   **AI辅助工具性任务：** 利用AI高效处理繁琐、重复性高的任务（例如，在短时间内生成大量帮助中心文章），以提高效率并解放精力。\n    *   **构建互动式学习产品：** 将课程材料构建为可供AI交互的知识库，并结合智能聊天机器人，使其成为一个能够提供学习、实践和指导的互动式工具，而非仅是观看视频的被动体验。\n    *   **AI作为学习教练：** 目标是让AI像一位随身教练，提供纠正和指导，帮助学习者掌握技能，而不是完全替代人类的创造性工作。"
+}
