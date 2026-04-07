@@ -29,7 +29,7 @@ function App() {
   const [metadata, setMetadata] = useState<any>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
-  const [externalVideoUrl, setExternalVideoUrl] = useState('');
+
 
   // Local subtitle playback timer
   const subtitleTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -54,10 +54,7 @@ function App() {
     setIsSubtitlePlaying(false);
   };
 
-  const stopSubtitleTimer = () => {
-    pauseSubtitleTimer();
-    setCurrentTime(0);
-  };
+
 
   // Cleanup on unmount
   useEffect(() => {
@@ -349,73 +346,8 @@ function App() {
           </div>
           )}
 
-          {/* Left Column: External Video Link Panel (for local subtitle mode) */}
-          {metadata?.is_local_subtitle && (
-          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col bg-gray-900">
-            <div className="flex-none bg-gray-900 border-b border-gray-800 px-6 py-4">
-              <h2 className="text-lg font-bold text-white">{metadata?.title}</h2>
-              <p className="text-gray-400 text-sm mt-1">{summary}</p>
-            </div>
-            <div className="flex-1 flex flex-col items-center justify-center p-8">
-              <div className="w-full max-w-md space-y-6 text-center">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-purple-500/20 border border-gray-700 flex items-center justify-center mx-auto">
-                  <svg className="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold text-lg mb-2">配套视频播放</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    粘贴 iyf.tv 视频链接，点击按钮会在新窗口中打开视频。<br/>
-                    你可以将视频窗口和字幕窗口左右并排使用。
-                  </p>
-                </div>
-                <div className="space-y-3">
-                  <input
-                    type="url"
-                    placeholder="https://www.iyf.tv/play/..."
-                    value={externalVideoUrl}
-                    onChange={(e) => setExternalVideoUrl(e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 text-sm"
-                  />
-                  <button
-                    onClick={() => {
-                      if (externalVideoUrl.trim()) {
-                        const w = Math.floor(screen.width / 2);
-                        const h = screen.height;
-                        window.open(externalVideoUrl.trim(), 'iyf_video', `width=${w},height=${h},left=0,top=0`);
-                        // Move the current window to the right half
-                        window.moveTo(w, 0);
-                        window.resizeTo(w, h);
-                      }
-                    }}
-                    disabled={!externalVideoUrl.trim()}
-                    className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    打开视频窗口
-                  </button>
-                  {isSubtitlePlaying && (
-                    <button
-                      onClick={pauseSubtitleTimer}
-                      className="w-full py-3 px-4 bg-amber-600 hover:bg-amber-500 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      暂停自动滚动
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-          )}
-
-          {/* Right Column: Transcript (always half-width now since left panel exists in both modes) */}
-          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800">
+          {/* Transcript Column: full-width for local subtitles, half-width for YouTube videos */}
+          <div className={`w-full ${metadata?.is_local_subtitle ? '' : 'md:w-1/2'} h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`}>
             <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-gray-900 to-transparent z-10 pointer-events-none"></div>
             <TranscriptView
               transcript={transcript}
