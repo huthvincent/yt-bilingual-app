@@ -54,15 +54,27 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     }
 
     useEffect(() => {
-        // Auto-scroll to the active block
+        // Page-by-page scroll: only scroll when active block is outside the visible area
         if (activeIndex !== -1 && containerRef.current) {
-            const activeElement = containerRef.current.querySelector<HTMLElement>(`[data-index="${activeIndex}"]`);
+            const container = containerRef.current;
+            const activeElement = container.querySelector<HTMLElement>(`[data-index="${activeIndex}"]`);
             if (activeElement) {
-                // Use scrollIntoView with block: 'center' to keep it vertically centered
-                activeElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
+                const containerRect = container.getBoundingClientRect();
+                const activeRect = activeElement.getBoundingClientRect();
+
+                // Check if the active element is below the visible area
+                const isBelow = activeRect.bottom > containerRect.bottom - 40;
+                // Check if the active element is above the visible area
+                const isAbove = activeRect.top < containerRect.top + 40;
+
+                if (isBelow || isAbove) {
+                    // Scroll so the active element appears near the top of the container
+                    const scrollTarget = activeElement.offsetTop - container.offsetTop - 20;
+                    container.scrollTo({
+                        top: scrollTarget,
+                        behavior: 'smooth'
+                    });
+                }
             }
         }
     }, [activeIndex]);
@@ -70,9 +82,9 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     return (
         <div
             ref={containerRef}
-            className="h-full overflow-y-auto bg-gray-900 border-l border-gray-800 custom-scrollbar p-6 relative"
+            className="h-full overflow-y-auto bg-gray-900 border-l border-gray-800 custom-scrollbar px-4 py-3 relative"
         >
-            <div className="space-y-4 pb-32">
+            <div className="space-y-1.5 pb-32">
                 {transcript.map((item, index) => {
                     const isActive = index === activeIndex;
                     return (

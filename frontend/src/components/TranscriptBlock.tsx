@@ -91,13 +91,13 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, en
     return (
         <div
             className={cn(
-                "p-5 rounded-xl border border-transparent transition-all duration-300 ease-in-out cursor-pointer hover:bg-gray-800/80 group",
-                isActive ? "bg-gray-800/90 border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.15)] ring-1 ring-purple-500/20" : ""
+                "px-3 py-2 rounded-lg border border-transparent transition-all duration-300 ease-in-out cursor-pointer hover:bg-gray-800/80 group",
+                isActive ? "bg-gray-800/90 border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.12)] ring-1 ring-purple-500/20" : ""
             )}
         >
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-1">
                 <span className={cn(
-                    "px-2.5 py-1 text-xs font-medium rounded-full bg-gray-900 ring-1",
+                    "px-2 py-0.5 text-[10px] font-medium rounded-full bg-gray-900 ring-1",
                     isActive ? "text-purple-400 ring-purple-500/50" : "text-gray-400 ring-white/10"
                 )}>
                     {formatTime(start)} - {formatTime(end)}
@@ -111,20 +111,20 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, en
                     className="p-1.5 rounded-md hover:bg-gray-700 transition-colors"
                 >
                     <Star
-                        className={cn("w-5 h-5 transition-colors", isFavorited ? "fill-yellow-500 text-yellow-500" : "text-gray-500 hover:text-gray-300")}
+                        className={cn("w-4 h-4 transition-colors", isFavorited ? "fill-yellow-500 text-yellow-500" : "text-gray-500 hover:text-gray-300")}
                     />
                 </button>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-0.5">
                 <p className={cn(
-                    "text-lg font-medium leading-relaxed tracking-wide",
+                    "text-sm font-medium leading-snug",
                     isActive ? "text-white" : "text-gray-200"
                 )}>
                     <HighlightedText text={enText} highlights={enHighlights} />
                 </p>
                 <p className={cn(
-                    "text-[15px] leading-relaxed",
+                    "text-xs leading-snug",
                     isActive ? "text-purple-50" : "text-gray-400"
                 )}>
                     <HighlightedText text={zhText} highlights={zhHighlights} />

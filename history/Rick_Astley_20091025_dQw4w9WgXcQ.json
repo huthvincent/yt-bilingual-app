@@ -19,42 +19,93 @@
     {
       "id": 2,
       "start": 18.64,
-      "end": 31.04,
-      "en_text": "♪ We're no strangers to love ♪ ♪ You know the rules and so do I ♪ ♪ A full commitment's what I'm thinking of ♪",
-      "zh_text": "♪ 我们对爱不陌生 ♪ ♪ 你懂规则，我也一样 ♪ ♪ 我在想的是一份完整的承诺 ♪",
+      "end": 39.519999999999996,
+      "en_text": "♪ We're no strangers to love ♪ ♪ You know the rules and so do I ♪ ♪ A full commitment's what I'm thinking of ♪ ♪ You wouldn't get this from any other guy ♪ ♪ I just wanna tell you how I'm feeling ♪",
+      "zh_text": "♪ 我们对爱并不陌生 ♪ ♪ 你知晓规则，我亦是 ♪ ♪ 我所想的是一份全心投入 ♪ ♪ 别的男人可给不了你这些 ♪ ♪ 我只想告诉你我的感受 ♪",
       "highlights": [
         {
-          "en_word": "no strangers to love",
-          "zh_word": "对爱不陌生",
+          "en_word": "no strangers to",
+          "zh_word": "对爱并不陌生",
           "color": "text-purple-400 border-b border-dashed border-purple-400"
         },
         {
           "en_word": "full commitment",
-          "zh_word": "完整的承诺",
+          "zh_word": "全心投入",
           "color": "text-purple-400 border-b border-dashed border-purple-400"
         }
       ]
     },
     {
       "id": 3,
-      "start": 31.12,
-      "end": 39.519999999999996,
-      "en_text": "♪ You wouldn't get this from any other guy ♪ ♪ I just wanna tell you how I'm feeling ♪",
-      "zh_text": "♪ 你不会从其他男人那里得到这些 ♪ ♪ 我只是想告诉你我的感受 ♪",
+      "start": 40.52,
+      "end": 55.52,
+      "en_text": "♪ Gotta make you understand ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪ ♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪",
+      "zh_text": "♪ 必须让你明白 ♪ ♪ 永不放弃你 ♪ ♪ 永不让你失望 ♪ ♪ 永不离你而去，抛弃你 ♪ ♪ 永不让你哭泣 ♪ ♪ 永不道别 ♪",
       "highlights": [
         {
-          "en_word": "get this from",
-          "zh_word": "得到这些",
+          "en_word": "let you down",
+          "zh_word": "让你失望",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "desert you",
+          "zh_word": "抛弃你",
           "color": "text-purple-400 border-b border-dashed border-purple-400"
         }
       ]
     },
     {
       "id": 4,
-      "start": 40.52,
-      "end": 51.12,
-      "en_text": "♪ Gotta make you understand ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪",
-      "zh_text": "♪ 必须让你明白 ♪ ♪ 永远不会放弃你 ♪ ♪ 永远不会让你失望 ♪ ♪ 永远不会四处奔波然后抛弃你 ♪",
+      "start": 55.72,
+      "end": 59.36,
+      "en_text": "♪ Never gonna tell a lie and hurt you ♪",
+      "zh_text": "♪ 永不撒谎伤害你 ♪",
+      "highlights": []
+    },
+    {
+      "id": 5,
+      "start": 60.8,
+      "end": 77.2,
+      "en_text": "♪ We've known each other for so long ♪ ♪ Your heart's been aching but you're too shy to say it ♪ ♪ Inside we both know what's been going ♪ ♪ We know the game and we're gonna play it ♪",
+      "zh_text": "♪ 我们相识已久 ♪ ♪ 你的心一直疼痛，但你羞于启齿 ♪ ♪ 我们都心知肚明一切进展 ♪ ♪ 我们深谙此道，并将奉陪到底 ♪",
+      "highlights": [
+        {
+          "en_word": "aching",
+          "zh_word": "疼痛",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "know the game",
+          "zh_word": "深谙此道",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 77.4,
+      "end": 93.72,
+      "en_text": "♪ And if you ask me how I'm feeling ♪ ♪ Don't tell me you're too blind to see ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪",
+      "zh_text": "♪ 若你问我感受 ♪ ♪ 别说你视而不见 ♪ ♪ 永不放弃你 ♪ ♪ 永不让你失望 ♪ ♪ 永不离你而去，抛弃你 ♪",
+      "highlights": [
+        {
+          "en_word": "blind to see",
+          "zh_word": "视而不见",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "run around and desert you",
+          "zh_word": "离你而去，抛弃你",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 93.8,
+      "end": 110.08,
+      "en_text": "♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪",
+      "zh_text": "♪ 永不让你哭泣 ♪ ♪ 永不道别 ♪ ♪ 永不撒谎伤害你 ♪ ♪ 永不放弃你 ♪ ♪ 永不让你失望 ♪ ♪ 永不离你而去，抛弃你 ♪",
       "highlights": [
         {
           "en_word": "let you down",
@@ -63,189 +114,104 @@
         },
         {
           "en_word": "run around and desert you",
-          "zh_word": "四处奔波然后抛弃你",
-          "color": "text-purple-400 border-b border-dashed border-purple-400"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "start": 51.48,
-      "end": 59.36,
-      "en_text": "♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
-      "zh_text": "♪ 永远不会让你哭泣 ♪ ♪ 永远不会说再见 ♪ ♪ 永远不会撒谎伤害你 ♪",
-      "highlights": []
-    },
-    {
-      "id": 6,
-      "start": 60.8,
-      "end": 69.03999999999999,
-      "en_text": "♪ We've known each other for so long ♪ ♪ Your heart's been aching but you're too shy to say it ♪",
-      "zh_text": "♪ 我们相识已久 ♪ ♪ 你的心一直在痛，但你太害羞说出来 ♪",
-      "highlights": [
-        {
-          "en_word": "aching",
-          "zh_word": "一直在痛",
-          "color": "text-purple-400 border-b border-dashed border-purple-400"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "start": 69.12,
-      "end": 82.04,
-      "en_text": "♪ Inside we both know what's been going ♪ ♪ We know the game and we're gonna play it ♪ ♪ And if you ask me how I'm feeling ♪",
-      "zh_text": "♪ 心里我们都知道发生了什么 ♪ ♪ 我们懂这场游戏，也会玩下去 ♪ ♪ 如果你问我感觉如何 ♪",
-      "highlights": [
-        {
-          "en_word": "what's been going",
-          "zh_word": "发生了什么",
-          "color": "text-purple-400 border-b border-dashed border-purple-400"
-        },
-        {
-          "en_word": "know the game and we're gonna play it",
-          "zh_word": "懂这场游戏，也会玩下去",
+          "zh_word": "离你而去，抛弃你",
           "color": "text-purple-400 border-b border-dashed border-purple-400"
         }
       ]
     },
     {
       "id": 8,
-      "start": 82.4,
-      "end": 89.32,
-      "en_text": "♪ Don't tell me you're too blind to see ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪",
-      "zh_text": "♪ 别告诉我你盲目到看不清 ♪ ♪ 永远不会放弃你 ♪ ♪ 永远不会让你失望 ♪",
+      "start": 110.76,
+      "end": 130.11999999999998,
+      "en_text": "♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪ ♪ (Ooh, give you up) ♪ ♪ (Ooh, give you up) ♪ ♪ Never gonna give, never gonna give ♪",
+      "zh_text": "♪ 永不让你哭泣 ♪ ♪ 永不道别 ♪ ♪ 永不撒谎伤害你 ♪ ♪ (噢，放弃你) ♪ ♪ (噢，放弃你) ♪ ♪ 永不放弃，永不放弃 ♪",
+      "highlights": []
+    },
+    {
+      "id": 9,
+      "start": 130.24,
+      "end": 145.2,
+      "en_text": "♪ (Give you up) ♪ ♪ Never gonna give, never gonna give ♪ ♪ (Give you up) ♪ ♪ We've known each other for so long ♪ ♪ Your heart's been aching but you're too shy to say it ♪",
+      "zh_text": "♪ (放弃你) ♪ ♪ 永不放弃，永不放弃 ♪ ♪ (放弃你) ♪ ♪ 我们相识已久 ♪ ♪ 你的心一直疼痛，但你羞于启齿 ♪",
       "highlights": [
         {
-          "en_word": "too blind to see",
-          "zh_word": "盲目到看不清",
+          "en_word": "aching",
+          "zh_word": "疼痛",
           "color": "text-purple-400 border-b border-dashed border-purple-400"
         }
       ]
     },
     {
-      "id": 9,
-      "start": 89.44,
-      "end": 98.0,
-      "en_text": "♪ Never gonna run around and desert you ♪ ♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪",
-      "zh_text": "♪ 永远不会四处奔波然后抛弃你 ♪ ♪ 永远不会让你哭泣 ♪ ♪ 永远不会说再见 ♪",
-      "highlights": []
-    },
-    {
       "id": 10,
-      "start": 98.08,
-      "end": 106.36,
-      "en_text": "♪ Never gonna tell a lie and hurt you ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪",
-      "zh_text": "♪ 永远不会撒谎伤害你 ♪ ♪ 永远不会放弃你 ♪ ♪ 永远不会让你失望 ♪",
-      "highlights": []
+      "start": 145.28,
+      "end": 163.36,
+      "en_text": "♪ Inside we both know what's been going ♪ ♪ We know the game and we're gonna play it ♪ ♪ I just wanna tell you how I'm feeling ♪ ♪ Gotta make you understand ♪ ♪ Never gonna give you up ♪",
+      "zh_text": "♪ 我们都心知肚明一切进展 ♪ ♪ 我们深谙此道，并将奉陪到底 ♪ ♪ 我只想告诉你我的感受 ♪ ♪ 必须让你明白 ♪ ♪ 永不放弃你 ♪",
+      "highlights": [
+        {
+          "en_word": "know the game",
+          "zh_word": "深谙此道",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 11,
-      "start": 106.48,
-      "end": 114.67999999999999,
-      "en_text": "♪ Never gonna run around and desert you ♪ ♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪",
-      "zh_text": "♪ 永远不会四处奔波然后抛弃你 ♪ ♪ 永远不会让你哭泣 ♪ ♪ 永远不会说再见 ♪",
-      "highlights": []
-    },
-    {
-      "id": 12,
-      "start": 114.96,
-      "end": 118.75999999999999,
-      "en_text": "♪ Never gonna tell a lie and hurt you ♪",
-      "zh_text": "♪ 永远不会撒谎伤害你 ♪",
-      "highlights": []
-    },
-    {
-      "id": 13,
-      "start": 119.84,
-      "end": 127.36,
-      "en_text": "♪ (Ooh, give you up) ♪ ♪ (Ooh, give you up) ♪",
-      "zh_text": "♪ (哦，放弃你) ♪ ♪ (哦，放弃你) ♪",
-      "highlights": []
-    },
-    {
-      "id": 14,
-      "start": 128.48,
-      "end": 134.23999999999998,
-      "en_text": "♪ Never gonna give, never gonna give ♪ ♪ (Give you up) ♪ ♪ Never gonna give, never gonna give ♪",
-      "zh_text": "♪ 永远不会放弃，永远不会放弃 ♪ ♪ (放弃你) ♪ ♪ 永远不会放弃，永远不会放弃 ♪",
-      "highlights": []
-    },
-    {
-      "id": 15,
-      "start": 134.36,
-      "end": 145.2,
-      "en_text": "♪ (Give you up) ♪ ♪ We've known each other for so long ♪ ♪ Your heart's been aching but you're too shy to say it ♪",
-      "zh_text": "♪ (放弃你) ♪ ♪ 我们相识已久 ♪ ♪ 你的心一直在痛，但你太害羞说出来 ♪",
-      "highlights": []
-    },
-    {
-      "id": 16,
-      "start": 145.28,
-      "end": 158.04000000000002,
-      "en_text": "♪ Inside we both know what's been going ♪ ♪ We know the game and we're gonna play it ♪ ♪ I just wanna tell you how I'm feeling ♪",
-      "zh_text": "♪ 心里我们都知道发生了什么 ♪ ♪ 我们懂这场游戏，也会玩下去 ♪ ♪ 我只是想告诉你我的感受 ♪",
-      "highlights": []
-    },
-    {
-      "id": 17,
-      "start": 158.64,
-      "end": 169.72,
-      "en_text": "♪ Gotta make you understand ♪ ♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪",
-      "zh_text": "♪ 必须让你明白 ♪ ♪ 永远不会放弃你 ♪ ♪ 永远不会让你失望 ♪ ♪ 永远不会四处奔波然后抛弃你 ♪",
-      "highlights": []
-    },
-    {
-      "id": 18,
-      "start": 169.8,
+      "start": 163.44,
       "end": 177.6,
-      "en_text": "♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
-      "zh_text": "♪ 永远不会让你哭泣 ♪ ♪ 永远不会说再见 ♪ ♪ 永远不会撒谎伤害你 ♪",
-      "highlights": []
-    },
-    {
-      "id": 19,
-      "start": 178.2,
-      "end": 186.64000000000001,
-      "en_text": "♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪",
-      "zh_text": "♪ 永远不会放弃你 ♪ ♪ 永远不会让你失望 ♪ ♪ 永远不会四处奔波然后抛弃你 ♪",
-      "highlights": []
-    },
-    {
-      "id": 20,
-      "start": 186.72,
-      "end": 195.20000000000002,
-      "en_text": "♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
-      "zh_text": "♪ 永远不会让你哭泣 ♪ ♪ 永远不会说再见 ♪ ♪ 永远不会撒谎伤害你 ♪",
-      "highlights": []
-    },
-    {
-      "id": 21,
-      "start": 195.28,
-      "end": 203.12,
-      "en_text": "♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪",
-      "zh_text": "♪ 永远不会放弃你 ♪ ♪ 永远不会让你失望 ♪ ♪ 永远不会背弃你 ♪",
+      "en_text": "♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪ ♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
+      "zh_text": "♪ 永不让你失望 ♪ ♪ 永不离你而去，抛弃你 ♪ ♪ 永不让你哭泣 ♪ ♪ 永不道别 ♪ ♪ 永不撒谎伤害你 ♪",
       "highlights": [
-        {
-          "en_word": "give you up",
-          "zh_word": "放弃你",
-          "color": "text-purple-400 border-b border-dashed border-purple-400"
-        },
         {
           "en_word": "let you down",
           "zh_word": "让你失望",
           "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "run around and desert you",
+          "zh_word": "离你而去，抛弃你",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
         }
       ]
     },
     {
-      "id": 22,
-      "start": 203.36,
+      "id": 12,
+      "start": 178.2,
+      "end": 195.20000000000002,
+      "en_text": "♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪ ♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
+      "zh_text": "♪ 永不放弃你 ♪ ♪ 永不让你失望 ♪ ♪ 永不离你而去，抛弃你 ♪ ♪ 永不让你哭泣 ♪ ♪ 永不道别 ♪ ♪ 永不撒谎伤害你 ♪",
+      "highlights": [
+        {
+          "en_word": "let you down",
+          "zh_word": "让你失望",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "run around and desert you",
+          "zh_word": "离你而去，抛弃你",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 195.28,
       "end": 211.32,
-      "en_text": "♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
-      "zh_text": "♪ 永远不会让你哭泣 ♪ ♪ 永远不会说再见 ♪ ♪ 永远不会说谎并伤害你 ♪",
-      "highlights": []
+      "en_text": "♪ Never gonna give you up ♪ ♪ Never gonna let you down ♪ ♪ Never gonna run around and desert you ♪ ♪ Never gonna make you cry ♪ ♪ Never gonna say goodbye ♪ ♪ Never gonna tell a lie and hurt you ♪",
+      "zh_text": "♪ 永不放弃你 ♪ ♪ 永不让你失望 ♪ ♪ 永不离你而去，抛弃你 ♪ ♪ 永不让你哭泣 ♪ ♪ 永不道别 ♪ ♪ 永不撒谎伤害你 ♪",
+      "highlights": [
+        {
+          "en_word": "let you down",
+          "zh_word": "让你失望",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "run around and desert you",
+          "zh_word": "离你而去，抛弃你",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     }
   ],
-  "summary": "以下是对该YouTube视频英文歌词的中文摘要：\n\n*   该文本是经典英文歌曲《Never Gonna Give You Up》的歌词。\n*   歌曲主旨是表达对爱情的坚定承诺和不渝的忠诚。\n*   歌词中反复强调了对伴侣永不放弃、永不背叛、永不伤害的决心，以及永不让对方失望或哭泣的保证。\n*   传递了建立在长期相识和相互理解基础上的深厚情感和全然投入。"
+  "summary": "这份英文文本是著名歌曲《Never Gonna Give You Up》的歌词。其核心知识点和主要思想可概括如下：\n\n*   **爱情承诺与忠诚：** 歌曲表达了对伴侣深切、坚定的爱意和永不改变的承诺。\n*   **永不放弃的精神：** 核心信息是歌手承诺永远不会放弃、辜负、抛弃或伤害所爱之人。\n*   **拒绝欺骗与伤害：** 强调了在关系中保持真诚，绝不撒谎或让对方哭泣。\n*   **心照不宣的情感：** 暗示了两人之间存在长久且彼此心知肚明的情感连结，即使一方羞于启齿。"
 }
