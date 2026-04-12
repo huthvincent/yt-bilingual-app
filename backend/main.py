@@ -487,7 +487,7 @@ SHOW_METADATA = {
     "house-of-cards": {
         "title": "House of Cards",
         "title_zh": "纸牌屋",
-        "thumbnail": "https://m.media-amazon.com/images/M/MV5BODM1MDU2NjY3NF5BMl5BanBnXkFtZTgwMDkxNTcwNjE@._V1_.jpg",
+        "thumbnail": "/images/house-of-cards.png",
         "seasons": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 8}
     }
 }
