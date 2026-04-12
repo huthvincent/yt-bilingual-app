@@ -810,6 +810,41 @@ async def process_subtitle(request: SubtitleRequest):
     
     return result_payload
 
+# --- Favorites persistence ---
+FAVORITES_FILE = os.path.join(HISTORY_DIR, "favorites.json")
+
+@app.get("/api/favorites")
+def get_favorites():
+    if os.path.exists(FAVORITES_FILE):
+        with open(FAVORITES_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+@app.put("/api/favorites")
+async def save_favorites(request: dict):
+    favorites = request.get("favorites", [])
+    with open(FAVORITES_FILE, "w", encoding="utf-8") as f:
+        json.dump(favorites, f, ensure_ascii=False, indent=2)
+    return {"status": "ok", "count": len(favorites)}
+
+
+# --- Subscriptions persistence ---
+SUBS_FILE = os.path.join(HISTORY_DIR, "subscriptions.json")
+
+@app.get("/api/subscriptions")
+def get_subscriptions():
+    if os.path.exists(SUBS_FILE):
+        with open(SUBS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+@app.put("/api/subscriptions")
+async def save_subscriptions(request: dict):
+    subs = request.get("subscriptions", [])
+    with open(SUBS_FILE, "w", encoding="utf-8") as f:
+        json.dump(subs, f, ensure_ascii=False, indent=2)
+    return {"status": "ok", "count": len(subs)}
+
 
 @app.get("/health")
 def health_check():

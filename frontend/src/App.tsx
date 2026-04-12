@@ -63,28 +63,59 @@ function App() {
     };
   }, []);
 
-  // Favorites logic
-  const [favorites, setFavorites] = useState<FavoriteItem[]>(() => {
-    const saved = localStorage.getItem('yt_bilingual_favorites');
-    return saved ? JSON.parse(saved) : [];
-  });
+  // Favorites logic — load from backend, sync to backend
+  const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
+  const favoritesLoaded = useRef(false);
 
   // Channel History Logic
   const [selectedChannel, setSelectedChannel] = useState<string | null>(null);
 
-  // Channel Subscriptions logic
-  const [subscriptions, setSubscriptions] = useState<{ id: string, name: string }[]>(() => {
-    const saved = localStorage.getItem('yt_bilingual_subs');
-    return saved ? JSON.parse(saved) : [];
-  });
+  // Channel Subscriptions logic — load from backend, sync to backend
+  const [subscriptions, setSubscriptions] = useState<{ id: string, name: string }[]>([]);
+  const subsLoaded = useRef(false);
 
+  // Load favorites & subscriptions from backend on mount
   useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/favorites')
+      .then(r => r.json())
+      .then(data => { setFavorites(data); favoritesLoaded.current = true; })
+      .catch(() => {
+        // Fallback to localStorage
+        const saved = localStorage.getItem('yt_bilingual_favorites');
+        if (saved) setFavorites(JSON.parse(saved));
+        favoritesLoaded.current = true;
+      });
+    fetch('http://127.0.0.1:8000/api/subscriptions')
+      .then(r => r.json())
+      .then(data => { setSubscriptions(data); subsLoaded.current = true; })
+      .catch(() => {
+        const saved = localStorage.getItem('yt_bilingual_subs');
+        if (saved) setSubscriptions(JSON.parse(saved));
+        subsLoaded.current = true;
+      });
+  }, []);
+
+  // Sync favorites to backend + localStorage whenever they change
+  useEffect(() => {
+    if (!favoritesLoaded.current) return; // Don't save on initial load
     localStorage.setItem('yt_bilingual_favorites', JSON.stringify(favorites));
+    fetch('http://127.0.0.1:8000/api/favorites', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ favorites })
+    }).catch(() => {});
   }, [favorites]);
 
+  // Sync subscriptions to backend + localStorage whenever they change
   useEffect(() => {
+    if (!subsLoaded.current) return;
     localStorage.setItem('yt_bilingual_subs', JSON.stringify(subscriptions));
+    fetch('http://127.0.0.1:8000/api/subscriptions', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subscriptions })
+    }).catch(() => {});
   }, [subscriptions]);
 
   const handleToggleSubscription = () => {
