@@ -394,7 +394,48 @@ function App() {
 
           {/* Transcript Column: full-width for local subtitles, half-width for YouTube videos */}
           <div className={`w-full ${metadata?.is_local_subtitle ? '' : 'md:w-1/2'} h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`}>
-            <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-gray-900 to-transparent z-10 pointer-events-none"></div>
+
+            {/* Local subtitle playback controls */}
+            {metadata?.is_local_subtitle && (
+              <div className="flex-none flex items-center justify-between px-4 py-2 bg-gray-900/95 border-b border-gray-800 z-20">
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => {
+                      if (isSubtitlePlaying) {
+                        pauseSubtitleTimer();
+                      } else {
+                        startSubtitleTimer(currentTime);
+                      }
+                    }}
+                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                      isSubtitlePlaying
+                        ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 ring-1 ring-amber-500/40'
+                        : 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 ring-1 ring-emerald-500/40'
+                    }`}
+                  >
+                    {isSubtitlePlaying ? (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <rect x="6" y="4" width="4" height="16" rx="1" />
+                        <rect x="14" y="4" width="4" height="16" rx="1" />
+                      </svg>
+                    ) : (
+                      <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    )}
+                  </button>
+                  <span className="text-gray-400 text-xs font-medium">
+                    {metadata?.title || 'Local Subtitle'}
+                  </span>
+                </div>
+                <span className="text-gray-500 text-xs font-mono tabular-nums">
+                  {Math.floor(currentTime / 60).toString().padStart(2, '0')}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}
+                </span>
+              </div>
+            )}
+
+            <div className="relative flex-1 min-h-0">
+              <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-gray-900 to-transparent z-10 pointer-events-none"></div>
             <TranscriptView
               transcript={transcript}
               currentTime={currentTime}
@@ -410,6 +451,7 @@ function App() {
               onToggleFavorite={handleToggleFavorite}
             />
             <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-gray-900 to-transparent z-10 pointer-events-none"></div>
+            </div>
           </div>
         </div>
       )}
