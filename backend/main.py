@@ -810,6 +810,20 @@ async def process_subtitle(request: SubtitleRequest):
     
     return result_payload
 
+# --- Processed episodes lookup ---
+@app.get("/api/shows/{show_id}/processed")
+def get_processed_episodes(show_id: str):
+    """Return a list of processed episode keys like ['S02E01', 'S04E03'] for a show."""
+    prefix = f"{show_id}_S"
+    processed = []
+    for filename in os.listdir(HISTORY_DIR):
+        if filename.startswith(prefix) and filename.endswith(".json"):
+            # e.g. "house-of-cards_S02E01.json" -> "S02E01"
+            key = filename[len(show_id) + 1:].replace(".json", "")
+            processed.append(key)
+    return {"processed": processed}
+
+
 # --- Favorites persistence ---
 FAVORITES_FILE = os.path.join(HISTORY_DIR, "favorites.json")
 

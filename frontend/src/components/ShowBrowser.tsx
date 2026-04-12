@@ -27,6 +27,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
     const [seasons, setSeasons] = useState<SeasonData[]>([]);
     const [selectedSeason, setSelectedSeason] = useState<number | null>(null);
     const [loadingShows, setLoadingShows] = useState(true);
+    const [processedEpisodes, setProcessedEpisodes] = useState<Set<string>>(new Set());
 
     useEffect(() => {
         fetch('http://127.0.0.1:8000/api/shows')
@@ -44,10 +45,16 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
     const handleShowSelect = async (show: Show) => {
         setSelectedShow(show);
         setSelectedSeason(null);
+        setProcessedEpisodes(new Set());
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/shows/${show.id}/seasons`);
-            const data = await res.json();
-            setSeasons(data.seasons || []);
+            const [seasonsRes, processedRes] = await Promise.all([
+                fetch(`http://127.0.0.1:8000/api/shows/${show.id}/seasons`),
+                fetch(`http://127.0.0.1:8000/api/shows/${show.id}/processed`)
+            ]);
+            const seasonsData = await seasonsRes.json();
+            setSeasons(seasonsData.seasons || []);
+            const processedData = await processedRes.json();
+            setProcessedEpisodes(new Set(processedData.processed || []));
         } catch (err) {
             console.error('Failed to load seasons:', err);
         }
@@ -148,7 +155,10 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 mt-3">
                             {seasons
                                 .find(s => s.season === selectedSeason)
-                                ?.episodes.map(ep => (
+                                    .episodes.map(ep => {
+                                        const epKey = `S${selectedSeason.toString().padStart(2, '0')}E${ep.toString().padStart(2, '0')}`;
+                                        const isProcessed = processedEpisodes.has(epKey);
+                                        return (
                                     <button
                                         key={ep}
                                         disabled={isLoading}
@@ -156,12 +166,16 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                                         className={`py-3 px-2 rounded-lg text-sm font-medium transition-all ${
                                             isLoading
                                                 ? 'bg-gray-800/50 text-gray-600 cursor-wait'
-                                                : 'bg-gray-800 text-gray-300 hover:bg-purple-600/20 hover:text-purple-300 hover:border-purple-500/30 border border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/10'
+                                                : isProcessed
+                                                    ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 hover:shadow-lg hover:shadow-emerald-500/10'
+                                                    : 'bg-gray-800 text-gray-300 hover:bg-purple-600/20 hover:text-purple-300 hover:border-purple-500/30 border border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/10'
                                         }`}
                                     >
                                         E{ep.toString().padStart(2, '0')}
+                                        {isProcessed && <span className="ml-1 text-[10px] opacity-70">✓</span>}
                                     </button>
-                                ))}
+                                    );
+                                    })}
                         </div>
                     )}
 
