@@ -209,20 +209,35 @@ function App() {
   const handleSelectEpisode = async (showId: string, season: number, episode: number) => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/process-subtitle', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ show_id: showId, season, episode }),
-      });
+      // Try loading from history cache first (already processed episodes)
+      const cacheFilename = `${showId}_S${season.toString().padStart(2, '0')}E${episode.toString().padStart(2, '0')}.json`;
+      const cacheResponse = await fetch(`http://127.0.0.1:8000/api/history/${cacheFilename}`);
+      
+      if (cacheResponse.ok) {
+        // Already processed — load directly from cache
+        const data = await cacheResponse.json();
+        setTranscript(data.transcript);
+        setSummary(data.summary || '');
+        setMetadata({ ...data.metadata, is_local_subtitle: true });
+        setVideoId(data.videoId);
+        setVideoUrl('');
+      } else {
+        // Not yet processed — run the full processing pipeline
+        const response = await fetch('http://127.0.0.1:8000/api/process-subtitle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ show_id: showId, season, episode }),
+        });
 
-      if (!response.ok) throw new Error('Failed to process subtitle');
+        if (!response.ok) throw new Error('Failed to process subtitle');
 
-      const data = await response.json();
-      setTranscript(data.transcript);
-      setSummary(data.summary || '');
-      setMetadata({ ...data.metadata, is_local_subtitle: true });
-      setVideoId(data.videoId);
-      setVideoUrl(''); // No video URL for local subtitles
+        const data = await response.json();
+        setTranscript(data.transcript);
+        setSummary(data.summary || '');
+        setMetadata({ ...data.metadata, is_local_subtitle: true });
+        setVideoId(data.videoId);
+        setVideoUrl('');
+      }
     } catch (error) {
       console.error(error);
       alert('Failed to process subtitle file.');
