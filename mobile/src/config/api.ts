@@ -3,10 +3,10 @@
 const DEV_API_URL = 'http://10.217.139.31:8000';
 
 // PROD: When you deploy the backend to cloud, put the URL here and switch
-// const PROD_API_URL = 'https://your-app.railway.app';
+const PROD_API_URL = 'https://web-production-b50098.up.railway.app';
 
 // Toggle between DEV and PROD:
-export const API_BASE_URL = DEV_API_URL;
+export const API_BASE_URL = PROD_API_URL;
 
 export const api = {
   processVideo: `${API_BASE_URL}/api/process-video`,
