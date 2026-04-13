@@ -146,11 +146,16 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                             <View style={styles.favActions}>
                               <TouchableOpacity
                                 onPress={() => {
-                                  setPlayingFav({ videoId: fav.videoId, start: fav.start });
+                                  if (fav.videoId.length > 11) {
+                                    onClose();
+                                    onPlayFavorite(fav.videoId, fav.start);
+                                  } else {
+                                    setPlayingFav({ videoId: fav.videoId, start: fav.start });
+                                  }
                                 }}
                                 style={styles.playBtn}
                               >
-                                <Ionicons name="play" size={16} color="#fff" />
+                                <Ionicons name={fav.videoId.length > 11 ? "document-text" : "play"} size={16} color="#fff" />
                               </TouchableOpacity>
                               <TouchableOpacity
                                 onPress={() => onRemoveFavorite(fav.id)}

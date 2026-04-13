@@ -152,15 +152,22 @@ function App() {
   };
 
   const handlePlayFavorite = (favVideoId: string, start: number) => {
-    // If it's a different video, we need to load it. For now, since we only store videoId, 
-    // we would need that video's transcript. To keep it simple, we use the history if possible,
-    // otherwise we just load the video. Let's redirect to InputScreen logic.
-    if (favVideoId !== videoId) {
-      handleUrlSubmit(`https://youtube.com/watch?v=${favVideoId}`).then(() => {
-        setTimeout(() => setSeekCommand({ time: start, timestamp: Date.now() }), 1000); // Wait for load
-      });
+    if (favVideoId.length > 11) {
+      // Local Subtitle: Extract showId, season, episode from string like "house-of-cards_S03E03"
+      const match = favVideoId.match(/^(.+)_S(\d+)E(\d+)$/);
+      if (match) {
+        handleSelectEpisode(match[1], parseInt(match[2]), parseInt(match[3])).then(() => {
+          setTimeout(() => startSubtitleTimer(start), 1000);
+        });
+      }
     } else {
-      setSeekCommand({ time: start, timestamp: Date.now() });
+      if (favVideoId !== videoId) {
+        handleUrlSubmit(`https://youtube.com/watch?v=${favVideoId}`).then(() => {
+          setTimeout(() => setSeekCommand({ time: start, timestamp: Date.now() }), 1000); // Wait for load
+        });
+      } else {
+        setSeekCommand({ time: start, timestamp: Date.now() });
+      }
     }
     setIsFavoritesOpen(false);
   };

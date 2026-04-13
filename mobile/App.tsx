@@ -158,12 +158,21 @@ export default function App() {
   };
 
   const handlePlayFavorite = (favVideoId: string, start: number) => {
-    if (favVideoId !== videoId) {
-      handleUrlSubmit(`https://youtube.com/watch?v=${favVideoId}`).then(() => {
-        setTimeout(() => setSeekCommand({ time: start, timestamp: Date.now() }), 1000);
-      });
+    if (favVideoId.length > 11) {
+      const match = favVideoId.match(/^(.+)_S(\d+)E(\d+)$/);
+      if (match) {
+        handleSelectEpisode(match[1], parseInt(match[2]), parseInt(match[3])).then(() => {
+          setTimeout(() => startSubtitleTimer(start), 1000);
+        });
+      }
     } else {
-      setSeekCommand({ time: start, timestamp: Date.now() });
+      if (favVideoId !== videoId) {
+        handleUrlSubmit(`https://youtube.com/watch?v=${favVideoId}`).then(() => {
+          setTimeout(() => setSeekCommand({ time: start, timestamp: Date.now() }), 1000);
+        });
+      } else {
+        setSeekCommand({ time: start, timestamp: Date.now() });
+      }
     }
     setIsFavoritesOpen(false);
   };

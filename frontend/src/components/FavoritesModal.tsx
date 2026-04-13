@@ -122,10 +122,15 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                     <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                         <button
                                                             onClick={() => {
-                                                                setPlayingFav({ videoId: fav.videoId, start: fav.start });
+                                                                if (fav.videoId.length > 11) {
+                                                                    onClose();
+                                                                    onPlayFavorite(fav.videoId, fav.start);
+                                                                } else {
+                                                                    setPlayingFav({ videoId: fav.videoId, start: fav.start });
+                                                                }
                                                             }}
                                                             className="p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors"
-                                                            title="Play Video"
+                                                            title={fav.videoId.length > 11 ? "Go to Transcript" : "Play Video"}
                                                         >
                                                             <Play className="w-4 h-4" />
                                                         </button>

@@ -53,11 +53,18 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     }
   }, []);
 
+  const onReady = useCallback(() => {
+    if (seekCommand && playerRef.current) {
+      playerRef.current.seekTo(seekCommand.time, true);
+    }
+  }, [seekCommand]);
+
   return (
     <View style={styles.container}>
       <View style={styles.playerWrapper}>
         <YoutubePlayer
           ref={playerRef}
+          onReady={onReady}
           height={220}
           videoId={videoId}
           play={isPlaying}

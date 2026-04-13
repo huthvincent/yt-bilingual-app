@@ -48,7 +48,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate,
 
     const onReady: YouTubeProps['onReady'] = (event) => {
         playerRef.current = event.target;
-        // Start polling immediately if it autoplays
+        if (seekCommand) {
+            event.target.seekTo(seekCommand.time, true);
+        }
         event.target.playVideo();
     };
 
