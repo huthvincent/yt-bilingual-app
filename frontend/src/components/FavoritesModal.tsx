@@ -75,9 +75,9 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-            <div className="bg-gray-900 border border-gray-800 w-full max-w-3xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
-                <div className="flex items-center justify-between p-6 border-b border-gray-800">
+        <div className="fixed inset-0 z-50 flex flex-col bg-gray-900 w-full h-full overflow-hidden">
+            <div className="w-full flex flex-col h-full mx-auto max-w-5xl">
+                <div className="flex items-center justify-between p-6 border-b border-gray-800 shrink-0">
                     <h2 className="text-2xl font-bold text-white">My Favorites</h2>
                     <button onClick={onClose} className="p-2 text-gray-400 hover:text-white rounded-full hover:bg-gray-800 transition-colors">
                         <X className="w-6 h-6" />

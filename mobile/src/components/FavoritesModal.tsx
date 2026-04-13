@@ -176,15 +176,11 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: colors.bg.overlay,
+    backgroundColor: colors.bg.primary,
   },
   modalContainer: {
     flex: 1,
-    backgroundColor: colors.bg.secondary,
-    marginTop: 60,
-    borderTopLeftRadius: borderRadius.xl,
-    borderTopRightRadius: borderRadius.xl,
-    overflow: 'hidden',
+    backgroundColor: colors.bg.primary,
   },
   header: {
     flexDirection: 'row',
