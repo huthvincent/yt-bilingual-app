@@ -23,7 +23,7 @@ interface TranscriptItem {
 function App() {
   const [videoUrl, setVideoUrl] = useState('');
   const [videoId, setVideoId] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingState, setLoadingState] = useState<'processing' | 'loading' | null>(null);
   const [transcript, setTranscript] = useState<TranscriptItem[]>([]);
   const [summary, setSummary] = useState<string>('');
   const [metadata, setMetadata] = useState<any>(null);
@@ -175,7 +175,7 @@ function App() {
       return;
     }
 
-    setIsLoading(true);
+    setLoadingState('processing');
     setVideoUrl(url);
 
     try {
@@ -203,12 +203,12 @@ function App() {
       alert("Failed to process video. Please check the backend is running and the video has closed captions.");
       setVideoUrl(''); // Reset
     } finally {
-      setIsLoading(false);
+      setLoadingState(null);
     }
   };
 
   const handleSelectEpisode = async (showId: string, season: number, episode: number) => {
-    setIsLoading(true);
+    setLoadingState('loading');
     try {
       // Try loading from history cache first (already processed episodes)
       const cacheFilename = `${showId}_S${season.toString().padStart(2, '0')}E${episode.toString().padStart(2, '0')}.json`;
@@ -223,6 +223,7 @@ function App() {
         setVideoId(data.videoId);
         setVideoUrl('');
       } else {
+        setLoadingState('processing');
         // Not yet processed — run the full processing pipeline
         const response = await fetch('http://127.0.0.1:8000/api/process-subtitle', {
           method: 'POST',
@@ -243,12 +244,12 @@ function App() {
       console.error(error);
       alert('Failed to process subtitle file.');
     } finally {
-      setIsLoading(false);
+      setLoadingState(null);
     }
   };
 
   const handleLoadHistory = async (filename: string) => {
-    setIsLoading(true);
+    setLoadingState('loading');
     try {
       const response = await fetch(`http://127.0.0.1:8000/api/history/${filename}`);
       if (!response.ok) throw new Error("Failed to load history");
@@ -263,7 +264,7 @@ function App() {
       console.error(error);
       alert("Failed to load history file.");
     } finally {
-      setIsLoading(false);
+      setLoadingState(null);
     }
   };
 
@@ -309,7 +310,8 @@ function App() {
             onSubmit={handleUrlSubmit}
             onLoadHistory={handleLoadHistory}
             onSelectEpisode={handleSelectEpisode}
-            isLoading={isLoading}
+            isLoading={loadingState !== null}
+            loadingState={loadingState}
             subscriptions={subscriptions}
           />
         </div>

@@ -19,6 +19,7 @@ interface FavoritesModalProps {
 }
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useState, useMemo } from 'react';
+import { VideoPlayer } from './VideoPlayer';
 
 // Help functions for grouping logic
 const getGroupTitle = (timestamp?: number) => {
@@ -44,6 +45,7 @@ const getGroupTitle = (timestamp?: number) => {
 // ... inside the component
 export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose, favorites, onRemoveFavorite, onPlayFavorite }) => {
     const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
+    const [playingFav, setPlayingFav] = useState<{ videoId: string, start: number } | null>(null);
 
     // Group the favorites
     const groups = useMemo(() => {
@@ -120,8 +122,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                     <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                         <button
                                                             onClick={() => {
-                                                                onClose();
-                                                                onPlayFavorite(fav.videoId, fav.start);
+                                                                setPlayingFav({ videoId: fav.videoId, start: fav.start });
                                                             }}
                                                             className="p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors"
                                                             title="Play Video"
@@ -146,6 +147,24 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                     )}
                 </div>
             </div>
+
+            {playingFav && (
+                <div className="fixed bottom-8 right-8 w-96 aspect-video bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-700 z-[60] group cursor-move">
+                    <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button 
+                            onClick={() => setPlayingFav(null)} 
+                            className="p-1.5 text-white bg-black/60 rounded-full hover:bg-red-500 transition-colors backdrop-blur-md"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+                    </div>
+                    <VideoPlayer
+                        videoId={playingFav.videoId}
+                        seekCommand={{ time: playingFav.start, timestamp: Date.now() }}
+                        onTimeUpdate={() => {}}
+                    />
+                </div>
+            )}
         </div>
     );
 };

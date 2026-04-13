@@ -9,11 +9,12 @@ interface InputScreenProps {
     onSubmit: (url: string) => void;
     onLoadHistory: (filename: string) => void;
     onSelectEpisode: (showId: string, season: number, episode: number) => void;
-    isLoading: boolean;
+    isLoading?: boolean; // legacy
+    loadingState?: 'processing' | 'loading' | null;
     subscriptions?: { id: string; name: string }[];
 }
 
-export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, subscriptions = [] }) => {
+export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [] }) => {
     const [url, setUrl] = useState('');
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
@@ -78,11 +79,15 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
 
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-900 p-8 pt-20 overflow-y-auto custom-scrollbar relative">
-            {isLoading && !isEstimating && (
+            {(isLoading || loadingState) && !isEstimating && (
                 <div className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
                     <Loader2 className="w-16 h-16 text-purple-500 animate-spin mb-6" />
-                    <h2 className="text-2xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">Processing Video...</h2>
-                    <p className="text-gray-300">This may take a minute or two for long videos</p>
+                    <h2 className="text-2xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                        {loadingState === 'processing' ? 'Processing Video...' : 'Loading...'}
+                    </h2>
+                    {loadingState === 'processing' && (
+                        <p className="text-gray-300">This may take a minute or two for long videos</p>
+                    )}
                 </div>
             )}
 

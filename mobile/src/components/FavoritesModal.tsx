@@ -13,6 +13,7 @@ import { useState, useMemo } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, fontSize, borderRadius } from '../theme';
 import type { FavoriteItem } from '../types';
+import { VideoPlayer } from './VideoPlayer';
 
 interface FavoritesModalProps {
   isOpen: boolean;
@@ -51,6 +52,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
   onPlayFavorite,
 }) => {
   const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
+  const [playingFav, setPlayingFav] = useState<{ videoId: string, start: number } | null>(null);
 
   // Group the favorites
   const groups = useMemo(() => {
@@ -144,8 +146,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                             <View style={styles.favActions}>
                               <TouchableOpacity
                                 onPress={() => {
-                                  onClose();
-                                  onPlayFavorite(fav.videoId, fav.start);
+                                  setPlayingFav({ videoId: fav.videoId, start: fav.start });
                                 }}
                                 style={styles.playBtn}
                               >
@@ -166,6 +167,24 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                 );
               })}
             </ScrollView>
+          )}
+
+          {playingFav && (
+            <View style={styles.miniPlayerContainer}>
+              <View style={styles.miniPlayerHeader}>
+                <Text style={styles.miniPlayerTitle}>Playing Video</Text>
+                <TouchableOpacity onPress={() => setPlayingFav(null)} style={styles.miniPlayerClose}>
+                  <Ionicons name="close" size={20} color="#fff" />
+                </TouchableOpacity>
+              </View>
+              <View style={{ height: 220, width: '100%' }}>
+                <VideoPlayer
+                  videoId={playingFav.videoId}
+                  seekCommand={{ time: playingFav.start, timestamp: Date.now() }}
+                  onTimeUpdate={() => {}}
+                />
+              </View>
+            </View>
           )}
         </SafeAreaView>
       </View>
@@ -283,5 +302,40 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.md,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  miniPlayerContainer: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20,
+    backgroundColor: colors.bg.secondary,
+    borderRadius: borderRadius.lg,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: colors.border.secondary,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+    zIndex: 100,
+  },
+  miniPlayerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    backgroundColor: colors.bg.tertiary,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.primary,
+  },
+  miniPlayerTitle: {
+    color: '#fff',
+    fontSize: fontSize.sm,
+    fontWeight: '600',
+  },
+  miniPlayerClose: {
+    padding: spacing.xs,
   },
 });

@@ -25,6 +25,7 @@ export default function App() {
   const [videoUrl, setVideoUrl] = useState('');
   const [videoId, setVideoId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('Processing...');
   const [transcript, setTranscript] = useState<TranscriptItem[]>([]);
   const [summary, setSummary] = useState<string>('');
   const [metadata, setMetadata] = useState<VideoMetadata | null>(null);
@@ -179,6 +180,7 @@ export default function App() {
     }
 
     setIsLoading(true);
+    setLoadingMessage('Processing...');
     setVideoUrl(url);
 
     try {
@@ -209,6 +211,7 @@ export default function App() {
 
   const handleSelectEpisode = async (showId: string, season: number, episode: number) => {
     setIsLoading(true);
+    setLoadingMessage('Loading Cache...');
     try {
       const cacheFilename = `${showId}_S${season.toString().padStart(2, '0')}E${episode
         .toString()
@@ -223,6 +226,8 @@ export default function App() {
         setVideoId(data.videoId);
         setVideoUrl('');
       } else {
+        // Not yet processed — run the full processing pipeline
+        setLoadingMessage('Processing...');
         const response = await fetch(api.processSubtitle, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -246,6 +251,7 @@ export default function App() {
 
   const handleLoadHistory = async (filename: string) => {
     setIsLoading(true);
+    setLoadingMessage('Loading...');
     try {
       const response = await fetch(`${api.history}/${filename}`);
       if (!response.ok) throw new Error('Failed to load history');
@@ -304,8 +310,10 @@ export default function App() {
       {isLoading && (
         <View style={styles.loadingOverlay}>
           <ActivityIndicator size="large" color={colors.purple[500]} />
-          <Text style={styles.loadingTitle}>Processing...</Text>
-          <Text style={styles.loadingSubtitle}>This may take a minute or two for long videos</Text>
+          <Text style={styles.loadingTitle}>{loadingMessage}</Text>
+          {loadingMessage === 'Processing...' && (
+            <Text style={styles.loadingSubtitle}>This may take a minute or two for long videos</Text>
+          )}
         </View>
       )}
 
