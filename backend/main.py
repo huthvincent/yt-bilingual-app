@@ -8,11 +8,16 @@ import yt_dlp
 import json
 import os
 import datetime
+from dotenv import load_dotenv
+
+# Load .env file (for GEMINI_API_KEY etc.)
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env"))
 
 app = FastAPI()
 
 # Ensure history directory exists
-HISTORY_DIR = "/Users/rui/Desktop/yt-bilingual-app/history"
+# In Docker/cloud, override via env var; locally uses relative path from backend/
+HISTORY_DIR = os.environ.get("HISTORY_DIR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "history"))
 os.makedirs(HISTORY_DIR, exist_ok=True)
 
 # Configure CORS for frontend access
@@ -480,7 +485,7 @@ def get_channel_updates(request: ChannelUpdatesRequest):
 # Local Subtitle (SRT) Integration
 # ====================================================
 
-SUBTITLES_DIR = os.path.join(os.path.dirname(__file__), "..", "subtitles")
+SUBTITLES_DIR = os.environ.get("SUBTITLES_DIR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "subtitles"))
 
 # Show metadata for display purposes
 SHOW_METADATA = {

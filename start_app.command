@@ -21,7 +21,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "[1/2] 启动后端服务..."
 cd "$SCRIPT_DIR/backend"
 source venv/bin/activate
-uvicorn main:app --port 8000 > /dev/null 2>&1 &
+uvicorn main:app --host 0.0.0.0 --port 8000 > /dev/null 2>&1 &
 BACKEND_PID=$!
 
 # 启动前端 (Frontend)
