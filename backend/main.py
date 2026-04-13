@@ -47,56 +47,101 @@ def extract_video_id(url: str) -> str:
     
     raise ValueError("Invalid YouTube URL")
 
+def _split_at_sentence_boundaries(text: str) -> list:
+    """Split text at sentence boundaries: .!? followed by a space and uppercase letter."""
+    parts = []
+    last = 0
+    for m in re.finditer(r'[.!?]\s+(?=[A-Z])', text):
+        end = m.start() + 1  # include the .!? character
+        parts.append(text[last:end])
+        last = m.end()  # skip the whitespace
+    parts.append(text[last:])
+    return [p for p in parts if p.strip()]
+
 def group_transcript_blocks(transcript: list) -> list:
-    """Group short transcript snippets into sentences based on punctuation or natural pauses."""
+    """Group short transcript snippets into complete sentences.
+    
+    Two-phase approach:
+    1. Split each raw snippet at internal sentence boundaries (e.g. "okay. Most" -> "okay." + "Most")
+    2. Accumulate sub-snippets until we hit a sentence-ending boundary.
+    3. Safety cutoff at 300 chars with intelligent clause-boundary splitting.
+    """
+    # Phase 1: Split raw snippets at internal sentence boundaries
+    split_items = []
+    
+    for item in transcript:
+        text = item.text.replace('\n', ' ') if hasattr(item, 'text') else item['text'].replace('\n', ' ')
+        start = item.start if hasattr(item, 'start') else item['start']
+        duration = item.duration if hasattr(item, 'duration') else item['duration']
+        
+        parts = _split_at_sentence_boundaries(text)
+        
+        if len(parts) <= 1:
+            split_items.append({"text": text, "start": start, "duration": duration, "end": start + duration})
+        else:
+            total_chars = sum(len(p) for p in parts)
+            current_start = start
+            for p in parts:
+                frac = len(p) / total_chars if total_chars > 0 else 1
+                part_dur = duration * frac
+                split_items.append({"text": p, "start": current_start, "duration": part_dur, "end": current_start + part_dur})
+                current_start += part_dur
+    
+    # Phase 2: Accumulate split items into sentence blocks
     blocks = []
     current_block = None
     
-    for i, item in enumerate(transcript):
-        # Normalize the text specifically for newline handling but don't strip yet 
-        # because we want spaces between aggregated snippets
-        text = item.text.replace('\n', ' ')
+    for i, item in enumerate(split_items):
+        text = item["text"]
         
         if current_block is None:
-            current_block = {
-                "start": item.start,
-                "end": item.start + item.duration,
-                "text": text
-            }
+            current_block = {"start": item["start"], "end": item["end"], "text": text}
         else:
-            # We append the text
             current_block["text"] += " " + text
-            current_block["end"] = item.start + item.duration
+            current_block["end"] = item["end"]
             
-        # Check if we should flush the block
         text_so_far = current_block["text"].strip()
+        text_len = len(text_so_far)
         
-        # A block ends if the text ends with punctuation, optionally followed by quotes or spaces
-        ends_with_punctuation = bool(re.search(r'[.!?。！？][\'"”’]?\s*$', text_so_far))
-        
-        # For auto-generated captions without punctuation, break if too long
-        # Increased from 90 to 160 to ensure enough context for a full sentence translation
-        is_too_long = len(text_so_far) > 160 
-        
-        # Break if there's a natural pause speaking
-        has_long_pause = False
-        if i + 1 < len(transcript):
-            next_start = transcript[i+1]['start'] if isinstance(transcript[i+1], dict) else transcript[i+1].start
-            # If the next word is spoken more than 1.2s after the current word ends, it is very likely a sentence boundary
-            if next_start - current_block["end"] > 1.2: 
-                has_long_pause = True
-        
-        # Heuristic for auto-captions: If previous text is decent length, and next block starts with a Capital letter, it might be a new sentence.
-        starts_new_sentence_cap = False
-        if i + 1 < len(transcript):
-            next_text = transcript[i+1]['text'] if isinstance(transcript[i+1], dict) else transcript[i+1].text
-            if len(text_so_far) > 40 and next_text.strip() and next_text.strip()[0].isupper():
-                starts_new_sentence_cap = True
-
-        # If it looks like a complete sentence, or it's getting too long, or there's a pause
-        if ends_with_punctuation or is_too_long or has_long_pause or starts_new_sentence_cap:
+        # Primary: sentence-ending punctuation
+        if re.search(r'[.!?]\s*$', text_so_far):
             blocks.append(current_block)
             current_block = None
+            continue
+        
+        # Secondary: natural boundaries (only if enough text accumulated)
+        has_long_pause = False
+        if i + 1 < len(split_items):
+            if split_items[i+1]["start"] - item["end"] > 1.2:
+                has_long_pause = True
+        
+        starts_new_sentence = False
+        if i + 1 < len(split_items):
+            next_text = split_items[i+1]["text"].strip()
+            if next_text and next_text[0].isupper():
+                starts_new_sentence = True
+        
+        if text_len > 60 and (has_long_pause or starts_new_sentence):
+            blocks.append(current_block)
+            current_block = None
+            continue
+        
+        # Safety cutoff at 300 chars
+        if text_len > 300:
+            best_break = -1
+            for sep in [', and ', ', but ', ', so ', '; ', ', ']:
+                pos = text_so_far.rfind(sep, text_len // 3)
+                if pos > best_break:
+                    best_break = pos + len(sep)
+            
+            if best_break > text_len // 3:
+                first_part = text_so_far[:best_break].strip()
+                remainder = text_so_far[best_break:].strip()
+                blocks.append({"start": current_block["start"], "end": current_block["end"], "text": first_part})
+                current_block = {"start": current_block["end"], "end": current_block["end"], "text": remainder} if remainder else None
+            else:
+                blocks.append(current_block)
+                current_block = None
                 
     if current_block:
         blocks.append(current_block)
@@ -531,44 +576,80 @@ def parse_srt(content: str) -> list:
     return blocks
 
 def group_srt_blocks(blocks: list) -> list:
-    """Group short SRT subtitle snippets into sentence-level blocks."""
+    """Group short SRT subtitle snippets into complete sentence-level blocks.
+    
+    Two-phase: split at internal sentence boundaries first, then accumulate.
+    """
+    # Phase 1: Split at internal sentence boundaries
+    split_blocks = []
+    for block in blocks:
+        text = block["text"].strip()
+        parts = _split_at_sentence_boundaries(text)
+        
+        if len(parts) <= 1:
+            split_blocks.append(block)
+        else:
+            total_chars = sum(len(p) for p in parts)
+            dur = block["end"] - block["start"]
+            current_start = block["start"]
+            for p in parts:
+                frac = len(p) / total_chars if total_chars > 0 else 1
+                part_dur = dur * frac
+                split_blocks.append({"start": current_start, "end": current_start + part_dur, "text": p})
+                current_start += part_dur
+    
+    # Phase 2: Accumulate
     grouped = []
     current = None
     
-    for block in blocks:
+    for idx, block in enumerate(split_blocks):
         text = block["text"].strip()
         
         if current is None:
-            current = {
-                "start": block["start"],
-                "end": block["end"],
-                "text": text
-            }
+            current = {"start": block["start"], "end": block["end"], "text": text}
         else:
             current["text"] += " " + text
             current["end"] = block["end"]
         
         text_so_far = current["text"].strip()
+        text_len = len(text_so_far)
         
-        # End block on sentence-ending punctuation or length limit
-        ends_with_punct = bool(re.search(r'[.!?]["\'"]?\s*$', text_so_far))
-        is_too_long = len(text_so_far) > 160
-        
-        # Check for a pause between blocks (> 1.5s gap)
-        next_idx = blocks.index(block) + 1
-        has_pause = False
-        if next_idx < len(blocks):
-            if blocks[next_idx]["start"] - block["end"] > 1.5:
-                has_pause = True
-        
-        if ends_with_punct or is_too_long or has_pause:
+        if re.search(r'[.!?]\s*$', text_so_far):
             grouped.append(current)
             current = None
+            continue
+        
+        has_pause = False
+        if idx + 1 < len(split_blocks):
+            if split_blocks[idx + 1]["start"] - block["end"] > 1.5:
+                has_pause = True
+        
+        if text_len > 40 and has_pause:
+            grouped.append(current)
+            current = None
+            continue
+        
+        if text_len > 300:
+            best_break = -1
+            for sep in [', and ', ', but ', ', so ', '; ', ', ']:
+                pos = text_so_far.rfind(sep, text_len // 3)
+                if pos > best_break:
+                    best_break = pos + len(sep)
+            
+            if best_break > text_len // 3:
+                first_part = text_so_far[:best_break].strip()
+                remainder = text_so_far[best_break:].strip()
+                grouped.append({"start": current["start"], "end": current["end"], "text": first_part})
+                current = {"start": current["end"], "end": current["end"], "text": remainder} if remainder else None
+            else:
+                grouped.append(current)
+                current = None
     
     if current:
         grouped.append(current)
     
     return grouped
+
 
 
 @app.get("/api/shows")
