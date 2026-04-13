@@ -7,7 +7,9 @@ import {
   Modal,
   StyleSheet,
   SafeAreaView,
+  ScrollView,
 } from 'react-native';
+import { useState, useMemo } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, fontSize, borderRadius } from '../theme';
 import type { FavoriteItem } from '../types';
@@ -20,6 +22,27 @@ interface FavoritesModalProps {
   onPlayFavorite: (videoId: string, start: number) => void;
 }
 
+// Help functions for grouping logic
+const getGroupTitle = (timestamp?: number) => {
+  if (!timestamp) return '更早 (Older)';
+
+  const now = new Date();
+  const date = new Date(timestamp);
+  
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+  
+  const lastWeek = new Date(today);
+  lastWeek.setDate(lastWeek.getDate() - 7);
+
+  if (date >= today) return '今天 (Today)';
+  if (date >= yesterday && date < today) return '昨天 (Yesterday)';
+  if (date >= lastWeek && date < yesterday) return '过去7天 (Last 7 days)';
+  
+  return `${date.getFullYear()}年${date.getMonth() + 1}月`;
+};
+
 export const FavoritesModal: React.FC<FavoritesModalProps> = ({
   isOpen,
   onClose,
@@ -27,6 +50,28 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
   onRemoveFavorite,
   onPlayFavorite,
 }) => {
+  const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
+
+  // Group the favorites
+  const groups = useMemo(() => {
+    const sorted = [...favorites].sort((a, b) => (b.added_at || 0) - (a.added_at || 0));
+    const map: Record<string, typeof favorites> = {};
+    
+    sorted.forEach((fav) => {
+      const title = getGroupTitle(fav.added_at);
+      if (!map[title]) map[title] = [];
+      map[title].push(fav);
+    });
+
+    return map;
+  }, [favorites]);
+
+  const toggleGroup = (title: string) => {
+    setCollapsedGroups(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -55,45 +100,72 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
               </Text>
             </View>
           ) : (
-            <FlatList
-              data={favorites}
-              keyExtractor={(item) => item.id}
+            <ScrollView 
               contentContainerStyle={styles.listContent}
               showsVerticalScrollIndicator={false}
-              renderItem={({ item: fav }) => (
-                <View style={styles.favCard}>
-                  <View style={styles.favContent}>
-                    <View style={styles.favMeta}>
-                      <View style={styles.timePill}>
-                        <Text style={styles.timePillText}>{formatTime(fav.start)}</Text>
-                      </View>
-                      <Text style={styles.videoIdText}>
-                        Video: {fav.videoId.slice(0, 8)}...
+            >
+              {Object.entries(groups).map(([title, items]) => {
+                const isCollapsed = collapsedGroups[title];
+                return (
+                  <View key={title} style={{ marginBottom: spacing.md }}>
+                    <TouchableOpacity 
+                      onPress={() => toggleGroup(title)}
+                      style={{ flexDirection: 'row', alignItems: 'center', marginBottom: spacing.sm }}
+                    >
+                      <Ionicons 
+                        name={isCollapsed ? "chevron-forward" : "chevron-down"} 
+                        size={20} 
+                        color={isCollapsed ? colors.text.muted : colors.purple[400]} 
+                      />
+                      <Text style={{ fontSize: fontSize.lg, fontWeight: '600', color: colors.text.primary, marginLeft: spacing.xs }}>
+                        {title}
                       </Text>
-                    </View>
-                    <Text style={styles.favEn}>{fav.en_text}</Text>
-                    <Text style={styles.favZh}>{fav.zh_text}</Text>
-                  </View>
-                  <View style={styles.favActions}>
-                    <TouchableOpacity
-                      onPress={() => {
-                        onClose();
-                        onPlayFavorite(fav.videoId, fav.start);
-                      }}
-                      style={styles.playBtn}
-                    >
-                      <Ionicons name="play" size={16} color="#fff" />
+                      <View style={{ backgroundColor: colors.bg.card, paddingHorizontal: 6, paddingVertical: 2, borderRadius: borderRadius.full, marginLeft: spacing.sm }}>
+                        <Text style={{ color: colors.text.muted, fontSize: fontSize.xs }}>{items.length}</Text>
+                      </View>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                      onPress={() => onRemoveFavorite(fav.id)}
-                      style={styles.deleteBtn}
-                    >
-                      <Ionicons name="trash-outline" size={16} color={colors.red[500]} />
-                    </TouchableOpacity>
+
+                    {!isCollapsed && (
+                      <View style={{ gap: spacing.md, paddingLeft: spacing.sm }}>
+                        {items.map(fav => (
+                          <View key={fav.id} style={styles.favCard}>
+                            <View style={styles.favContent}>
+                              <View style={styles.favMeta}>
+                                <View style={styles.timePill}>
+                                  <Text style={styles.timePillText}>{formatTime(fav.start)}</Text>
+                                </View>
+                                <Text style={styles.videoIdText}>
+                                  Video: {fav.videoId.slice(0, 8)}...
+                                </Text>
+                              </View>
+                              <Text style={styles.favEn}>{fav.en_text}</Text>
+                              <Text style={styles.favZh}>{fav.zh_text}</Text>
+                            </View>
+                            <View style={styles.favActions}>
+                              <TouchableOpacity
+                                onPress={() => {
+                                  onClose();
+                                  onPlayFavorite(fav.videoId, fav.start);
+                                }}
+                                style={styles.playBtn}
+                              >
+                                <Ionicons name="play" size={16} color="#fff" />
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                onPress={() => onRemoveFavorite(fav.id)}
+                                style={styles.deleteBtn}
+                              >
+                                <Ionicons name="trash-outline" size={16} color={colors.red[500]} />
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+                        ))}
+                      </View>
+                    )}
                   </View>
-                </View>
-              )}
-            />
+                );
+              })}
+            </ScrollView>
           )}
         </SafeAreaView>
       </View>

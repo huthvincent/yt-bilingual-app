@@ -25,10 +25,16 @@ uvicorn main:app --host 0.0.0.0 --port 8000 > /dev/null 2>&1 &
 BACKEND_PID=$!
 
 # 启动前端 (Frontend)
-echo "[2/2] 启动前端服务..."
+echo "[2/3] 启动前端服务..."
 cd "$SCRIPT_DIR/frontend"
 npm run dev > /dev/null 2>&1 &
 FRONTEND_PID=$!
+
+# 启动公网穿透隧道 (Localtunnel) 这样手机在任何地方都能访问
+echo "[3/3] 启动全网穿透隧道 (使得你在蜂窝网络下也可访问)..."
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+npx localtunnel --port 8000 --subdomain yt-bilingual-app-rui > /dev/null 2>&1 &
+TUNNEL_PID=$!
 
 sleep 3
 open http://localhost:5173
@@ -40,6 +46,6 @@ echo "   http://localhost:5173"
 echo ""
 echo "💡 (提示：如果你想关闭应用，只需按 Ctrl+C )"
 
-# 监听退出信号以便同时退出前后端
-trap "kill $BACKEND_PID $FRONTEND_PID 2>/dev/null" EXIT
+# 监听退出信号以便同时退出前后端和隧道
+trap "kill $BACKEND_PID $FRONTEND_PID $TUNNEL_PID 2>/dev/null" EXIT
 wait

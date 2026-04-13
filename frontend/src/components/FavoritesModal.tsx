@@ -7,6 +7,7 @@ export interface FavoriteItem {
     start: number;
     en_text: string;
     zh_text: string;
+    added_at?: number;
 }
 
 interface FavoritesModalProps {
@@ -16,14 +17,61 @@ interface FavoritesModalProps {
     onRemoveFavorite: (id: string) => void;
     onPlayFavorite: (videoId: string, start: number) => void;
 }
+import { ChevronDown, ChevronRight } from 'lucide-react';
+import { useState, useMemo } from 'react';
 
+// Help functions for grouping logic
+const getGroupTitle = (timestamp?: number) => {
+    if (!timestamp) return '更早 (Older)';
+
+    const now = new Date();
+    const date = new Date(timestamp);
+    
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+    
+    const lastWeek = new Date(today);
+    lastWeek.setDate(lastWeek.getDate() - 7);
+
+    if (date >= today) return '今天 (Today)';
+    if (date >= yesterday && date < today) return '昨天 (Yesterday)';
+    if (date >= lastWeek && date < yesterday) return '过去7天 (Last 7 days)';
+    
+    return `${date.getFullYear()}年${date.getMonth() + 1}月`;
+};
+
+// ... inside the component
 export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose, favorites, onRemoveFavorite, onPlayFavorite }) => {
+    const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
+
+    // Group the favorites
+    const groups = useMemo(() => {
+        const sorted = [...favorites].sort((a, b) => (b.added_at || 0) - (a.added_at || 0));
+        const map: Record<string, typeof favorites> = {};
+        
+        sorted.forEach(fav => {
+            const title = getGroupTitle(fav.added_at);
+            if (!map[title]) map[title] = [];
+            map[title].push(fav);
+        });
+
+        return map;
+    }, [favorites]);
+
     if (!isOpen) return null;
 
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const toggleGroup = (title: string) => {
+        setCollapsedGroups(prev => ({
+            ...prev,
+            [title]: !prev[title]
+        }));
     };
 
     return (
@@ -36,46 +84,65 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                     </button>
                 </div>
 
-                <div className="p-6 overflow-y-auto flex-1 custom-scrollbar space-y-4">
+                <div className="p-6 overflow-y-auto flex-1 custom-scrollbar space-y-6">
                     {favorites.length === 0 ? (
                         <div className="text-center py-12 text-gray-500">
                             <p>No favorites yet.</p>
                             <p className="text-sm mt-2">Click the star icon next to a sentence to save it.</p>
                         </div>
                     ) : (
-                        favorites.map(fav => (
-                            <div key={fav.id} className="bg-gray-800/50 rounded-xl p-5 border border-gray-700/50 flex gap-4 group">
-                                <div className="flex-1 space-y-2">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <span className="text-xs font-medium text-purple-400 bg-purple-500/10 px-2 py-1 rounded-md">
-                                            {formatTime(fav.start)}
-                                        </span>
-                                        <span className="text-xs text-gray-500">Video ID: {fav.videoId}</span>
-                                    </div>
-                                    <p className="text-gray-200 font-medium">{fav.en_text}</p>
-                                    <p className="text-gray-400 text-sm">{fav.zh_text}</p>
-                                </div>
-                                <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button
-                                        onClick={() => {
-                                            onClose();
-                                            onPlayFavorite(fav.videoId, fav.start);
-                                        }}
-                                        className="p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors"
-                                        title="Play Video"
+                        Object.entries(groups).map(([title, items]) => {
+                            const isCollapsed = collapsedGroups[title];
+                            return (
+                                <div key={title} className="space-y-3">
+                                    <button 
+                                        onClick={() => toggleGroup(title)}
+                                        className="flex items-center gap-2 text-white font-semibold text-lg hover:text-purple-400 transition-colors w-full text-left"
                                     >
-                                        <Play className="w-4 h-4" />
+                                        {isCollapsed ? <ChevronRight className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-purple-400" />}
+                                        {title} <span className="text-sm font-normal text-gray-500 bg-gray-800 px-2 py-0.5 rounded-full">{items.length}</span>
                                     </button>
-                                    <button
-                                        onClick={() => onRemoveFavorite(fav.id)}
-                                        className="p-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors"
-                                        title="Remove"
-                                    >
-                                        <Trash2 className="w-4 h-4" />
-                                    </button>
+                                    
+                                    {!isCollapsed && (
+                                        <div className="space-y-3 pl-2 sm:pl-7 border-l-2 border-transparent">
+                                            {items.map((fav) => (
+                                                <div key={fav.id} className="bg-gray-800/50 rounded-xl p-5 border border-gray-700/50 flex gap-4 group hover:bg-gray-800 transition-colors">
+                                                    <div className="flex-1 space-y-2">
+                                                        <div className="flex items-center gap-3 mb-2">
+                                                            <span className="text-xs font-medium text-purple-400 bg-purple-500/10 px-2 py-1 rounded-md">
+                                                                {formatTime(fav.start)}
+                                                            </span>
+                                                            <span className="text-xs text-gray-500">Video ID: {fav.videoId}</span>
+                                                        </div>
+                                                        <p className="text-gray-200 font-medium">{fav.en_text}</p>
+                                                        <p className="text-gray-400 text-sm">{fav.zh_text}</p>
+                                                    </div>
+                                                    <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <button
+                                                            onClick={() => {
+                                                                onClose();
+                                                                onPlayFavorite(fav.videoId, fav.start);
+                                                            }}
+                                                            className="p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors"
+                                                            title="Play Video"
+                                                        >
+                                                            <Play className="w-4 h-4" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => onRemoveFavorite(fav.id)}
+                                                            className="p-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors"
+                                                            title="Remove"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
-                        ))
+                            );
+                        })
                     )}
                 </div>
             </div>

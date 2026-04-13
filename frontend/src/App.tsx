@@ -140,7 +140,8 @@ function App() {
           videoId,
           start: item.start,
           en_text: item.en_text,
-          zh_text: item.zh_text
+          zh_text: item.zh_text,
+          added_at: Date.now()
         }];
       }
     });

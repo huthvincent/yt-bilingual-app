@@ -21,6 +21,7 @@ export interface FavoriteItem {
   start: number;
   en_text: string;
   zh_text: string;
+  added_at?: number;
 }
 
 export interface HistoryMetadata {
