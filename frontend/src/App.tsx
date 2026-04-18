@@ -21,7 +21,6 @@ interface TranscriptItem {
 }
 
 function App() {
-  const [videoUrl, setVideoUrl] = useState('');
   const [videoId, setVideoId] = useState('');
   const [loadingState, setLoadingState] = useState<'processing' | 'loading' | null>(null);
   const [transcript, setTranscript] = useState<TranscriptItem[]>([]);
@@ -183,7 +182,6 @@ function App() {
     }
 
     setLoadingState('processing');
-    setVideoUrl(url);
 
     try {
       // Connect to FastAPI Backend
@@ -208,7 +206,6 @@ function App() {
     } catch (error) {
       console.error(error);
       alert("Failed to process video. Please check the backend is running and the video has closed captions.");
-      setVideoUrl(''); // Reset
     } finally {
       setLoadingState(null);
     }
@@ -228,7 +225,6 @@ function App() {
         setSummary(data.summary || '');
         setMetadata({ ...data.metadata, is_local_subtitle: true });
         setVideoId(data.videoId);
-        setVideoUrl('');
       } else {
         setLoadingState('processing');
         // Not yet processed — run the full processing pipeline
@@ -245,7 +241,6 @@ function App() {
         setSummary(data.summary || '');
         setMetadata({ ...data.metadata, is_local_subtitle: true });
         setVideoId(data.videoId);
-        setVideoUrl('');
       }
     } catch (error) {
       console.error(error);
@@ -266,7 +261,6 @@ function App() {
       setSummary(data.summary || '');
       setMetadata(data.metadata || null);
       setVideoId(data.videoId);
-      setVideoUrl(`https://youtube.com/watch?v=${data.videoId}`);
     } catch (error) {
       console.error(error);
       alert("Failed to load history file.");
@@ -281,7 +275,6 @@ function App() {
 
   const handleGoHome = () => {
     setVideoId('');
-    setVideoUrl('');
     setTranscript([]);
     setSummary('');
     setMetadata(null);

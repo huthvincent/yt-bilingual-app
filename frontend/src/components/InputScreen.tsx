@@ -167,7 +167,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                     <h3 className="font-semibold text-lg text-white">本地剧集学习</h3>
                 </div>
                 <div className="bg-gray-800/30 rounded-2xl border border-gray-800 p-5">
-                    <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={isLoading} />
+                    <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
                 </div>
             </div>
 

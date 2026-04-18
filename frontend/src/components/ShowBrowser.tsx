@@ -155,7 +155,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 mt-3">
                             {seasons
                                 .find(s => s.season === selectedSeason)
-                                    .episodes.map(ep => {
+                                    ?.episodes.map(ep => {
                                         const epKey = `S${selectedSeason.toString().padStart(2, '0')}E${ep.toString().padStart(2, '0')}`;
                                         const isProcessed = processedEpisodes.has(epKey);
                                         return (

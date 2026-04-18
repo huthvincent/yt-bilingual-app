@@ -6,6 +6,7 @@ export interface HistoryMetadata {
     channel: string;
     upload_date: string;
     thumbnail: string;
+    is_local_subtitle?: boolean;
 }
 
 export interface HistoryItem {
