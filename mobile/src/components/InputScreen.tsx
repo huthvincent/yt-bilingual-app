@@ -125,38 +125,43 @@ export const InputScreen: React.FC<InputScreenProps> = ({
       </View>
 
       {/* My YouTubers Library */}
-      {subscriptions.length > 0 && (
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Ionicons name="logo-youtube" size={20} color={colors.purple[400]} />
-            <Text style={styles.sectionTitle}>My YouTubers Library</Text>
+      {(() => {
+        const uniqueChannels = Array.from(new Set(history.map(item => !item.metadata?.is_local_subtitle ? item.metadata?.channel : null).filter(Boolean)));
+        if (uniqueChannels.length === 0) return null;
+        
+        return (
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="logo-youtube" size={20} color={colors.purple[400]} />
+              <Text style={styles.sectionTitle}>My YouTubers Library</Text>
+            </View>
+            <FlatList
+              data={uniqueChannels}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.horizontalList}
+              keyExtractor={(item) => item as string}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.youtuberCard}
+                  onPress={() => setSelectedChannel(item as string)}
+                  activeOpacity={0.7}
+                >
+                  <View style={styles.youtuberAvatar}>
+                    <Text style={styles.youtuberAvatarText}>
+                      {(item as string).charAt(0).toUpperCase()}
+                    </Text>
+                  </View>
+                  <View style={styles.youtuberInfo}>
+                    <Text style={styles.youtuberName} numberOfLines={1}>{item as string}</Text>
+                    <Text style={styles.youtuberSubtext}>View collection</Text>
+                  </View>
+                </TouchableOpacity>
+              )}
+            />
           </View>
-          <FlatList
-            data={subscriptions}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.horizontalList}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.youtuberCard}
-                onPress={() => setSelectedChannel(item.name)}
-                activeOpacity={0.7}
-              >
-                <View style={styles.youtuberAvatar}>
-                  <Text style={styles.youtuberAvatarText}>
-                    {item.name.charAt(0).toUpperCase()}
-                  </Text>
-                </View>
-                <View style={styles.youtuberInfo}>
-                  <Text style={styles.youtuberName} numberOfLines={1}>{item.name}</Text>
-                  <Text style={styles.youtuberSubtext}>View collection</Text>
-                </View>
-              </TouchableOpacity>
-            )}
-          />
-        </View>
-      )}
+        );
+      })()}
 
       {/* History Section */}
       {history.length > 0 && (

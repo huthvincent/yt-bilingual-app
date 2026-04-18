@@ -172,26 +172,26 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
             </div>
 
             {/* My YouTubers Section */}
-            {subscriptions && subscriptions.length > 0 && (
+            {history && history.length > 0 && Array.from(new Set(history.map(h => !h.metadata?.is_local_subtitle ? h.metadata?.channel : null).filter(Boolean))).length > 0 && (
                 <div className="w-full max-w-6xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.25s_forwards] mt-12">
                     <div className="flex items-center gap-2 mb-6 text-gray-400 border-b border-gray-800 pb-2 pl-2">
                         <Youtube className="w-5 h-5 text-purple-400" />
                         <h3 className="font-semibold text-lg text-white">My YouTubers Library</h3>
                     </div>
                     <div className="flex flex-wrap gap-3 px-2">
-                        {subscriptions.map(sub => (
+                        {Array.from(new Set(history.map(h => !h.metadata?.is_local_subtitle ? h.metadata?.channel : null).filter(Boolean))).map(channelName => (
                             <div 
-                                key={sub.id} 
-                                onClick={() => onSelectChannel(sub.name)}
+                                key={channelName} 
+                                onClick={() => onSelectChannel(channelName as string)}
                                 className="flex items-center gap-3 bg-gray-800/80 hover:bg-gray-700 border border-gray-700 hover:border-purple-500/50 rounded-xl px-4 py-3 cursor-pointer transition-all shadow-md group"
                             >
                                 <div className="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center shrink-0">
                                     <span className="text-lg font-bold text-gray-300 group-hover:text-purple-400 transition-colors">
-                                        {sub.name.charAt(0).toUpperCase()}
+                                        {(channelName as string).charAt(0).toUpperCase()}
                                     </span>
                                 </div>
                                 <div>
-                                    <h4 className="text-gray-200 font-medium group-hover:text-white transition-colors">{sub.name}</h4>
+                                    <h4 className="text-gray-200 font-medium group-hover:text-white transition-colors">{channelName}</h4>
                                     <p className="text-xs text-purple-400/70 group-hover:text-purple-400 transition-colors">View collection</p>
                                 </div>
                             </div>
