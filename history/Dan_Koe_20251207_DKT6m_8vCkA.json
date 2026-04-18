@@ -2426,63 +2426,105 @@
       "start": 780.3196842105264,
       "end": 781.952081081081,
       "en_text": "You could expand that into a newsletter.",
-      "zh_text": "这是对英文句子“You could ...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "你可以把它扩展成一份时事通讯。",
+      "highlights": [
+        {
+          "en_word": "expand that into",
+          "zh_word": "把它扩展成",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 182,
       "start": 781.952081081081,
       "end": 784.6686842105263,
       "en_text": "You can turn that into a YouTube video or you can say it on a podcast.",
-      "zh_text": "这是对英文句子“You can tu...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "你可以把它做成YouTube视频，或者在播客上说出来。",
+      "highlights": [
+        {
+          "en_word": "turn that into",
+          "zh_word": "把它做成",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 183,
       "start": 784.6686842105263,
       "end": 788.8492307692308,
       "en_text": "When someone says, \"What's the greatest skill to learn?\" You say, \"Articulation.\" Why?",
-      "zh_text": "这是对英文句子“When someo...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "当有人问：“最应该学习的技能是什么？” 你会说：“表达能力。” 为什么？",
+      "highlights": [
+        {
+          "en_word": "Articulation",
+          "zh_word": "表达能力",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 184,
       "start": 788.8492307692308,
       "end": 792.16,
       "en_text": "Because most people don't know how to articulate themselves.",
-      "zh_text": "这是对英文句子“Because mo...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "因为大多数人不知道如何清晰地表达自己。",
+      "highlights": [
+        {
+          "en_word": "articulate themselves",
+          "zh_word": "清晰地表达自己",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 185,
       "start": 790.72,
       "end": 792.5873783783784,
       "en_text": "Go into the amplify solute.",
-      "zh_text": "这是对英文句子“Go into th...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "深入阐述这个观点。",
+      "highlights": [
+        {
+          "en_word": "amplify",
+          "zh_word": "阐述",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 186,
       "start": 792.5873783783784,
       "end": 793.6228571428571,
       "en_text": "Do you see what I'm getting at?",
-      "zh_text": "这是对英文句子“Do you see...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "你明白我想表达什么吗？",
+      "highlights": [
+        {
+          "en_word": "getting at",
+          "zh_word": "想表达什么",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 187,
       "start": 793.6228571428571,
       "end": 798.88,
       "en_text": "Now, of course, with all of this, this is assuming that you already have an idea to write about.",
-      "zh_text": "这是对英文句子“Now, of co...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "当然，所有这一切的前提是你已经有了一个可以写作的想法。",
+      "highlights": [
+        {
+          "en_word": "assuming that",
+          "zh_word": "前提是",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 188,
       "start": 796.88,
       "end": 800.0,
       "en_text": "If you have an idea, then just think of the problem.",
-      "zh_text": "这是对英文句子“If you hav...”的一句模拟中文翻译。",
+      "zh_text": "如果你有想法，那就思考一下问题。",
       "highlights": []
     },
     {
@@ -2490,7 +2532,7 @@
       "start": 800.0,
       "end": 801.7733333333333,
       "en_text": "What's the problem?",
-      "zh_text": "这是对英文句子“What's the...”的一句模拟中文翻译。",
+      "zh_text": "问题是什么？",
       "highlights": []
     },
     {
@@ -2498,15 +2540,21 @@
       "start": 801.7733333333333,
       "end": 801.6061891891891,
       "en_text": "Okay, amplify it.",
-      "zh_text": "这是对英文句子“Okay, ampl...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "好的，把它放大。",
+      "highlights": [
+        {
+          "en_word": "amplify",
+          "zh_word": "放大",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 191,
       "start": 801.6061891891891,
       "end": 803.318135135135,
       "en_text": "Okay, what's next?",
-      "zh_text": "这是对英文句子“Okay, what...”的一句模拟中文翻译。",
+      "zh_text": "好的，接下来是什么？",
       "highlights": []
     },
     {
@@ -2514,7 +2562,7 @@
       "start": 803.318135135135,
       "end": 803.2250263157895,
       "en_text": "Give the solution.",
-      "zh_text": "这是对英文句子“Give the s...”的一句模拟中文翻译。",
+      "zh_text": "给出解决方案。",
       "highlights": []
     },
     {
@@ -2522,7 +2570,7 @@
       "start": 803.2250263157895,
       "end": 803.7722631578947,
       "en_text": "Boom.",
-      "zh_text": "这是对英文句子“Boom....”的一句模拟中文翻译。",
+      "zh_text": "搞定。",
       "highlights": []
     },
     {
@@ -2530,56 +2578,118 @@
       "start": 803.7722631578947,
       "end": 808.0287142857143,
       "en_text": "And if you don't have an idea, you need to hunt for them.",
-      "zh_text": "这是对英文句子“And if you...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "如果你没有想法，你就需要去寻找它们。",
+      "highlights": [
+        {
+          "en_word": "hunt for",
+          "zh_word": "寻找",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 195,
       "start": 808.0287142857143,
       "end": 814.7958974358975,
       "en_text": "You need to read old books, go down rabbit holes on a topic, listen to a new podcast, or just sit with your thoughts and follow them until you reach a compelling insight.",
-      "zh_text": "这是对英文句子“You need t...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "你需要阅读旧书，深入研究一个主题，听新的播客，或者只是静心思考，追随你的思绪直到获得一个引人注目的见解。",
+      "highlights": [
+        {
+          "en_word": "go down rabbit holes",
+          "zh_word": "深入研究",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "compelling insight",
+          "zh_word": "引人注目的见解",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 196,
       "start": 814.7958974358975,
       "end": 819.2543846153847,
       "en_text": "When you hunt for an idea, you aren't just letting the information go in one ear and out the other.",
-      "zh_text": "这是对英文句子“When you h...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "当你寻找想法时，你不仅仅是让信息左耳进右耳出。",
+      "highlights": [
+        {
+          "en_word": "hunt for",
+          "zh_word": "寻找",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "go in one ear and out the other",
+          "zh_word": "左耳进右耳出",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 197,
       "start": 819.2543846153847,
       "end": 823.6324324324323,
       "en_text": "You are listening intently for an idea that you wish you wrote.",
-      "zh_text": "这是对英文句子“You are li...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "你正在专心聆听，寻找一个你希望是自己写出来的想法。",
+      "highlights": [
+        {
+          "en_word": "intently",
+          "zh_word": "专心",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 198,
       "start": 823.6324324324323,
       "end": 826.1361081081081,
       "en_text": "Then you jot it down so you don't lose it.",
-      "zh_text": "这是对英文句子“Then you j...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "然后你把它记下来，以免忘记。",
+      "highlights": [
+        {
+          "en_word": "jot it down",
+          "zh_word": "把它记下来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 199,
       "start": 826.1361081081081,
       "end": 829.642923076923,
       "en_text": "Then you articulate it in your own words using these frameworks so it takes a new shape.",
-      "zh_text": "这是对英文句子“Then you a...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "然后你用自己的话，运用这些框架清晰地表达出来，使其呈现出新的形式。",
+      "highlights": [
+        {
+          "en_word": "articulate it",
+          "zh_word": "清晰地表达出来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "takes a new shape",
+          "zh_word": "呈现出新的形式",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 200,
       "start": 829.642923076923,
       "end": 834.5575,
       "en_text": "Now the intermediate framework is called the pyramid principle.",
-      "zh_text": "这是对英文句子“Now the in...”的一句模拟中文翻译。",
-      "highlights": []
+      "zh_text": "现在，这个中级框架被称为金字塔原理。",
+      "highlights": [
+        {
+          "en_word": "intermediate framework",
+          "zh_word": "中级框架",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "pyramid principle",
+          "zh_word": "金字塔原理",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
     },
     {
       "id": 201,
