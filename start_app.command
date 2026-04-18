@@ -24,6 +24,11 @@ source venv/bin/activate
 uvicorn main:app --host 0.0.0.0 --port 8000 > /dev/null 2>&1 &
 BACKEND_PID=$!
 
+# 确保可以使用 Node/npm (尤其是通过双击等非交互式环境运行时)
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # 启动前端 (Frontend)
 echo "[2/3] 启动前端服务..."
 cd "$SCRIPT_DIR/frontend"
@@ -32,7 +37,6 @@ FRONTEND_PID=$!
 
 # 启动公网穿透隧道 (Localtunnel) 这样手机在任何地方都能访问
 echo "[3/3] 启动全网穿透隧道 (使得你在蜂窝网络下也可访问)..."
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 npx localtunnel --port 8000 --subdomain yt-bilingual-app-rui > /dev/null 2>&1 &
 TUNNEL_PID=$!
 
