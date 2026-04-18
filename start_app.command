@@ -5,6 +5,10 @@ SCRIPT_DIR_ENV="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [ -f "$SCRIPT_DIR_ENV/.env" ]; then
     export $(grep -v '^#' "$SCRIPT_DIR_ENV/.env" | xargs)
 fi
+# 运行环境路径初始化 (解决双击启动找不到 lsof 或 npm 的问题)
+export PATH="/usr/local/bin:/usr/sbin:/sbin:/opt/homebrew/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # 尝试清理旧的端口占用
 lsof -ti:8000 | xargs kill -9 2>/dev/null
@@ -23,11 +27,6 @@ cd "$SCRIPT_DIR/backend"
 source venv/bin/activate
 uvicorn main:app --host 0.0.0.0 --port 8000 > /dev/null 2>&1 &
 BACKEND_PID=$!
-
-# 确保可以使用 Node/npm (尤其是通过双击等非交互式环境运行时)
-export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # 启动前端 (Frontend)
 echo "[2/3] 启动前端服务..."
