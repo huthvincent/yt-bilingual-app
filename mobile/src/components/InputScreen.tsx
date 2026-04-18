@@ -16,6 +16,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, fontSize, borderRadius } from '../theme';
 import { api } from '../config/api';
 import type { HistoryItem } from '../types';
+import { ChannelVideoListModal } from './ChannelVideoListModal';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CARD_WIDTH = SCREEN_WIDTH * 0.6;
@@ -38,6 +39,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({
   const [url, setUrl] = useState('');
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
+  const [selectedChannel, setSelectedChannel] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(api.history)
@@ -121,6 +123,40 @@ export const InputScreen: React.FC<InputScreenProps> = ({
           )}
         </TouchableOpacity>
       </View>
+
+      {/* My YouTubers Library */}
+      {subscriptions.length > 0 && (
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Ionicons name="logo-youtube" size={20} color={colors.purple[400]} />
+            <Text style={styles.sectionTitle}>My YouTubers Library</Text>
+          </View>
+          <FlatList
+            data={subscriptions}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.horizontalList}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.youtuberCard}
+                onPress={() => setSelectedChannel(item.name)}
+                activeOpacity={0.7}
+              >
+                <View style={styles.youtuberAvatar}>
+                  <Text style={styles.youtuberAvatarText}>
+                    {item.name.charAt(0).toUpperCase()}
+                  </Text>
+                </View>
+                <View style={styles.youtuberInfo}>
+                  <Text style={styles.youtuberName} numberOfLines={1}>{item.name}</Text>
+                  <Text style={styles.youtuberSubtext}>View collection</Text>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      )}
 
       {/* History Section */}
       {history.length > 0 && (
@@ -229,6 +265,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({
       </View>
 
       <View style={{ height: 40 }} />
+
+      <ChannelVideoListModal
+        isOpen={!!selectedChannel}
+        onClose={() => setSelectedChannel(null)}
+        channelName={selectedChannel}
+        onLoadHistory={onLoadHistory}
+      />
     </ScrollView>
   );
 };
@@ -324,6 +367,47 @@ const styles = StyleSheet.create({
   horizontalList: {
     paddingHorizontal: spacing.xl,
     gap: spacing.md,
+  },
+  youtuberCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.bg.tertiary,
+    borderRadius: borderRadius.xl,
+    borderWidth: 1,
+    borderColor: colors.border.secondary,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.md,
+    marginRight: spacing.md,
+    gap: spacing.md,
+    minWidth: 180,
+  },
+  youtuberAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.bg.secondary,
+    borderWidth: 1,
+    borderColor: colors.border.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  youtuberAvatarText: {
+    fontSize: fontSize.lg,
+    fontWeight: 'bold',
+    color: colors.text.primary,
+  },
+  youtuberInfo: {
+    flex: 1,
+  },
+  youtuberName: {
+    fontSize: fontSize.md,
+    fontWeight: '500',
+    color: colors.text.primary,
+  },
+  youtuberSubtext: {
+    fontSize: fontSize.xs,
+    color: colors.purple[400],
+    marginTop: 2,
   },
   historyCard: {
     width: CARD_WIDTH,

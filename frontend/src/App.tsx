@@ -320,6 +320,7 @@ function App() {
             isLoading={loadingState !== null}
             loadingState={loadingState}
             subscriptions={subscriptions}
+            onSelectChannel={setSelectedChannel}
           />
         </div>
       ) : (

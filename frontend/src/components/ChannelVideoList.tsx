@@ -30,8 +30,13 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
             fetch('http://127.0.0.1:8000/api/history')
                 .then(res => res.json())
                 .then((data: HistoryItem[]) => {
-                    // Filter by the selected channel name
+                    // Filter by the selected channel name and sort by upload date (newest first)
                     const filtered = data.filter(item => item.metadata?.channel === channelName);
+                    filtered.sort((a, b) => {
+                        const dateA = a.metadata?.upload_date || "";
+                        const dateB = b.metadata?.upload_date || "";
+                        return dateB.localeCompare(dateA); // Descending order
+                    });
                     setVideos(filtered);
                 })
                 .catch(err => console.error("Failed to fetch channel history:", err))
