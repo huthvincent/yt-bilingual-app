@@ -362,7 +362,7 @@ function App() {
                 <>
                   <button
                     onClick={() => setIsSummaryOpen(prev => !prev)}
-                    className="flex items-center justify-between w-full sticky top-0 bg-gray-900 pb-2 z-10 backdrop-blur-sm bg-opacity-90 cursor-pointer group"
+                    className="flex items-center justify-between w-full pb-2 cursor-pointer group"
                   >
                     <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Video Summary</h2>
                     <svg
@@ -401,7 +401,7 @@ function App() {
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl font-bold text-white mb-2 sticky top-0 bg-gray-900 pb-2 z-10 w-full backdrop-blur-sm bg-opacity-90">Instructions</h2>
+                  <h2 className="text-xl font-bold text-white mb-2 pb-2">Instructions</h2>
                   <ul className="text-gray-400 space-y-2 list-disc list-inside">
                     <li>Video playback syncs directly with the interactive transcript on the right.</li>
                     <li>Advanced keywords are highlighted with their Chinese translations underneath.</li>
