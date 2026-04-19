@@ -26,6 +26,7 @@ function App() {
   const [transcript, setTranscript] = useState<TranscriptItem[]>([]);
   const [summary, setSummary] = useState<string>('');
   const [metadata, setMetadata] = useState<any>(null);
+  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
 
@@ -358,28 +359,43 @@ function App() {
             <div className="p-6 flex-1 min-h-0 bg-gray-900 border-t border-gray-800 hidden md:block overflow-y-auto custom-scrollbar">
               {summary ? (
                 <>
-                  <h2 className="text-xl font-bold text-white mb-4 sticky top-0 bg-gray-900 pb-2 z-10 w-full backdrop-blur-sm bg-opacity-90">Video Summary</h2>
-                  <div className="text-gray-300 text-sm leading-relaxed space-y-2">
-                    <ReactMarkdown
-                      components={{
-                        h1: ({ node, ...props }) => <h1 className="text-lg font-bold text-white mt-4 mb-2" {...props} />,
-                        h2: ({ node, ...props }) => <h2 className="text-base font-bold text-pink-400 mt-4 mb-2" {...props} />,
-                        h3: ({ node, ...props }) => <h3 className="text-sm font-bold text-purple-400 mt-3 mb-2" {...props} />,
-                        p: ({ node, ...props }) => <p className="text-gray-300 leading-relaxed" {...props} />,
-                        ul: ({ node, ...props }) => <ul className="list-disc pl-5 space-y-1 text-gray-300 marker:text-pink-500" {...props} />,
-                        ol: ({ node, ...props }) => <ol className="list-decimal pl-5 space-y-1 text-gray-300 marker:text-pink-500" {...props} />,
-                        li: ({ node, ...props }) => <li className="pl-1" {...props} />,
-                        strong: ({ node, ...props }) => <strong className="font-semibold text-white tracking-wide" {...props} />,
-                        code: ({ node, className, children, ...props }: any) => {
-                          const isInline = !className && !String(children).includes('\n');
-                          return isInline
-                            ? <code className="bg-gray-800 text-pink-300 px-1.5 py-0.5 rounded text-xs border border-gray-700 font-mono" {...props}>{children}</code>
-                            : <code className="block bg-gray-800 text-gray-300 p-3 rounded-lg text-xs overflow-x-auto my-2 border border-gray-700 font-mono" {...props}>{children}</code>;
-                        }
-                      }}
+                  <button
+                    onClick={() => setIsSummaryOpen(prev => !prev)}
+                    className="flex items-center justify-between w-full sticky top-0 bg-gray-900 pb-2 z-10 backdrop-blur-sm bg-opacity-90 cursor-pointer group"
+                  >
+                    <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Video Summary</h2>
+                    <svg
+                      className={`w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-transform duration-300 ${isSummaryOpen ? 'rotate-180' : ''}`}
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                     >
-                      {summary}
-                    </ReactMarkdown>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isSummaryOpen ? 'max-h-[2000px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
+                  >
+                    <div className="text-gray-300 text-sm leading-relaxed space-y-2">
+                      <ReactMarkdown
+                        components={{
+                          h1: ({ node, ...props }) => <h1 className="text-lg font-bold text-white mt-4 mb-2" {...props} />,
+                          h2: ({ node, ...props }) => <h2 className="text-base font-bold text-pink-400 mt-4 mb-2" {...props} />,
+                          h3: ({ node, ...props }) => <h3 className="text-sm font-bold text-purple-400 mt-3 mb-2" {...props} />,
+                          p: ({ node, ...props }) => <p className="text-gray-300 leading-relaxed" {...props} />,
+                          ul: ({ node, ...props }) => <ul className="list-disc pl-5 space-y-1 text-gray-300 marker:text-pink-500" {...props} />,
+                          ol: ({ node, ...props }) => <ol className="list-decimal pl-5 space-y-1 text-gray-300 marker:text-pink-500" {...props} />,
+                          li: ({ node, ...props }) => <li className="pl-1" {...props} />,
+                          strong: ({ node, ...props }) => <strong className="font-semibold text-white tracking-wide" {...props} />,
+                          code: ({ node, className, children, ...props }: any) => {
+                            const isInline = !className && !String(children).includes('\n');
+                            return isInline
+                              ? <code className="bg-gray-800 text-pink-300 px-1.5 py-0.5 rounded text-xs border border-gray-700 font-mono" {...props}>{children}</code>
+                              : <code className="block bg-gray-800 text-gray-300 p-3 rounded-lg text-xs overflow-x-auto my-2 border border-gray-700 font-mono" {...props}>{children}</code>;
+                          }
+                        }}
+                      >
+                        {summary}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 </>
               ) : (
