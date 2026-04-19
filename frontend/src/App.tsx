@@ -27,6 +27,7 @@ function App() {
   const [summary, setSummary] = useState<string>('');
   const [metadata, setMetadata] = useState<any>(null);
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+  const [isVocabOpen, setIsVocabOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
 
@@ -408,6 +409,58 @@ function App() {
                   </ul>
                 </>
               )}
+
+              {/* Vocabulary Summary Accordion */}
+              {transcript.length > 0 && (() => {
+                const seen = new Set<string>();
+                const vocabItems: { en: string; zh: string }[] = [];
+                for (const block of transcript) {
+                  if (block.highlights) {
+                    for (const h of block.highlights) {
+                      const key = `${h.en_word}|||${h.zh_word}`;
+                      if (!seen.has(key)) {
+                        seen.add(key);
+                        vocabItems.push({ en: h.en_word, zh: h.zh_word });
+                      }
+                    }
+                  }
+                }
+                if (vocabItems.length === 0) return null;
+                return (
+                  <div className="p-6 border-t border-gray-800">
+                    <button
+                      onClick={() => setIsVocabOpen(prev => !prev)}
+                      className="flex items-center justify-between w-full cursor-pointer group"
+                    >
+                      <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                        Vocabulary Summary
+                        <span className="ml-2 text-sm font-normal text-gray-500">({vocabItems.length})</span>
+                      </h2>
+                      <svg
+                        className={`w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-transform duration-300 ${isVocabOpen ? 'rotate-180' : ''}`}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${isVocabOpen ? 'max-h-[3000px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}
+                    >
+                      <div className="space-y-1">
+                        {vocabItems.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/60 transition-colors group/row"
+                          >
+                            <span className="text-purple-300 font-medium text-sm">{item.en}</span>
+                            <span className="text-gray-400 text-sm">{item.zh}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
           )}
