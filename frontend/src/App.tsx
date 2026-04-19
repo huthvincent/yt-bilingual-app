@@ -427,7 +427,7 @@ function App() {
                 }
                 if (vocabItems.length === 0) return null;
                 return (
-                  <div className="p-6 border-t border-gray-800">
+                  <div className="mt-6 pt-6 border-t border-gray-800">
                     <button
                       onClick={() => setIsVocabOpen(prev => !prev)}
                       className="flex items-center justify-between w-full cursor-pointer group"
