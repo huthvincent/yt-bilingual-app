@@ -413,14 +413,14 @@ function App() {
               {/* Vocabulary Summary Accordion */}
               {transcript.length > 0 && (() => {
                 const seen = new Set<string>();
-                const vocabItems: { en: string; zh: string }[] = [];
+                const vocabItems: { en: string; zh: string; start: number }[] = [];
                 for (const block of transcript) {
                   if (block.highlights) {
                     for (const h of block.highlights) {
                       const key = `${h.en_word}|||${h.zh_word}`;
                       if (!seen.has(key)) {
                         seen.add(key);
-                        vocabItems.push({ en: h.en_word, zh: h.zh_word });
+                        vocabItems.push({ en: h.en_word, zh: h.zh_word, start: block.start });
                       }
                     }
                   }
@@ -448,13 +448,14 @@ function App() {
                     >
                       <div className="space-y-1">
                         {vocabItems.map((item, idx) => (
-                          <div
+                          <button
                             key={idx}
-                            className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/60 transition-colors group/row"
+                            onClick={() => setSeekCommand({ time: item.start, timestamp: Date.now() })}
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/80 transition-colors group/row cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
                           >
-                            <span className="text-purple-300 font-medium text-sm">{item.en}</span>
-                            <span className="text-gray-400 text-sm">{item.zh}</span>
-                          </div>
+                            <span className="text-purple-300 font-medium text-sm text-left group-hover/row:text-purple-200 transition-colors">{item.en}</span>
+                            <span className="text-gray-400 text-sm text-right group-hover/row:text-gray-300 transition-colors">{item.zh}</span>
+                          </button>
                         ))}
                       </div>
                     </div>
