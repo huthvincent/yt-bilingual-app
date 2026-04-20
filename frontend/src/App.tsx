@@ -320,9 +320,10 @@ function App() {
         </div>
       ) : (
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
-          {/* Left Column: Video (hidden in subtitle-only mode) */}
-          {!metadata?.is_local_subtitle && (
-          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col pt-4 md:pt-0">
+          {/* Left Column: Video/Summary */}
+          <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} md:w-1/2 h-1/2 md:h-full flex flex-col pt-4 md:pt-0`}>
+            {!metadata?.is_local_subtitle && (
+              <>
             <div className="flex-1 min-h-0 relative">
               <VideoPlayer
                 videoId={videoId}
@@ -357,7 +358,9 @@ function App() {
                 </h3>
               </div>
             )}
-            <div className="p-6 flex-1 min-h-0 bg-gray-900 border-t border-gray-800 hidden md:block overflow-y-auto custom-scrollbar">
+            </>
+          )}
+            <div className={`p-6 flex-1 min-h-0 bg-gray-900 border-gray-800 overflow-y-auto custom-scrollbar ${metadata?.is_local_subtitle ? 'border-none' : 'border-t hidden md:block'}`}>
               {summary ? (
                 <>
                   <button
@@ -464,10 +467,9 @@ function App() {
               })()}
             </div>
           </div>
-          )}
 
-          {/* Transcript Column: full-width for local subtitles, half-width for YouTube videos */}
-          <div className={`w-full ${metadata?.is_local_subtitle ? '' : 'md:w-1/2'} h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`}>
+          {/* Transcript Column: fixed to right half */}
+          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800">
 
             {/* Local subtitle playback controls */}
             {metadata?.is_local_subtitle && (
