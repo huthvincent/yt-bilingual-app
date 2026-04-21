@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Play } from 'lucide-react';
+import { X, Play, RefreshCw } from 'lucide-react';
 
 export interface HistoryMetadata {
     title: string;
@@ -7,6 +7,7 @@ export interface HistoryMetadata {
     upload_date: string;
     thumbnail: string;
     is_local_subtitle?: boolean;
+    video_id?: string;
 }
 
 export interface HistoryItem {
@@ -19,9 +20,10 @@ interface ChannelVideoListProps {
     onClose: () => void;
     channelName: string | null;
     onLoadHistory: (filename: string) => void;
+    onReprocess: (videoId: string) => void;
 }
 
-export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onClose, channelName, onLoadHistory }) => {
+export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onClose, channelName, onLoadHistory, onReprocess }) => {
     const [videos, setVideos] = useState<HistoryItem[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -103,8 +105,21 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                         <h3 className="text-gray-200 font-medium line-clamp-2 text-sm leading-snug mb-2 group-hover:text-purple-300 transition-colors">
                                             {video.metadata.title || 'Unknown Title'}
                                         </h3>
-                                        <div className="mt-auto text-xs text-gray-500">
-                                            Uploaded: {formatDate(video.metadata.upload_date)}
+                                        <div className="mt-auto flex items-center justify-between">
+                                            <span className="text-xs text-gray-500">Uploaded: {formatDate(video.metadata.upload_date)}</span>
+                                            {video.metadata.video_id && (
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        onClose();
+                                                        onReprocess(video.metadata.video_id!);
+                                                    }}
+                                                    className="p-1.5 text-gray-500 hover:text-purple-400 hover:bg-gray-800 rounded-lg transition-colors z-10"
+                                                    title="Reprocess Video"
+                                                >
+                                                    <RefreshCw className="w-4 h-4" />
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

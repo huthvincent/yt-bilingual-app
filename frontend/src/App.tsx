@@ -545,6 +545,7 @@ function App() {
         onClose={() => setSelectedChannel(null)}
         channelName={selectedChannel}
         onLoadHistory={handleLoadHistory}
+        onReprocess={(videoId) => handleUrlSubmit(`https://www.youtube.com/watch?v=${videoId}`)}
       />
     </div>
   );
