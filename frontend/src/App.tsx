@@ -316,6 +316,7 @@ function App() {
             loadingState={loadingState}
             subscriptions={subscriptions}
             onSelectChannel={setSelectedChannel}
+            onUnsubscribe={(channelId) => setSubscriptions(prev => prev.filter(s => s.id !== channelId))}
           />
         </div>
       ) : (

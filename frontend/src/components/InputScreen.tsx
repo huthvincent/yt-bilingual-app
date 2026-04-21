@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Loader2, Play, Youtube, Clock, Tv } from 'lucide-react';
+import { Search, Loader2, Play, Youtube, Clock, Tv, BellOff } from 'lucide-react';
 import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
@@ -13,9 +13,10 @@ interface InputScreenProps {
     loadingState?: 'processing' | 'loading' | null;
     subscriptions?: { id: string; name: string }[];
     onSelectChannel: (channelName: string) => void;
+    onUnsubscribe?: (channelId: string) => void;
 }
 
-export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel }) => {
+export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel, onUnsubscribe }) => {
     const [url, setUrl] = useState('');
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
@@ -183,17 +184,37 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <div 
                                 key={channelName} 
                                 onClick={() => onSelectChannel(channelName as string)}
-                                className="flex items-center gap-3 bg-gray-800/80 hover:bg-gray-700 border border-gray-700 hover:border-purple-500/50 rounded-xl px-4 py-3 cursor-pointer transition-all shadow-md group"
+                                className="flex items-center justify-between gap-3 bg-gray-800/80 hover:bg-gray-700 border border-gray-700 hover:border-purple-500/50 rounded-xl px-4 py-3 cursor-pointer transition-all shadow-md group relative pr-12"
                             >
-                                <div className="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center shrink-0">
-                                    <span className="text-lg font-bold text-gray-300 group-hover:text-purple-400 transition-colors">
-                                        {(channelName as string).charAt(0).toUpperCase()}
-                                    </span>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center shrink-0">
+                                        <span className="text-lg font-bold text-gray-300 group-hover:text-purple-400 transition-colors">
+                                            {(channelName as string).charAt(0).toUpperCase()}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-gray-200 font-medium group-hover:text-white transition-colors">{channelName}</h4>
+                                        <p className="text-xs text-purple-400/70 group-hover:text-purple-400 transition-colors">View collection</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 className="text-gray-200 font-medium group-hover:text-white transition-colors">{channelName}</h4>
-                                    <p className="text-xs text-purple-400/70 group-hover:text-purple-400 transition-colors">View collection</p>
-                                </div>
+                                {(() => {
+                                    const subInfo = subscriptions.find(s => s.name === channelName);
+                                    if (subInfo && onUnsubscribe) {
+                                        return (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    onUnsubscribe(subInfo.id);
+                                                }}
+                                                className="absolute right-3 p-1.5 text-gray-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
+                                                title="Unsubscribe"
+                                            >
+                                                <BellOff className="w-4 h-4" />
+                                            </button>
+                                        );
+                                    }
+                                    return null;
+                                })()}
                             </div>
                         ))}
                     </div>
