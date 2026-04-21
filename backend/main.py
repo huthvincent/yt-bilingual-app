@@ -467,6 +467,7 @@ def list_history():
                         data = json.load(file)
                         files.append({
                             "filename": f,
+                            "videoId": data.get("videoId"),
                             "metadata": data.get("metadata", {})
                         })
                 except Exception as e:

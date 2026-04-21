@@ -7,11 +7,11 @@ export interface HistoryMetadata {
     upload_date: string;
     thumbnail: string;
     is_local_subtitle?: boolean;
-    video_id?: string;
 }
 
 export interface HistoryItem {
     filename: string;
+    videoId?: string;
     metadata: HistoryMetadata;
 }
 
@@ -107,12 +107,12 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                         </h3>
                                         <div className="mt-auto flex items-center justify-between">
                                             <span className="text-xs text-gray-500">Uploaded: {formatDate(video.metadata.upload_date)}</span>
-                                            {video.metadata.video_id && (
+                                            {video.videoId && (
                                                 <button
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         onClose();
-                                                        onReprocess(video.metadata.video_id!);
+                                                        onReprocess(video.videoId!);
                                                     }}
                                                     className="p-1.5 text-gray-500 hover:text-purple-400 hover:bg-gray-800 rounded-lg transition-colors z-10"
                                                     title="Reprocess Video"
