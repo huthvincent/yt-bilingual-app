@@ -449,7 +449,7 @@ function App() {
                       </svg>
                     </button>
                     <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${isVocabOpen ? 'max-h-[3000px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}
+                      className={`transition-all duration-300 ease-in-out ${isVocabOpen ? 'max-h-[60vh] opacity-100 mt-3 overflow-y-auto custom-scrollbar pr-2' : 'max-h-0 opacity-0 overflow-hidden'}`}
                     >
                       <div className="space-y-1">
                         {vocabItems.map((item, idx) => (
