@@ -8,6 +8,11 @@ export interface FavoriteItem {
     en_text: string;
     zh_text: string;
     added_at?: number;
+    highlights?: Array<{
+        en_word: string;
+        zh_word: string;
+        color: string;
+    }>;
 }
 
 interface FavoritesModalProps {
@@ -20,6 +25,7 @@ interface FavoritesModalProps {
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { VideoPlayer } from './VideoPlayer';
+import { HighlightedText } from './TranscriptBlock';
 
 // Help functions for grouping logic
 const getGroupTitle = (timestamp?: number) => {
@@ -116,8 +122,17 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                             </span>
                                                             <span className="text-xs text-gray-500">Video ID: {fav.videoId}</span>
                                                         </div>
-                                                        <p className="text-gray-200 font-medium">{fav.en_text}</p>
-                                                        <p className="text-gray-400 text-sm">{fav.zh_text}</p>
+                                                        <p className="text-gray-200 font-medium leading-relaxed">
+                                                            <HighlightedText 
+                                                                text={fav.en_text} 
+                                                                highlights={(fav.highlights || []).map(h => ({ 
+                                                                    word: h.en_word, 
+                                                                    color: h.color, 
+                                                                    annotation: h.zh_word 
+                                                                }))} 
+                                                            />
+                                                        </p>
+                                                        <p className="text-gray-400 text-sm leading-relaxed">{fav.zh_text}</p>
                                                     </div>
                                                     <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                         <button

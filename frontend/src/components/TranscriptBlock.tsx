@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Highlight logic: Exact substring replacement with optional annotation (e.g. Chinese translation in parentheses)
-const HighlightedText: React.FC<{ text: string; highlights: Array<{ word: string; color: string; annotation?: string }> }> = ({ text, highlights }) => {
+export const HighlightedText: React.FC<{ text: string; highlights: Array<{ word: string; color: string; annotation?: string }> }> = ({ text, highlights }) => {
     if (!highlights || highlights.length === 0) return <span>{text}</span>;
 
     const parts: React.ReactNode[] = [];
