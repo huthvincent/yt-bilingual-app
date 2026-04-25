@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { Star } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { Star, Languages } from 'lucide-react';
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -83,6 +83,8 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, en
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     };
 
+    const [showTranslation, setShowTranslation] = useState(false);
+
     // English highlights include annotation (zh_word shown in parentheses after the word)
     const enHighlights = useMemo(() => highlights.map(h => ({ word: h.en_word, color: h.color, annotation: h.zh_word })), [highlights]);
     // Chinese highlights: no annotation needed
@@ -96,12 +98,27 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, en
             )}
         >
             <div className="flex items-center justify-between mb-1">
-                <span className={cn(
-                    "px-2 py-0.5 text-[10px] font-medium rounded-full bg-gray-900 ring-1",
-                    isActive ? "text-purple-400 ring-purple-500/50" : "text-gray-400 ring-white/10"
-                )}>
-                    {formatTime(start)} - {formatTime(end)}
-                </span>
+                <div className="flex items-center gap-2">
+                    <span className={cn(
+                        "px-2 py-0.5 text-[10px] font-medium rounded-full bg-gray-900 ring-1",
+                        isActive ? "text-purple-400 ring-purple-500/50" : "text-gray-400 ring-white/10"
+                    )}>
+                        {formatTime(start)} - {formatTime(end)}
+                    </span>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setShowTranslation(prev => !prev);
+                        }}
+                        className={cn(
+                            "p-1 rounded-md transition-colors",
+                            showTranslation ? "bg-purple-500/20 text-purple-400" : "hover:bg-gray-700 text-gray-500 hover:text-gray-300"
+                        )}
+                        title="Toggle Translation"
+                    >
+                        <Languages className="w-3.5 h-3.5" />
+                    </button>
+                </div>
 
                 <button
                     onClick={(e) => {
@@ -116,19 +133,26 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, en
                 </button>
             </div>
 
-            <div className="space-y-0.5">
+            <div className="space-y-0.5 mt-1.5">
                 <p className={cn(
-                    "text-sm font-medium leading-snug",
+                    "text-sm font-medium leading-relaxed tracking-wide",
                     isActive ? "text-white" : "text-gray-200"
                 )}>
                     <HighlightedText text={enText} highlights={enHighlights} />
                 </p>
-                <p className={cn(
-                    "text-xs leading-snug",
-                    isActive ? "text-purple-50" : "text-gray-400"
+                <div className={cn(
+                    "grid transition-all duration-300 ease-in-out",
+                    showTranslation ? "grid-rows-[1fr] opacity-100 mt-1" : "grid-rows-[0fr] opacity-0 mt-0"
                 )}>
-                    <HighlightedText text={zhText} highlights={zhHighlights} />
-                </p>
+                    <div className="overflow-hidden">
+                        <p className={cn(
+                            "text-xs leading-relaxed",
+                            isActive ? "text-purple-200/80" : "text-gray-400"
+                        )}>
+                            <HighlightedText text={zhText} highlights={zhHighlights} />
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     );
