@@ -29,6 +29,8 @@ function App() {
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [isVocabOpen, setIsVocabOpen] = useState(false);
   const [isLeftCollapsed, setIsLeftCollapsed] = useState(false);
+  const [isPopupMode, setIsPopupMode] = useState(false);
+  const fullscreenWrapperRef = useRef<HTMLDivElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
 
@@ -294,13 +296,26 @@ function App() {
       >
         YT Bilingual
       </h1>
-      <button
-        onClick={() => setIsFavoritesOpen(true)}
-        className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-gray-300 hover:text-white transition-colors"
-      >
-        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-        <span>Favorites ({favorites.length})</span>
-      </button>
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => setIsFavoritesOpen(true)}
+          className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-200 rounded-lg transition-colors"
+        >
+          <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+          <span>Favorites ({favorites.length})</span>
+        </button>
+        {videoId && transcript.length > 0 && (
+          <button
+            onClick={() => setIsPopupMode(prev => !prev)}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-200 rounded-lg transition-colors ml-2"
+          >
+            <svg className="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+            <span>{isPopupMode ? 'Split Mode' : 'Popup Mode'}</span>
+          </button>
+        )}
+      </div>
     </div>
   );
 
@@ -322,16 +337,19 @@ function App() {
           />
         </div>
       ) : (
-        <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+        <div ref={fullscreenWrapperRef} className="flex-1 flex flex-col md:flex-row overflow-hidden relative bg-black group/wrapper">
           {/* Left Column: Video/Summary */}
-          <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-0 md:opacity-0 md:overflow-hidden' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col pt-4 md:pt-0 shrink-0`}>
+          <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} ${
+            isPopupMode ? 'md:w-full' : (isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-0 md:opacity-0 md:overflow-hidden' : 'md:w-1/2')
+          } transition-all duration-300 h-1/2 md:h-full flex flex-col pt-4 md:pt-0 shrink-0`}>
             {!metadata?.is_local_subtitle && (
               <>
-            <div className="flex-1 min-h-0 relative">
+            <div className="flex-1 min-h-0 relative bg-black">
               <VideoPlayer
                 videoId={videoId}
                 seekCommand={seekCommand}
                 onTimeUpdate={handleTimeUpdate}
+                wrapperRef={fullscreenWrapperRef}
               />
             </div>
             {metadata?.channel && (
@@ -471,10 +489,14 @@ function App() {
             </div>
           </div>
 
-          {/* Transcript Column: fixed to right half */}
-          <div className={`w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`}>
-            {/* Collapse Toggle Button for Local Subtitles */}
-            {metadata?.is_local_subtitle && (
+          {/* Transcript Column: fixed to right half, or floating popup */}
+          <div className={
+            isPopupMode
+              ? `absolute right-4 top-4 bottom-4 w-1/3 min-w-[320px] max-w-[500px] bg-gray-950/70 backdrop-blur-md border border-gray-700/50 rounded-2xl shadow-2xl overflow-hidden flex flex-col z-40 transition-all duration-300`
+              : `w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`
+          }>
+            {/* Collapse Toggle Button for Local Subtitles (only in split mode) */}
+            {!isPopupMode && metadata?.is_local_subtitle && (
               <button
                 onClick={() => setIsLeftCollapsed(prev => !prev)}
                 className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-gray-800 border border-gray-700 border-l-0 rounded-r-xl hover:bg-gray-700 hover:text-purple-400 text-gray-400 transition-colors shadow-lg shadow-black/50"
