@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Star } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { InputScreen } from './components/InputScreen';
 import { VideoPlayer } from './components/VideoPlayer';
 import { TranscriptView } from './components/TranscriptView';
@@ -28,6 +28,7 @@ function App() {
   const [metadata, setMetadata] = useState<any>(null);
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [isVocabOpen, setIsVocabOpen] = useState(false);
+  const [isLeftCollapsed, setIsLeftCollapsed] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
 
@@ -323,7 +324,7 @@ function App() {
       ) : (
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
           {/* Left Column: Video/Summary */}
-          <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} md:w-1/2 h-1/2 md:h-full flex flex-col pt-4 md:pt-0`}>
+          <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-0 md:opacity-0 md:overflow-hidden' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col pt-4 md:pt-0 shrink-0`}>
             {!metadata?.is_local_subtitle && (
               <>
             <div className="flex-1 min-h-0 relative">
@@ -471,7 +472,17 @@ function App() {
           </div>
 
           {/* Transcript Column: fixed to right half */}
-          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800">
+          <div className={`w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800`}>
+            {/* Collapse Toggle Button for Local Subtitles */}
+            {metadata?.is_local_subtitle && (
+              <button
+                onClick={() => setIsLeftCollapsed(prev => !prev)}
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-gray-800 border border-gray-700 border-l-0 rounded-r-xl hover:bg-gray-700 hover:text-purple-400 text-gray-400 transition-colors shadow-lg shadow-black/50"
+                title={isLeftCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+              >
+                {isLeftCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
+              </button>
+            )}
 
             {/* Local subtitle playback controls */}
             {metadata?.is_local_subtitle && (
