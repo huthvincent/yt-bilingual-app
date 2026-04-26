@@ -1,0 +1,5667 @@
+{
+  "videoId": "house-of-cards-S03E13",
+  "metadata": {
+    "title": "House of Cards S03E13",
+    "channel": "纸牌屋",
+    "upload_date": "",
+    "thumbnail": "/images/house-of-cards.png",
+    "is_local_subtitle": true
+  },
+  "transcript": [
+    {
+      "id": 1,
+      "start": 103.946,
+      "end": 111.286,
+      "en_text": "♪ and I'm feeling ♪ ♪ feeling fine ♪ Owner's coming in next week.",
+      "zh_text": "♪ 我感觉 ♪ ♪ 感觉很好 ♪ 老板下周会来。",
+      "highlights": []
+    },
+    {
+      "id": 2,
+      "start": 111.286,
+      "end": 113.413,
+      "en_text": "Anybody off the books, he'll be on my ass.",
+      "zh_text": "任何不报账的雇员，他都会找我麻烦。",
+      "highlights": [
+        {
+          "en_word": "off the books",
+          "zh_word": "不报账的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "on my ass",
+          "zh_word": "找我麻烦",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 113.496,
+      "end": 115.958,
+      "en_text": "If I switch some doubles with Benito, is that okay?",
+      "zh_text": "如果我和贝尼托换几个双班，可以吗？",
+      "highlights": [
+        {
+          "en_word": "switch some doubles",
+          "zh_word": "换几个双班",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 116.041,
+      "end": 117.709,
+      "en_text": "Whatever you and him wanna work out.",
+      "zh_text": "你和他想怎么解决都行。",
+      "highlights": [
+        {
+          "en_word": "work out",
+          "zh_word": "解决",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 205.964,
+      "end": 210.317,
+      "en_text": "Sync and corrections by n17t01 www.addic7ed.com",
+      "zh_text": "n17t01 www.addic7ed.com 同步及校正。",
+      "highlights": []
+    },
+    {
+      "id": 6,
+      "start": 235.618,
+      "end": 236.77494594594594,
+      "en_text": "Welcome to Caracas.",
+      "zh_text": "欢迎来到加拉加斯。",
+      "highlights": []
+    },
+    {
+      "id": 7,
+      "start": 236.77494594594594,
+      "end": 240.373,
+      "en_text": "The time is 3:21-- We've been lying for a long time, Francis.",
+      "zh_text": "现在是3点21分——弗朗西斯，我们已经撒谎很久了。",
+      "highlights": []
+    },
+    {
+      "id": 8,
+      "start": 240.456,
+      "end": 241.499,
+      "en_text": "Of course we have.",
+      "zh_text": "我们当然撒谎了。",
+      "highlights": []
+    },
+    {
+      "id": 9,
+      "start": 241.583,
+      "end": 244.92,
+      "en_text": "Imagine what the voters would think if we started telling the truth.",
+      "zh_text": "想象一下，如果我们开始说真话，选民会怎么想。",
+      "highlights": []
+    },
+    {
+      "id": 10,
+      "start": 245.003,
+      "end": 247.214,
+      "en_text": "Not to them.",
+      "zh_text": "不是对他们说。",
+      "highlights": []
+    },
+    {
+      "id": 11,
+      "start": 247.296,
+      "end": 249.007,
+      "en_text": "To each other.",
+      "zh_text": "是对彼此说。",
+      "highlights": []
+    },
+    {
+      "id": 12,
+      "start": 250.842,
+      "end": 251.843,
+      "en_text": "What do you mean?",
+      "zh_text": "你什么意思？",
+      "highlights": []
+    },
+    {
+      "id": 13,
+      "start": 253.97,
+      "end": 254.81056,
+      "en_text": "You know what?",
+      "zh_text": "你知道吗？",
+      "highlights": []
+    },
+    {
+      "id": 14,
+      "start": 254.81056,
+      "end": 255.471,
+      "en_text": "Never mind.",
+      "zh_text": "算了。",
+      "highlights": [
+        {
+          "en_word": "Never mind",
+          "zh_word": "算了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 255.555,
+      "end": 255.692625,
+      "en_text": "No.",
+      "zh_text": "不。",
+      "highlights": []
+    },
+    {
+      "id": 16,
+      "start": 255.692625,
+      "end": 257.39,
+      "en_text": "How have we been lying to each other?",
+      "zh_text": "我们怎么一直在互相撒谎？",
+      "highlights": []
+    },
+    {
+      "id": 17,
+      "start": 257.473,
+      "end": 258.934,
+      "en_text": "- We're not. - You just said that.",
+      "zh_text": "- 我们没有。 - 你刚才才说了。",
+      "highlights": []
+    },
+    {
+      "id": 18,
+      "start": 262.02,
+      "end": 264.731,
+      "en_text": "We've begun our final descent into Des Moines.",
+      "zh_text": "我们已开始最终下降，即将抵达得梅因。",
+      "highlights": [
+        {
+          "en_word": "final descent",
+          "zh_word": "最终下降",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 264.814,
+      "end": 267.442,
+      "en_text": "Please find a seat and put your seat belts on.",
+      "zh_text": "请找好座位，系好安全带。",
+      "highlights": []
+    },
+    {
+      "id": 20,
+      "start": 275.658,
+      "end": 277.994,
+      "en_text": "Should we talk?",
+      "zh_text": "我们该谈谈吗？",
+      "highlights": []
+    },
+    {
+      "id": 21,
+      "start": 278.078,
+      "end": 278.2251764705882,
+      "en_text": "No.",
+      "zh_text": "不。",
+      "highlights": []
+    },
+    {
+      "id": 22,
+      "start": 278.2251764705882,
+      "end": 279.746,
+      "en_text": "I shouldn't have said anything.",
+      "zh_text": "我本不该说什么的。",
+      "highlights": []
+    },
+    {
+      "id": 23,
+      "start": 352.694,
+      "end": 354.112,
+      "en_text": "Where is she?",
+      "zh_text": "她在哪儿？",
+      "highlights": []
+    },
+    {
+      "id": 24,
+      "start": 363.83,
+      "end": 365.332,
+      "en_text": "Tell me where she is.",
+      "zh_text": "告诉我她在哪里。",
+      "highlights": []
+    },
+    {
+      "id": 25,
+      "start": 366.791,
+      "end": 367.917,
+      "en_text": "I don't know, man.",
+      "zh_text": "我不知道，伙计。",
+      "highlights": []
+    },
+    {
+      "id": 26,
+      "start": 368.001,
+      "end": 369.544,
+      "en_text": "- You don't know? - I don't know.",
+      "zh_text": "- 你不知道？ - 我不知道。",
+      "highlights": []
+    },
+    {
+      "id": 27,
+      "start": 371.546,
+      "end": 372.5471,
+      "en_text": "Ah!",
+      "zh_text": "啊！",
+      "highlights": []
+    },
+    {
+      "id": 28,
+      "start": 372.5471,
+      "end": 373.5482,
+      "en_text": "Oh!",
+      "zh_text": "哦！",
+      "highlights": []
+    },
+    {
+      "id": 29,
+      "start": 373.5482,
+      "end": 374.883,
+      "en_text": "God!",
+      "zh_text": "天啊！",
+      "highlights": []
+    },
+    {
+      "id": 30,
+      "start": 376.759,
+      "end": 379.512,
+      "en_text": "I'm not asking again.",
+      "zh_text": "我不会再问了。",
+      "highlights": []
+    },
+    {
+      "id": 31,
+      "start": 387.145,
+      "end": 389.356,
+      "en_text": "- My computer. - I tried that.",
+      "zh_text": "- 我的电脑。 - 我试过了。",
+      "highlights": []
+    },
+    {
+      "id": 32,
+      "start": 389.48,
+      "end": 391.9,
+      "en_text": "- It's locked. - I'll give you the code.",
+      "zh_text": "- 它锁了。 - 我给你密码。",
+      "highlights": []
+    },
+    {
+      "id": 33,
+      "start": 421.679,
+      "end": 425.016,
+      "en_text": "- You don't have anything more? - That's all I have.",
+      "zh_text": "- 你没有别的了吗？ - 我就这些了。",
+      "highlights": []
+    },
+    {
+      "id": 34,
+      "start": 425.1,
+      "end": 427.602,
+      "en_text": "- How current is this? - She's there, I promise.",
+      "zh_text": "- 这信息有多新？ - 她在那里，我保证。",
+      "highlights": [
+        {
+          "en_word": "How current is this",
+          "zh_word": "这信息有多新",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 447.33,
+      "end": 449.2331052631579,
+      "en_text": "I found you once.",
+      "zh_text": "我找到过你一次。",
+      "highlights": []
+    },
+    {
+      "id": 36,
+      "start": 449.2331052631579,
+      "end": 451.584,
+      "en_text": "I can find you again.",
+      "zh_text": "我还能再找到你。",
+      "highlights": []
+    },
+    {
+      "id": 37,
+      "start": 451.667,
+      "end": 454.837,
+      "en_text": "If this information is wrong, you die.",
+      "zh_text": "如果这信息有误，你就死定了。",
+      "highlights": []
+    },
+    {
+      "id": 38,
+      "start": 455.546,
+      "end": 458.633,
+      "en_text": "You try to contact her, you die.",
+      "zh_text": "你若是敢联系她，你就死定了。",
+      "highlights": []
+    },
+    {
+      "id": 39,
+      "start": 498.047,
+      "end": 501.217,
+      "en_text": "Frank Underwood is a dangerous man.",
+      "zh_text": "弗兰克·安德伍德是个危险的人。",
+      "highlights": []
+    },
+    {
+      "id": 40,
+      "start": 501.301,
+      "end": 508.557,
+      "en_text": "Because power in the hands of those who lack honesty, lacks a moral compass.",
+      "zh_text": "因为权力落到那些缺乏诚信的人手中，他们就没有道德指南针。",
+      "highlights": [
+        {
+          "en_word": "in the hands of",
+          "zh_word": "落到...手中",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "moral compass",
+          "zh_word": "道德指南针",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 508.641,
+      "end": 513.271,
+      "en_text": "And without a moral compass, power runs amok.",
+      "zh_text": "失去道德指南针，权力就会失控。",
+      "highlights": [
+        {
+          "en_word": "moral compass",
+          "zh_word": "道德指南针",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "runs amok",
+          "zh_word": "失控",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 513.355,
+      "end": 515.606,
+      "en_text": "Heather Dunbar can question my husband's choices.",
+      "zh_text": "希瑟·邓巴可以质疑我丈夫的选择。",
+      "highlights": []
+    },
+    {
+      "id": 43,
+      "start": 515.69,
+      "end": 518.067,
+      "en_text": "She can criticize his policies.",
+      "zh_text": "她可以批评他的政策。",
+      "highlights": []
+    },
+    {
+      "id": 44,
+      "start": 518.151,
+      "end": 522.071,
+      "en_text": "But to cast aspersions on his character is proof of desperation.",
+      "zh_text": "但对他人格进行诽谤，只会证明她的绝望。",
+      "highlights": [
+        {
+          "en_word": "cast aspersions on",
+          "zh_word": "诽谤",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "desperation",
+          "zh_word": "绝望",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 522.155,
+      "end": 529.496,
+      "en_text": "If he will lie about the death of a US soldier, what else is he lying about?",
+      "zh_text": "如果他会就一名美国士兵的死亡撒谎，那他还会在其他什么事情上撒谎？",
+      "highlights": []
+    },
+    {
+      "id": 46,
+      "start": 529.578,
+      "end": 533.916,
+      "en_text": "We know he already lied about not running in 2016.",
+      "zh_text": "我们知道他已经就2016年不参选一事撒谎了。",
+      "highlights": []
+    },
+    {
+      "id": 47,
+      "start": 534.0,
+      "end": 535.9939830508474,
+      "en_text": "The people of Iowa know better.",
+      "zh_text": "爱荷华州的人民更清楚。",
+      "highlights": []
+    },
+    {
+      "id": 48,
+      "start": 535.9939830508474,
+      "end": 543.468,
+      "en_text": "They see the same man I see: a strong, decisive leader who doesn't always do what's popular, but he always does what's right.",
+      "zh_text": "他们看到的是我所看到的同一个人：一位强大、果断的领导者，他做的并非总是讨人喜欢的事，但他总是做正确的事。",
+      "highlights": [
+        {
+          "en_word": "decisive",
+          "zh_word": "果断",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "what's popular",
+          "zh_word": "讨人喜欢的事",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 543.551,
+      "end": 548.39,
+      "en_text": "The decision you make next Tuesday is one you'll live with for years.",
+      "zh_text": "你们下周二做出的决定，将伴随你们多年。",
+      "highlights": []
+    },
+    {
+      "id": 50,
+      "start": 548.473,
+      "end": 551.726,
+      "en_text": "For three decades, I've stood by my husband's side.",
+      "zh_text": "三十年来，我一直在我丈夫身边支持他。",
+      "highlights": [
+        {
+          "en_word": "stood by",
+          "zh_word": "支持",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 551.809,
+      "end": 554.979,
+      "en_text": "Because I know he stands up for people like you.",
+      "zh_text": "因为我知道他会为像你们这样的人争取权益。",
+      "highlights": [
+        {
+          "en_word": "stands up for",
+          "zh_word": "争取权益",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 555.063,
+      "end": 558.107,
+      "en_text": "You have the power to choose.",
+      "zh_text": "你们有选择的权力。",
+      "highlights": []
+    },
+    {
+      "id": 53,
+      "start": 558.191,
+      "end": 559.817,
+      "en_text": "Choose progress over pettiness.",
+      "zh_text": "选择进步而非琐碎。",
+      "highlights": [
+        {
+          "en_word": "pettiness",
+          "zh_word": "琐碎",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 559.901,
+      "end": 563.279,
+      "en_text": "You have the power, not him.",
+      "zh_text": "权力在你们手中，而非他。",
+      "highlights": []
+    },
+    {
+      "id": 55,
+      "start": 563.363,
+      "end": 566.115,
+      "en_text": "Choose a president over a charlatan.",
+      "zh_text": "选择一位总统，而非江湖骗子。",
+      "highlights": [
+        {
+          "en_word": "charlatan",
+          "zh_word": "江湖骗子",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 566.199,
+      "end": 570.161,
+      "en_text": "Ladies and gentlemen, my husband, President Frank Underwood.",
+      "zh_text": "女士们，先生们，我的丈夫，弗兰克·安德伍德总统。",
+      "highlights": []
+    },
+    {
+      "id": 57,
+      "start": 578.669,
+      "end": 580.1706666666666,
+      "en_text": "Thank you!",
+      "zh_text": "谢谢！",
+      "highlights": []
+    },
+    {
+      "id": 58,
+      "start": 580.1706666666666,
+      "end": 583.174,
+      "en_text": "Thank you very much.",
+      "zh_text": "非常感谢。",
+      "highlights": []
+    },
+    {
+      "id": 59,
+      "start": 583.258,
+      "end": 589.722,
+      "en_text": "I'm gonna give you one good reason why Heather Dunbar doesn't stand a chance on Tuesday.",
+      "zh_text": "我给你们一个很好的理由，为什么希瑟·邓巴周二没有胜算。",
+      "highlights": [
+        {
+          "en_word": "stand a chance",
+          "zh_word": "有胜算",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 589.805,
+      "end": 593.017,
+      "en_text": "She doesn't have Claire Underwood standing by her side.",
+      "zh_text": "因为她身边没有克莱尔·安德伍德。",
+      "highlights": []
+    },
+    {
+      "id": 61,
+      "start": 595.644,
+      "end": 602.318,
+      "en_text": "I want to spend a few minutes talking about the future that we are going to build together.",
+      "zh_text": "我想花几分钟时间谈谈我们即将共同建设的未来。",
+      "highlights": []
+    },
+    {
+      "id": 62,
+      "start": 602.402,
+      "end": 605.405,
+      "en_text": "And I say together, because I can't do it alone.",
+      "zh_text": "我说“一起”，是因为我一个人做不到。",
+      "highlights": []
+    },
+    {
+      "id": 63,
+      "start": 605.488,
+      "end": 606.864,
+      "en_text": "I need your help.",
+      "zh_text": "我需要你的帮助。",
+      "highlights": []
+    },
+    {
+      "id": 64,
+      "start": 620.878,
+      "end": 622.547,
+      "en_text": "Meet me out back.",
+      "zh_text": "到后面来找我。",
+      "highlights": [
+        {
+          "en_word": "out back",
+          "zh_word": "到后面",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "start": 634.517,
+      "end": 637.091,
+      "en_text": "- You have it? - Yeah.",
+      "zh_text": "- 你拿到了吗？ - 是的。",
+      "highlights": []
+    },
+    {
+      "id": 66,
+      "start": 637.091,
+      "end": 638.729,
+      "en_text": "How about you?",
+      "zh_text": "你呢？",
+      "highlights": []
+    },
+    {
+      "id": 67,
+      "start": 639.522,
+      "end": 640.689,
+      "en_text": "Cassie Lockhart.",
+      "zh_text": "凯西·洛克哈特。",
+      "highlights": []
+    },
+    {
+      "id": 68,
+      "start": 640.773,
+      "end": 642.942,
+      "en_text": "Social Security card, driver's license, birth certificate.",
+      "zh_text": "社保卡、驾照、出生证明。",
+      "highlights": [
+        {
+          "en_word": "Social Security card",
+          "zh_word": "社保卡",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "birth certificate",
+          "zh_word": "出生证明",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "start": 643.025,
+      "end": 644.402,
+      "en_text": "It's all legit.",
+      "zh_text": "都合法。",
+      "highlights": [
+        {
+          "en_word": "legit",
+          "zh_word": "合法",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "start": 652.868,
+      "end": 653.8441555555556,
+      "en_text": "Why \"Cassie\"?",
+      "zh_text": "为什么是“凯西”？",
+      "highlights": []
+    },
+    {
+      "id": 71,
+      "start": 653.8441555555556,
+      "end": 656.247,
+      "en_text": "It's not even a real first name.",
+      "zh_text": "这甚至不是一个真正的名字。",
+      "highlights": []
+    },
+    {
+      "id": 72,
+      "start": 656.331,
+      "end": 658.707,
+      "en_text": "I mean, if it were short for something, like Cassandra.",
+      "zh_text": "我的意思是，如果它是某个名字的缩写，比如卡桑德拉。",
+      "highlights": [
+        {
+          "en_word": "short for",
+          "zh_word": "的缩写",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "start": 658.791,
+      "end": 661.377,
+      "en_text": "- But as your legal name? - It's all there.",
+      "zh_text": "- 但作为你的法定姓名呢？ - 都在那儿了。",
+      "highlights": [
+        {
+          "en_word": "legal name",
+          "zh_word": "法定姓名",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "start": 669.594,
+      "end": 672.639,
+      "en_text": "Hey, Cassie, take a hundred back if you want it.",
+      "zh_text": "嘿，凯西，如果你想要，就把一百块拿回去。",
+      "highlights": [
+        {
+          "en_word": "take back",
+          "zh_word": "拿回去",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "start": 672.721,
+      "end": 674.723,
+      "en_text": "My truck's right there.",
+      "zh_text": "我的卡车就在那儿。",
+      "highlights": []
+    },
+    {
+      "id": 76,
+      "start": 675.975,
+      "end": 677.226,
+      "en_text": "You keep it.",
+      "zh_text": "你留着吧。",
+      "highlights": []
+    },
+    {
+      "id": 77,
+      "start": 677.31,
+      "end": 677.7177037037037,
+      "en_text": "Come on.",
+      "zh_text": "算了吧。",
+      "highlights": []
+    },
+    {
+      "id": 78,
+      "start": 677.7177037037037,
+      "end": 679.0427407407408,
+      "en_text": "I gave you a big discount.",
+      "zh_text": "我给你打了很大的折扣。",
+      "highlights": [
+        {
+          "en_word": "discount",
+          "zh_word": "折扣",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "start": 679.0427407407408,
+      "end": 680.062,
+      "en_text": "Show some gratitude.",
+      "zh_text": "表现出一点感激。",
+      "highlights": [
+        {
+          "en_word": "gratitude",
+          "zh_word": "感激",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "start": 680.146,
+      "end": 682.44,
+      "en_text": "Go home to your wife... and kids.",
+      "zh_text": "回家陪你老婆孩子吧。",
+      "highlights": []
+    },
+    {
+      "id": 81,
+      "start": 710.343,
+      "end": 712.637,
+      "en_text": "I want you to fuck me, Francis.",
+      "zh_text": "我想要你肏我，弗朗西斯。",
+      "highlights": [
+        {
+          "en_word": "fuck me",
+          "zh_word": "肏我",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "start": 718.184,
+      "end": 720.603,
+      "en_text": "- I'm working. - Shut up.",
+      "zh_text": "- 我在工作。- 闭嘴。",
+      "highlights": [
+        {
+          "en_word": "Shut up",
+          "zh_word": "闭嘴",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "start": 727.694,
+      "end": 728.861,
+      "en_text": "What is going on?",
+      "zh_text": "怎么回事？",
+      "highlights": [
+        {
+          "en_word": "going on",
+          "zh_word": "回事",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "start": 733.032,
+      "end": 735.493,
+      "en_text": "I want you to be rough with me.",
+      "zh_text": "我想要你对我粗暴点。",
+      "highlights": [
+        {
+          "en_word": "rough",
+          "zh_word": "粗暴",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "start": 736.661,
+      "end": 739.581,
+      "en_text": "- Take me. - Claire.",
+      "zh_text": "- 要我。- 克莱尔。",
+      "highlights": [
+        {
+          "en_word": "Take me",
+          "zh_word": "要我",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "start": 740.831,
+      "end": 743.3891111111111,
+      "en_text": "- Now, listen. - Do it.",
+      "zh_text": "- 听我说。- 做吧。",
+      "highlights": []
+    },
+    {
+      "id": 87,
+      "start": 743.3891111111111,
+      "end": 743.834,
+      "en_text": "Now!",
+      "zh_text": "现在！",
+      "highlights": []
+    },
+    {
+      "id": 88,
+      "start": 743.918,
+      "end": 745.42,
+      "en_text": "Is this what you want?",
+      "zh_text": "这就是你想要的吗？",
+      "highlights": []
+    },
+    {
+      "id": 89,
+      "start": 745.503,
+      "end": 746.504,
+      "en_text": "- You want this? - Yes.",
+      "zh_text": "- 你想要这个吗？- 是的。",
+      "highlights": []
+    },
+    {
+      "id": 90,
+      "start": 746.588,
+      "end": 748.464,
+      "en_text": "- Yes. - You want it rough?",
+      "zh_text": "- 是的。- 你想要粗暴的吗？",
+      "highlights": [
+        {
+          "en_word": "rough",
+          "zh_word": "粗暴的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "start": 752.885,
+      "end": 754.262,
+      "en_text": "I want you to look at me.",
+      "zh_text": "我要你看着我。",
+      "highlights": [
+        {
+          "en_word": "look at",
+          "zh_word": "看着",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "start": 754.345,
+      "end": 755.888,
+      "en_text": "Look at me while you do it.",
+      "zh_text": "做的时候看着我。",
+      "highlights": [
+        {
+          "en_word": "Look at",
+          "zh_word": "看着",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "start": 766.773,
+      "end": 768.109,
+      "en_text": "That's what I thought.",
+      "zh_text": "我就是这么想的。",
+      "highlights": []
+    },
+    {
+      "id": 94,
+      "start": 794.218,
+      "end": 797.597,
+      "en_text": "Yes, I'd like to arrange a room for the First Lady, please.",
+      "zh_text": "是的，我想为第一夫人安排一间房。",
+      "highlights": [
+        {
+          "en_word": "arrange a room",
+          "zh_word": "安排一间房",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "First Lady",
+          "zh_word": "第一夫人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "start": 798.723,
+      "end": 800.433,
+      "en_text": "Yes, right away.",
+      "zh_text": "是的，马上就办。",
+      "highlights": [
+        {
+          "en_word": "right away",
+          "zh_word": "马上就办",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "start": 816.324,
+      "end": 819.076,
+      "en_text": "I think you should go back to Washington in the morning.",
+      "zh_text": "我想你早上应该回华盛顿。",
+      "highlights": [
+        {
+          "en_word": "go back to",
+          "zh_word": "回",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "start": 831.046,
+      "end": 831.2473793103449,
+      "en_text": "Hey.",
+      "zh_text": "嘿。",
+      "highlights": []
+    },
+    {
+      "id": 98,
+      "start": 831.2473793103449,
+      "end": 832.0025517241379,
+      "en_text": "Sorry I'm late.",
+      "zh_text": "抱歉我迟到了。",
+      "highlights": []
+    },
+    {
+      "id": 99,
+      "start": 832.0025517241379,
+      "end": 833.9659999999999,
+      "en_text": "I did a double at the store last night.",
+      "zh_text": "我昨晚在店里加班了。",
+      "highlights": [
+        {
+          "en_word": "did a double",
+          "zh_word": "加班了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "start": 834.049,
+      "end": 836.678,
+      "en_text": "- No worries. - I'll work quick.",
+      "zh_text": "- 没关系。- 我会很快完成。",
+      "highlights": [
+        {
+          "en_word": "No worries",
+          "zh_word": "没关系",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "start": 849.982,
+      "end": 852.777,
+      "en_text": "About 200,000 miles.",
+      "zh_text": "大概二十万英里。",
+      "highlights": []
+    },
+    {
+      "id": 102,
+      "start": 852.86,
+      "end": 855.78,
+      "en_text": "It's not much to look at, but... it runs well.",
+      "zh_text": "它不怎么好看，但是……它跑得很好。",
+      "highlights": [
+        {
+          "en_word": "not much to look at",
+          "zh_word": "不怎么好看",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "start": 861.786,
+      "end": 863.871,
+      "en_text": "- How much? - Twelve hundred.",
+      "zh_text": "- 多少钱？ - 一千二百。",
+      "highlights": []
+    },
+    {
+      "id": 104,
+      "start": 863.954,
+      "end": 869.335,
+      "en_text": "But I don't got a title, so technically, you're just buying it for parts.",
+      "zh_text": "但我没有所有权证，所以严格来说，你只是把它当零件买。",
+      "highlights": [
+        {
+          "en_word": "for parts",
+          "zh_word": "当零件买",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "start": 869.418,
+      "end": 871.17,
+      "en_text": "Have gas in the tank?",
+      "zh_text": "油箱里有油吗？",
+      "highlights": []
+    },
+    {
+      "id": 106,
+      "start": 871.253,
+      "end": 874.298,
+      "en_text": "Yeah, you can drive her right out.",
+      "zh_text": "是的，你可以直接开走。",
+      "highlights": [
+        {
+          "en_word": "drive her right out",
+          "zh_word": "直接开走",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "start": 874.382,
+      "end": 877.385,
+      "en_text": "- You'll need plates, though. - I got plates.",
+      "zh_text": "- 不过你需要车牌。 - 我有车牌。",
+      "highlights": [
+        {
+          "en_word": "plates",
+          "zh_word": "车牌",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "start": 879.053,
+      "end": 881.055,
+      "en_text": "- Cash okay? - It's all we take.",
+      "zh_text": "- 现金可以吗？ - 我们只收现金。",
+      "highlights": [
+        {
+          "en_word": "It's all we take",
+          "zh_word": "我们只收现金",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "start": 923.89,
+      "end": 925.266,
+      "en_text": "Underwood!",
+      "zh_text": "安德伍德！",
+      "highlights": []
+    },
+    {
+      "id": 110,
+      "start": 925.266,
+      "end": 926.6419999999999,
+      "en_text": "Underwood!",
+      "zh_text": "安德伍德！",
+      "highlights": []
+    },
+    {
+      "id": 111,
+      "start": 926.6419999999999,
+      "end": 928.0179999999999,
+      "en_text": "Underwood!",
+      "zh_text": "安德伍德！",
+      "highlights": []
+    },
+    {
+      "id": 112,
+      "start": 928.102,
+      "end": 929.249,
+      "en_text": "Underwood!",
+      "zh_text": "安德伍德！",
+      "highlights": []
+    },
+    {
+      "id": 113,
+      "start": 929.249,
+      "end": 930.396,
+      "en_text": "Underwood!",
+      "zh_text": "安德伍德！",
+      "highlights": []
+    },
+    {
+      "id": 114,
+      "start": 942.658,
+      "end": 945.035,
+      "en_text": "Yes, I'm good.",
+      "zh_text": "是的，我很好。",
+      "highlights": []
+    },
+    {
+      "id": 115,
+      "start": 945.119,
+      "end": 951.333,
+      "en_text": "Ladies and gentlemen, the President of the United States, Frank Underwood!",
+      "zh_text": "女士们先生们，美国总统弗兰克·安德伍德！",
+      "highlights": [
+        {
+          "en_word": "Ladies and gentlemen",
+          "zh_word": "女士们先生们",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "start": 960.217,
+      "end": 961.107,
+      "en_text": "Thank you!",
+      "zh_text": "谢谢大家！",
+      "highlights": []
+    },
+    {
+      "id": 117,
+      "start": 961.107,
+      "end": 962.887,
+      "en_text": "Thank you very much.",
+      "zh_text": "非常感谢。",
+      "highlights": []
+    },
+    {
+      "id": 118,
+      "start": 962.97,
+      "end": 966.265,
+      "en_text": "It's good to be back in Iowa City!",
+      "zh_text": "很高兴回到爱荷华市！",
+      "highlights": []
+    },
+    {
+      "id": 119,
+      "start": 966.348,
+      "end": 972.73,
+      "en_text": "Claire couldn't be here today, but she wants you to know she's a big Hawkeyes fan.",
+      "zh_text": "克莱尔今天没能来，但她想让你们知道她是一个忠实的Hawkeyes球迷。",
+      "highlights": [
+        {
+          "en_word": "big Hawkeyes fan",
+          "zh_word": "忠实的Hawkeyes球迷",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "start": 977.109,
+      "end": 986.661,
+      "en_text": "Now here, at one of the country's finest public universities, I wanna talk to you about Heather Dunbar's preference for--",
+      "zh_text": "现在，在这所全国最好的公立大学之一，我想和你们谈谈海瑟·邓巴的偏好——",
+      "highlights": [
+        {
+          "en_word": "finest public universities",
+          "zh_word": "最好的公立大学",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "start": 1047.972,
+      "end": 1050.975,
+      "en_text": "- Hey, can you do another double tomorrow? - Yeah, no problem.",
+      "zh_text": "“嘿，你明天能再值一个双班吗？” “好啊，没问题。”",
+      "highlights": [
+        {
+          "en_word": "do another double",
+          "zh_word": "再值一个双班",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "start": 1051.058,
+      "end": 1053.31,
+      "en_text": "- All right, have a good night. - You, too.",
+      "zh_text": "“好的，晚安。” “你也是。”",
+      "highlights": []
+    },
+    {
+      "id": 123,
+      "start": 1086.093,
+      "end": 1088.136,
+      "en_text": "Hi, I'm Cassie Lockhart.",
+      "zh_text": "“嗨，我是凯西·洛克哈特。”",
+      "highlights": []
+    },
+    {
+      "id": 124,
+      "start": 1089.931,
+      "end": 1091.0053529411764,
+      "en_text": "Hello.",
+      "zh_text": "“你好。”",
+      "highlights": []
+    },
+    {
+      "id": 125,
+      "start": 1091.0053529411764,
+      "end": 1092.2587647058822,
+      "en_text": "Cassie.",
+      "zh_text": "“凯西。”",
+      "highlights": []
+    },
+    {
+      "id": 126,
+      "start": 1092.2587647058822,
+      "end": 1092.975,
+      "en_text": "Hey.",
+      "zh_text": "“嘿。”",
+      "highlights": []
+    },
+    {
+      "id": 127,
+      "start": 1094.351,
+      "end": 1095.2878333333335,
+      "en_text": "Cassie.",
+      "zh_text": "“凯西。”",
+      "highlights": []
+    },
+    {
+      "id": 128,
+      "start": 1095.2878333333335,
+      "end": 1097.563,
+      "en_text": "C-A-double-S-I-E.",
+      "zh_text": "“C-A-双S-I-E。”",
+      "highlights": []
+    },
+    {
+      "id": 129,
+      "start": 1097.646,
+      "end": 1098.87756,
+      "en_text": "Lockhart.",
+      "zh_text": "“洛克哈特。”",
+      "highlights": []
+    },
+    {
+      "id": 130,
+      "start": 1098.87756,
+      "end": 1101.067,
+      "en_text": "L-O-C-K-H-A-R-T.",
+      "zh_text": "“L-O-C-K-H-A-R-T。”",
+      "highlights": []
+    },
+    {
+      "id": 131,
+      "start": 1101.149,
+      "end": 1104.486,
+      "en_text": "April 21st-- Just a second!",
+      "zh_text": "“4月21日——等一下！”",
+      "highlights": []
+    },
+    {
+      "id": 132,
+      "start": 1120.461,
+      "end": 1120.7491212121213,
+      "en_text": "Hey.",
+      "zh_text": "“嘿。”",
+      "highlights": []
+    },
+    {
+      "id": 133,
+      "start": 1120.7491212121213,
+      "end": 1123.76246875,
+      "en_text": "I've got rent money for you-- No, no, no, no.",
+      "zh_text": "“我给你带房租了——不，不，不，不。”",
+      "highlights": []
+    },
+    {
+      "id": 134,
+      "start": 1123.76246875,
+      "end": 1124.715,
+      "en_text": "I have good news.",
+      "zh_text": "“我有个好消息。”",
+      "highlights": []
+    },
+    {
+      "id": 135,
+      "start": 1124.799,
+      "end": 1126.717,
+      "en_text": "Bianca got her protected status.",
+      "zh_text": "“比安卡获得了她的受保护身份。”",
+      "highlights": [
+        {
+          "en_word": "protected status",
+          "zh_word": "受保护身份",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 136,
+      "start": 1129.595,
+      "end": 1130.7675185185185,
+      "en_text": "Oh, my God!",
+      "zh_text": "“哦，天哪！”",
+      "highlights": []
+    },
+    {
+      "id": 137,
+      "start": 1130.7675185185185,
+      "end": 1132.473,
+      "en_text": "That's so great!",
+      "zh_text": "“太棒了！”",
+      "highlights": []
+    },
+    {
+      "id": 138,
+      "start": 1135.977,
+      "end": 1137.895,
+      "en_text": "She says thank you for all your help with her paperwork.",
+      "zh_text": "“她说谢谢你帮她处理所有文件。”",
+      "highlights": []
+    },
+    {
+      "id": 139,
+      "start": 1137.979,
+      "end": 1139.647,
+      "en_text": "- Of course. - We're celebrating.",
+      "zh_text": "“当然。” “我们在庆祝。”",
+      "highlights": []
+    },
+    {
+      "id": 140,
+      "start": 1139.73,
+      "end": 1141.482,
+      "en_text": "Maria got a bottle from her Thursday house.",
+      "zh_text": "“玛丽亚从她‘周四之家’带了一瓶酒来。”",
+      "highlights": [
+        {
+          "en_word": "Thursday house",
+          "zh_word": "‘周四之家’",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "start": 1141.565,
+      "end": 1143.025,
+      "en_text": "They gave it to me for the holidays.",
+      "zh_text": "他们把这个作为节日礼物送给我了。",
+      "highlights": [
+        {
+          "en_word": "for the holidays",
+          "zh_word": "作为节日礼物",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "start": 1143.109,
+      "end": 1144.11,
+      "en_text": "This is nice.",
+      "zh_text": "这很好。",
+      "highlights": []
+    },
+    {
+      "id": 143,
+      "start": 1145.778,
+      "end": 1148.823,
+      "en_text": "I know, it's really terrible.",
+      "zh_text": "我知道，这真的很糟糕。",
+      "highlights": []
+    },
+    {
+      "id": 144,
+      "start": 1156.538,
+      "end": 1158.248,
+      "en_text": "She has family in Houston.",
+      "zh_text": "她在休斯顿有家人。",
+      "highlights": []
+    },
+    {
+      "id": 145,
+      "start": 1158.332,
+      "end": 1160.375,
+      "en_text": "They're gonna help her get into community college.",
+      "zh_text": "他们会帮她进入社区大学。",
+      "highlights": [
+        {
+          "en_word": "get into",
+          "zh_word": "进入",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "community college",
+          "zh_word": "社区大学",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 146,
+      "start": 1160.459,
+      "end": 1162.252,
+      "en_text": "I'm so happy for her.",
+      "zh_text": "我真替她高兴。",
+      "highlights": []
+    },
+    {
+      "id": 147,
+      "start": 1162.336,
+      "end": 1163.6101176470588,
+      "en_text": "What about you, eh?",
+      "zh_text": "你呢？嗯？",
+      "highlights": []
+    },
+    {
+      "id": 148,
+      "start": 1163.6101176470588,
+      "end": 1165.756,
+      "en_text": "You're not staying here forever.",
+      "zh_text": "你不会永远待在这里的。",
+      "highlights": []
+    },
+    {
+      "id": 149,
+      "start": 1169.01,
+      "end": 1171.804,
+      "en_text": "Once I save up enough, I want to get my own car.",
+      "zh_text": "等我存够钱，我想买自己的车。",
+      "highlights": [
+        {
+          "en_word": "save up",
+          "zh_word": "存够钱",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 150,
+      "start": 1171.887,
+      "end": 1173.597,
+      "en_text": "And have enough for my own place.",
+      "zh_text": "有足够的钱买自己的房子。",
+      "highlights": [
+        {
+          "en_word": "my own place",
+          "zh_word": "自己的房子",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "start": 1173.681,
+      "end": 1175.557,
+      "en_text": "Here in Santa?",
+      "zh_text": "就在圣塔吗？",
+      "highlights": []
+    },
+    {
+      "id": 152,
+      "start": 1175.641,
+      "end": 1177.2153414634147,
+      "en_text": "Up north, I think.",
+      "zh_text": "我想是在北部。",
+      "highlights": [
+        {
+          "en_word": "Up north",
+          "zh_word": "北部",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 153,
+      "start": 1177.2153414634147,
+      "end": 1179.227,
+      "en_text": "In the woods somewhere.",
+      "zh_text": "在某个森林里。",
+      "highlights": [
+        {
+          "en_word": "In the woods",
+          "zh_word": "在森林里",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "start": 1179.311,
+      "end": 1180.855,
+      "en_text": "I miss the trees and the rain.",
+      "zh_text": "我想念树木和雨水。",
+      "highlights": []
+    },
+    {
+      "id": 155,
+      "start": 1182.064,
+      "end": 1183.107,
+      "en_text": "Someplace quiet.",
+      "zh_text": "一个安静的地方。",
+      "highlights": []
+    },
+    {
+      "id": 156,
+      "start": 1184.942,
+      "end": 1186.735,
+      "en_text": "Something new.",
+      "zh_text": "一些新的东西。",
+      "highlights": []
+    },
+    {
+      "id": 157,
+      "start": 1187.82,
+      "end": 1189.488,
+      "en_text": "Yeah.",
+      "zh_text": "是啊。",
+      "highlights": []
+    },
+    {
+      "id": 158,
+      "start": 1189.571,
+      "end": 1191.532,
+      "en_text": "Well, you're a smart girl, Lisa.",
+      "zh_text": "嗯，丽莎，你是个聪明的女孩。",
+      "highlights": []
+    },
+    {
+      "id": 159,
+      "start": 1191.615,
+      "end": 1193.742,
+      "en_text": "I'm sure you're gonna get everything you want.",
+      "zh_text": "我相信你会得到你想要的一切。",
+      "highlights": [
+        {
+          "en_word": "get everything you want",
+          "zh_word": "得到你想要的一切",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 160,
+      "start": 1193.826,
+      "end": 1195.911,
+      "en_text": "If Bianca can do it, you can.",
+      "zh_text": "如果比安卡能做到，你也能做到。",
+      "highlights": []
+    },
+    {
+      "id": 161,
+      "start": 1197.955,
+      "end": 1199.5305555555556,
+      "en_text": "To Bianca!",
+      "zh_text": "敬比安卡！",
+      "highlights": []
+    },
+    {
+      "id": 162,
+      "start": 1199.5305555555556,
+      "end": 1202.209,
+      "en_text": "And her new life.",
+      "zh_text": "祝她新生活愉快。",
+      "highlights": []
+    },
+    {
+      "id": 163,
+      "start": 1202.292,
+      "end": 1204.419,
+      "en_text": "- Salud! - Salud!",
+      "zh_text": "- 敬你！ - 敬你！",
+      "highlights": []
+    },
+    {
+      "id": 164,
+      "start": 1228.527,
+      "end": 1230.278,
+      "en_text": "Sir?",
+      "zh_text": "先生？",
+      "highlights": []
+    },
+    {
+      "id": 165,
+      "start": 1230.362,
+      "end": 1232.198,
+      "en_text": "Do you think she can join us tomorrow?",
+      "zh_text": "你觉得她明天能和我们一起吗？",
+      "highlights": []
+    },
+    {
+      "id": 166,
+      "start": 1232.28,
+      "end": 1237.912,
+      "en_text": "- The press are starting to ask. - If we win, it'll be strange if she isn't standing next to you for your victory speech.",
+      "zh_text": "- 媒体已经开始发问了。 - 如果我们赢了，她在你发表胜利演说时不在你身边会很奇怪。",
+      "highlights": [
+        {
+          "en_word": "victory speech",
+          "zh_word": "胜利演说",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 167,
+      "start": 1237.995,
+      "end": 1240.831,
+      "en_text": "Even stranger if you have to make a concession speech.",
+      "zh_text": "如果你必须发表败选演说，那会更奇怪。",
+      "highlights": [
+        {
+          "en_word": "concession speech",
+          "zh_word": "败选演说",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 168,
+      "start": 1242.958,
+      "end": 1248.463,
+      "en_text": "If I have to make a concession speech, the absence of the First Lady will be the least of our problems.",
+      "zh_text": "如果我必须发表败选演说，第一夫人的缺席将是我们最小的问题。",
+      "highlights": [
+        {
+          "en_word": "concession speech",
+          "zh_word": "败选演说",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "the least of our problems",
+          "zh_word": "我们最小的问题",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 169,
+      "start": 1256.638,
+      "end": 1257.5332727272726,
+      "en_text": "I'm going for a run.",
+      "zh_text": "我要去跑步。",
+      "highlights": []
+    },
+    {
+      "id": 170,
+      "start": 1257.5332727272726,
+      "end": 1259.1,
+      "en_text": "Can you arrange the detail, please?",
+      "zh_text": "你能安排一下安保细节吗？",
+      "highlights": [
+        {
+          "en_word": "the detail",
+          "zh_word": "安保细节",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 171,
+      "start": 1259.183,
+      "end": 1262.269,
+      "en_text": "- Ma'am, if you run in public, it might... - Might what?",
+      "zh_text": "- 夫人，如果您在公共场合跑步，可能会... - 可能会怎样？",
+      "highlights": []
+    },
+    {
+      "id": 172,
+      "start": 1262.352,
+      "end": 1263.2058163265308,
+      "en_text": "I'm sorry, ma'am.",
+      "zh_text": "对不起，夫人。",
+      "highlights": []
+    },
+    {
+      "id": 173,
+      "start": 1263.2058163265308,
+      "end": 1264.813,
+      "en_text": "I'll take care of it right away.",
+      "zh_text": "我立刻处理。",
+      "highlights": []
+    },
+    {
+      "id": 174,
+      "start": 1264.897,
+      "end": 1267.775,
+      "en_text": "No, if it's a problem with me running, tell me.",
+      "zh_text": "不，如果我跑步有什么问题，就告诉我。",
+      "highlights": []
+    },
+    {
+      "id": 175,
+      "start": 1268.692,
+      "end": 1271.528,
+      "en_text": "It might highlight the fact that you're not in Iowa.",
+      "zh_text": "这可能会凸显您不在爱荷华州的事实。",
+      "highlights": [
+        {
+          "en_word": "highlight",
+          "zh_word": "凸显",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 176,
+      "start": 1291.632,
+      "end": 1293.134,
+      "en_text": "Right there, please.",
+      "zh_text": "就在那里，谢谢。",
+      "highlights": []
+    },
+    {
+      "id": 177,
+      "start": 1410.084,
+      "end": 1411.3852,
+      "en_text": "Quiet.",
+      "zh_text": "安静。",
+      "highlights": []
+    },
+    {
+      "id": 178,
+      "start": 1411.3852,
+      "end": 1413.337,
+      "en_text": "Hey, hey!",
+      "zh_text": "嘿，嘿！",
+      "highlights": []
+    },
+    {
+      "id": 179,
+      "start": 1421.72,
+      "end": 1422.7106250000002,
+      "en_text": "Help!",
+      "zh_text": "救命！",
+      "highlights": []
+    },
+    {
+      "id": 180,
+      "start": 1422.7106250000002,
+      "end": 1423.3050000000003,
+      "en_text": "No!",
+      "zh_text": "不！",
+      "highlights": []
+    },
+    {
+      "id": 181,
+      "start": 1430.145,
+      "end": 1431.98,
+      "en_text": "You want me to put you out again?",
+      "zh_text": "你想让我再把你打晕吗？",
+      "highlights": [
+        {
+          "en_word": "put you out",
+          "zh_word": "把你打晕",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "start": 1432.064,
+      "end": 1434.44,
+      "en_text": "Huh?",
+      "zh_text": "嗯？",
+      "highlights": []
+    },
+    {
+      "id": 183,
+      "start": 1435.025,
+      "end": 1436.527,
+      "en_text": "Open your mouth.",
+      "zh_text": "张开你的嘴。",
+      "highlights": []
+    },
+    {
+      "id": 184,
+      "start": 1436.527,
+      "end": 1437.278,
+      "en_text": "Open it.",
+      "zh_text": "张开。",
+      "highlights": []
+    },
+    {
+      "id": 185,
+      "start": 1437.361,
+      "end": 1438.779,
+      "en_text": "I won't make any noise.",
+      "zh_text": "我不会发出任何声音。",
+      "highlights": []
+    },
+    {
+      "id": 186,
+      "start": 1446.745,
+      "end": 1450.082,
+      "en_text": "You make one sound, or you move an inch...",
+      "zh_text": "你只要发出一丁点声音，或者挪动一寸……",
+      "highlights": [
+        {
+          "en_word": "move an inch",
+          "zh_word": "挪动一寸",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "start": 1453.668,
+      "end": 1456.088,
+      "en_text": "- What? - I won't.",
+      "zh_text": "- 什么？ - 我不会的。",
+      "highlights": []
+    },
+    {
+      "id": 188,
+      "start": 1456.171,
+      "end": 1458.048,
+      "en_text": "I won't scream or anything.",
+      "zh_text": "我不会尖叫什么的。",
+      "highlights": []
+    },
+    {
+      "id": 189,
+      "start": 1473.605,
+      "end": 1486.243,
+      "en_text": "Nataly puts the ball on the 44 ya-- Jesus is knocking on-- Less than 24 hours to go before the Iowa caucuses, the Republicans have a broad field with no clear front-runner.",
+      "zh_text": "娜塔莉把球放在44码线上——耶稣正在敲门——距离爱荷华州党团会议还有不到24小时，共和党人选众多，没有明确的领跑者。",
+      "highlights": [
+        {
+          "en_word": "caucuses",
+          "zh_word": "党团会议",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "front-runner",
+          "zh_word": "领跑者",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "start": 1486.327,
+      "end": 1490.164,
+      "en_text": "For the Democrats, President Underwood has gained momentum in the polls.",
+      "zh_text": "对民主党来说，安德伍德总统在民调中获得了声势。",
+      "highlights": [
+        {
+          "en_word": "gained momentum",
+          "zh_word": "获得了声势",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "start": 1490.247,
+      "end": 1501.549,
+      "en_text": "A rise that many political experts are attributing to the recent appearance of Claire Underwood in the-- Every major poll has it as a dead heat, with both candidates hovering at 45 percent.",
+      "zh_text": "许多政治专家将这种上升归因于克莱尔·安德伍德最近的露面——所有主要民调都显示这是一场势均力敌的比赛，两位候选人都徘徊在45%左右。",
+      "highlights": [
+        {
+          "en_word": "attributing to",
+          "zh_word": "归因于",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "dead heat",
+          "zh_word": "势均力敌的比赛",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "start": 1501.633,
+      "end": 1507.513,
+      "en_text": "That still leaves one in ten likely caucus-goers who won't be making their decision until tomorrow evening.",
+      "zh_text": "这仍然意味着，每十个可能的党团会议投票者中，有一人要到明天晚上才会做出决定。",
+      "highlights": [
+        {
+          "en_word": "caucus-goers",
+          "zh_word": "党团会议投票者",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "start": 1507.597,
+      "end": 1507.7733018867925,
+      "en_text": "Mrs.",
+      "zh_text": "夫人。",
+      "highlights": []
+    },
+    {
+      "id": 194,
+      "start": 1507.7733018867925,
+      "end": 1509.933,
+      "en_text": "Underwood, the president is on the phone for you.",
+      "zh_text": "安德伍德夫人，总统找你。",
+      "highlights": []
+    },
+    {
+      "id": 195,
+      "start": 1510.017,
+      "end": 1515.981,
+      "en_text": "President Underwood spent the last full day of campaigning traversing the state, completing his tour of all 99 Iowa counties.",
+      "zh_text": "安德伍德总统在竞选的最后一天，用一整天时间穿越了整个州，完成了对爱荷华州全部99个县的巡回访问。",
+      "highlights": [
+        {
+          "en_word": "traversing",
+          "zh_word": "穿越",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "campaigning",
+          "zh_word": "竞选",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "start": 1516.064,
+      "end": 1517.774,
+      "en_text": "- Hello? - Listen.",
+      "zh_text": "- 喂？ - 听着。",
+      "highlights": []
+    },
+    {
+      "id": 197,
+      "start": 1518.984,
+      "end": 1522.528,
+      "en_text": "No matter what happens tomorrow night, I want you by my side.",
+      "zh_text": "无论明晚发生什么，我希望你站在我身边。",
+      "highlights": [
+        {
+          "en_word": "by my side",
+          "zh_word": "在我身边",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 198,
+      "start": 1523.529,
+      "end": 1524.698,
+      "en_text": "Are you open to that?",
+      "zh_text": "你能接受吗？",
+      "highlights": [
+        {
+          "en_word": "open to",
+          "zh_word": "能接受",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 199,
+      "start": 1527.242,
+      "end": 1528.452,
+      "en_text": "Claire?",
+      "zh_text": "克莱尔？",
+      "highlights": []
+    },
+    {
+      "id": 200,
+      "start": 1529.577,
+      "end": 1530.745,
+      "en_text": "I'll fly out in the morning.",
+      "zh_text": "我明天早上就飞过去。",
+      "highlights": [
+        {
+          "en_word": "fly out",
+          "zh_word": "飞过去",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "start": 1530.829,
+      "end": 1531.1761621621622,
+      "en_text": "No, no.",
+      "zh_text": "不，不。",
+      "highlights": []
+    },
+    {
+      "id": 202,
+      "start": 1531.1761621621622,
+      "end": 1532.664,
+      "en_text": "You can come in the afternoon.",
+      "zh_text": "你下午可以过来。",
+      "highlights": []
+    },
+    {
+      "id": 203,
+      "start": 1532.747,
+      "end": 1535.583,
+      "en_text": "You don't have to do any events or press, just...",
+      "zh_text": "你不用参加任何活动或记者会，只需要……",
+      "highlights": [
+        {
+          "en_word": "press",
+          "zh_word": "记者会",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "start": 1535.667,
+      "end": 1538.337,
+      "en_text": "be there with me when I make my speech.",
+      "zh_text": "在我发表演讲时和我在一起。",
+      "highlights": []
+    },
+    {
+      "id": 205,
+      "start": 1539.254,
+      "end": 1541.923,
+      "en_text": "- I said yes. - Thank you.",
+      "zh_text": "- 我答应了。- 谢谢你。",
+      "highlights": []
+    },
+    {
+      "id": 206,
+      "start": 1542.007,
+      "end": 1543.3,
+      "en_text": "Of course.",
+      "zh_text": "当然。",
+      "highlights": []
+    },
+    {
+      "id": 207,
+      "start": 1544.634,
+      "end": 1546.345,
+      "en_text": "Last night...",
+      "zh_text": "昨晚……",
+      "highlights": []
+    },
+    {
+      "id": 208,
+      "start": 1548.222,
+      "end": 1548.977625,
+      "en_text": "Let's not.",
+      "zh_text": "还是不要提了。",
+      "highlights": []
+    },
+    {
+      "id": 209,
+      "start": 1548.977625,
+      "end": 1550.64,
+      "en_text": "I'll see you tomorrow.",
+      "zh_text": "我明天见你。",
+      "highlights": []
+    },
+    {
+      "id": 210,
+      "start": 1552.1,
+      "end": 1552.925081081081,
+      "en_text": "- All right.",
+      "zh_text": "- 好的。",
+      "highlights": []
+    },
+    {
+      "id": 211,
+      "start": 1552.925081081081,
+      "end": 1554.644,
+      "en_text": "Good night. - Good night.",
+      "zh_text": "晚安。- 晚安。",
+      "highlights": []
+    },
+    {
+      "id": 212,
+      "start": 1572.037,
+      "end": 1574.706,
+      "en_text": "I'm sorry for what I did to you.",
+      "zh_text": "我为我对你做的一切感到抱歉。",
+      "highlights": []
+    },
+    {
+      "id": 213,
+      "start": 1577.292,
+      "end": 1579.127,
+      "en_text": "I wish I could take it back.",
+      "zh_text": "我真希望我能收回它。",
+      "highlights": [
+        {
+          "en_word": "take it back",
+          "zh_word": "收回它",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 214,
+      "start": 1579.211,
+      "end": 1580.586,
+      "en_text": "I told you to be quiet.",
+      "zh_text": "我叫你安静。",
+      "highlights": []
+    },
+    {
+      "id": 215,
+      "start": 1586.343,
+      "end": 1587.886,
+      "en_text": "I thought I killed you.",
+      "zh_text": "我以为我杀了你。",
+      "highlights": []
+    },
+    {
+      "id": 216,
+      "start": 1590.222,
+      "end": 1593.434,
+      "en_text": "When I heard on the news you were alive, I felt so relieved.",
+      "zh_text": "当我在新闻上听到你还活着时，我感到非常欣慰。",
+      "highlights": [
+        {
+          "en_word": "relieved",
+          "zh_word": "欣慰",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 217,
+      "start": 1593.517,
+      "end": 1595.852,
+      "en_text": "- I doubt that. - I mean it.",
+      "zh_text": "- 我很怀疑。- 我是认真的。",
+      "highlights": [
+        {
+          "en_word": "doubt that",
+          "zh_word": "很怀疑",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "mean it",
+          "zh_word": "是认真的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 218,
+      "start": 1600.648,
+      "end": 1603.36,
+      "en_text": "I would pray for you.",
+      "zh_text": "我会为你祈祷。",
+      "highlights": []
+    },
+    {
+      "id": 219,
+      "start": 1603.444,
+      "end": 1605.946,
+      "en_text": "Probably sounds strange, but it's true.",
+      "zh_text": "听起来可能很奇怪，但这是真的。",
+      "highlights": []
+    },
+    {
+      "id": 220,
+      "start": 1606.654,
+      "end": 1608.1170983606557,
+      "en_text": "I would, because I felt so bad.",
+      "zh_text": "我会的，因为我感到非常难过。",
+      "highlights": []
+    },
+    {
+      "id": 221,
+      "start": 1608.1170983606557,
+      "end": 1609.533,
+      "en_text": "You didn't deserve what I did.",
+      "zh_text": "你不该承受我所做的一切。",
+      "highlights": [
+        {
+          "en_word": "deserve",
+          "zh_word": "承受",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 222,
+      "start": 1609.615,
+      "end": 1612.119,
+      "en_text": "None of this is going to change anything.",
+      "zh_text": "这一切都改变不了任何事。",
+      "highlights": []
+    },
+    {
+      "id": 223,
+      "start": 1619.251,
+      "end": 1620.919,
+      "en_text": "Where are we going?",
+      "zh_text": "我们要去哪儿？",
+      "highlights": []
+    },
+    {
+      "id": 224,
+      "start": 1621.753,
+      "end": 1623.171,
+      "en_text": "Doesn't matter.",
+      "zh_text": "不重要。",
+      "highlights": []
+    },
+    {
+      "id": 225,
+      "start": 1625.549,
+      "end": 1627.675,
+      "en_text": "Is it gonna be a while? 'Cause I have to pee.",
+      "zh_text": "还要很久吗？因为我得去撒尿。",
+      "highlights": [
+        {
+          "en_word": "be a while",
+          "zh_word": "很久",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 226,
+      "start": 1631.346,
+      "end": 1633.014,
+      "en_text": "You can pee back there.",
+      "zh_text": "你可以在后面撒尿。",
+      "highlights": []
+    },
+    {
+      "id": 227,
+      "start": 1635.517,
+      "end": 1636.5736666666667,
+      "en_text": "You don't want that.",
+      "zh_text": "你不会想那样做的。",
+      "highlights": []
+    },
+    {
+      "id": 228,
+      "start": 1636.5736666666667,
+      "end": 1637.102,
+      "en_text": "The smell.",
+      "zh_text": "那气味。",
+      "highlights": []
+    },
+    {
+      "id": 229,
+      "start": 1637.185,
+      "end": 1639.187,
+      "en_text": "It's either that or you hold it.",
+      "zh_text": "要么那样，要么你就憋着。",
+      "highlights": [
+        {
+          "en_word": "hold it",
+          "zh_word": "憋着",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 230,
+      "start": 1639.271,
+      "end": 1641.607,
+      "en_text": "- It hurts. - Too bad.",
+      "zh_text": "- 好痛。- 那也没办法。",
+      "highlights": [
+        {
+          "en_word": "Too bad",
+          "zh_word": "那也没办法",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 231,
+      "start": 1643.317,
+      "end": 1645.068,
+      "en_text": "All right then, I'm gonna do it.",
+      "zh_text": "那好吧，我要做了。",
+      "highlights": []
+    },
+    {
+      "id": 232,
+      "start": 1678.56,
+      "end": 1679.0365714285715,
+      "en_text": "Mrs.",
+      "zh_text": "夫人。",
+      "highlights": []
+    },
+    {
+      "id": 233,
+      "start": 1679.0365714285715,
+      "end": 1680.228,
+      "en_text": "Underwood.",
+      "zh_text": "安德伍德。",
+      "highlights": []
+    },
+    {
+      "id": 234,
+      "start": 1681.687,
+      "end": 1683.106,
+      "en_text": "Please, come sit.",
+      "zh_text": "请坐。",
+      "highlights": []
+    },
+    {
+      "id": 235,
+      "start": 1694.117,
+      "end": 1695.619,
+      "en_text": "Thank you for coming.",
+      "zh_text": "谢谢您的到来。",
+      "highlights": []
+    },
+    {
+      "id": 236,
+      "start": 1695.701,
+      "end": 1698.71031147541,
+      "en_text": "I'm sorry for how everything has worked out.",
+      "zh_text": "事情发展成这样，我很抱歉。",
+      "highlights": [
+        {
+          "en_word": "worked out",
+          "zh_word": "发展成这样",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 237,
+      "start": 1698.71031147541,
+      "end": 1699.873,
+      "en_text": "It's unfortunate.",
+      "zh_text": "这很不幸。",
+      "highlights": []
+    },
+    {
+      "id": 238,
+      "start": 1699.956,
+      "end": 1703.251,
+      "en_text": "I'm sure it's been difficult for you, with all of the effort you put in.",
+      "zh_text": "您付出了这么多努力，我确信这一定让您很为难。",
+      "highlights": [
+        {
+          "en_word": "put in",
+          "zh_word": "付出",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 239,
+      "start": 1703.335,
+      "end": 1705.379,
+      "en_text": "Is this how it works?",
+      "zh_text": "事情就是这样运作的吗？",
+      "highlights": []
+    },
+    {
+      "id": 240,
+      "start": 1705.462,
+      "end": 1707.713,
+      "en_text": "He nixes the book, you soften the blow?",
+      "zh_text": "他否决了这本书，你来缓和局面？",
+      "highlights": [
+        {
+          "en_word": "nixes",
+          "zh_word": "否决了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "soften the blow",
+          "zh_word": "缓和局面",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 241,
+      "start": 1707.797,
+      "end": 1709.132,
+      "en_text": "No, Tom, it's not that.",
+      "zh_text": "不，汤姆，不是那样的。",
+      "highlights": []
+    },
+    {
+      "id": 242,
+      "start": 1709.216,
+      "end": 1711.176,
+      "en_text": "Francis doesn't even know I asked you here.",
+      "zh_text": "弗朗西斯甚至不知道我请你来这里。",
+      "highlights": []
+    },
+    {
+      "id": 243,
+      "start": 1711.259,
+      "end": 1713.22,
+      "en_text": "Why did you ask me?",
+      "zh_text": "你为什么要问我？",
+      "highlights": []
+    },
+    {
+      "id": 244,
+      "start": 1713.303,
+      "end": 1719.893,
+      "en_text": "Because I was wondering if... we could talk honestly to each other.",
+      "zh_text": "因为我在想……我们是否可以坦诚相待。",
+      "highlights": [
+        {
+          "en_word": "talk honestly to each other",
+          "zh_word": "坦诚相待",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 245,
+      "start": 1719.976,
+      "end": 1721.186,
+      "en_text": "If you'd be open to that.",
+      "zh_text": "如果你对此持开放态度。",
+      "highlights": [
+        {
+          "en_word": "be open to",
+          "zh_word": "持开放态度",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 246,
+      "start": 1721.269,
+      "end": 1724.648,
+      "en_text": "- About what? - New Hampshire.",
+      "zh_text": "- 关于什么？ - 新罕布什尔州。",
+      "highlights": []
+    },
+    {
+      "id": 247,
+      "start": 1724.69,
+      "end": 1727.526,
+      "en_text": "Did you let me pass out that day on purpose?",
+      "zh_text": "那天你是不是故意让我昏倒的？",
+      "highlights": [
+        {
+          "en_word": "pass out",
+          "zh_word": "昏倒",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "on purpose",
+          "zh_word": "故意",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 248,
+      "start": 1727.609,
+      "end": 1728.943,
+      "en_text": "When I was giving blood.",
+      "zh_text": "我献血的时候。",
+      "highlights": []
+    },
+    {
+      "id": 249,
+      "start": 1729.027,
+      "end": 1730.2999615384615,
+      "en_text": "I let you keep talking.",
+      "zh_text": "我让你继续说下去。",
+      "highlights": []
+    },
+    {
+      "id": 250,
+      "start": 1730.2999615384615,
+      "end": 1731.905,
+      "en_text": "I didn't know you'd pass out.",
+      "zh_text": "我不知道你会昏倒。",
+      "highlights": [
+        {
+          "en_word": "pass out",
+          "zh_word": "昏倒",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 251,
+      "start": 1731.988,
+      "end": 1733.24,
+      "en_text": "And you didn't see it coming?",
+      "zh_text": "你没料到会发生吗？",
+      "highlights": [
+        {
+          "en_word": "see it coming",
+          "zh_word": "料到会发生",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 252,
+      "start": 1733.323,
+      "end": 1735.659,
+      "en_text": "You had things you wanted to say.",
+      "zh_text": "你有些话想说。",
+      "highlights": []
+    },
+    {
+      "id": 253,
+      "start": 1738.203,
+      "end": 1742.583,
+      "en_text": "And what did I say... before I blacked out?",
+      "zh_text": "在我昏迷之前……我说了什么？",
+      "highlights": [
+        {
+          "en_word": "blacked out",
+          "zh_word": "昏迷",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 254,
+      "start": 1742.666,
+      "end": 1745.544,
+      "en_text": "Was there anything else other than what you wrote?",
+      "zh_text": "除了你写的，还有其他什么吗？",
+      "highlights": [
+        {
+          "en_word": "other than",
+          "zh_word": "除了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 255,
+      "start": 1745.627,
+      "end": 1747.713,
+      "en_text": "You don't remember?",
+      "zh_text": "你不记得了吗？",
+      "highlights": []
+    },
+    {
+      "id": 256,
+      "start": 1748.63,
+      "end": 1749.1558695652175,
+      "en_text": "Some.",
+      "zh_text": "一些。",
+      "highlights": []
+    },
+    {
+      "id": 257,
+      "start": 1749.1558695652175,
+      "end": 1751.049,
+      "en_text": "But not all of it.",
+      "zh_text": "但不是全部。",
+      "highlights": []
+    },
+    {
+      "id": 258,
+      "start": 1753.927,
+      "end": 1755.428463414634,
+      "en_text": "I'm asking for me.",
+      "zh_text": "我是为我自己问的。",
+      "highlights": []
+    },
+    {
+      "id": 259,
+      "start": 1755.428463414634,
+      "end": 1757.347,
+      "en_text": "Because I need to know.",
+      "zh_text": "因为我需要知道。",
+      "highlights": []
+    },
+    {
+      "id": 260,
+      "start": 1759.307,
+      "end": 1761.976,
+      "en_text": "Hatred.",
+      "zh_text": "仇恨。",
+      "highlights": []
+    },
+    {
+      "id": 261,
+      "start": 1762.06,
+      "end": 1765.689,
+      "en_text": "For how much you and Frank needed each other.",
+      "zh_text": "你们和弗兰克是多么需要彼此啊。",
+      "highlights": [
+        {
+          "en_word": "needed each other",
+          "zh_word": "需要彼此",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 262,
+      "start": 1766.898,
+      "end": 1768.380090909091,
+      "en_text": "I used that word?",
+      "zh_text": "我用了那个词？",
+      "highlights": []
+    },
+    {
+      "id": 263,
+      "start": 1768.380090909091,
+      "end": 1768.816,
+      "en_text": "Hate?",
+      "zh_text": "恨？",
+      "highlights": []
+    },
+    {
+      "id": 264,
+      "start": 1770.235,
+      "end": 1771.486,
+      "en_text": "You did.",
+      "zh_text": "你用了。",
+      "highlights": []
+    },
+    {
+      "id": 265,
+      "start": 1773.572,
+      "end": 1776.324,
+      "en_text": "And of all the moments...",
+      "zh_text": "在所有那些时刻里...",
+      "highlights": []
+    },
+    {
+      "id": 266,
+      "start": 1776.408,
+      "end": 1779.077,
+      "en_text": "that you spent with Francis and myself, you...",
+      "zh_text": "你和弗朗西斯还有我在一起的那些时刻，你...",
+      "highlights": []
+    },
+    {
+      "id": 267,
+      "start": 1780.37,
+      "end": 1782.33,
+      "en_text": "You believe that we're equals?",
+      "zh_text": "你觉得我们是平等的吗？",
+      "highlights": [
+        {
+          "en_word": "equals",
+          "zh_word": "平等的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 268,
+      "start": 1782.414,
+      "end": 1783.515357142857,
+      "en_text": "I got fired, Mrs.",
+      "zh_text": "我被解雇了，夫人。",
+      "highlights": [
+        {
+          "en_word": "got fired",
+          "zh_word": "被解雇了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 269,
+      "start": 1783.515357142857,
+      "end": 1784.1632142857143,
+      "en_text": "Underwood.",
+      "zh_text": "安德伍德。",
+      "highlights": []
+    },
+    {
+      "id": 270,
+      "start": 1784.1632142857143,
+      "end": 1786.042,
+      "en_text": "I'm not on the clock anymore.",
+      "zh_text": "我不再为你工作了。",
+      "highlights": [
+        {
+          "en_word": "on the clock",
+          "zh_word": "为你工作",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 271,
+      "start": 1786.126,
+      "end": 1790.004,
+      "en_text": "There's a lot more to Francis and me than what you wrote.",
+      "zh_text": "弗朗西斯和我之间，远不止你写的那点东西。",
+      "highlights": [
+        {
+          "en_word": "a lot more to Francis and me than",
+          "zh_word": "弗朗西斯和我之间，远不止",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 272,
+      "start": 1790.088,
+      "end": 1793.925,
+      "en_text": "Maybe so, but I never got a chance to ask.",
+      "zh_text": "也许吧，但我从来没机会问。",
+      "highlights": [
+        {
+          "en_word": "got a chance",
+          "zh_word": "有机会",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 273,
+      "start": 1794.008,
+      "end": 1794.7450000000001,
+      "en_text": "Then ask.",
+      "zh_text": "那就问啊。",
+      "highlights": []
+    },
+    {
+      "id": 274,
+      "start": 1794.7450000000001,
+      "end": 1796.219,
+      "en_text": "Whatever you want.",
+      "zh_text": "你想问什么都行。",
+      "highlights": []
+    },
+    {
+      "id": 275,
+      "start": 1799.347,
+      "end": 1801.59925,
+      "en_text": "Why aren't you with him?",
+      "zh_text": "你为什么不和他在一起？",
+      "highlights": []
+    },
+    {
+      "id": 276,
+      "start": 1801.59925,
+      "end": 1802.35,
+      "en_text": "In Iowa?",
+      "zh_text": "在爱荷华州？",
+      "highlights": []
+    },
+    {
+      "id": 277,
+      "start": 1806.02,
+      "end": 1809.483,
+      "en_text": "- I'm heading there tomorrow. - Hm...",
+      "zh_text": "- 我明天要去那里。 - 嗯...",
+      "highlights": [
+        {
+          "en_word": "heading there",
+          "zh_word": "要去那里",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 278,
+      "start": 1809.566,
+      "end": 1810.609,
+      "en_text": "You see?",
+      "zh_text": "你看？",
+      "highlights": []
+    },
+    {
+      "id": 279,
+      "start": 1810.692,
+      "end": 1814.446,
+      "en_text": "I ask a question, and neither of you answer them.",
+      "zh_text": "我问了一个问题，你们俩都没回答。",
+      "highlights": [
+        {
+          "en_word": "neither of you",
+          "zh_word": "你们俩都没",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 280,
+      "start": 1816.072,
+      "end": 1823.789,
+      "en_text": "It's tiresome, constantly swinging a sledgehammer at the façade, just to get a glimpse through the cracks.",
+      "zh_text": "这很令人厌倦，不断地用大锤砸向表面，只为从裂缝中窥得一斑。",
+      "highlights": [
+        {
+          "en_word": "tiresome",
+          "zh_word": "令人厌倦",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "get a glimpse through the cracks",
+          "zh_word": "从裂缝中窥得一斑",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 281,
+      "start": 1827.542,
+      "end": 1828.794,
+      "en_text": "Tell me what you see.",
+      "zh_text": "告诉我你看到了什么。",
+      "highlights": []
+    },
+    {
+      "id": 282,
+      "start": 1831.505,
+      "end": 1833.548,
+      "en_text": "Somebody who's lost.",
+      "zh_text": "一个迷失的人。",
+      "highlights": [
+        {
+          "en_word": "lost",
+          "zh_word": "迷失",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 283,
+      "start": 1835.801,
+      "end": 1838.178,
+      "en_text": "But I don't know.",
+      "zh_text": "但我不知道。",
+      "highlights": []
+    },
+    {
+      "id": 284,
+      "start": 1838.261,
+      "end": 1840.388,
+      "en_text": "Maybe it's all for the best.",
+      "zh_text": "也许这样是最好的。",
+      "highlights": [
+        {
+          "en_word": "for the best",
+          "zh_word": "是最好的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 285,
+      "start": 1841.181,
+      "end": 1845.686,
+      "en_text": "I'd rather imagine who you might be than who you actually are.",
+      "zh_text": "我宁愿想象你可能是谁，而不是你真实的样子。",
+      "highlights": [
+        {
+          "en_word": "I'd rather",
+          "zh_word": "我宁愿",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 286,
+      "start": 1855.362,
+      "end": 1857.238,
+      "en_text": "Good luck, Claire.",
+      "zh_text": "祝你好运，克莱尔。",
+      "highlights": []
+    },
+    {
+      "id": 287,
+      "start": 1878.009,
+      "end": 1887.853,
+      "en_text": "♪ All those simple thoughts ♪ ♪ All those peaceful dreams ♪ ♪ Share the space ♪",
+      "zh_text": "♪ 所有的那些简单思绪 ♪ ♪ 所有的那些平静梦想 ♪ ♪ 共享空间 ♪",
+      "highlights": []
+    },
+    {
+      "id": 288,
+      "start": 1890.104,
+      "end": 1901.825,
+      "en_text": "♪ With a hard worked, hard worked day ♪ ♪ But it's the little things ♪ ♪ The little things ♪",
+      "zh_text": "♪ 伴随着辛勤工作的一天 ♪ ♪ 但正是那些小事 ♪ ♪ 那些小事 ♪",
+      "highlights": [
+        {
+          "en_word": "hard worked day",
+          "zh_word": "辛勤工作的一天",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 289,
+      "start": 1904.16,
+      "end": 1918.216,
+      "en_text": "♪ Not expectation ♪ ♪ That make life worth living ♪ ♪ Worth living ♪ That's enough.",
+      "zh_text": "♪ 而不是期待 ♪ ♪ 让生命值得活下去 ♪ ♪ 值得活下去 ♪ 够了。",
+      "highlights": [
+        {
+          "en_word": "worth living",
+          "zh_word": "值得活下去",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 290,
+      "start": 1920.093,
+      "end": 1923.263,
+      "en_text": "- It calms me. - Then sing it in your head.",
+      "zh_text": "- 它让我平静。 - 那就在你脑子里唱。",
+      "highlights": []
+    },
+    {
+      "id": 291,
+      "start": 1946.035,
+      "end": 1948.079,
+      "en_text": "You're gonna be able to live with yourself?",
+      "zh_text": "你能与自己和解吗？",
+      "highlights": [
+        {
+          "en_word": "live with yourself",
+          "zh_word": "与自己和解",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 292,
+      "start": 1950.331,
+      "end": 1952.208,
+      "en_text": "What's the point?",
+      "zh_text": "有什么意义？",
+      "highlights": [
+        {
+          "en_word": "What's the point?",
+          "zh_word": "有什么意义",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 293,
+      "start": 1952.292,
+      "end": 1954.711,
+      "en_text": "I can't hurt you.",
+      "zh_text": "我不能伤害你。",
+      "highlights": []
+    },
+    {
+      "id": 294,
+      "start": 1954.795,
+      "end": 1956.755,
+      "en_text": "No one's ever gonna find me or know who I am.",
+      "zh_text": "没人会找到我，也没人会知道我是谁。",
+      "highlights": []
+    },
+    {
+      "id": 295,
+      "start": 1956.838,
+      "end": 1958.172,
+      "en_text": "I'm never gonna say anything.",
+      "zh_text": "我什么都不会说。",
+      "highlights": []
+    },
+    {
+      "id": 296,
+      "start": 1958.256,
+      "end": 1959.633,
+      "en_text": "Quiet.",
+      "zh_text": "安静。",
+      "highlights": []
+    },
+    {
+      "id": 297,
+      "start": 1961.885,
+      "end": 1964.345,
+      "en_text": "If it's about punishing me, you don't have to.",
+      "zh_text": "如果是关于惩罚我，你没必要。",
+      "highlights": []
+    },
+    {
+      "id": 298,
+      "start": 1966.013,
+      "end": 1969.726,
+      "en_text": "This last year, some of the things I've had to do, I wouldn't wish it on anyone.",
+      "zh_text": "去年，我不得不做的一些事情，我不会希望发生在任何人身上。",
+      "highlights": [
+        {
+          "en_word": "wouldn't wish it on anyone",
+          "zh_word": "不会希望发生在任何人身上",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 299,
+      "start": 1969.81,
+      "end": 1971.77,
+      "en_text": "I said quiet.",
+      "zh_text": "我说安静。",
+      "highlights": []
+    },
+    {
+      "id": 300,
+      "start": 2037.627,
+      "end": 2039.42,
+      "en_text": "What did the overnight internals say?",
+      "zh_text": "隔夜内部数据显示了什么？",
+      "highlights": [
+        {
+          "en_word": "overnight internals",
+          "zh_word": "隔夜内部数据",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 301,
+      "start": 2039.504,
+      "end": 2040.3419534883722,
+      "en_text": "Still a toss-up.",
+      "zh_text": "仍胜负未定。",
+      "highlights": [
+        {
+          "en_word": "toss-up",
+          "zh_word": "胜负未定",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 302,
+      "start": 2040.3419534883722,
+      "end": 2041.756,
+      "en_text": "Less than half a point gap.",
+      "zh_text": "差距不到半分。",
+      "highlights": []
+    },
+    {
+      "id": 303,
+      "start": 2041.84,
+      "end": 2043.508,
+      "en_text": "- Her or me? - Doesn't matter.",
+      "zh_text": "- 她还是我？ - 无所谓。",
+      "highlights": []
+    },
+    {
+      "id": 304,
+      "start": 2043.591,
+      "end": 2045.927,
+      "en_text": "The margin of error is four-point-five.",
+      "zh_text": "误差幅度是4.5。",
+      "highlights": [
+        {
+          "en_word": "margin of error",
+          "zh_word": "误差幅度",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 305,
+      "start": 2046.011,
+      "end": 2048.847,
+      "en_text": "The last few days, the lead's gone back and forth three times.",
+      "zh_text": "过去几天，领先优势已经易手三次了。",
+      "highlights": [
+        {
+          "en_word": "gone back and forth",
+          "zh_word": "易手",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 306,
+      "start": 2048.93,
+      "end": 2050.39,
+      "en_text": "Bottom line is turnout.",
+      "zh_text": "关键在于投票率。",
+      "highlights": [
+        {
+          "en_word": "Bottom line",
+          "zh_word": "关键",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "turnout",
+          "zh_word": "投票率",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 307,
+      "start": 2050.473,
+      "end": 2052.517,
+      "en_text": "- Sir? - Yes, I'm almost ready.",
+      "zh_text": "- 先生？ - 是的，我差不多准备好了。",
+      "highlights": []
+    },
+    {
+      "id": 308,
+      "start": 2052.6,
+      "end": 2054.143,
+      "en_text": "May I speak to you for a moment privately?",
+      "zh_text": "我能单独和您说几句吗？",
+      "highlights": [
+        {
+          "en_word": "privately",
+          "zh_word": "单独",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 309,
+      "start": 2054.227,
+      "end": 2054.648024390244,
+      "en_text": "- Yes.",
+      "zh_text": "- 好的。",
+      "highlights": []
+    },
+    {
+      "id": 310,
+      "start": 2054.648024390244,
+      "end": 2057.104,
+      "en_text": "Thank you. - I'll be right outside.",
+      "zh_text": "谢谢。- 我就在外面。",
+      "highlights": []
+    },
+    {
+      "id": 311,
+      "start": 2058.398,
+      "end": 2059.3926153846155,
+      "en_text": "I just got word that Mrs.",
+      "zh_text": "我刚得到消息，说夫人…",
+      "highlights": [
+        {
+          "en_word": "got word",
+          "zh_word": "得到消息",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 312,
+      "start": 2059.3926153846155,
+      "end": 2060.984,
+      "en_text": "Underwood has postponed her flight here.",
+      "zh_text": "安德伍德夫人已经推迟了她来这里的航班。",
+      "highlights": [
+        {
+          "en_word": "postponed",
+          "zh_word": "推迟了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 313,
+      "start": 2061.067,
+      "end": 2061.51390625,
+      "en_text": "- What?",
+      "zh_text": "- 什么？",
+      "highlights": []
+    },
+    {
+      "id": 314,
+      "start": 2061.51390625,
+      "end": 2063.11,
+      "en_text": "Why? - I don't know, sir.",
+      "zh_text": "为什么？- 我不知道，先生。",
+      "highlights": []
+    },
+    {
+      "id": 315,
+      "start": 2063.194,
+      "end": 2066.239,
+      "en_text": "Also, Agent Swift, the head of her detail...",
+      "zh_text": "另外，特工斯威夫特，她的安保负责人...",
+      "highlights": [
+        {
+          "en_word": "the head of her detail",
+          "zh_word": "她的安保负责人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 316,
+      "start": 2066.322,
+      "end": 2069.158,
+      "en_text": "he said Tom Yates came to the residence last night.",
+      "zh_text": "他说汤姆·耶茨昨晚来了住所。",
+      "highlights": [
+        {
+          "en_word": "residence",
+          "zh_word": "住所",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 317,
+      "start": 2070.952,
+      "end": 2072.579,
+      "en_text": "Tell Vaughn I'll be down in a few minutes.",
+      "zh_text": "告诉沃恩，我几分钟后就下来。",
+      "highlights": []
+    },
+    {
+      "id": 318,
+      "start": 2072.662,
+      "end": 2074.372,
+      "en_text": "Yes, sir.",
+      "zh_text": "是的，先生。",
+      "highlights": []
+    },
+    {
+      "id": 319,
+      "start": 2074.455,
+      "end": 2075.3936842105263,
+      "en_text": "This is Claire.",
+      "zh_text": "我是克莱尔。",
+      "highlights": []
+    },
+    {
+      "id": 320,
+      "start": 2075.3936842105263,
+      "end": 2076.833,
+      "en_text": "Please leave a message.",
+      "zh_text": "请留言。",
+      "highlights": []
+    },
+    {
+      "id": 321,
+      "start": 2083.13,
+      "end": 2084.019342105263,
+      "en_text": "This is Claire.",
+      "zh_text": "这是克莱尔。",
+      "highlights": []
+    },
+    {
+      "id": 322,
+      "start": 2084.019342105263,
+      "end": 2085.383,
+      "en_text": "Please leave a message.",
+      "zh_text": "请留言。",
+      "highlights": []
+    },
+    {
+      "id": 323,
+      "start": 2085.466,
+      "end": 2085.8845762711862,
+      "en_text": "It's me.",
+      "zh_text": "是我。",
+      "highlights": []
+    },
+    {
+      "id": 324,
+      "start": 2085.8845762711862,
+      "end": 2088.553,
+      "en_text": "When you get this message, will you please call me?",
+      "zh_text": "你收到这条信息后，能给我回个电话吗？",
+      "highlights": []
+    },
+    {
+      "id": 325,
+      "start": 2136.768,
+      "end": 2142.189,
+      "en_text": "Listen, if you breathe deeply, you're gonna pass out right away.",
+      "zh_text": "听着，如果你深呼吸，你会马上晕过去。",
+      "highlights": [
+        {
+          "en_word": "pass out",
+          "zh_word": "晕过去",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 326,
+      "start": 2142.273,
+      "end": 2143.733,
+      "en_text": "- Please. - Then nothing's gonna hurt.",
+      "zh_text": "- 求你。 - 那样就什么都不会疼了。",
+      "highlights": []
+    },
+    {
+      "id": 327,
+      "start": 2143.817,
+      "end": 2145.14495,
+      "en_text": "Doug, please.",
+      "zh_text": "道格，求你了。",
+      "highlights": []
+    },
+    {
+      "id": 328,
+      "start": 2145.14495,
+      "end": 2145.86,
+      "en_text": "Please.",
+      "zh_text": "求你了。",
+      "highlights": []
+    },
+    {
+      "id": 329,
+      "start": 2147.194,
+      "end": 2148.237,
+      "en_text": "Help!",
+      "zh_text": "救命！",
+      "highlights": []
+    },
+    {
+      "id": 330,
+      "start": 2148.321,
+      "end": 2149.628567567567,
+      "en_text": "No one can hear you.",
+      "zh_text": "没人能听到你。",
+      "highlights": []
+    },
+    {
+      "id": 331,
+      "start": 2149.628567567567,
+      "end": 2150.74,
+      "en_text": "Lie down, Rachel.",
+      "zh_text": "躺下，瑞秋。",
+      "highlights": []
+    },
+    {
+      "id": 332,
+      "start": 2150.824,
+      "end": 2153.534,
+      "en_text": "Look, Rachel's gone!",
+      "zh_text": "看，瑞秋走了！",
+      "highlights": []
+    },
+    {
+      "id": 333,
+      "start": 2160.207,
+      "end": 2161.709,
+      "en_text": "That is who I am now.",
+      "zh_text": "这就是我现在的样子。",
+      "highlights": []
+    },
+    {
+      "id": 334,
+      "start": 2163.294,
+      "end": 2166.089,
+      "en_text": "Look, I know you don't want to do this.",
+      "zh_text": "听着，我知道你不想这么做。",
+      "highlights": []
+    },
+    {
+      "id": 335,
+      "start": 2166.172,
+      "end": 2172.846,
+      "en_text": "You-- You could-- You could've done it in the parking lot last night, but you didn't, you kept me alive!",
+      "zh_text": "你本可以在昨晚的停车场里做，但你没有，你让我活了下来！",
+      "highlights": [
+        {
+          "en_word": "kept me alive",
+          "zh_word": "让我活了下来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 336,
+      "start": 2175.264,
+      "end": 2177.433,
+      "en_text": "I know this isn't who you are.",
+      "zh_text": "我知道这不是你的本性。",
+      "highlights": [
+        {
+          "en_word": "who you are",
+          "zh_word": "你的本性",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 337,
+      "start": 2179.019,
+      "end": 2180.103,
+      "en_text": "Please.",
+      "zh_text": "求你了。",
+      "highlights": []
+    },
+    {
+      "id": 338,
+      "start": 2180.186,
+      "end": 2180.651594594595,
+      "en_text": "Please.",
+      "zh_text": "求你了。",
+      "highlights": []
+    },
+    {
+      "id": 339,
+      "start": 2180.651594594595,
+      "end": 2181.1171891891895,
+      "en_text": "Please.",
+      "zh_text": "求你了。",
+      "highlights": []
+    },
+    {
+      "id": 340,
+      "start": 2181.1171891891895,
+      "end": 2182.6470000000004,
+      "en_text": "Please, just let me go.",
+      "zh_text": "求你了，放我走吧。",
+      "highlights": [
+        {
+          "en_word": "let me go",
+          "zh_word": "放我走",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 341,
+      "start": 2182.73,
+      "end": 2184.565,
+      "en_text": "Please.",
+      "zh_text": "求求你。",
+      "highlights": []
+    },
+    {
+      "id": 342,
+      "start": 2185.483,
+      "end": 2187.234,
+      "en_text": "Doug.",
+      "zh_text": "道格。",
+      "highlights": []
+    },
+    {
+      "id": 343,
+      "start": 2187.318,
+      "end": 2188.066738095238,
+      "en_text": "Doug, please.",
+      "zh_text": "道格，求求你。",
+      "highlights": []
+    },
+    {
+      "id": 344,
+      "start": 2188.066738095238,
+      "end": 2188.4699047619047,
+      "en_text": "Please.",
+      "zh_text": "求求你。",
+      "highlights": []
+    },
+    {
+      "id": 345,
+      "start": 2188.4699047619047,
+      "end": 2189.7369999999996,
+      "en_text": "Please just let me go.",
+      "zh_text": "求求你，就让我走吧。",
+      "highlights": []
+    },
+    {
+      "id": 346,
+      "start": 2189.821,
+      "end": 2190.429275862069,
+      "en_text": "- Please!",
+      "zh_text": "- 求求你！",
+      "highlights": []
+    },
+    {
+      "id": 347,
+      "start": 2190.429275862069,
+      "end": 2190.7672068965517,
+      "en_text": "Doug!",
+      "zh_text": "道格！",
+      "highlights": []
+    },
+    {
+      "id": 348,
+      "start": 2190.7672068965517,
+      "end": 2191.781,
+      "en_text": "Please! - Fuck!",
+      "zh_text": "求求你！- 该死！",
+      "highlights": []
+    },
+    {
+      "id": 349,
+      "start": 2222.603,
+      "end": 2224.856,
+      "en_text": "The president is on the line for you again.",
+      "zh_text": "总统又来电话了。",
+      "highlights": [
+        {
+          "en_word": "on the line",
+          "zh_word": "来电话了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 350,
+      "start": 2224.939,
+      "end": 2226.9,
+      "en_text": "You told him I'm not feeling well?",
+      "zh_text": "你告诉他我身体不舒服了吗？",
+      "highlights": [
+        {
+          "en_word": "not feeling well",
+          "zh_word": "身体不舒服",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 351,
+      "start": 2226.983,
+      "end": 2227.9312,
+      "en_text": "Yes, ma'am.",
+      "zh_text": "是的，女士。",
+      "highlights": []
+    },
+    {
+      "id": 352,
+      "start": 2227.9312,
+      "end": 2230.862,
+      "en_text": "He'd still like to speak with you.",
+      "zh_text": "他还是想和你通话。",
+      "highlights": []
+    },
+    {
+      "id": 353,
+      "start": 2230.945,
+      "end": 2232.572,
+      "en_text": "Tell him I'm sleeping.",
+      "zh_text": "告诉他我睡着了。",
+      "highlights": []
+    },
+    {
+      "id": 354,
+      "start": 2236.826,
+      "end": 2237.6297586206897,
+      "en_text": "I'm sleeping.",
+      "zh_text": "我睡着了。",
+      "highlights": []
+    },
+    {
+      "id": 355,
+      "start": 2237.6297586206897,
+      "end": 2238.619,
+      "en_text": "Please tell him.",
+      "zh_text": "请告诉他。",
+      "highlights": []
+    },
+    {
+      "id": 356,
+      "start": 2238.703,
+      "end": 2240.205,
+      "en_text": "Yes, ma'am.",
+      "zh_text": "是的，女士。",
+      "highlights": []
+    },
+    {
+      "id": 357,
+      "start": 2286.626,
+      "end": 2287.961,
+      "en_text": "Here.",
+      "zh_text": "给你。",
+      "highlights": []
+    },
+    {
+      "id": 358,
+      "start": 2312.777,
+      "end": 2315.113,
+      "en_text": "I don't know why you had to run that night.",
+      "zh_text": "我不知道你那天晚上为什么要跑。",
+      "highlights": []
+    },
+    {
+      "id": 359,
+      "start": 2317.073,
+      "end": 2319.617,
+      "en_text": "All I ever tried to do was keep you safe.",
+      "zh_text": "我所做的一切就是想让你安全。",
+      "highlights": [
+        {
+          "en_word": "All I ever tried to do was",
+          "zh_word": "我所做的一切就是想",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 360,
+      "start": 2319.7,
+      "end": 2320.9245161290323,
+      "en_text": "I was afraid.",
+      "zh_text": "我害怕了。",
+      "highlights": []
+    },
+    {
+      "id": 361,
+      "start": 2320.9245161290323,
+      "end": 2322.62,
+      "en_text": "I wasn't thinking.",
+      "zh_text": "我没想清楚。",
+      "highlights": []
+    },
+    {
+      "id": 362,
+      "start": 2324.58,
+      "end": 2326.582,
+      "en_text": "I'm sorry.",
+      "zh_text": "对不起。",
+      "highlights": []
+    },
+    {
+      "id": 363,
+      "start": 2326.666,
+      "end": 2328.751,
+      "en_text": "I know you have a good heart.",
+      "zh_text": "我知道你心地善良。",
+      "highlights": [
+        {
+          "en_word": "good heart",
+          "zh_word": "心地善良",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 364,
+      "start": 2330.336,
+      "end": 2333.006,
+      "en_text": "You're saying that because you want me to let you go.",
+      "zh_text": "你这么说是因为你想让我放你走。",
+      "highlights": [
+        {
+          "en_word": "let you go",
+          "zh_word": "放你走",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 365,
+      "start": 2333.923,
+      "end": 2335.3,
+      "en_text": "Look at me.",
+      "zh_text": "看着我。",
+      "highlights": []
+    },
+    {
+      "id": 366,
+      "start": 2336.759,
+      "end": 2338.427,
+      "en_text": "Look at me, Doug.",
+      "zh_text": "看着我，道格。",
+      "highlights": []
+    },
+    {
+      "id": 367,
+      "start": 2341.388,
+      "end": 2344.017,
+      "en_text": "You don't have to kill Rachel.",
+      "zh_text": "你不必杀瑞秋。",
+      "highlights": []
+    },
+    {
+      "id": 368,
+      "start": 2344.1,
+      "end": 2345.268,
+      "en_text": "She's already dead.",
+      "zh_text": "她已经死了。",
+      "highlights": []
+    },
+    {
+      "id": 369,
+      "start": 2345.351,
+      "end": 2348.604,
+      "en_text": "She died in those woods, and it's better that way.",
+      "zh_text": "她死在那片树林里了，那样更好。",
+      "highlights": [
+        {
+          "en_word": "it's better that way",
+          "zh_word": "那样更好",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 370,
+      "start": 2348.688,
+      "end": 2351.274,
+      "en_text": "She didn't have a very good life.",
+      "zh_text": "她一生过得并不好。",
+      "highlights": []
+    },
+    {
+      "id": 371,
+      "start": 2351.316,
+      "end": 2351.67296,
+      "en_text": "But...",
+      "zh_text": "但是...",
+      "highlights": []
+    },
+    {
+      "id": 372,
+      "start": 2351.67296,
+      "end": 2355.778,
+      "en_text": "But if you do this, you're not killing Rachel, you're killing Cassie.",
+      "zh_text": "但如果你这样做，你杀的就不是瑞秋，你杀的是凯西。",
+      "highlights": []
+    },
+    {
+      "id": 373,
+      "start": 2355.862,
+      "end": 2357.738,
+      "en_text": "And...",
+      "zh_text": "而且...",
+      "highlights": []
+    },
+    {
+      "id": 374,
+      "start": 2358.656,
+      "end": 2361.909,
+      "en_text": "all Cassie Lockhart wants to be is someplace far away.",
+      "zh_text": "凯西·洛克哈特只想去一个遥远的地方。",
+      "highlights": [
+        {
+          "en_word": "far away",
+          "zh_word": "遥远的地方",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 375,
+      "start": 2364.62,
+      "end": 2367.207,
+      "en_text": "Someplace where nobody'll ever find her.",
+      "zh_text": "一个没有人能找到她的地方。",
+      "highlights": []
+    },
+    {
+      "id": 376,
+      "start": 2371.169,
+      "end": 2374.005,
+      "en_text": "She likes to go to the movie theater.",
+      "zh_text": "她喜欢去电影院。",
+      "highlights": []
+    },
+    {
+      "id": 377,
+      "start": 2374.088,
+      "end": 2378.467,
+      "en_text": "It doesn't matter what's showing, just... she likes the smell of the popcorn.",
+      "zh_text": "放什么电影不重要，她只是喜欢爆米花的味道。",
+      "highlights": [
+        {
+          "en_word": "It doesn't matter what's showing",
+          "zh_word": "放什么电影不重要",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 378,
+      "start": 2378.551,
+      "end": 2380.094,
+      "en_text": "She wants a dog.",
+      "zh_text": "她想要一只狗。",
+      "highlights": []
+    },
+    {
+      "id": 379,
+      "start": 2381.512,
+      "end": 2383.264,
+      "en_text": "A black lab.",
+      "zh_text": "一只黑色拉布拉多犬。",
+      "highlights": [
+        {
+          "en_word": "black lab",
+          "zh_word": "黑色拉布拉多犬",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 380,
+      "start": 2385.808,
+      "end": 2387.393,
+      "en_text": "And a queen-size bed.",
+      "zh_text": "还有一张大号床。",
+      "highlights": [
+        {
+          "en_word": "queen-size bed",
+          "zh_word": "大号床",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 381,
+      "start": 2389.062,
+      "end": 2390.916150943396,
+      "en_text": "Lots of blankets to curl up in.",
+      "zh_text": "有很多毯子可以蜷缩在里面。",
+      "highlights": [
+        {
+          "en_word": "curl up in",
+          "zh_word": "蜷缩在里面",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 382,
+      "start": 2390.916150943396,
+      "end": 2392.232,
+      "en_text": "She doesn't want much.",
+      "zh_text": "她不想要很多。",
+      "highlights": []
+    },
+    {
+      "id": 383,
+      "start": 2394.234,
+      "end": 2396.694,
+      "en_text": "She just wants to be invisible.",
+      "zh_text": "她只是想隐身。",
+      "highlights": [
+        {
+          "en_word": "invisible",
+          "zh_word": "隐身",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 384,
+      "start": 2402.742,
+      "end": 2404.451,
+      "en_text": "Hey.",
+      "zh_text": "嘿。",
+      "highlights": []
+    },
+    {
+      "id": 385,
+      "start": 2406.62,
+      "end": 2408.622,
+      "en_text": "Hey, look at me.",
+      "zh_text": "嘿，看着我。",
+      "highlights": []
+    },
+    {
+      "id": 386,
+      "start": 2412.377,
+      "end": 2414.837,
+      "en_text": "My name is Cassie Lockhart.",
+      "zh_text": "我叫凯茜·洛克哈特。",
+      "highlights": []
+    },
+    {
+      "id": 387,
+      "start": 2475.398,
+      "end": 2476.857,
+      "en_text": "Give me your ankles.",
+      "zh_text": "把你的脚踝给我。",
+      "highlights": []
+    },
+    {
+      "id": 388,
+      "start": 2483.03,
+      "end": 2484.615,
+      "en_text": "Give me your hands.",
+      "zh_text": "把你的手给我。",
+      "highlights": []
+    },
+    {
+      "id": 389,
+      "start": 2498.296,
+      "end": 2499.755,
+      "en_text": "Come on.",
+      "zh_text": "快点。",
+      "highlights": []
+    },
+    {
+      "id": 390,
+      "start": 2501.257,
+      "end": 2502.675,
+      "en_text": "Let's go.",
+      "zh_text": "我们走吧。",
+      "highlights": []
+    },
+    {
+      "id": 391,
+      "start": 2508.555,
+      "end": 2509.849,
+      "en_text": "Some water.",
+      "zh_text": "拿点水。",
+      "highlights": []
+    },
+    {
+      "id": 392,
+      "start": 2518.191,
+      "end": 2520.318,
+      "en_text": "There's a town 20 miles that way.",
+      "zh_text": "那个方向20英里外有个镇子。",
+      "highlights": []
+    },
+    {
+      "id": 393,
+      "start": 2658.08,
+      "end": 2663.085,
+      "en_text": "First off, I'd like to congratulate President Underwood for his victory here tonight.",
+      "zh_text": "首先，我想祝贺安德伍德总统今晚在这里取得的胜利。",
+      "highlights": [
+        {
+          "en_word": "First off",
+          "zh_word": "首先",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 394,
+      "start": 2663.169,
+      "end": 2666.713,
+      "en_text": "It was a tight race and he came out on top.",
+      "zh_text": "这是一场激烈的竞争，他脱颖而出。",
+      "highlights": [
+        {
+          "en_word": "tight race",
+          "zh_word": "激烈的竞争",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "came out on top",
+          "zh_word": "脱颖而出",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 395,
+      "start": 2666.797,
+      "end": 2668.076111111111,
+      "en_text": "- Boo! - No.",
+      "zh_text": "- 嘘！ - 不。",
+      "highlights": []
+    },
+    {
+      "id": 396,
+      "start": 2668.076111111111,
+      "end": 2669.675,
+      "en_text": "No, no, no, no!",
+      "zh_text": "不，不，不，不！",
+      "highlights": []
+    },
+    {
+      "id": 397,
+      "start": 2669.758,
+      "end": 2672.178,
+      "en_text": "Let's not be sore losers here.",
+      "zh_text": "我们不要在这里做输不起的人。",
+      "highlights": [
+        {
+          "en_word": "sore losers",
+          "zh_word": "输不起的人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 398,
+      "start": 2672.261,
+      "end": 2675.64,
+      "en_text": "Because the truth is, we haven't lost.",
+      "zh_text": "因为事实是，我们没有输。",
+      "highlights": []
+    },
+    {
+      "id": 399,
+      "start": 2675.722,
+      "end": 2679.226,
+      "en_text": "We are just getting started!",
+      "zh_text": "我们才刚刚开始！",
+      "highlights": [
+        {
+          "en_word": "getting started",
+          "zh_word": "刚刚开始",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 400,
+      "start": 2685.316,
+      "end": 2692.198,
+      "en_text": "I want to thank all the staff and volunteers who worked so hard over the past several months.",
+      "zh_text": "我要感谢所有在过去几个月里辛勤工作的员工和志愿者。",
+      "highlights": [
+        {
+          "en_word": "over the past several months",
+          "zh_word": "在过去几个月里",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 401,
+      "start": 2692.281,
+      "end": 2693.449,
+      "en_text": "We should get going.",
+      "zh_text": "我们该走了。",
+      "highlights": [
+        {
+          "en_word": "get going",
+          "zh_word": "该走了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 402,
+      "start": 2693.533,
+      "end": 2695.143603448276,
+      "en_text": "I want to try Claire one more time.",
+      "zh_text": "我想再试着联系克莱尔一次。",
+      "highlights": [
+        {
+          "en_word": "try Claire",
+          "zh_word": "试着联系克莱尔",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 403,
+      "start": 2695.143603448276,
+      "end": 2696.202,
+      "en_text": "See if she'll come out.",
+      "zh_text": "看看她会不会出来。",
+      "highlights": [
+        {
+          "en_word": "come out",
+          "zh_word": "出来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 404,
+      "start": 2696.285,
+      "end": 2699.497,
+      "en_text": "That's three hours from now, even if she left this minute.",
+      "zh_text": "那距离现在还有三小时，即使她现在马上出发。",
+      "highlights": []
+    },
+    {
+      "id": 405,
+      "start": 2699.58,
+      "end": 2701.29,
+      "en_text": "But the crowd will wait.",
+      "zh_text": "但人群会等着。",
+      "highlights": []
+    },
+    {
+      "id": 406,
+      "start": 2701.374,
+      "end": 2702.958,
+      "en_text": "We don't want to squander primetime.",
+      "zh_text": "我们不想浪费黄金时段。",
+      "highlights": [
+        {
+          "en_word": "squander",
+          "zh_word": "浪费",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "primetime",
+          "zh_word": "黄金时段",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 407,
+      "start": 2703.042,
+      "end": 2707.004,
+      "en_text": "A speech at one in the morning, we lose major viewership.",
+      "zh_text": "凌晨一点的演讲，我们会失去大量观众。",
+      "highlights": [
+        {
+          "en_word": "major viewership",
+          "zh_word": "大量观众",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 408,
+      "start": 2707.087,
+      "end": 2710.383,
+      "en_text": "My children and my dear husband...",
+      "zh_text": "我的孩子们和我亲爱的丈夫...",
+      "highlights": []
+    },
+    {
+      "id": 409,
+      "start": 2710.466,
+      "end": 2711.255642857143,
+      "en_text": "Fine.",
+      "zh_text": "好吧。",
+      "highlights": []
+    },
+    {
+      "id": 410,
+      "start": 2711.255642857143,
+      "end": 2712.677,
+      "en_text": "Let's go.",
+      "zh_text": "我们走吧。",
+      "highlights": []
+    },
+    {
+      "id": 411,
+      "start": 2712.759,
+      "end": 2715.012,
+      "en_text": "How do you want to handle the stage if she's not on it?",
+      "zh_text": "如果她不在台上，你打算如何应对舞台？",
+      "highlights": [
+        {
+          "en_word": "handle the stage",
+          "zh_word": "应对舞台",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 412,
+      "start": 2715.095,
+      "end": 2716.972,
+      "en_text": "I won't need a stage.",
+      "zh_text": "我不需要舞台。",
+      "highlights": []
+    },
+    {
+      "id": 413,
+      "start": 2735.616,
+      "end": 2736.992,
+      "en_text": "Thank you for coming out.",
+      "zh_text": "感谢大家的到来。",
+      "highlights": [
+        {
+          "en_word": "coming out",
+          "zh_word": "到来",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 414,
+      "start": 2737.076,
+      "end": 2738.2433333333333,
+      "en_text": "Thank you very much.",
+      "zh_text": "非常感谢。",
+      "highlights": []
+    },
+    {
+      "id": 415,
+      "start": 2738.2433333333333,
+      "end": 2738.827,
+      "en_text": "Thank you.",
+      "zh_text": "谢谢。",
+      "highlights": []
+    },
+    {
+      "id": 416,
+      "start": 2741.163,
+      "end": 2742.727,
+      "en_text": "Thank you very much.",
+      "zh_text": "非常感谢。",
+      "highlights": []
+    },
+    {
+      "id": 417,
+      "start": 2742.727,
+      "end": 2743.509,
+      "en_text": "Thank you.",
+      "zh_text": "谢谢。",
+      "highlights": []
+    },
+    {
+      "id": 418,
+      "start": 2743.509,
+      "end": 2744.291,
+      "en_text": "Thank you.",
+      "zh_text": "谢谢。",
+      "highlights": []
+    },
+    {
+      "id": 419,
+      "start": 2755.052,
+      "end": 2758.097,
+      "en_text": "Well, Iowa has spoken.",
+      "zh_text": "嗯，爱荷华州已经表态了。",
+      "highlights": [
+        {
+          "en_word": "has spoken",
+          "zh_word": "已经表态了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 420,
+      "start": 2761.35,
+      "end": 2765.396,
+      "en_text": "And they have spoken so loud, that I don't even need a microphone.",
+      "zh_text": "他们表态的声音如此响亮，我甚至都不需要麦克风了。",
+      "highlights": [
+        {
+          "en_word": "have spoken so loud",
+          "zh_word": "表态的声音如此响亮",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 421,
+      "start": 2767.273,
+      "end": 2784.749,
+      "en_text": "Listen, I wanted to come down here to our campaign headquarters in Des Moines, not go to some fancy hotel ballroom like you know who, and say to all of you who worked day in and day out, on our behalf for this campaign, in every corner of this state...",
+      "zh_text": "听着，我之所以想来咱们在得梅因的竞选总部，而不是去某个你知道是谁去过的豪华酒店宴会厅，是想对所有为了这次竞选，为了我们，在这个州的每个角落里日复一日地辛勤工作的人说...",
+      "highlights": [
+        {
+          "en_word": "day in and day out",
+          "zh_word": "日复一日地辛勤工作",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "on our behalf",
+          "zh_word": "为了我们",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 422,
+      "start": 2784.831,
+      "end": 2787.918,
+      "en_text": "It's because of you that we brought it home tonight!",
+      "zh_text": "正是因为你们，我们今晚才取得了胜利！",
+      "highlights": [
+        {
+          "en_word": "brought it home",
+          "zh_word": "取得了胜利",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 423,
+      "start": 2792.923,
+      "end": 2796.093,
+      "en_text": "Now, I know you're all wondering where Claire is.",
+      "zh_text": "好了，我知道你们都在想克莱尔在哪儿。",
+      "highlights": []
+    },
+    {
+      "id": 424,
+      "start": 2796.176,
+      "end": 2798.721,
+      "en_text": "Some of you may know she's been a little under the weather.",
+      "zh_text": "你们可能有些人知道她有点不舒服。",
+      "highlights": [
+        {
+          "en_word": "under the weather",
+          "zh_word": "不舒服",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 425,
+      "start": 2798.803,
+      "end": 2799.888,
+      "en_text": "She's from Texas.",
+      "zh_text": "她是得克萨斯人。",
+      "highlights": []
+    },
+    {
+      "id": 426,
+      "start": 2799.972,
+      "end": 2802.891,
+      "en_text": "She doesn't understand these Iowa winters you have.",
+      "zh_text": "她不习惯爱荷华的冬天。",
+      "highlights": []
+    },
+    {
+      "id": 427,
+      "start": 2804.143,
+      "end": 2813.611,
+      "en_text": "But she's on the mend and I'm flying to Washington tonight, so that tomorrow she and I can get on a plane and fly to New Hampshire, where we are gonna win there, too!",
+      "zh_text": "但她正在康复中，我今晚要飞往华盛顿，这样明天她和我就可以乘飞机去新罕布什尔州，我们也会在那里获胜！",
+      "highlights": [
+        {
+          "en_word": "on the mend",
+          "zh_word": "正在康复中",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 428,
+      "start": 2831.295,
+      "end": 2832.296,
+      "en_text": "Claire.",
+      "zh_text": "克莱尔。",
+      "highlights": []
+    },
+    {
+      "id": 429,
+      "start": 2838.843,
+      "end": 2840.68,
+      "en_text": "They told me you were down here.",
+      "zh_text": "他们告诉我你在这里。",
+      "highlights": []
+    },
+    {
+      "id": 430,
+      "start": 2843.39,
+      "end": 2845.518,
+      "en_text": "I just wanted to come somewhere to think.",
+      "zh_text": "我只是想找个地方好好想想。",
+      "highlights": []
+    },
+    {
+      "id": 431,
+      "start": 2847.227,
+      "end": 2849.146,
+      "en_text": "Well, I hope you have.",
+      "zh_text": "好吧，我希望你已经想好了。",
+      "highlights": []
+    },
+    {
+      "id": 432,
+      "start": 2850.981,
+      "end": 2854.234,
+      "en_text": "And that whatever was clouding your mind is gone.",
+      "zh_text": "希望你心里那些烦恼已经消散了。",
+      "highlights": [
+        {
+          "en_word": "clouding your mind",
+          "zh_word": "心里那些烦恼",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 433,
+      "start": 2855.778,
+      "end": 2859.74,
+      "en_text": "Because I just had to give a victory speech... alone.",
+      "zh_text": "因为我刚刚不得不独自发表了胜利演讲。",
+      "highlights": []
+    },
+    {
+      "id": 434,
+      "start": 2861.908,
+      "end": 2867.08,
+      "en_text": "And one way or another, I need you on that plane with me tomorrow.",
+      "zh_text": "不管怎样，我明天都需要你和我一起上那架飞机。",
+      "highlights": [
+        {
+          "en_word": "one way or another",
+          "zh_word": "不管怎样",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 435,
+      "start": 2872.044,
+      "end": 2872.7115,
+      "en_text": "No.",
+      "zh_text": "不。",
+      "highlights": []
+    },
+    {
+      "id": 436,
+      "start": 2872.7115,
+      "end": 2874.714,
+      "en_text": "The desk.",
+      "zh_text": "书桌。",
+      "highlights": []
+    },
+    {
+      "id": 437,
+      "start": 2874.797,
+      "end": 2876.59,
+      "en_text": "Left-hand drawer.",
+      "zh_text": "左边抽屉。",
+      "highlights": []
+    },
+    {
+      "id": 438,
+      "start": 2887.142,
+      "end": 2888.185,
+      "en_text": "You still have this.",
+      "zh_text": "你还留着这个。",
+      "highlights": []
+    },
+    {
+      "id": 439,
+      "start": 2890.145,
+      "end": 2891.647,
+      "en_text": "Yes.",
+      "zh_text": "是的。",
+      "highlights": []
+    },
+    {
+      "id": 440,
+      "start": 2891.731,
+      "end": 2894.65,
+      "en_text": "It felt wrong to throw it out, for some reason.",
+      "zh_text": "不知道为什么，我感觉把它扔掉是错的。",
+      "highlights": []
+    },
+    {
+      "id": 441,
+      "start": 2903.701,
+      "end": 2909.206,
+      "en_text": "When I said we were lying, what I meant was...",
+      "zh_text": "当我说我们在撒谎时，我的意思是……",
+      "highlights": []
+    },
+    {
+      "id": 442,
+      "start": 2911.667,
+      "end": 2916.963,
+      "en_text": "For all these years, I thought we were on this path together.",
+      "zh_text": "这么多年来，我一直以为我们是在一起走的。",
+      "highlights": [
+        {
+          "en_word": "on this path together",
+          "zh_word": "在一起走的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 443,
+      "start": 2917.047,
+      "end": 2919.675,
+      "en_text": "But it's not what I thought it would be.",
+      "zh_text": "但这和我想象的不一样。",
+      "highlights": []
+    },
+    {
+      "id": 444,
+      "start": 2919.759,
+      "end": 2924.722,
+      "en_text": "What I convinced myself it would be, like what Thomas wrote.",
+      "zh_text": "我说服自己会是那样，就像托马斯写的那样。",
+      "highlights": [
+        {
+          "en_word": "convinced myself",
+          "zh_word": "说服自己",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 445,
+      "start": 2924.805,
+      "end": 2928.726,
+      "en_text": "- We're two equal parts. - We are.",
+      "zh_text": "- 我们是平等的两部分。- 是的。",
+      "highlights": [
+        {
+          "en_word": "equal parts",
+          "zh_word": "平等的两部分",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 446,
+      "start": 2928.809,
+      "end": 2930.603,
+      "en_text": "You really believe that?",
+      "zh_text": "你真的相信吗？",
+      "highlights": []
+    },
+    {
+      "id": 447,
+      "start": 2931.771,
+      "end": 2933.814,
+      "en_text": "We earned this together.",
+      "zh_text": "我们共同赢得了这一切。",
+      "highlights": []
+    },
+    {
+      "id": 448,
+      "start": 2933.898,
+      "end": 2938.36,
+      "en_text": "I said that to your face the first day I walked in here as president.",
+      "zh_text": "我以总统身份上任第一天，就当着你的面说了。",
+      "highlights": [
+        {
+          "en_word": "said that to your face",
+          "zh_word": "当着你的面说了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 449,
+      "start": 2939.319,
+      "end": 2940.4919999999997,
+      "en_text": "It's your office.",
+      "zh_text": "这是你的办公室。",
+      "highlights": []
+    },
+    {
+      "id": 450,
+      "start": 2940.4919999999997,
+      "end": 2941.113,
+      "en_text": "Not mine.",
+      "zh_text": "不是我的。",
+      "highlights": []
+    },
+    {
+      "id": 451,
+      "start": 2941.196,
+      "end": 2946.702,
+      "en_text": "I have not made a single major decision without asking your opinion first.",
+      "zh_text": "我从未在没有先征求你意见的情况下做出任何重大决定。",
+      "highlights": [
+        {
+          "en_word": "major decision",
+          "zh_word": "重大决定",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 452,
+      "start": 2946.786,
+      "end": 2948.936619047619,
+      "en_text": "But see, that's it.",
+      "zh_text": "但你看，问题就在这儿。",
+      "highlights": [
+        {
+          "en_word": "that's it",
+          "zh_word": "问题就在这儿",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 453,
+      "start": 2948.936619047619,
+      "end": 2951.54,
+      "en_text": "You make the decisions.",
+      "zh_text": "你来做决定。",
+      "highlights": []
+    },
+    {
+      "id": 454,
+      "start": 2951.624,
+      "end": 2954.126,
+      "en_text": "Anything that I want, like the UN...",
+      "zh_text": "任何我想要的东西，比如联合国……",
+      "highlights": []
+    },
+    {
+      "id": 455,
+      "start": 2955.544,
+      "end": 2957.0451428571428,
+      "en_text": "It made me ill, Francis.",
+      "zh_text": "这让我很不舒服，弗朗西斯。",
+      "highlights": [
+        {
+          "en_word": "made me ill",
+          "zh_word": "让我很不舒服",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 456,
+      "start": 2957.0451428571428,
+      "end": 2958.171,
+      "en_text": "My stomach turned.",
+      "zh_text": "我胃里翻江倒海。",
+      "highlights": [
+        {
+          "en_word": "My stomach turned",
+          "zh_word": "我胃里翻江倒海",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 457,
+      "start": 2958.255,
+      "end": 2959.548,
+      "en_text": "Why, because you had to resign?",
+      "zh_text": "为什么？因为你不得不辞职吗？",
+      "highlights": []
+    },
+    {
+      "id": 458,
+      "start": 2959.632,
+      "end": 2962.175,
+      "en_text": "No, because I had to ask for your help in the first place.",
+      "zh_text": "不，因为我一开始就不得不寻求你的帮助。",
+      "highlights": [
+        {
+          "en_word": "in the first place",
+          "zh_word": "一开始",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 459,
+      "start": 2962.259,
+      "end": 2965.22,
+      "en_text": "That I couldn't get the confirmation on my own.",
+      "zh_text": "我无法独自获得批准。",
+      "highlights": [
+        {
+          "en_word": "on my own",
+          "zh_word": "独自",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 460,
+      "start": 2965.304,
+      "end": 2968.098,
+      "en_text": "And what is wrong with asking for my help when you need it?",
+      "zh_text": "你需要的时候寻求我的帮助有什么问题？",
+      "highlights": []
+    },
+    {
+      "id": 461,
+      "start": 2968.181,
+      "end": 2970.183,
+      "en_text": "The fact that I need it.",
+      "zh_text": "我需要它这个事实。",
+      "highlights": []
+    },
+    {
+      "id": 462,
+      "start": 2970.267,
+      "end": 2972.378875,
+      "en_text": "I hate that feeling.",
+      "zh_text": "我讨厌那种感觉。",
+      "highlights": []
+    },
+    {
+      "id": 463,
+      "start": 2972.378875,
+      "end": 2973.646,
+      "en_text": "It's not me.",
+      "zh_text": "那不是我。",
+      "highlights": []
+    },
+    {
+      "id": 464,
+      "start": 2973.729,
+      "end": 2975.689,
+      "en_text": "I don't recognize myself when I look in the mirror.",
+      "zh_text": "当我照镜子时，我都不认识自己了。",
+      "highlights": [
+        {
+          "en_word": "recognize myself",
+          "zh_word": "认识自己",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 465,
+      "start": 2975.773,
+      "end": 2979.359,
+      "en_text": "I do things... like I did in the hotel in Iowa.",
+      "zh_text": "我做的事情...就像我在爱荷华州的酒店里做的那样。",
+      "highlights": []
+    },
+    {
+      "id": 466,
+      "start": 2981.361,
+      "end": 2982.822,
+      "en_text": "I can't even talk with you about it.",
+      "zh_text": "我甚至无法和你谈论这件事。",
+      "highlights": []
+    },
+    {
+      "id": 467,
+      "start": 2982.905,
+      "end": 2985.282,
+      "en_text": "Instead you want me to slap you around like some animal.",
+      "zh_text": "相反，你却想让我像对待动物一样扇你耳光。",
+      "highlights": [
+        {
+          "en_word": "slap you around",
+          "zh_word": "扇你耳光",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 468,
+      "start": 2985.365,
+      "end": 2987.785,
+      "en_text": "That's what we are when we strip everything away.",
+      "zh_text": "当我们抛开一切时，我们就是那样。",
+      "highlights": [
+        {
+          "en_word": "strip everything away",
+          "zh_word": "抛开一切",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 469,
+      "start": 2987.868,
+      "end": 2992.289,
+      "en_text": "- That I can understand! - It was deranged, begging me to take you like that.",
+      "zh_text": "- 那我能理解！ - 那是精神错乱的，你乞求我那样对待你。",
+      "highlights": [
+        {
+          "en_word": "deranged",
+          "zh_word": "精神错乱的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "begging me to take you",
+          "zh_word": "乞求我那样对待你",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 470,
+      "start": 2992.372,
+      "end": 2995.167,
+      "en_text": "And you couldn't even give that to me.",
+      "zh_text": "而你甚至连那都不能给我。",
+      "highlights": []
+    },
+    {
+      "id": 471,
+      "start": 2996.084,
+      "end": 3004.551,
+      "en_text": "If you wanted a husband who proved his manhood to you that way, you should've stayed back in Dallas with your mother and married the prom king.",
+      "zh_text": "如果你想要一个以那种方式向你证明他男子气概的丈夫，那你当初就该待在达拉斯和你母亲在一起，嫁给舞会之王。",
+      "highlights": [
+        {
+          "en_word": "proved his manhood",
+          "zh_word": "证明他男子气概",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "prom king",
+          "zh_word": "舞会之王",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 472,
+      "start": 3004.635,
+      "end": 3006.178,
+      "en_text": "At least I would've known where I stood.",
+      "zh_text": "至少我那时会知道我的立场。",
+      "highlights": [
+        {
+          "en_word": "where I stood",
+          "zh_word": "我的立场",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 473,
+      "start": 3006.261,
+      "end": 3008.806,
+      "en_text": "No, you can't have it both ways.",
+      "zh_text": "不，你不能两全其美。",
+      "highlights": [
+        {
+          "en_word": "have it both ways",
+          "zh_word": "两全其美",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 474,
+      "start": 3008.889,
+      "end": 3011.433,
+      "en_text": "You want an equal partner when it suits you?",
+      "zh_text": "当你觉得方便时，你想要一个平等的伴侣？",
+      "highlights": [
+        {
+          "en_word": "suits you",
+          "zh_word": "觉得方便",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 475,
+      "start": 3011.517,
+      "end": 3014.269,
+      "en_text": "You want a man to take charge when it suits you?",
+      "zh_text": "当你觉得方便时，你想要一个男人来做主？",
+      "highlights": [
+        {
+          "en_word": "take charge",
+          "zh_word": "做主",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "suits you",
+          "zh_word": "觉得方便",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 476,
+      "start": 3014.353,
+      "end": 3018.148,
+      "en_text": "And I'm supposed to what, just divine when you want which?",
+      "zh_text": "而我呢，就应该去猜测你何时想要哪个吗？",
+      "highlights": [
+        {
+          "en_word": "divine",
+          "zh_word": "猜测",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 477,
+      "start": 3018.231,
+      "end": 3019.4481739130433,
+      "en_text": "Stop being so selfish.",
+      "zh_text": "别再那么自私了。",
+      "highlights": []
+    },
+    {
+      "id": 478,
+      "start": 3019.4481739130433,
+      "end": 3020.776,
+      "en_text": "You're better than that.",
+      "zh_text": "你比那强。",
+      "highlights": []
+    },
+    {
+      "id": 479,
+      "start": 3020.86,
+      "end": 3022.82,
+      "en_text": "- I'm not being selfish. - You are.",
+      "zh_text": "- 我没有自私。 - 你就是。",
+      "highlights": []
+    },
+    {
+      "id": 480,
+      "start": 3022.903,
+      "end": 3025.572,
+      "en_text": "We're in the middle of an election, and look at us.",
+      "zh_text": "我们正处于选举中，看看我们现在这样子。",
+      "highlights": [
+        {
+          "en_word": "in the middle of",
+          "zh_word": "正处于...中",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 481,
+      "start": 3025.656,
+      "end": 3026.8411578947366,
+      "en_text": "That's exactly it.",
+      "zh_text": "一点没错。",
+      "highlights": [
+        {
+          "en_word": "exactly it",
+          "zh_word": "一点没错",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 482,
+      "start": 3026.8411578947366,
+      "end": 3028.158,
+      "en_text": "Look at us, Francis.",
+      "zh_text": "看看我们，弗朗西斯。",
+      "highlights": []
+    },
+    {
+      "id": 483,
+      "start": 3028.241,
+      "end": 3029.785,
+      "en_text": "We used to make each other stronger.",
+      "zh_text": "我们曾经让彼此更强大。",
+      "highlights": [
+        {
+          "en_word": "used to",
+          "zh_word": "曾经",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 484,
+      "start": 3029.869,
+      "end": 3031.912,
+      "en_text": "At least I thought so, but that was a lie.",
+      "zh_text": "至少我是这么认为的，但那是个谎言。",
+      "highlights": [
+        {
+          "en_word": "At least",
+          "zh_word": "至少",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 485,
+      "start": 3031.996,
+      "end": 3034.665,
+      "en_text": "We were making you stronger.",
+      "zh_text": "我们一直在让你变得更强大。",
+      "highlights": []
+    },
+    {
+      "id": 486,
+      "start": 3034.748,
+      "end": 3039.837,
+      "en_text": "And now I'm just weak and small, and I can't stand that feeling any longer.",
+      "zh_text": "而现在我只是虚弱渺小，我再也无法忍受那种感觉了。",
+      "highlights": [
+        {
+          "en_word": "can't stand",
+          "zh_word": "无法忍受",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "any longer",
+          "zh_word": "再也...了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 487,
+      "start": 3039.92,
+      "end": 3041.017037037037,
+      "en_text": "All right.",
+      "zh_text": "好吧。",
+      "highlights": []
+    },
+    {
+      "id": 488,
+      "start": 3041.017037037037,
+      "end": 3042.882,
+      "en_text": "What do you want?",
+      "zh_text": "你想要什么？",
+      "highlights": []
+    },
+    {
+      "id": 489,
+      "start": 3042.965,
+      "end": 3045.467,
+      "en_text": "What is the goddamn alternative?",
+      "zh_text": "他妈的替代方案是什么？",
+      "highlights": [
+        {
+          "en_word": "goddamn",
+          "zh_word": "他妈的",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 490,
+      "start": 3045.551,
+      "end": 3048.679,
+      "en_text": "Please, Claire, tell me, because I don't understand.",
+      "zh_text": "求你了，克莱尔，告诉我，因为我不明白。",
+      "highlights": []
+    },
+    {
+      "id": 491,
+      "start": 3048.762,
+      "end": 3052.766,
+      "en_text": "All I am hearing is, it's not enough.",
+      "zh_text": "我听到的只是，这还不够。",
+      "highlights": [
+        {
+          "en_word": "not enough",
+          "zh_word": "不够",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 492,
+      "start": 3052.85,
+      "end": 3055.101,
+      "en_text": "That the White House is not enough.",
+      "zh_text": "白宫还不够。",
+      "highlights": [
+        {
+          "en_word": "not enough",
+          "zh_word": "不够",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 493,
+      "start": 3055.185,
+      "end": 3058.062,
+      "en_text": "That being First Lady is not enough.",
+      "zh_text": "当第一夫人还不够。",
+      "highlights": [
+        {
+          "en_word": "First Lady",
+          "zh_word": "第一夫人",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "not enough",
+          "zh_word": "不够",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 494,
+      "start": 3058.146,
+      "end": 3060.315,
+      "en_text": "- Not enough! - No.",
+      "zh_text": "- 不够！ - 不。",
+      "highlights": [
+        {
+          "en_word": "Not enough",
+          "zh_word": "不够",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 495,
+      "start": 3060.399,
+      "end": 3061.692,
+      "en_text": "It's you that's not enough.",
+      "zh_text": "是你这个人不行。",
+      "highlights": [
+        {
+          "en_word": "not enough",
+          "zh_word": "不行",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 496,
+      "start": 3094.6,
+      "end": 3099.605,
+      "en_text": "When we lose... because of you...",
+      "zh_text": "当我们输了... 都因为你...",
+      "highlights": [
+        {
+          "en_word": "because of",
+          "zh_word": "因为",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 497,
+      "start": 3100.773,
+      "end": 3103.817,
+      "en_text": "there will be nothing.",
+      "zh_text": "将一无所有。",
+      "highlights": [
+        {
+          "en_word": "nothing",
+          "zh_word": "一无所有",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 498,
+      "start": 3103.901,
+      "end": 3105.309888888889,
+      "en_text": "No plan.",
+      "zh_text": "没有计划。",
+      "highlights": []
+    },
+    {
+      "id": 499,
+      "start": 3105.309888888889,
+      "end": 3107.071,
+      "en_text": "No future.",
+      "zh_text": "没有未来。",
+      "highlights": []
+    },
+    {
+      "id": 500,
+      "start": 3108.948,
+      "end": 3111.825,
+      "en_text": "We will only be has-beens.",
+      "zh_text": "我们只会沦为过气人物。",
+      "highlights": [
+        {
+          "en_word": "has-beens",
+          "zh_word": "过气人物",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 501,
+      "start": 3114.16,
+      "end": 3118.122,
+      "en_text": "And you want to amount to something?",
+      "zh_text": "你想有所作为吗？",
+      "highlights": [
+        {
+          "en_word": "amount to something",
+          "zh_word": "有所作为",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 502,
+      "start": 3118.206,
+      "end": 3122.21,
+      "en_text": "Well, here is the brutal fucking truth.",
+      "zh_text": "好，这就是残酷的狗屁真相。",
+      "highlights": [
+        {
+          "en_word": "brutal truth",
+          "zh_word": "残酷的真相",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 503,
+      "start": 3122.294,
+      "end": 3130.761,
+      "en_text": "And you can hate me, you can be disgusted, you can feel whatever it is you wanna feel because frankly, I'm beyond caring.",
+      "zh_text": "你可以恨我，你可以感到厌恶，你可以想感受什么就感受什么，因为说实话，我根本不在乎了。",
+      "highlights": [
+        {
+          "en_word": "beyond caring",
+          "zh_word": "根本不在乎了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 504,
+      "start": 3130.844,
+      "end": 3135.307,
+      "en_text": "But without me, you are nothing.",
+      "zh_text": "但没有我，你什么也不是。",
+      "highlights": []
+    },
+    {
+      "id": 505,
+      "start": 3136.266,
+      "end": 3137.558666666667,
+      "en_text": "You're right.",
+      "zh_text": "你说得对。",
+      "highlights": []
+    },
+    {
+      "id": 506,
+      "start": 3137.558666666667,
+      "end": 3140.144,
+      "en_text": "This office has one chair.",
+      "zh_text": "这间办公室只有一把椅子。",
+      "highlights": []
+    },
+    {
+      "id": 507,
+      "start": 3140.228,
+      "end": 3145.692,
+      "en_text": "And you have always known that from the very beginning.",
+      "zh_text": "而你从一开始就一直知道这一点。",
+      "highlights": [
+        {
+          "en_word": "from the very beginning",
+          "zh_word": "从一开始就",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 508,
+      "start": 3145.776,
+      "end": 3154.409,
+      "en_text": "And if you now can't stomach that, well, then I'm a fool for having married you in the first place.",
+      "zh_text": "如果你现在无法忍受这一点，那我当初嫁给你真是个傻瓜。",
+      "highlights": [
+        {
+          "en_word": "can't stomach",
+          "zh_word": "无法忍受",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "in the first place",
+          "zh_word": "当初",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 509,
+      "start": 3154.493,
+      "end": 3157.537,
+      "en_text": "But I don't have time to be a fool.",
+      "zh_text": "但我没时间做傻瓜。",
+      "highlights": []
+    },
+    {
+      "id": 510,
+      "start": 3157.621,
+      "end": 3161.458,
+      "en_text": "I have to run this country and win a nomination.",
+      "zh_text": "我必须治理这个国家并赢得提名。",
+      "highlights": [
+        {
+          "en_word": "run this country",
+          "zh_word": "治理这个国家",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "win a nomination",
+          "zh_word": "赢得提名",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 511,
+      "start": 3161.541,
+      "end": 3164.044,
+      "en_text": "I'm doing my job.",
+      "zh_text": "我在做我的工作。",
+      "highlights": []
+    },
+    {
+      "id": 512,
+      "start": 3164.128,
+      "end": 3167.714,
+      "en_text": "Doug is out there doing his job.",
+      "zh_text": "道格在那边做他的工作。",
+      "highlights": []
+    },
+    {
+      "id": 513,
+      "start": 3167.798,
+      "end": 3173.595,
+      "en_text": "And it's time now for you to do yours.",
+      "zh_text": "现在轮到你做你的了。",
+      "highlights": []
+    },
+    {
+      "id": 514,
+      "start": 3173.679,
+      "end": 3176.3948823529413,
+      "en_text": "You want me to take charge?",
+      "zh_text": "你想让我来负责？",
+      "highlights": [
+        {
+          "en_word": "take charge",
+          "zh_word": "来负责",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 515,
+      "start": 3176.3948823529413,
+      "end": 3176.897823529412,
+      "en_text": "Fine.",
+      "zh_text": "好。",
+      "highlights": []
+    },
+    {
+      "id": 516,
+      "start": 3176.897823529412,
+      "end": 3178.809,
+      "en_text": "I will take charge.",
+      "zh_text": "我会负责的。",
+      "highlights": [
+        {
+          "en_word": "take charge",
+          "zh_word": "负责",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 517,
+      "start": 3178.892,
+      "end": 3181.37976119403,
+      "en_text": "You will get on that plane tomorrow.",
+      "zh_text": "你明天就上那架飞机。",
+      "highlights": []
+    },
+    {
+      "id": 518,
+      "start": 3181.37976119403,
+      "end": 3183.522,
+      "en_text": "You will come to New Hampshire.",
+      "zh_text": "你将去新罕布什尔州。",
+      "highlights": []
+    },
+    {
+      "id": 519,
+      "start": 3183.605,
+      "end": 3187.693,
+      "en_text": "You will smile and shake hands and kiss babies.",
+      "zh_text": "你将面带微笑，握手，亲吻婴儿。",
+      "highlights": [
+        {
+          "en_word": "shake hands",
+          "zh_word": "握手",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        },
+        {
+          "en_word": "kiss babies",
+          "zh_word": "亲吻婴儿",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 520,
+      "start": 3187.776,
+      "end": 3190.696,
+      "en_text": "And you will stand with me on a stage.",
+      "zh_text": "你将和我一起站在舞台上。",
+      "highlights": []
+    },
+    {
+      "id": 521,
+      "start": 3190.779,
+      "end": 3195.034,
+      "en_text": "And you will be the First Lady!",
+      "zh_text": "你将成为第一夫人！",
+      "highlights": []
+    },
+    {
+      "id": 522,
+      "start": 3195.117,
+      "end": 3197.41,
+      "en_text": "And you do all that.",
+      "zh_text": "而你却做所有这些事。",
+      "highlights": []
+    },
+    {
+      "id": 523,
+      "start": 3197.494,
+      "end": 3201.414,
+      "en_text": "I don't give a damn if you vomit on your own time.",
+      "zh_text": "我才不管你什么时候吐呢。",
+      "highlights": [
+        {
+          "en_word": "don't give a damn",
+          "zh_word": "才不管",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 524,
+      "start": 3230.318,
+      "end": 3232.32,
+      "en_text": "You're scheduled to depart in 20 minutes, sir.",
+      "zh_text": "先生，您定于20分钟后启程。",
+      "highlights": [
+        {
+          "en_word": "scheduled to depart",
+          "zh_word": "定于...启程",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 525,
+      "start": 3232.404,
+      "end": 3232.8680322580644,
+      "en_text": "Thank you.",
+      "zh_text": "谢谢。",
+      "highlights": []
+    },
+    {
+      "id": 526,
+      "start": 3232.8680322580644,
+      "end": 3235.281,
+      "en_text": "Check in with the First Lady, make sure she's ready.",
+      "zh_text": "去第一夫人那儿报个到，确认她准备好了。",
+      "highlights": [
+        {
+          "en_word": "Check in with",
+          "zh_word": "报个到",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 527,
+      "start": 3235.365,
+      "end": 3236.7,
+      "en_text": "Yes, sir.",
+      "zh_text": "是，先生。",
+      "highlights": []
+    },
+    {
+      "id": 528,
+      "start": 3244.499,
+      "end": 3246.126,
+      "en_text": "So?",
+      "zh_text": "所以呢？",
+      "highlights": []
+    },
+    {
+      "id": 529,
+      "start": 3248.545,
+      "end": 3250.505,
+      "en_text": "Are you okay?",
+      "zh_text": "你还好吗？",
+      "highlights": []
+    },
+    {
+      "id": 530,
+      "start": 3250.589,
+      "end": 3252.34,
+      "en_text": "I'm good to go, sir.",
+      "zh_text": "先生，我准备好了。",
+      "highlights": [
+        {
+          "en_word": "good to go",
+          "zh_word": "准备好了",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 531,
+      "start": 3260.306,
+      "end": 3261.516,
+      "en_text": "Yes?",
+      "zh_text": "什么事？",
+      "highlights": []
+    },
+    {
+      "id": 532,
+      "start": 3263.018,
+      "end": 3266.479,
+      "en_text": "Ma'am, the president wanted me to check and see if you're ready.",
+      "zh_text": "夫人，总统让我来看看您是否准备好了。",
+      "highlights": [
+        {
+          "en_word": "check and see",
+          "zh_word": "来看看",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    },
+    {
+      "id": 533,
+      "start": 3268.941,
+      "end": 3270.4,
+      "en_text": "Ma'am?",
+      "zh_text": "夫人？",
+      "highlights": []
+    },
+    {
+      "id": 534,
+      "start": 3280.119,
+      "end": 3281.203,
+      "en_text": "Francis.",
+      "zh_text": "弗朗西斯。",
+      "highlights": []
+    },
+    {
+      "id": 535,
+      "start": 3287.5,
+      "end": 3289.461,
+      "en_text": "I'm not going to New Hampshire.",
+      "zh_text": "我不会去新罕布什尔。",
+      "highlights": []
+    },
+    {
+      "id": 536,
+      "start": 3289.544,
+      "end": 3290.39427027027,
+      "en_text": "Yes, you are.",
+      "zh_text": "不，你会去的。",
+      "highlights": []
+    },
+    {
+      "id": 537,
+      "start": 3290.39427027027,
+      "end": 3291.964,
+      "en_text": "I'll see you in the car.",
+      "zh_text": "我在车里等你。",
+      "highlights": []
+    },
+    {
+      "id": 538,
+      "start": 3292.047,
+      "end": 3293.423,
+      "en_text": "I'm leaving you.",
+      "zh_text": "我要离开你了。",
+      "highlights": []
+    },
+    {
+      "id": 539,
+      "start": 3300.764,
+      "end": 3302.39,
+      "en_text": "Claire.",
+      "zh_text": "克莱尔。",
+      "highlights": []
+    },
+    {
+      "id": 540,
+      "start": 3305.822,
+      "end": 3310.612,
+      "en_text": "Sync and corrections by n17t01 www.addic7ed.com",
+      "zh_text": "字幕同步与校正：n17t01 www.addic7ed.com",
+      "highlights": [
+        {
+          "en_word": "Sync and corrections",
+          "zh_word": "字幕同步与校正",
+          "color": "text-purple-400 border-b border-dashed border-purple-400"
+        }
+      ]
+    }
+  ],
+  "summary": "📺 纸牌屋 第3季 第13集"
+}

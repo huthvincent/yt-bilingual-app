@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Star, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { InputScreen } from './components/InputScreen';
@@ -259,6 +259,7 @@ function App() {
       setSummary(data.summary || '');
       setMetadata(data.metadata || null);
       setVideoId(id);
+      setCurrentTime(0);
 
     } catch (error) {
       console.error(error);
@@ -282,6 +283,7 @@ function App() {
         setSummary(data.summary || '');
         setMetadata({ ...data.metadata, is_local_subtitle: true });
         setVideoId(data.videoId);
+        setCurrentTime(0);
       } else {
         setLoadingState('processing');
         // Not yet processed — run the full processing pipeline
@@ -298,6 +300,7 @@ function App() {
         setSummary(data.summary || '');
         setMetadata({ ...data.metadata, is_local_subtitle: true });
         setVideoId(data.videoId);
+        setCurrentTime(0);
       }
     } catch (error) {
       console.error(error);
@@ -318,6 +321,7 @@ function App() {
       setSummary(data.summary || '');
       setMetadata(data.metadata || null);
       setVideoId(data.videoId);
+      setCurrentTime(0);
     } catch (error) {
       console.error(error);
       alert("Failed to load history file.");
@@ -326,9 +330,9 @@ function App() {
     }
   };
 
-  const handleTimeUpdate = (time: number) => {
+  const handleTimeUpdate = useCallback((time: number) => {
     setCurrentTime(time);
-  };
+  }, []);
 
   const handleGoHome = () => {
     setVideoId('');
