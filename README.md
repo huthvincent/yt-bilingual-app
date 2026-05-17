@@ -43,7 +43,11 @@ A full-stack bilingual learning app that helps you learn English through YouTube
    ./setup.sh
    ```
 
-3. Edit `.env` and add your Gemini API Key:
+3. Set up your environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Then open the `.env` file and add your Gemini API Key (and any other optional keys):
    ```
    GEMINI_API_KEY="your_gemini_api_key_here"
    ```
