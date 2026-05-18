@@ -2,6 +2,14 @@
 
 A full-stack bilingual learning app that helps you learn English through YouTube videos and local subtitle files. It plays the original video on the left while synchronizing bilingual subtitles on the right, with advanced vocabulary highlighted and annotated.
 
+## 📸 Screenshots
+
+![Learning Interface](docs/images/learning_screenshot.png)
+*Synchronized bilingual subtitles with highlighted vocabulary.*
+
+![Home Dashboard](docs/images/home_screenshot.png)
+*Clean dashboard to track history and channel subscriptions.*
+
 ## ✨ Features
 
 - **Bilingual Subtitles**: AI-powered English-to-Chinese translation synced with video playback
