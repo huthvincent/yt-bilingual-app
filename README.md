@@ -7,11 +7,6 @@ A full-stack bilingual learning app that helps you learn English through YouTube
 ![Learning Interface](docs/images/learning_screenshot.png)
 *Synchronized bilingual subtitles with highlighted vocabulary.*
 
-<p align="center">
-  <img src="docs/images/mobile_screenshot.png" width="300" alt="Mobile App Interface" />
-  <br>
-  <em>Mobile app interface on iPhone</em>
-</p>
 
 ![Home Dashboard](docs/images/home_screenshot.png)
 *Clean dashboard to track history and channel subscriptions.*
@@ -106,6 +101,15 @@ npm run dev
 2. Select the show, season, and episode from the app UI
 3. Click a subtitle block to start auto-scrolling from that timestamp
 4. Optionally paste an external video URL to watch alongside
+
+### Mobile Native App
+The project also includes a React Native (Expo) mobile client. You can use it to learn on the go with a native, responsive interface optimized for smaller screens.
+
+<p align="center">
+  <img src="docs/images/mobile_screenshot.png" width="300" alt="Mobile App Interface" />
+  <br>
+  <em>Mobile app interface on iPhone</em>
+</p>
 
 ## 📁 Project Structure
 
