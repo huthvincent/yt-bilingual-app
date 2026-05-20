@@ -7,6 +7,12 @@ A full-stack bilingual learning app that helps you learn English through YouTube
 ![Learning Interface](docs/images/learning_screenshot.png)
 *Synchronized bilingual subtitles with highlighted vocabulary.*
 
+<p align="center">
+  <img src="docs/images/mobile_screenshot.png" width="300" alt="Mobile App Interface" />
+  <br>
+  <em>Mobile app interface on iPhone</em>
+</p>
+
 ![Home Dashboard](docs/images/home_screenshot.png)
 *Clean dashboard to track history and channel subscriptions.*
 
