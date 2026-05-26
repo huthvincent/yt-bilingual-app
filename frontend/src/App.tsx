@@ -197,7 +197,32 @@ function App() {
           en_text: item.en_text,
           zh_text: item.zh_text,
           added_at: Date.now(),
-          highlights: item.highlights
+          highlights: item.highlights,
+          type: 'sentence'
+        }];
+      }
+    });
+  };
+
+  const handleToggleVocabFavorite = (e: React.MouseEvent, item: any) => {
+    e.stopPropagation();
+    const id = `vocab-${videoId}-${item.en.replace(/\s+/g, '-')}`;
+    setFavorites(prev => {
+      const exists = prev.find(f => f.id === id);
+      if (exists) {
+        return prev.filter(f => f.id !== id);
+      } else {
+        return [...prev, {
+          id,
+          videoId,
+          start: item.start,
+          en_text: item.en,
+          zh_text: item.zh,
+          context_en: item.en_text,
+          context_zh: item.zh_text,
+          added_at: Date.now(),
+          highlights: item.highlights,
+          type: 'vocabulary'
         }];
       }
     });
@@ -490,14 +515,21 @@ function App() {
               {/* Vocabulary Summary Accordion */}
               {transcript.length > 0 && (() => {
                 const seen = new Set<string>();
-                const vocabItems: { en: string; zh: string; start: number }[] = [];
+                const vocabItems: { en: string; zh: string; start: number; en_text: string; zh_text: string; highlights: any[] }[] = [];
                 for (const block of transcript) {
                   if (block.highlights) {
                     for (const h of block.highlights) {
                       const key = `${h.en_word}|||${h.zh_word}`;
                       if (!seen.has(key)) {
                         seen.add(key);
-                        vocabItems.push({ en: h.en_word, zh: h.zh_word, start: block.start });
+                        vocabItems.push({ 
+                          en: h.en_word, 
+                          zh: h.zh_word, 
+                          start: block.start,
+                          en_text: block.en_text,
+                          zh_text: block.zh_text,
+                          highlights: block.highlights
+                        });
                       }
                     }
                   }
@@ -524,16 +556,28 @@ function App() {
                       className={`transition-all duration-300 ease-in-out ${isVocabOpen ? 'max-h-[20000px] opacity-100 mt-3' : 'max-h-0 opacity-0 overflow-hidden'}`}
                     >
                       <div className="space-y-1">
-                        {vocabItems.map((item, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => setSeekCommand({ time: item.start, timestamp: Date.now() })}
-                            className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/80 transition-colors group/row cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
-                          >
-                            <span className="text-purple-300 font-medium text-sm text-left group-hover/row:text-purple-200 transition-colors">{item.en}</span>
-                            <span className="text-gray-400 text-sm text-right group-hover/row:text-gray-300 transition-colors">{item.zh}</span>
-                          </button>
-                        ))}
+                        {vocabItems.map((item, idx) => {
+                          const vocabId = `vocab-${videoId}-${item.en.replace(/\s+/g, '-')}`;
+                          const isFav = favorites.some(f => f.id === vocabId);
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => setSeekCommand({ time: item.start, timestamp: Date.now() })}
+                              className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/80 transition-colors group/row cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+                            >
+                              <span className="text-purple-300 font-medium text-sm text-left group-hover/row:text-purple-200 transition-colors flex-1">{item.en}</span>
+                              <div className="flex items-center gap-3">
+                                <span className="text-gray-400 text-sm text-right group-hover/row:text-gray-300 transition-colors">{item.zh}</span>
+                                <div 
+                                  onClick={(e) => handleToggleVocabFavorite(e, item)}
+                                  className={`p-1.5 rounded-md hover:bg-gray-700 transition-colors ${isFav ? 'text-yellow-500' : 'text-gray-500 opacity-0 group-hover/row:opacity-100 hover:text-yellow-500'}`}
+                                >
+                                  <Star className="w-4 h-4" fill={isFav ? "currentColor" : "none"} />
+                                </div>
+                              </div>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>

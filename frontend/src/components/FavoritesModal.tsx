@@ -13,6 +13,9 @@ export interface FavoriteItem {
         zh_word: string;
         color: string;
     }>;
+    type?: 'sentence' | 'vocabulary';
+    context_en?: string;
+    context_zh?: string;
 }
 
 interface FavoritesModalProps {
@@ -121,18 +124,33 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                                 {formatTime(fav.start)}
                                                             </span>
                                                             <span className="text-xs text-gray-500">Video ID: {fav.videoId}</span>
+                                                            {fav.type === 'vocabulary' && (
+                                                                <span className="text-xs font-medium text-blue-400 bg-blue-500/10 px-2 py-1 rounded-md">
+                                                                    Vocabulary
+                                                                </span>
+                                                            )}
                                                         </div>
-                                                        <p className="text-gray-200 font-medium leading-relaxed">
-                                                            <HighlightedText 
-                                                                text={fav.en_text} 
-                                                                highlights={(fav.highlights || []).map(h => ({ 
-                                                                    word: h.en_word, 
-                                                                    color: h.color, 
-                                                                    annotation: h.zh_word 
-                                                                }))} 
-                                                            />
-                                                        </p>
-                                                        <p className="text-gray-400 text-sm leading-relaxed">{fav.zh_text}</p>
+                                                        {fav.type === 'vocabulary' && fav.en_text && fav.zh_text ? (
+                                                            <div className="mb-3 p-3 bg-gray-900/50 rounded-lg border border-gray-700/50 inline-block">
+                                                                <div className="flex items-center gap-3">
+                                                                    <span className="text-lg font-bold text-purple-400">{fav.en_text}</span>
+                                                                    <span className="text-sm text-gray-400">{fav.zh_text}</span>
+                                                                </div>
+                                                            </div>
+                                                        ) : null}
+                                                        <div className={fav.type === 'vocabulary' ? 'opacity-70 text-sm' : ''}>
+                                                            <p className="text-gray-200 font-medium leading-relaxed mb-1">
+                                                                <HighlightedText 
+                                                                    text={fav.type === 'vocabulary' ? (fav.context_en || '') : fav.en_text} 
+                                                                    highlights={(fav.highlights || []).map(h => ({ 
+                                                                        word: h.en_word, 
+                                                                        color: h.color, 
+                                                                        annotation: h.zh_word 
+                                                                    }))} 
+                                                                />
+                                                            </p>
+                                                            <p className="text-gray-400 text-sm leading-relaxed">{fav.type === 'vocabulary' ? fav.context_zh : fav.zh_text}</p>
+                                                        </div>
                                                     </div>
                                                     <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                                         <button

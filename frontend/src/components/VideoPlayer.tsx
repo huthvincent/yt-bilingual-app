@@ -7,7 +7,7 @@ interface VideoPlayerProps {
     videoId: string;
     onTimeUpdate: (time: number) => void;
     seekCommand?: { time: number; timestamp: number } | null;
-    wrapperRef?: React.RefObject<HTMLDivElement>;
+    wrapperRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate, seekCommand, wrapperRef }) => {
