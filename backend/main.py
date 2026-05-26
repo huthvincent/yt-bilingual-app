@@ -465,17 +465,19 @@ def list_history():
                 try:
                     with open(file_path, "r", encoding="utf-8") as file:
                         data = json.load(file)
+                        mtime = os.path.getmtime(file_path)
                         files.append({
                             "filename": f,
                             "videoId": data.get("videoId"),
-                            "metadata": data.get("metadata", {})
+                            "metadata": data.get("metadata", {}),
+                            "mtime": mtime
                         })
                 except Exception as e:
                     print(f"Error reading history file {f}: {e}")
                     files.append({"filename": f, "metadata": {}})
                     
-    # Sort files by the upload_date in metadata if available, descending
-    files.sort(key=lambda x: x["metadata"].get("upload_date", ""), reverse=True)
+    # Sort files by the local processing time (mtime), descending
+    files.sort(key=lambda x: x.get("mtime", 0), reverse=True)
     return files
 
 @app.get("/api/history/{filename}")
