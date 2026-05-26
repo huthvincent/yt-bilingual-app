@@ -147,6 +147,32 @@ export default function App() {
             en_text: item.en_text,
             zh_text: item.zh_text,
             added_at: Date.now(),
+            type: 'sentence',
+          },
+        ];
+      }
+    });
+  };
+
+  const handleToggleVocabFavorite = (enWord: string, zhWord: string, contextEn: string, contextZh: string, start: number) => {
+    const id = `vocab-${videoId}-${enWord.replace(/\s+/g, '-')}`;
+    setFavorites((prev) => {
+      const exists = prev.find((f) => f.id === id);
+      if (exists) {
+        return prev.filter((f) => f.id !== id);
+      } else {
+        return [
+          ...prev,
+          {
+            id,
+            videoId,
+            start,
+            en_text: enWord,
+            zh_text: zhWord,
+            context_en: contextEn,
+            context_zh: contextZh,
+            added_at: Date.now(),
+            type: 'vocabulary',
           },
         ];
       }
@@ -428,6 +454,7 @@ export default function App() {
                 }
               }}
               onToggleFavorite={handleToggleFavorite}
+              onToggleVocabFavorite={handleToggleVocabFavorite}
             />
           </View>
         </View>

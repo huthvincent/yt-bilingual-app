@@ -22,6 +22,9 @@ export interface FavoriteItem {
   en_text: string;
   zh_text: string;
   added_at?: number;
+  type?: 'sentence' | 'vocabulary';
+  context_en?: string;
+  context_zh?: string;
 }
 
 export interface HistoryMetadata {

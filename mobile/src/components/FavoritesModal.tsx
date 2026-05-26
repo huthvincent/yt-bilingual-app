@@ -140,8 +140,25 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                                   Video: {fav.videoId.slice(0, 8)}...
                                 </Text>
                               </View>
-                              <Text style={styles.favEn}>{fav.en_text}</Text>
-                              <Text style={styles.favZh}>{fav.zh_text}</Text>
+                              {fav.type === 'vocabulary' ? (
+                                <>
+                                  <View style={styles.vocabHeaderBlock}>
+                                    <Text style={styles.vocabWordEn}>{fav.en_text}</Text>
+                                    <Text style={styles.vocabWordZh}>{fav.zh_text}</Text>
+                                  </View>
+                                  {(fav.context_en || fav.context_zh) && (
+                                    <View style={styles.vocabContextBlock}>
+                                      {fav.context_en && <Text style={styles.favEn}>{fav.context_en}</Text>}
+                                      {fav.context_zh && <Text style={styles.favZh}>{fav.context_zh}</Text>}
+                                    </View>
+                                  )}
+                                </>
+                              ) : (
+                                <>
+                                  <Text style={styles.favEn}>{fav.en_text}</Text>
+                                  <Text style={styles.favZh}>{fav.zh_text}</Text>
+                                </>
+                              )}
                             </View>
                             <View style={styles.favActions}>
                               <TouchableOpacity
@@ -289,6 +306,29 @@ const styles = StyleSheet.create({
     fontSize: fontSize.sm,
     color: colors.text.tertiary,
     lineHeight: 18,
+  },
+  vocabHeaderBlock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginBottom: spacing.xs,
+  },
+  vocabWordEn: {
+    fontSize: fontSize.lg,
+    fontWeight: 'bold',
+    color: colors.purple[400],
+  },
+  vocabWordZh: {
+    fontSize: fontSize.md,
+    color: colors.text.secondary,
+  },
+  vocabContextBlock: {
+    paddingLeft: spacing.sm,
+    borderLeftWidth: 2,
+    borderLeftColor: 'rgba(168, 85, 247, 0.3)',
+    marginTop: spacing.xs,
+    gap: spacing.xs,
   },
   favActions: {
     justifyContent: 'center',
