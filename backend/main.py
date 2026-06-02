@@ -460,7 +460,7 @@ def list_history():
     files = []
     if os.path.exists(HISTORY_DIR):
         for f in os.listdir(HISTORY_DIR):
-            if f.endswith('.json'):
+            if f.endswith('.json') and f not in ["favorites.json", "subscriptions.json"]:
                 file_path = os.path.join(HISTORY_DIR, f)
                 try:
                     with open(file_path, "r", encoding="utf-8") as file:
