@@ -1,6 +1,21 @@
-# YT Bilingual 🎓
+<div align="center">
+    <h1>🎓 YT Bilingual</h1>
+    <h3><em>Learn English through YouTube videos and local subtitles.</em></h3>
+</div>
 
-A full-stack bilingual learning app that helps you learn English through YouTube videos and local subtitle files. It plays the original video on the left while synchronizing bilingual subtitles on the right, with advanced vocabulary highlighted and annotated.
+<p align="center">
+    <strong>A full-stack bilingual learning app that plays the original video on the left while synchronizing bilingual subtitles on the right, with advanced vocabulary highlighted and annotated.</strong>
+</p>
+
+<p align="center">
+    <a href="https://github.com/huthvincent/yt-bilingual-app/stargazers"><img src="https://img.shields.io/github/stars/huthvincent/yt-bilingual-app?style=social" alt="GitHub stars"/></a>
+    <a href="https://github.com/huthvincent/yt-bilingual-app/blob/main/LICENSE"><img src="https://img.shields.io/github/license/huthvincent/yt-bilingual-app" alt="License"/></a>
+    <img src="https://img.shields.io/badge/Frontend-React%20%7C%20Vite-blue" alt="Frontend"/>
+    <img src="https://img.shields.io/badge/Backend-FastAPI-green" alt="Backend"/>
+    <img src="https://img.shields.io/badge/Mobile-Expo-purple" alt="Mobile"/>
+</p>
+
+---
 
 ## 📸 Screenshots
 
