@@ -1,6 +1,6 @@
 <div align="center">
-  <!-- <img src="docs/images/hero_icon.png" alt="Logo" width="120" height="120" /> -->
-  <h1>🎓 Lingua Nova (YT Bilingual)</h1>
+  <img src="docs/images/readme_banner.png" alt="Lingua Nova Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+  <h1>Lingua Nova (YT Bilingual)</h1>
 
   <p align="center">
     <strong>Immersive Language Learning Through Cinematic YouTube Experiences.</strong>
