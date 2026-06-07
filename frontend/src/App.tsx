@@ -371,10 +371,8 @@ function App() {
   const renderTopBar = () => (
     <div className="flex-none h-16 bg-zinc-950/60 backdrop-blur-xl border-b border-white/5 px-6 flex items-center justify-between z-20">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20 cursor-pointer" onClick={handleGoHome}>
-            <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+        <div className="w-10 h-10 rounded-2xl overflow-hidden shadow-lg shadow-purple-500/30 cursor-pointer flex-shrink-0" onClick={handleGoHome}>
+            <img src="/hero_icon.png" alt="Logo" className="w-full h-full object-cover" />
         </div>
         <h1
           className="text-xl font-extrabold text-zinc-100 cursor-pointer tracking-tight hover:text-white transition-colors"
