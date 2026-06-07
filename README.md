@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/images/readme_banner_v3.png" alt="Lingua Nova Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+  <img src="docs/images/readme_octopus.png" alt="Lingua Nova Octopus" width="160" style="border-radius: 12px; margin-bottom: 20px;" />
   <h1>Lingua Nova (YT Bilingual)</h1>
 
   <p align="center">
