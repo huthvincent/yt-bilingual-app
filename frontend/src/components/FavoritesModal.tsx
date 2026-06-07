@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Play, Trash2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export interface FavoriteItem {
     id: string;
@@ -70,8 +71,6 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
         return map;
     }, [favorites]);
 
-    if (!isOpen) return null;
-
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
@@ -86,123 +85,151 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex flex-col bg-gray-900 w-full h-full overflow-hidden">
-            <div className="w-full flex flex-col h-full mx-auto max-w-5xl">
-                <div className="flex items-center justify-between p-6 border-b border-gray-800 shrink-0">
-                    <h2 className="text-2xl font-bold text-white">My Favorites</h2>
-                    <button onClick={onClose} className="p-2 text-gray-400 hover:text-white rounded-full hover:bg-gray-800 transition-colors">
-                        <X className="w-6 h-6" />
-                    </button>
-                </div>
-
-                <div className="p-6 overflow-y-auto flex-1 custom-scrollbar space-y-6">
-                    {favorites.length === 0 ? (
-                        <div className="text-center py-12 text-gray-500">
-                            <p>No favorites yet.</p>
-                            <p className="text-sm mt-2">Click the star icon next to a sentence to save it.</p>
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-50 flex flex-col bg-zinc-950/80 backdrop-blur-2xl w-full h-full overflow-hidden"
+                >
+                    <motion.div 
+                        initial={{ y: 50, scale: 0.98, opacity: 0 }}
+                        animate={{ y: 0, scale: 1, opacity: 1 }}
+                        exit={{ y: 20, scale: 0.98, opacity: 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        className="w-full flex flex-col h-full mx-auto max-w-5xl bg-[#09090b]/50 shadow-2xl"
+                    >
+                        <div className="flex items-center justify-between p-8 border-b border-white/5 shrink-0">
+                            <h2 className="text-3xl font-extrabold text-zinc-100 tracking-tight">My Favorites</h2>
+                            <button onClick={onClose} className="p-2 text-zinc-400 hover:text-white rounded-full hover:bg-zinc-800 transition-colors">
+                                <X className="w-6 h-6" />
+                            </button>
                         </div>
-                    ) : (
-                        Object.entries(groups).map(([title, items]) => {
-                            const isCollapsed = collapsedGroups[title];
-                            return (
-                                <div key={title} className="space-y-3">
-                                    <button 
-                                        onClick={() => toggleGroup(title)}
-                                        className="flex items-center gap-2 text-white font-semibold text-lg hover:text-purple-400 transition-colors w-full text-left"
-                                    >
-                                        {isCollapsed ? <ChevronRight className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-purple-400" />}
-                                        {title} <span className="text-sm font-normal text-gray-500 bg-gray-800 px-2 py-0.5 rounded-full">{items.length}</span>
-                                    </button>
-                                    
-                                    {!isCollapsed && (
-                                        <div className="space-y-3 pl-2 sm:pl-7 border-l-2 border-transparent">
-                                            {items.map((fav) => (
-                                                <div key={fav.id} className="bg-gray-800/50 rounded-xl p-5 border border-gray-700/50 flex gap-4 group hover:bg-gray-800 transition-colors">
-                                                    <div className="flex-1 space-y-2">
-                                                        <div className="flex items-center gap-3 mb-2">
-                                                            <span className="text-xs font-medium text-purple-400 bg-purple-500/10 px-2 py-1 rounded-md">
-                                                                {formatTime(fav.start)}
-                                                            </span>
-                                                            <span className="text-xs text-gray-500">Video ID: {fav.videoId}</span>
-                                                            {fav.type === 'vocabulary' && (
-                                                                <span className="text-xs font-medium text-blue-400 bg-blue-500/10 px-2 py-1 rounded-md">
-                                                                    Vocabulary
-                                                                </span>
-                                                            )}
-                                                        </div>
-                                                        {fav.type === 'vocabulary' && fav.en_text && fav.zh_text ? (
-                                                            <div className="mb-3 p-3 bg-gray-900/50 rounded-lg border border-gray-700/50 inline-block">
-                                                                <div className="flex items-center gap-3">
-                                                                    <span className="text-lg font-bold text-purple-400">{fav.en_text}</span>
-                                                                    <span className="text-sm text-gray-400">{fav.zh_text}</span>
-                                                                </div>
-                                                            </div>
-                                                        ) : null}
-                                                        <div className={fav.type === 'vocabulary' ? 'opacity-70 text-sm' : ''}>
-                                                            <p className="text-gray-200 font-medium leading-relaxed mb-1">
-                                                                <HighlightedText 
-                                                                    text={fav.type === 'vocabulary' ? (fav.context_en || '') : fav.en_text} 
-                                                                    highlights={(fav.highlights || []).map(h => ({ 
-                                                                        word: h.en_word, 
-                                                                        color: h.color, 
-                                                                        annotation: h.zh_word 
-                                                                    }))} 
-                                                                />
-                                                            </p>
-                                                            <p className="text-gray-400 text-sm leading-relaxed">{fav.type === 'vocabulary' ? fav.context_zh : fav.zh_text}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                        <button
-                                                            onClick={() => {
-                                                                if (fav.videoId.length > 11) {
-                                                                    onClose();
-                                                                    onPlayFavorite(fav.videoId, fav.start);
-                                                                } else {
-                                                                    setPlayingFav({ videoId: fav.videoId, start: fav.start });
-                                                                }
-                                                            }}
-                                                            className="p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors"
-                                                            title={fav.videoId.length > 11 ? "Go to Transcript" : "Play Video"}
-                                                        >
-                                                            <Play className="w-4 h-4" />
-                                                        </button>
-                                                        <button
-                                                            onClick={() => onRemoveFavorite(fav.id)}
-                                                            className="p-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors"
-                                                            title="Remove"
-                                                        >
-                                                            <Trash2 className="w-4 h-4" />
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })
-                    )}
-                </div>
-            </div>
 
-            {playingFav && (
-                <div className="fixed bottom-8 right-8 w-96 aspect-video bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-700 z-[60] group cursor-move">
-                    <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button 
-                            onClick={() => setPlayingFav(null)} 
-                            className="p-1.5 text-white bg-black/60 rounded-full hover:bg-red-500 transition-colors backdrop-blur-md"
-                        >
-                            <X className="w-5 h-5" />
-                        </button>
-                    </div>
-                    <VideoPlayer
-                        videoId={playingFav.videoId}
-                        seekCommand={{ time: playingFav.start, timestamp: Date.now() }}
-                        onTimeUpdate={() => {}}
-                    />
-                </div>
+                        <div className="p-8 overflow-y-auto flex-1 custom-scrollbar space-y-8">
+                            {favorites.length === 0 ? (
+                                <div className="text-center py-20 text-zinc-500">
+                                    <Star className="w-12 h-12 mx-auto mb-4 text-zinc-700" />
+                                    <p className="text-lg font-medium">No favorites yet.</p>
+                                    <p className="text-sm mt-2">Click the star icon next to a sentence to save it.</p>
+                                </div>
+                            ) : (
+                                Object.entries(groups).map(([title, items]) => {
+                                    const isCollapsed = collapsedGroups[title];
+                                    return (
+                                        <div key={title} className="space-y-4">
+                                            <button 
+                                                onClick={() => toggleGroup(title)}
+                                                className="flex items-center gap-2 text-zinc-100 font-bold text-xl hover:text-blue-400 transition-colors w-full text-left"
+                                            >
+                                                {isCollapsed ? <ChevronRight className="w-5 h-5 text-zinc-500" /> : <ChevronDown className="w-5 h-5 text-blue-400" />}
+                                                {title} <span className="text-sm font-normal text-zinc-500 bg-zinc-800 px-3 py-0.5 rounded-full">{items.length}</span>
+                                            </button>
+                                            
+                                            <AnimatePresence>
+                                                {!isCollapsed && (
+                                                    <motion.div 
+                                                        initial={{ height: 0, opacity: 0 }}
+                                                        animate={{ height: "auto", opacity: 1 }}
+                                                        exit={{ height: 0, opacity: 0 }}
+                                                        className="space-y-4 pl-2 sm:pl-7 border-l border-white/5 overflow-hidden"
+                                                    >
+                                                        {items.map((fav) => (
+                                                            <motion.div 
+                                                                layout
+                                                                initial={{ opacity: 0, x: -10 }}
+                                                                animate={{ opacity: 1, x: 0 }}
+                                                                key={fav.id} 
+                                                                className="glass-card rounded-2xl p-6 flex gap-4 group hover:bg-zinc-800/60 transition-colors"
+                                                            >
+                                                                <div className="flex-1 space-y-3">
+                                                                    <div className="flex items-center gap-3 mb-2">
+                                                                        <span className="text-xs font-mono font-medium text-blue-400 bg-blue-500/10 px-2 py-1 rounded-md">
+                                                                            {formatTime(fav.start)}
+                                                                        </span>
+                                                                        {fav.type === 'vocabulary' && (
+                                                                            <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2 py-1 rounded-md">
+                                                                                Vocabulary
+                                                                            </span>
+                                                                        )}
+                                                                    </div>
+                                                                    {fav.type === 'vocabulary' && fav.en_text && fav.zh_text ? (
+                                                                        <div className="mb-3 p-4 bg-zinc-900/80 rounded-xl border border-white/5 inline-block shadow-inner">
+                                                                            <div className="flex items-center gap-3">
+                                                                                <span className="text-xl font-bold text-amber-400">{fav.en_text}</span>
+                                                                                <span className="text-sm text-zinc-400 font-medium">{fav.zh_text}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    ) : null}
+                                                                    <div className={fav.type === 'vocabulary' ? 'opacity-70 text-sm' : ''}>
+                                                                        <p className="text-zinc-200 font-medium leading-relaxed mb-2 text-lg">
+                                                                            <HighlightedText 
+                                                                                text={fav.type === 'vocabulary' ? (fav.context_en || '') : fav.en_text} 
+                                                                                highlights={(fav.highlights || []).map(h => ({ 
+                                                                                    word: h.en_word, 
+                                                                                    color: h.color, 
+                                                                                    annotation: h.zh_word 
+                                                                                }))} 
+                                                                            />
+                                                                        </p>
+                                                                        <p className="text-zinc-400 text-sm leading-relaxed">{fav.type === 'vocabulary' ? fav.context_zh : fav.zh_text}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                    <button
+                                                                        onClick={() => {
+                                                                            if (fav.videoId.length > 11) {
+                                                                                onClose();
+                                                                                onPlayFavorite(fav.videoId, fav.start);
+                                                                            } else {
+                                                                                setPlayingFav({ videoId: fav.videoId, start: fav.start });
+                                                                            }
+                                                                        }}
+                                                                        className="p-3 bg-zinc-100 hover:bg-white text-zinc-900 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-md"
+                                                                        title={fav.videoId.length > 11 ? "Go to Transcript" : "Play Video"}
+                                                                    >
+                                                                        <Play className="w-4 h-4 fill-current" />
+                                                                    </button>
+                                                                    <button
+                                                                        onClick={() => onRemoveFavorite(fav.id)}
+                                                                        className="p-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-xl transition-colors"
+                                                                        title="Remove"
+                                                                    >
+                                                                        <Trash2 className="w-4 h-4" />
+                                                                    </button>
+                                                                </div>
+                                                            </motion.div>
+                                                        ))}
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+                                    );
+                                })
+                            )}
+                        </div>
+                    </motion.div>
+
+                    {playingFav && (
+                        <div className="fixed bottom-8 right-8 w-[480px] aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden border border-white/10 z-[60] group cursor-move">
+                            <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button 
+                                    onClick={() => setPlayingFav(null)} 
+                                    className="p-2 text-white bg-black/60 rounded-full hover:bg-red-500 transition-colors backdrop-blur-md"
+                                >
+                                    <X className="w-4 h-4" />
+                                </button>
+                            </div>
+                            <VideoPlayer
+                                videoId={playingFav.videoId}
+                                seekCommand={{ time: playingFav.start, timestamp: Date.now() }}
+                                onTimeUpdate={() => {}}
+                            />
+                        </div>
+                    )}
+                </motion.div>
             )}
-        </div>
+        </AnimatePresence>
     );
 };

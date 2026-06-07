@@ -369,28 +369,35 @@ function App() {
   };
 
   const renderTopBar = () => (
-    <div className="flex-none h-16 bg-gray-900 border-b border-gray-800 px-6 flex items-center justify-between z-20">
-      <h1
-        className="text-xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 cursor-pointer"
-        onClick={handleGoHome}
-      >
-        YT Bilingual
-      </h1>
-      <div className="flex items-center gap-2">
+    <div className="flex-none h-16 bg-zinc-950/60 backdrop-blur-xl border-b border-white/5 px-6 flex items-center justify-between z-20">
+      <div className="flex items-center gap-3">
+        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20 cursor-pointer" onClick={handleGoHome}>
+            <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        </div>
+        <h1
+          className="text-xl font-extrabold text-zinc-100 cursor-pointer tracking-tight hover:text-white transition-colors"
+          onClick={handleGoHome}
+        >
+          Lingua Nova
+        </h1>
+      </div>
+      <div className="flex items-center gap-3">
         <button
           onClick={() => setIsFavoritesOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-200 rounded-lg transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 border border-white/5 text-zinc-300 hover:text-zinc-100 rounded-xl transition-colors shadow-sm"
         >
-          <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-          <span>Favorites ({favorites.length})</span>
+          <Star className="w-4 h-4 text-amber-400 fill-amber-400/20" />
+          <span className="font-medium text-sm">Favorites ({favorites.length})</span>
         </button>
         {videoId && transcript.length > 0 && (
           <button
             onClick={togglePipMode}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-600/20 hover:bg-purple-600/40 border border-purple-500/30 text-purple-200 rounded-lg transition-colors ml-2 shadow-lg shadow-purple-900/20"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-xl transition-colors shadow-sm shadow-blue-900/10"
           >
-            <ExternalLink className="w-4 h-4 text-purple-400" />
-            <span>{pipWindow ? 'Close Popup' : 'Pop Out'}</span>
+            <ExternalLink className="w-4 h-4" />
+            <span className="font-medium text-sm">{pipWindow ? 'Close Popup' : 'Pop Out'}</span>
           </button>
         )}
       </div>
@@ -398,7 +405,7 @@ function App() {
   );
 
   return (
-    <div className="h-screen w-full flex flex-col bg-gray-950 overflow-hidden">
+    <div className="h-screen w-full flex flex-col bg-[#09090b] overflow-hidden text-zinc-100 selection:bg-purple-500/30">
       {renderTopBar()}
 
       {!videoId || transcript.length === 0 ? (
@@ -415,14 +422,14 @@ function App() {
           />
         </div>
       ) : (
-        <div ref={fullscreenWrapperRef} className="flex-1 flex flex-col md:flex-row overflow-hidden relative bg-black group/wrapper">
+        <div ref={fullscreenWrapperRef} className="flex-1 flex flex-col md:flex-row overflow-hidden relative bg-transparent group/wrapper">
           {/* Left Column: Video/Summary */}
           <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} ${
             pipWindow ? 'md:w-full' : (isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-0 md:opacity-0 md:overflow-hidden' : 'md:w-1/2')
-          } transition-all duration-300 h-1/2 md:h-full flex flex-col pt-4 md:pt-0 shrink-0`}>
+          } transition-all duration-300 h-1/2 md:h-full flex flex-col shrink-0`}>
             {!metadata?.is_local_subtitle && (
               <>
-            <div className="flex-1 min-h-0 relative bg-black">
+            <div className="flex-1 min-h-0 relative bg-transparent">
               <VideoPlayer
                 videoId={videoId}
                 seekCommand={seekCommand}
@@ -431,21 +438,21 @@ function App() {
               />
             </div>
             {metadata?.channel && (
-              <div className="bg-gray-900 border-t border-gray-800 px-6 py-4 flex items-center justify-between shrink-0">
+              <div className="glass-panel border-t-0 border-r border-white/5 px-6 py-4 flex items-center justify-between shrink-0 z-10">
                 <div className="flex items-center gap-3">
-                  <span className="text-gray-400 text-sm">YouTuber:</span>
+                  <span className="text-zinc-400 text-sm">YouTuber:</span>
                   <button
                     onClick={() => setSelectedChannel(metadata.channel)}
-                    className="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-purple-400 text-sm font-medium rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+                    className="px-3 py-1.5 bg-zinc-800/50 hover:bg-zinc-700/50 text-blue-400 text-sm font-medium rounded-lg border border-white/5 hover:border-blue-500/30 transition-colors"
                   >
                     {metadata.channel}
                   </button>
                   {metadata.channel_url && (
                     <button
                       onClick={handleToggleSubscription}
-                      className={`px-3 py-1.5 text-sm font-medium rounded-lg border transition-colors ${subscriptions.some(s => s.id === metadata.channel_url)
-                        ? 'bg-purple-600/20 text-purple-400 border-purple-500/50 hover:bg-purple-600/30'
-                        : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white hover:border-gray-500'
+                      className={`px-3 py-1.5 text-sm font-medium rounded-lg border transition-colors shadow-sm ${subscriptions.some(s => s.id === metadata.channel_url)
+                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20'
+                        : 'bg-zinc-800/50 text-zinc-400 border-white/5 hover:text-white hover:bg-zinc-700/50'
                         }`}
                     >
                       {subscriptions.some(s => s.id === metadata.channel_url) ? 'Subscribed ✓' : 'Subscribe +'}
@@ -640,8 +647,8 @@ function App() {
                   </div>
                 )}
 
-                <div className="relative flex-1 min-h-0 bg-gray-950">
-                  <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none"></div>
+                <div className="relative flex-1 min-h-0 bg-transparent">
+                  <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-[#09090b] to-transparent z-10 pointer-events-none"></div>
                   <TranscriptView
                     transcript={transcript}
                     currentTime={currentTime}
@@ -656,14 +663,14 @@ function App() {
                     }}
                     onToggleFavorite={handleToggleFavorite}
                   />
-                  <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none"></div>
+                  <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#09090b] to-transparent z-10 pointer-events-none"></div>
                 </div>
               </>
             );
 
             if (pipWindow) {
               return createPortal(
-                <div className="w-full h-full flex flex-col relative bg-gray-950">
+                <div className="w-full h-full flex flex-col relative bg-[#09090b]">
                   {transcriptContent}
                 </div>,
                 pipWindow.document.body
@@ -671,7 +678,7 @@ function App() {
             }
 
             return (
-              <div className={`w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-gray-800 bg-gray-950`}>
+              <div className={`w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-white/5 bg-transparent`}>
                 {transcriptContent}
               </div>
             );

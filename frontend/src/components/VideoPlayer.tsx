@@ -94,7 +94,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate,
     };
 
     return (
-        <div className="w-full h-full bg-black relative">
+        <div className="w-full h-full bg-transparent relative">
             <div className="absolute inset-x-0 inset-y-0 p-4 group/video">
                 <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 relative">
                     <YouTube

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Loader2, Play, Youtube, Clock, Tv, BellOff } from 'lucide-react';
+import { Search, Loader2, Play, Youtube, Clock, Tv, BellOff, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
@@ -9,18 +10,30 @@ interface InputScreenProps {
     onSubmit: (url: string) => void;
     onLoadHistory: (filename: string) => void;
     onSelectEpisode: (showId: string, season: number, episode: number) => void;
-    isLoading?: boolean; // legacy
+    isLoading?: boolean;
     loadingState?: 'processing' | 'loading' | null;
     subscriptions?: { id: string; name: string }[];
     onSelectChannel: (channelName: string) => void;
     onUnsubscribe?: (channelId: string) => void;
 }
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.1 }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+};
+
 export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel, onUnsubscribe }) => {
     const [url, setUrl] = useState('');
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
-
     const [isEstimating, setIsEstimating] = useState(false);
     const [estimationData, setEstimationData] = useState<EstimationData | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,15 +65,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
             const response = await fetch(urlToFetch);
 
             if (!response.ok) {
-                // Determine if it's a known backend failure or just an error
-                throw new Error("Failed to estimate cost for this video");
+                throw new Error("Failed to estimate cost");
             }
             const data = await response.json();
             setEstimationData(data);
             setIsModalOpen(true);
         } catch (err) {
             console.error("Estimation failed:", err);
-            // Fallback directly to processing if estimation fails (e.g. backend issue)
             onSubmit(targetUrl);
         } finally {
             setIsEstimating(false);
@@ -76,30 +87,42 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
 
     const handleConfirmModel = (_modelId: string) => {
         setIsModalOpen(false);
-        onSubmit(pendingUrl); // Future: pass _modelId to backend
+        onSubmit(pendingUrl);
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center bg-gray-900 p-8 pt-20 overflow-y-auto custom-scrollbar relative">
-            {(isLoading || loadingState) && !isEstimating && (
-                <div className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
-                    <Loader2 className="w-16 h-16 text-purple-500 animate-spin mb-6" />
-                    <h2 className="text-2xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-                        {loadingState === 'processing' ? 'Processing Video...' : 'Loading...'}
-                    </h2>
-                    {loadingState === 'processing' && (
-                        <p className="text-gray-300">This may take a minute or two for long videos</p>
-                    )}
-                </div>
-            )}
+        <div className="min-h-screen flex flex-col items-center p-8 pt-20 overflow-y-auto custom-scrollbar relative bg-[#09090b]">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+            <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
 
-            {isEstimating && (
-                <div className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
-                    <Loader2 className="w-16 h-16 text-blue-500 animate-spin mb-6" />
-                    <h2 className="text-2xl font-bold text-white mb-2">Estimating Costs...</h2>
-                    <p className="text-gray-400">Analyzing transcript length and models</p>
-                </div>
-            )}
+            <AnimatePresence>
+                {((isLoading || loadingState) && !isEstimating) && (
+                    <motion.div 
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-md flex flex-col items-center justify-center"
+                    >
+                        <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
+                        <h2 className="text-2xl font-bold text-zinc-100 mb-2">
+                            {loadingState === 'processing' ? 'Processing Video...' : 'Loading...'}
+                        </h2>
+                        {loadingState === 'processing' && (
+                            <p className="text-zinc-400">Extracting high-quality bilingual insights</p>
+                        )}
+                    </motion.div>
+                )}
+
+                {isEstimating && (
+                    <motion.div 
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-md flex flex-col items-center justify-center"
+                    >
+                        <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
+                        <h2 className="text-2xl font-bold text-zinc-100 mb-2">Estimating Profile...</h2>
+                        <p className="text-zinc-400">Analyzing content length and complexity</p>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <ModelSelectionModal
                 isOpen={isModalOpen}
@@ -108,222 +131,177 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 estimationData={estimationData}
             />
 
-            <div className="max-w-xl w-full space-y-8 shrink-0">
-                <div className="text-center">
-                    <h2 className="mt-6 text-3xl font-extrabold text-white">
-                        Learn English with YouTube
+            <motion.div 
+                className="max-w-5xl w-full space-y-12 shrink-0 z-10"
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+            >
+                {/* Hero Section */}
+                <motion.div variants={itemVariants} className="text-center mt-12 mb-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full glass-card text-xs font-medium text-zinc-300">
+                        <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                        Lingua Nova Engine
+                    </div>
+                    <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-500 tracking-tight mb-4">
+                        Immersive Language Learning
                     </h2>
-                    <p className="mt-2 text-sm text-gray-400">
-                        Paste a YouTube video URL to get a bilingual interactive transcript.
+                    <p className="text-lg text-zinc-400 font-medium max-w-2xl mx-auto">
+                        Paste any YouTube or media link to generate a tailored, cinematic bilingual learning experience.
                     </p>
-                </div>
-                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    <div className="rounded-md shadow-sm -space-y-px">
-                        <div>
-                            <label htmlFor="video-url" className="sr-only">
-                                YouTube URL
-                            </label>
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                </motion.div>
+
+                {/* Search Bar - Floating Arc Style */}
+                <motion.form variants={itemVariants} className="max-w-3xl mx-auto w-full relative" onSubmit={handleSubmit}>
+                    <div className="relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-[32px] blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+                        <div className="relative flex items-center glass-card rounded-[32px] p-2 pl-6 pr-2 border border-zinc-700/50 hover:border-zinc-500/50 transition-colors">
+                            <Search className="w-5 h-5 text-zinc-400" />
+                            <input
+                                id="video-url"
+                                name="url"
+                                type="url"
+                                disabled={isLoading}
+                                required
+                                className="w-full bg-transparent border-none outline-none text-zinc-100 placeholder-zinc-500 px-4 py-3 text-lg"
+                                placeholder="Paste any webpage, video, or content link..."
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
+                            />
+                            <button
+                                type="submit"
+                                disabled={isLoading || !url.trim()}
+                                className="flex items-center gap-2 bg-zinc-100 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                            >
+                                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Analyze'}
+                                {!isLoading && <ArrowRight className="w-4 h-4" />}
+                            </button>
+                        </div>
+                    </div>
+                </motion.form>
+
+                {/* Bento Grid */}
+                <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8">
+                    
+                    {/* Left Column: Recent Learning */}
+                    <div className="md:col-span-7 flex flex-col gap-6">
+                        {/* History Card */}
+                        <div className="glass-panel rounded-3xl p-6 h-full border border-zinc-800/50 relative overflow-hidden group">
+                            <div className="flex items-center justify-between mb-6">
+                                <div className="flex items-center gap-2 text-zinc-100">
+                                    <Clock className="w-5 h-5" />
+                                    <h3 className="font-semibold text-lg">Recent Learning</h3>
                                 </div>
-                                <input
-                                    id="video-url"
-                                    name="url"
-                                    type="url"
-                                    disabled={isLoading}
-                                    required
-                                    className="appearance-none rounded-md relative block w-full px-3 py-4 pl-10 border border-gray-700 bg-gray-800 placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-lg"
-                                    placeholder="https://www.youtube.com/watch?v=..."
-                                    value={url}
-                                    onChange={(e) => setUrl(e.target.value)}
-                                />
+                                <div className="flex gap-1">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
+                                </div>
                             </div>
+
+                            {history.length === 0 ? (
+                                <div className="flex flex-col items-center justify-center h-48 text-zinc-500">
+                                    <p>No recent videos found.</p>
+                                </div>
+                            ) : (
+                                <div className="flex flex-col gap-4">
+                                    {history.slice(0, 3).map((item, i) => (
+                                        <motion.div
+                                            key={item.filename}
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            onClick={() => onLoadHistory(item.filename)}
+                                            className="flex items-center gap-4 bg-zinc-800/30 hover:bg-zinc-800/60 p-3 rounded-2xl cursor-pointer transition-colors border border-zinc-700/30"
+                                        >
+                                            <div className="relative w-24 h-16 rounded-xl overflow-hidden bg-zinc-900 shrink-0">
+                                                {item.metadata?.thumbnail && (
+                                                    <img src={item.metadata.thumbnail} alt="thumb" className="w-full h-full object-cover" />
+                                                )}
+                                                <div className="absolute inset-0 bg-black/20 group-hover/card:bg-black/40 flex items-center justify-center transition-colors">
+                                                    <Play className="w-5 h-5 text-white opacity-80" />
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col overflow-hidden">
+                                                <h4 className="text-zinc-200 font-medium truncate text-sm mb-1">{item.metadata?.title || 'Unknown Video'}</h4>
+                                                <p className="text-zinc-500 text-xs flex items-center gap-1">
+                                                    <Youtube className="w-3 h-3" /> {item.metadata?.channel || 'Local File'}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Local Shows Section */}
+                        <div className="glass-panel rounded-3xl p-6 border border-zinc-800/50 relative overflow-hidden">
+                             <div className="flex items-center gap-2 mb-6 text-zinc-100">
+                                <Tv className="w-5 h-5 text-blue-400" />
+                                <h3 className="font-semibold text-lg">Local Shows</h3>
+                            </div>
+                            <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
                         </div>
                     </div>
 
-                    <div>
-                        <button
-                            type="submit"
-                            disabled={isLoading || !url.trim()}
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                        >
-                            {isLoading ? (
-                                <>
-                                    <Loader2 className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
-                                    Processing Video & Transcript...
-                                </>
-                            ) : (
-                                'Start Learning'
-                            )}
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            {/* Local Shows Section */}
-            <div className="w-full max-w-xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.2s_forwards] mt-8">
-                <div className="flex items-center gap-2 mb-4 text-gray-400 border-b border-gray-800 pb-2">
-                    <Tv className="w-5 h-5 text-emerald-400" />
-                    <h3 className="font-semibold text-lg text-white">本地剧集学习</h3>
-                </div>
-                <div className="bg-gray-800/30 rounded-2xl border border-gray-800 p-5">
-                    <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
-                </div>
-            </div>
-
-            {/* My YouTubers Section */}
-            {subscriptions && subscriptions.length > 0 && (
-                <div className="w-full max-w-6xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.25s_forwards] mt-12">
-                    <div className="flex items-center gap-2 mb-6 text-gray-400 border-b border-gray-800 pb-2 pl-2">
-                        <Youtube className="w-5 h-5 text-purple-400" />
-                        <h3 className="font-semibold text-lg text-white">My YouTubers Library</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-3 px-2">
-                        {subscriptions.map(sub => (
-                            <div 
-                                key={sub.id} 
-                                onClick={() => onSelectChannel(sub.name)}
-                                className="flex items-center justify-between gap-3 bg-gray-800/80 hover:bg-gray-700 border border-gray-700 hover:border-purple-500/50 rounded-xl px-4 py-3 cursor-pointer transition-all shadow-md group relative pr-12"
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center shrink-0">
-                                        <span className="text-lg font-bold text-gray-300 group-hover:text-purple-400 transition-colors">
-                                            {sub.name.charAt(0).toUpperCase()}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <h4 className="text-gray-200 font-medium group-hover:text-white transition-colors">{sub.name}</h4>
-                                        <p className="text-xs text-purple-400/70 group-hover:text-purple-400 transition-colors">View collection</p>
-                                    </div>
+                    {/* Right Column: Subscriptions & Updates */}
+                    <div className="md:col-span-5 flex flex-col gap-6">
+                        
+                        {/* Channels Bento */}
+                        {subscriptions && subscriptions.length > 0 && (
+                            <div className="glass-panel rounded-3xl p-6 border border-zinc-800/50">
+                                <div className="flex items-center gap-2 mb-6 text-zinc-100">
+                                    <Youtube className="w-5 h-5 text-red-500" />
+                                    <h3 className="font-semibold text-lg">Subscriptions</h3>
                                 </div>
-                                {onUnsubscribe && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            onUnsubscribe(sub.id);
-                                        }}
-                                        className="absolute right-3 p-1.5 text-gray-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
-                                        title="Unsubscribe"
-                                    >
-                                        <BellOff className="w-4 h-4" />
-                                    </button>
+                                <div className="flex flex-wrap gap-2">
+                                    {subscriptions.slice(0, 6).map(sub => (
+                                        <motion.div 
+                                            whileHover={{ scale: 1.05 }}
+                                            key={sub.id}
+                                            onClick={() => onSelectChannel(sub.name)}
+                                            className="px-4 py-2 rounded-xl bg-zinc-800/40 border border-zinc-700/50 hover:bg-zinc-700/50 text-sm text-zinc-300 font-medium cursor-pointer transition-colors"
+                                        >
+                                            {sub.name}
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Updates Bento */}
+                        <div className="glass-panel rounded-3xl p-6 flex-1 border border-zinc-800/50 flex flex-col">
+                            <div className="flex items-center gap-2 mb-6 text-zinc-100">
+                                <BellOff className="w-5 h-5 text-amber-400" />
+                                <h3 className="font-semibold text-lg">New Updates</h3>
+                            </div>
+                            
+                            <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
+                                {channelUpdates.length === 0 ? (
+                                    <p className="text-zinc-500 text-sm">No new updates from your channels.</p>
+                                ) : (
+                                    channelUpdates.map((update, idx) => (
+                                        <motion.div
+                                            whileHover={{ x: 4 }}
+                                            key={`${update.videoId}-${idx}`}
+                                            onClick={() => handleInterceptSubmit(`https://youtube.com/watch?v=${update.videoId}`)}
+                                            className="flex gap-4 cursor-pointer group"
+                                        >
+                                            <div className="w-20 h-12 rounded-lg bg-zinc-800 overflow-hidden shrink-0 relative">
+                                                {update.thumbnail && <img src={update.thumbnail} className="w-full h-full object-cover" alt="" />}
+                                            </div>
+                                            <div className="flex flex-col justify-center">
+                                                <h4 className="text-zinc-300 text-sm font-medium line-clamp-2 group-hover:text-white transition-colors">{update.title}</h4>
+                                                <p className="text-zinc-500 text-xs mt-1">{update.channel}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))
                                 )}
                             </div>
-                        ))}
-                    </div>
-                </div>
-            )}
+                        </div>
 
-            {history.length > 0 && (
-                <div className="w-full max-w-6xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.3s_forwards] mt-12">
-                    <div className="flex items-center gap-2 mb-6 text-gray-400 border-b border-gray-800 pb-2 pl-2">
-                        <Clock className="w-5 h-5" />
-                        <h3 className="font-semibold text-lg text-white">Your Learning History</h3>
                     </div>
-                    {/* Horizontal scroll container for History */}
-                    <div className="flex overflow-x-auto gap-4 pb-6 px-2 custom-scrollbar snap-x">
-                        {history.map(item => (
-                            <div
-                                key={item.filename}
-                                onClick={() => onLoadHistory(item.filename)}
-                                className="bg-gray-800 shrink-0 min-w-[260px] w-[260px] snap-start hover:bg-gray-700 border border-gray-700 hover:border-purple-500/50 rounded-2xl overflow-hidden cursor-pointer transition-all group flex flex-col shadow-lg"
-                            >
-                                <div className="relative aspect-square bg-gray-950 overflow-hidden">
-                                    {item.metadata?.thumbnail ? (
-                                        <img
-                                            src={item.metadata.thumbnail}
-                                            alt={item.metadata.title}
-                                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-                                        />
-                                    ) : (
-                                        <div className="w-full h-full flex items-center justify-center text-gray-700">No Thumbnail</div>
-                                    )}
-                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <div className="bg-purple-600 p-3 rounded-full text-white shadow-lg shadow-purple-900/50">
-                                            <Play className="w-6 h-6 ml-1" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-4 flex flex-col flex-1">
-                                    <h4 className="text-gray-200 font-medium line-clamp-2 text-sm leading-snug mb-2 group-hover:text-purple-300 transition-colors">
-                                        {item.metadata?.title || 'Unknown Title'}
-                                    </h4>
-                                    <div className="mt-auto flex items-center gap-2">
-                                        <div className="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center shrink-0">
-                                            <Youtube className="w-3 h-3 text-purple-400" />
-                                        </div>
-                                        <p className="text-xs text-purple-400/80 font-medium truncate">
-                                            {item.metadata?.channel || item.filename}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            <div className="w-full max-w-6xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.5s_forwards] mt-8 pb-12">
-                <div className="flex items-center gap-2 mb-6 text-gray-400 border-b border-gray-800 pb-2 pl-2">
-                    <Youtube className="w-5 h-5 text-red-500" />
-                    <h3 className="font-semibold text-lg text-white">Subscribed Channels Updates</h3>
-                </div>
-
-                {subscriptions.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center py-12 px-4 bg-gray-800/30 rounded-2xl border border-gray-800 border-dashed text-center">
-                        <Youtube className="w-12 h-12 text-gray-700 mb-4" />
-                        <h4 className="text-gray-300 font-medium mb-2">No Subscriptions Yet</h4>
-                        <p className="text-sm text-gray-500 max-w-md">
-                            To see latest updates here, process any video and click the <span className="text-purple-400 border border-purple-500/50 rounded px-1">Subscribe +</span> button next to the YouTuber's name.
-                        </p>
-                    </div>
-                ) : channelUpdates.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center py-12 px-4 bg-gray-800/20 rounded-2xl border border-gray-800 text-center">
-                        <Loader2 className="w-8 h-8 text-gray-600 animate-spin mb-4" />
-                        <p className="text-sm text-gray-500">
-                            Checking for latest videos from your subscribed channels...
-                        </p>
-                    </div>
-                ) : (
-                    <div className="flex overflow-x-auto gap-4 pb-6 px-2 custom-scrollbar snap-x">
-                        {channelUpdates.map((update, idx) => (
-                            <div
-                                key={`${update.videoId}-${idx}`}
-                                onClick={() => handleInterceptSubmit(`https://youtube.com/watch?v=${update.videoId}`)}
-                                className="bg-gray-800 shrink-0 min-w-[260px] w-[260px] snap-start hover:bg-gray-700 border border-gray-700 hover:border-pink-500/50 rounded-2xl overflow-hidden cursor-pointer transition-all group flex flex-col shadow-lg"
-                            >
-                                <div className="relative aspect-video bg-gray-950 overflow-hidden">
-                                    {update.thumbnail ? (
-                                        <img
-                                            src={update.thumbnail}
-                                            alt={update.title}
-                                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-                                        />
-                                    ) : (
-                                        <div className="w-full h-full flex items-center justify-center text-gray-700">No Thumbnail</div>
-                                    )}
-                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <div className="bg-pink-600 p-3 rounded-full text-white shadow-lg shadow-pink-900/50">
-                                            <Play className="w-6 h-6 ml-1" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-4 flex flex-col flex-1">
-                                    <h4 className="text-gray-200 font-medium line-clamp-2 text-sm leading-snug mb-2 group-hover:text-pink-300 transition-colors">
-                                        {update.title}
-                                    </h4>
-                                    <div className="mt-auto flex items-center gap-2">
-                                        <p className="text-xs text-pink-400/80 font-medium truncate">
-                                            {update.channel}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
-        </div >
+                </motion.div>
+            </motion.div>
+        </div>
     );
 };

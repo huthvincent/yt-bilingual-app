@@ -82,7 +82,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     return (
         <div
             ref={containerRef}
-            className="h-full overflow-y-auto bg-gray-900 border-l border-gray-800 custom-scrollbar px-4 py-3 relative"
+            className="h-full overflow-y-auto bg-transparent border-l border-white/5 custom-scrollbar px-6 py-6 relative"
         >
             <div className="space-y-1.5 pb-32">
                 {transcript.map((item, index) => {
