@@ -1,6 +1,7 @@
 import re
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from youtube_transcript_api import (
     YouTubeTranscriptApi,
@@ -29,14 +30,39 @@ app = FastAPI()
 HISTORY_DIR = os.environ.get("HISTORY_DIR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "history"))
 os.makedirs(HISTORY_DIR, exist_ok=True)
 
-# Configure CORS for frontend access
+# --- Security configuration ---
+# CORS_ORIGINS: comma-separated allowed origins. Defaults to "*" for local
+# use; ALWAYS set this when deploying publicly.
+_cors_env = os.environ.get("CORS_ORIGINS", "")
+ALLOWED_ORIGINS = [o.strip() for o in _cors_env.split(",") if o.strip()] or ["*"]
+
+# API_AUTH_KEY: when set, every /api request must carry a matching X-API-Key
+# header. Without it a public deployment is an open proxy for your Gemini key.
+API_AUTH_KEY = os.environ.get("API_AUTH_KEY", "")
+
+if ALLOWED_ORIGINS == ["*"] and not API_AUTH_KEY:
+    print("⚠️  Running fully open (CORS * / no API key) — fine locally, "
+          "set CORS_ORIGINS and API_AUTH_KEY before deploying publicly.")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust this in production
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def require_api_key(request, call_next):
+    if (
+        API_AUTH_KEY
+        and request.url.path.startswith("/api")
+        and request.method != "OPTIONS"  # let CORS preflight through
+        and request.headers.get("x-api-key") != API_AUTH_KEY
+    ):
+        return JSONResponse(status_code=401, content={"detail": "缺少或错误的 API Key。"})
+    return await call_next(request)
 
 class VideoRequest(BaseModel):
     url: str
@@ -612,6 +638,9 @@ def list_history():
 
 @app.get("/api/history/{filename}")
 async def get_history(filename: str):
+    # Guard against path traversal — only bare filenames inside HISTORY_DIR
+    if os.path.basename(filename) != filename:
+        raise HTTPException(status_code=404, detail="History file not found")
     file_path = os.path.join(HISTORY_DIR, filename)
     if not os.path.exists(file_path) or not filename.endswith('.json'):
         raise HTTPException(status_code=404, detail="History file not found")

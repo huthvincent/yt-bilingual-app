@@ -6,3 +6,12 @@ export const API_BASE: string =
     'http://127.0.0.1:8000';
 
 export const api = (path: string) => `${API_BASE}${path}`;
+
+// fetch() wrapper that attaches the optional VITE_API_KEY as X-API-Key,
+// matching the backend's API_AUTH_KEY protection for public deployments.
+export function apiFetch(path: string, init?: RequestInit): Promise<Response> {
+    const key = import.meta.env.VITE_API_KEY as string | undefined;
+    const headers = new Headers(init?.headers);
+    if (key) headers.set('X-API-Key', key);
+    return fetch(api(path), { ...init, headers });
+}

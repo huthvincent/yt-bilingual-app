@@ -1,4 +1,4 @@
-import { api } from '../lib/api';
+import { apiFetch } from '../lib/api';
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, BookOpen, Tv, Loader2 } from 'lucide-react';
 
@@ -31,7 +31,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
     const [processedEpisodes, setProcessedEpisodes] = useState<Set<string>>(new Set());
 
     useEffect(() => {
-        fetch(api('/api/shows'))
+        apiFetch('/api/shows')
             .then(res => res.json())
             .then(data => {
                 setShows(data.shows || []);
@@ -49,8 +49,8 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
         setProcessedEpisodes(new Set());
         try {
             const [seasonsRes, processedRes] = await Promise.all([
-                fetch(api(`/api/shows/${show.id}/seasons`)),
-                fetch(api(`/api/shows/${show.id}/processed`))
+                apiFetch(`/api/shows/${show.id}/seasons`),
+                apiFetch(`/api/shows/${show.id}/processed`)
             ]);
             const seasonsData = await seasonsRes.json();
             setSeasons(seasonsData.seasons || []);
