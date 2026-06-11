@@ -8,7 +8,7 @@ import type { EstimationData } from './ModelSelectionModal';
 import { ShowBrowser } from './ShowBrowser';
 
 interface InputScreenProps {
-    onSubmit: (url: string) => void;
+    onSubmit: (url: string, model?: string) => void;
     onLoadHistory: (filename: string) => void;
     onSelectEpisode: (showId: string, season: number, episode: number) => void;
     isLoading?: boolean;
@@ -85,9 +85,9 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
         }
     };
 
-    const handleConfirmModel = (_modelId: string) => {
+    const handleConfirmModel = (modelId: string) => {
         setIsModalOpen(false);
-        onSubmit(pendingUrl);
+        onSubmit(pendingUrl, modelId);
     };
 
     return (

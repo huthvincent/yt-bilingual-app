@@ -66,6 +66,30 @@ async def require_api_key(request, call_next):
 
 class VideoRequest(BaseModel):
     url: str
+    model: str | None = None
+
+
+# Real, selectable models. Prices are USD per 1M tokens (approximate,
+# check https://ai.google.dev/pricing for current numbers).
+MODEL_CATALOG = {
+    "gemini-2.5-flash": {
+        "name": "Gemini 2.5 Flash", "provider": "Google",
+        "in": 0.30, "out": 2.50, "quotaInfo": "默认 · 质量与速度均衡",
+    },
+    "gemini-2.5-flash-lite": {
+        "name": "Gemini 2.5 Flash-Lite", "provider": "Google",
+        "in": 0.10, "out": 0.40, "quotaInfo": "最便宜 · 适合长视频",
+    },
+    "gemini-2.5-pro": {
+        "name": "Gemini 2.5 Pro", "provider": "Google",
+        "in": 1.25, "out": 10.00, "quotaInfo": "最高质量 · 较慢",
+    },
+}
+DEFAULT_MODEL = "gemini-2.5-flash"
+
+
+def resolve_model(model: str | None) -> str:
+    return model if model in MODEL_CATALOG else DEFAULT_MODEL
 
 def extract_video_id(url: str) -> str:
     """Extract YouTube video ID from various URL formats"""
@@ -241,7 +265,7 @@ def needs_retranslation(zh_text: str) -> bool:
         or zh_text.startswith(UNTRANSLATED_MARKER)
     )
 
-async def process_llm_batch(blocks: list) -> list:
+async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL) -> list:
     """Use Gemini API to return Chinese translations and highlights"""
     client = genai.Client()
     
@@ -276,7 +300,7 @@ async def process_llm_batch(blocks: list) -> list:
     
     try:
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model=model,
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
@@ -338,7 +362,7 @@ async def mock_llm_processing(blocks: list) -> list:
         })
     return processed_blocks
 
-async def summarize_video_transcript(blocks: list) -> str:
+async def summarize_video_transcript(blocks: list, model: str = DEFAULT_MODEL) -> str:
     """Use Gemini API to generate a summary of the video based on the transcript"""
     full_text = " ".join([b["text"] for b in blocks])
     # If it's too long, truncate it to save tokens (approx 20 mins of speech)
@@ -346,7 +370,7 @@ async def summarize_video_transcript(blocks: list) -> str:
         full_text = full_text[:20000] + "..."
         
     client = genai.Client()
-    prompt = f"""
+    summary_prompt = f"""
     Please read the following English transcript from a YouTube video and provide a concise summary in Chinese.
     Focus on extracting the core knowledge points and main ideas. 
     Use bullet points to organize the summary. Keep it brief and educational.
@@ -357,8 +381,8 @@ async def summarize_video_transcript(blocks: list) -> str:
     
     try:
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=prompt,
+            model=model,
+            contents=summary_prompt,
         )
         return response.text
     except Exception as e:
@@ -381,58 +405,36 @@ def estimate_cost(url: str):
     # Fetch English transcript to calculate length
     transcript = fetch_english_transcript(video_id)
 
+    # Reuse this fetch when the user confirms processing right after
+    _prefetch_cache[video_id] = (time.time(), metadata, transcript)
 
     # Calculate rough token estimate. (English word ~ 1.3 tokens).
     # We also have the system prompt and Chinese output.
-    # Chinese output is usually roughly similar token count to English input in some tokenizers, or slightly more.
     full_text = " ".join([t.text for t in transcript])
-    char_count = len(full_text)
     word_count = len(full_text.split())
-    
+
     # Rough estimates:
     input_tokens = int(word_count * 1.5)  # input text + prompt overhead
-    output_tokens = int(word_count * 2.0) # chinese translation + JSON overhead
+    output_tokens = int(word_count * 2.0)  # chinese translation + JSON overhead
 
-    # Costs per 1M tokens
-    costs = {
-        "gemini-2.5-flash": {"in": 0.075, "out": 0.30},
-        "claude-3-5-haiku": {"in": 0.25, "out": 1.25},
-        "gpt-4o-mini": {"in": 0.150, "out": 0.600}
-    }
-    
     def calc_cost(model_id):
-        rates = costs[model_id]
+        rates = MODEL_CATALOG[model_id]
         in_cost = (input_tokens / 1_000_000) * rates["in"]
         out_cost = (output_tokens / 1_000_000) * rates["out"]
         return round(in_cost + out_cost, 6)
 
     models = [
         {
-            "id": "gemini-2.5-flash",
-            "name": "Gemini 2.5 Flash",
-            "provider": "Google",
-            "estimatedCost": calc_cost("gemini-2.5-flash"),
+            "id": model_id,
+            "name": spec["name"],
+            "provider": spec["provider"],
+            "estimatedCost": calc_cost(model_id),
             "available": True,
-            "quotaInfo": "15 RPM Free Tier"
-        },
-        {
-            "id": "claude-3-5-haiku",
-            "name": "Claude 3.5 Haiku",
-            "provider": "Anthropic",
-            "estimatedCost": calc_cost("claude-3-5-haiku"),
-            "available": False,
-            "quotaInfo": "Coming Soon"
-        },
-        {
-            "id": "gpt-4o-mini",
-            "name": "GPT-4o-mini",
-            "provider": "OpenAI",
-            "estimatedCost": calc_cost("gpt-4o-mini"),
-            "available": False,
-            "quotaInfo": "Coming Soon"
+            "quotaInfo": spec["quotaInfo"],
         }
+        for model_id, spec in MODEL_CATALOG.items()
     ]
-    
+
     return {
         "videoId": video_id,
         "metadata": metadata,
@@ -443,6 +445,12 @@ def estimate_cost(url: str):
         },
         "models": models
     }
+
+# Metadata + transcript fetched during cost estimation, reused on confirm
+# so the user doesn't wait for yt-dlp twice.
+_prefetch_cache: dict = {}  # video_id -> (fetched_at, metadata, transcript)
+PREFETCH_CACHE_TTL_SECONDS = 600
+
 
 def find_history_file_for_video(video_id: str):
     """Locate an existing history file for a YouTube video id, if any."""
@@ -628,7 +636,7 @@ def _history_filename(metadata: dict, video_id: str) -> str:
     return f"{safe_channel}_{metadata.get('upload_date', '')}_{video_id}.json".replace(" ", "_")
 
 
-async def _stream_translate(transcript: list, indices: list, payload: dict, save_path: str):
+async def _stream_translate(transcript: list, indices: list, payload: dict, save_path: str, model: str = DEFAULT_MODEL):
     """Translate the given transcript indices batch by batch.
 
     Yields a dict per batch with the freshly translated blocks and overall
@@ -648,7 +656,7 @@ async def _stream_translate(transcript: list, indices: list, payload: dict, save
         } for i in batch_indices]
 
         try:
-            result = await process_llm_batch(batch_blocks)
+            result = await process_llm_batch(batch_blocks, model=model)
             for j, idx in enumerate(batch_indices):
                 if j < len(result):
                     transcript[idx] = result[j]
@@ -705,22 +713,31 @@ async def process_video_stream(request: VideoRequest):
                 return
 
             # --- Fresh video ---
-            try:
-                raw_transcript = fetch_english_transcript(video_id)
-            except HTTPException as e:
-                yield _sse("error", {"detail": e.detail})
-                return
+            model = resolve_model(request.model)
 
-            try:
-                metadata = get_video_metadata(request.url)
-            except Exception as e:
-                print(f"Failed to fetch metadata: {e}")
-                metadata = {
-                    "title": "Unknown Title",
-                    "channel": "Unknown Channel",
-                    "upload_date": datetime.datetime.now().strftime("%Y%m%d"),
-                    "thumbnail": ""
-                }
+            # Reuse the fetch from a just-run cost estimation when possible
+            prefetched = _prefetch_cache.pop(video_id, None)
+            if prefetched and time.time() - prefetched[0] < PREFETCH_CACHE_TTL_SECONDS:
+                metadata, raw_transcript = prefetched[1], prefetched[2]
+            else:
+                try:
+                    raw_transcript = fetch_english_transcript(video_id)
+                except HTTPException as e:
+                    yield _sse("error", {"detail": e.detail})
+                    return
+
+                try:
+                    metadata = get_video_metadata(request.url)
+                except Exception as e:
+                    print(f"Failed to fetch metadata: {e}")
+                    metadata = {
+                        "title": "Unknown Title",
+                        "channel": "Unknown Channel",
+                        "upload_date": datetime.datetime.now().strftime("%Y%m%d"),
+                        "thumbnail": ""
+                    }
+            if "upload_date" not in metadata or not metadata.get("upload_date"):
+                metadata["upload_date"] = datetime.datetime.now().strftime("%Y%m%d")
 
             en_blocks = group_transcript_blocks(raw_transcript)
             transcript = []
@@ -752,11 +769,11 @@ async def process_video_stream(request: VideoRequest):
                 "cached": False,
             })
 
-            async for update in _stream_translate(transcript, list(range(len(transcript))), payload, save_path):
+            async for update in _stream_translate(transcript, list(range(len(transcript))), payload, save_path, model=model):
                 yield _sse("batch", update)
 
             yield _sse("stage", {"stage": "summary"})
-            summary_text = await summarize_video_transcript([{"text": b["en_text"]} for b in transcript])
+            summary_text = await summarize_video_transcript([{"text": b["en_text"]} for b in transcript], model=model)
             payload["summary"] = summary_text
             with open(save_path, "w", encoding="utf-8") as f:
                 json.dump(payload, f, ensure_ascii=False, indent=2)

@@ -268,7 +268,7 @@ function App() {
     setIsFavoritesOpen(false);
   };
 
-  const handleUrlSubmit = async (url: string) => {
+  const handleUrlSubmit = async (url: string, model?: string) => {
     // Basic extraction
     const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/);
     const id = match ? match[1] : null;
@@ -289,7 +289,7 @@ function App() {
       const response = await apiFetch('/api/process-video-stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url, model }),
         signal: controller.signal,
       });
 
