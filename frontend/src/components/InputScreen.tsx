@@ -6,7 +6,8 @@ import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
 import { ShowBrowser } from './ShowBrowser';
-import { VOCAB_LEVELS, loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settings';
+import { loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settings';
+import { VocabAxis } from './VocabAxis';
 import { AuroraBackground } from './AuroraBackground';
 import { progressPercent } from '../lib/progress';
 
@@ -192,32 +193,8 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 </motion.form>
 
                 {/* Learner level: calibrates which words get highlighted */}
-                <motion.div variants={itemVariants} className="max-w-3xl mx-auto w-full flex items-center justify-center gap-2 -mt-6">
-                    <span className="text-xs text-zinc-500">Vocabulary level</span>
-                    <div className="inline-flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
-                        {VOCAB_LEVELS.map(level => (
-                            <button
-                                key={level.id}
-                                type="button"
-                                onClick={() => handleVocabLevelChange(level.id)}
-                                className={`relative px-2.5 py-1 text-xs font-medium rounded-md whitespace-nowrap transition-colors ${
-                                    vocabLevel === level.id
-                                        ? 'text-zinc-900'
-                                        : 'text-zinc-400 hover:text-zinc-200'
-                                }`}
-                            >
-                                {vocabLevel === level.id && (
-                                    <motion.span
-                                        layoutId="vocabLevelThumb"
-                                        className="absolute inset-0 bg-zinc-100 rounded-md shadow-sm"
-                                        transition={{ type: 'spring', stiffness: 420, damping: 36 }}
-                                    />
-                                )}
-                                <span className="relative z-10">{level.label}</span>
-                            </button>
-                        ))}
-                    </div>
-                    <span className="text-[11px] text-zinc-600 hidden sm:inline">AI highlights only words above your level</span>
+                <motion.div variants={itemVariants} className="-mt-4">
+                    <VocabAxis value={vocabLevel} onChange={handleVocabLevelChange} />
                 </motion.div>
 
                 {/* Bento Grid */}

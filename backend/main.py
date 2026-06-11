@@ -70,12 +70,20 @@ class VideoRequest(BaseModel):
     vocab_level: str | None = None
 
 
-# Learner level -> description used to calibrate which words get highlighted
+# Learner level -> description used to calibrate which words get highlighted.
+# UI shows metaphors only; the vocabulary sizes live here for the prompt.
 VOCAB_LEVELS = {
-    "cet4": "CET-4 (大学英语四级, roughly CEFR B1). Highlight words above ~4500-word vocabulary.",
-    "cet6": "CET-6 (大学英语六级, roughly CEFR B2). Highlight words above ~6000-word vocabulary.",
-    "kaoyan": "考研英语 (roughly CEFR B2+). Highlight low-frequency words, idioms and phrasal verbs.",
-    "ielts": "IELTS 6.5+/TOEFL (roughly CEFR C1). Only highlight genuinely advanced or idiomatic usage.",
+    "liftoff": "~4,000-word vocabulary (CEFR A2-B1). Highlight anything beyond everyday conversational basics.",
+    "orbit": "~6,000-word vocabulary (CEFR B1+). Highlight words beyond common conversational English.",
+    "moonwalk": "~8,000-word vocabulary (CEFR B2). Highlight lower-frequency words, idioms and phrasal verbs.",
+    "interstellar": "~12,000-word vocabulary (CEFR C1). Highlight genuinely advanced or idiomatic usage only.",
+    "deep-space": "~16,000-word vocabulary (CEFR C1+). Highlight only rare words, subtle idioms, cultural references.",
+    "supernova": "~20,000+ word vocabulary (near-native, CEFR C2). Only the rarest idioms, slang or specialist jargon.",
+    # Legacy ids from earlier releases
+    "cet4": "~4,500-word vocabulary (CEFR B1). Highlight words above this level.",
+    "cet6": "~6,000-word vocabulary (CEFR B2). Highlight words above this level.",
+    "kaoyan": "~8,000-word vocabulary (CEFR B2+). Highlight low-frequency words, idioms and phrasal verbs.",
+    "ielts": "~12,000-word vocabulary (CEFR C1). Only highlight genuinely advanced or idiomatic usage.",
     "advanced": "near-native (CEFR C2). Only highlight rare idioms, slang, or cultural references.",
 }
 
