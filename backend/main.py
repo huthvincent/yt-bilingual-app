@@ -396,13 +396,87 @@ def estimate_cost(url: str):
         "models": models
     }
 
+def find_history_file_for_video(video_id: str):
+    """Locate an existing history file for a YouTube video id, if any."""
+    if not os.path.exists(HISTORY_DIR):
+        return None
+    suffix = f"_{video_id}.json"
+    for f in os.listdir(HISTORY_DIR):
+        if f.endswith(suffix):
+            return os.path.join(HISTORY_DIR, f)
+    return None
+
+
+async def retranslate_marked_blocks(data: dict, cache_path: str) -> dict:
+    """Re-translate mock/failed blocks in a cached payload, saving progress.
+
+    Shared by the YouTube and local-subtitle flows so partially translated
+    results self-heal whenever they are loaded again.
+    """
+    transcript = data.get("transcript", [])
+    mock_indices = [i for i, b in enumerate(transcript) if needs_retranslation(b.get("zh_text", ""))]
+    if not mock_indices:
+        return data
+
+    print(f"Re-translating {len(mock_indices)} blocks in {os.path.basename(cache_path)}...")
+    batch_size = 20
+    for batch_start in range(0, len(mock_indices), batch_size):
+        batch_indices = mock_indices[batch_start:batch_start + batch_size]
+        batch_blocks = [{
+            "id": transcript[idx].get("id"),
+            "start": transcript[idx]["start"],
+            "end": transcript[idx]["end"],
+            "text": transcript[idx]["en_text"],
+        } for idx in batch_indices]
+
+        max_retries = 5
+        retry_delay = 15
+        for attempt in range(max_retries):
+            try:
+                batch_result = await process_llm_batch(batch_blocks)
+                for j, idx in enumerate(batch_indices):
+                    if j < len(batch_result):
+                        transcript[idx] = batch_result[j]
+                await asyncio.sleep(6)
+                break
+            except Exception as e:
+                error_msg = str(e).lower()
+                if "429" in error_msg or "quota" in error_msg or "exhausted" in error_msg:
+                    if attempt < max_retries - 1:
+                        print(f"Rate limit. Retrying in {retry_delay}s... ({attempt+1}/{max_retries})")
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2
+                    else:
+                        print("Still rate limited; remaining blocks stay marked for next load.")
+                else:
+                    print(f"Re-translation batch failed: {e}")
+                    break
+
+    data["transcript"] = transcript
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    return data
+
+
 @app.post("/api/process-video")
 async def process_video(request: VideoRequest):
     try:
         video_id = extract_video_id(request.url)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-        
+
+    # Already processed? Serve the cached result (repairing any failed
+    # translations) instead of re-fetching and re-paying for the whole video.
+    cached_path = find_history_file_for_video(video_id)
+    if cached_path:
+        print(f"Serving cached result for {video_id}: {os.path.basename(cached_path)}")
+        try:
+            with open(cached_path, "r", encoding="utf-8") as f:
+                cached_data = json.load(f)
+            return await retranslate_marked_blocks(cached_data, cached_path)
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"Cache file corrupt, reprocessing: {e}")
+
     try:
         metadata = get_video_metadata(request.url)
     except Exception as e:
@@ -518,13 +592,16 @@ def list_history():
     return files
 
 @app.get("/api/history/{filename}")
-def get_history(filename: str):
+async def get_history(filename: str):
     file_path = os.path.join(HISTORY_DIR, filename)
     if not os.path.exists(file_path) or not filename.endswith('.json'):
         raise HTTPException(status_code=404, detail="History file not found")
-        
+
     with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
+    # Self-heal mock/failed translations left over from rate-limited runs
+    if isinstance(data, dict) and data.get("transcript"):
+        data = await retranslate_marked_blocks(data, file_path)
     return data
 
 class ChannelUpdatesRequest(BaseModel):
@@ -784,76 +861,8 @@ async def process_subtitle(request: SubtitleRequest):
         print(f"Loading cached subtitles: {cache_filename}")
         with open(cache_path, "r", encoding="utf-8") as f:
             cached_data = json.load(f)
-        
-        # Check for mock translations that need re-processing
-        mock_indices = []
-        for i, block in enumerate(cached_data.get("transcript", [])):
-            if needs_retranslation(block.get("zh_text", "")):
-                mock_indices.append(i)
-        
-        if not mock_indices:
-            return cached_data  # All good, return cached
-        
-        print(f"Found {len(mock_indices)} blocks with mock translations, re-processing...")
-        
-        # Re-process only mock blocks in batches
-        transcript = cached_data["transcript"]
-        batch_size = 20
-        remaining_mock = False
-        
-        for batch_start in range(0, len(mock_indices), batch_size):
-            batch_indices = mock_indices[batch_start:batch_start + batch_size]
-            batch_blocks = []
-            for idx in batch_indices:
-                batch_blocks.append({
-                    "id": transcript[idx].get("id"),
-                    "start": transcript[idx]["start"],
-                    "end": transcript[idx]["end"],
-                    "text": transcript[idx]["en_text"]
-                })
-            
-            max_retries = 5
-            retry_delay = 15
-            success = False
-            
-            for attempt in range(max_retries):
-                try:
-                    batch_result = await process_llm_batch(batch_blocks)
-                    # Replace mock blocks with real translations
-                    for j, idx in enumerate(batch_indices):
-                        if j < len(batch_result):
-                            transcript[idx] = batch_result[j]
-                    success = True
-                    await asyncio.sleep(6)
-                    break
-                except Exception as e:
-                    error_msg = str(e).lower()
-                    if "429" in error_msg or "quota" in error_msg or "exhausted" in error_msg:
-                        if attempt < max_retries - 1:
-                            print(f"Rate limit. Retrying in {retry_delay}s... ({attempt+1}/{max_retries})")
-                            await asyncio.sleep(retry_delay)
-                            retry_delay *= 2
-                        else:
-                            print(f"Still rate limited. Mock blocks remain.")
-                    else:
-                        print(f"Batch re-process failed: {e}")
-                        break
-            
-            if not success:
-                remaining_mock = True
-        
-        cached_data["transcript"] = transcript
-        # Always save progress (even partial)
-        with open(cache_path, "w", encoding="utf-8") as f:
-            json.dump(cached_data, f, ensure_ascii=False, indent=2)
-        
-        if remaining_mock:
-            print(f"⚠️ Some mock blocks still remain. Retry later.")
-        else:
-            print(f"✅ All mock blocks re-translated successfully!")
-        
-        return cached_data
-    
+        return await retranslate_marked_blocks(cached_data, cache_path)
+
     # Parse SRT file
     with open(srt_path, "r", encoding="utf-8", errors="ignore") as f:
         content = f.read()
