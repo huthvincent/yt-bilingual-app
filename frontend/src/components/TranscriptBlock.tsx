@@ -179,7 +179,7 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                             e.stopPropagation();
                             onToggleFavorite?.(e);
                         }}
-                        className="p-1.5 rounded-md hover:bg-zinc-700/50 transition-colors opacity-0 group-hover:opacity-100"
+                        className="p-1.5 rounded-md hover:bg-zinc-700/50 transition-colors opacity-0 group-hover:opacity-100 [@media(pointer:coarse)]:opacity-100"
                     >
                         <Star
                             className={cn("w-4 h-4 transition-colors", isFavorited ? "fill-amber-400 text-amber-400 opacity-100" : "text-zinc-500 hover:text-zinc-300")}

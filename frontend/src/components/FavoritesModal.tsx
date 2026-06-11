@@ -195,7 +195,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                                         <p className="text-zinc-400 text-sm leading-relaxed">{fav.type === 'vocabulary' ? fav.context_zh : fav.zh_text}</p>
                                                                     </div>
                                                                 </div>
-                                                                <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                <div className="flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 [@media(pointer:coarse)]:opacity-100 transition-opacity">
                                                                     <button
                                                                         onClick={() => {
                                                                             if (fav.videoId.length > 11) {
@@ -232,7 +232,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
 
                     {playingFav && (
                         <div className="fixed bottom-8 right-8 w-[480px] aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden border border-white/10 z-[60] group cursor-move">
-                            <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 [@media(pointer:coarse)]:opacity-100 transition-opacity">
                                 <button 
                                     onClick={() => setPlayingFav(null)} 
                                     className="p-2 text-white bg-black/60 rounded-full hover:bg-red-500 transition-colors backdrop-blur-md"

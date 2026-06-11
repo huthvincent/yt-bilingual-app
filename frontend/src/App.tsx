@@ -794,7 +794,7 @@ function App() {
                                 <span className="text-zinc-400 text-sm text-right group-hover/row:text-zinc-300 transition-colors">{item.zh}</span>
                                 <div 
                                   onClick={(e) => handleToggleVocabFavorite(e, item)}
-                                  className={`p-1.5 rounded-md hover:bg-zinc-700 transition-colors ${isFav ? 'text-yellow-500' : 'text-zinc-500 opacity-0 group-hover/row:opacity-100 hover:text-yellow-500'}`}
+                                  className={`p-1.5 rounded-md hover:bg-zinc-700 transition-colors ${isFav ? 'text-yellow-500' : 'text-zinc-500 opacity-0 group-hover/row:opacity-100 [@media(pointer:coarse)]:opacity-100 hover:text-yellow-500'}`}
                                 >
                                   <Star className="w-4 h-4" fill={isFav ? "currentColor" : "none"} />
                                 </div>
