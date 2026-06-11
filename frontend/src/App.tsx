@@ -642,8 +642,16 @@ function App() {
     <div className="h-screen w-full flex flex-col bg-[#09090b] overflow-hidden text-zinc-100 selection:bg-purple-500/30">
       {renderTopBar()}
 
+      {/* Keyed motion.divs crossfade views on mount; no exit-gating so a
+          backgrounded tab (throttled rAF) can never stall the switch. */}
       {!videoId || transcript.length === 0 ? (
-        <div className="flex-1 overflow-auto custom-scrollbar">
+        <motion.div
+          key="home"
+          initial={{ opacity: 0, scale: 0.99, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+          className="flex-1 overflow-auto custom-scrollbar"
+        >
           <InputScreen
             onSubmit={handleUrlSubmit}
             onLoadHistory={handleLoadHistory}
@@ -654,9 +662,15 @@ function App() {
             onSelectChannel={setSelectedChannel}
             onUnsubscribe={(channelId) => setSubscriptions(prev => prev.filter(s => s.id !== channelId))}
           />
-        </div>
+        </motion.div>
       ) : (
-        <div ref={fullscreenWrapperRef} className="flex-1 flex flex-col md:flex-row overflow-hidden relative bg-transparent group/wrapper">
+        <motion.div
+          key="learning"
+          initial={{ opacity: 0, scale: 0.99, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+          ref={fullscreenWrapperRef}
+          className="flex-1 flex flex-col md:flex-row overflow-hidden relative bg-transparent group/wrapper">
           {/* Left Column: Video/Summary */}
           <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} ${
             pipWindow ? 'md:w-full' : (isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-0 md:opacity-0 md:overflow-hidden' : 'md:w-1/2')
@@ -1023,7 +1037,7 @@ function App() {
               </div>
             );
           })()}
-        </div>
+        </motion.div>
       )}
 
       <FavoritesModal

@@ -289,6 +289,30 @@ body {
   to { --conic-angle: 360deg; }
 }
 
+/* Cursor spotlight inside tilt cards (position driven by TiltCard.tsx) */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.tilt-card .tilt-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(139, 92, 246, 0.12),
+    rgba(56, 189, 248, 0.06) 40%,
+    transparent 65%
+  );
+  z-index: 1;
+}
+.tilt-card:hover .tilt-spotlight {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .aurora-blob, .aurora-halo, .aurora-bg { animation: none; }
   .aurora-particles, .aurora-shooting { display: none; }

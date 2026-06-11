@@ -8,6 +8,7 @@ import type { EstimationData } from './ModelSelectionModal';
 import { ShowBrowser } from './ShowBrowser';
 import { loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settings';
 import { VocabAxis } from './VocabAxis';
+import { TiltCard } from './TiltCard';
 import { AuroraBackground } from './AuroraBackground';
 import { progressPercent } from '../lib/progress';
 
@@ -205,7 +206,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                     {/* Left Column: Recent Learning */}
                     <div className="md:col-span-7 flex flex-col gap-6">
                         {/* History Card */}
-                        <div className="glass-panel rounded-3xl p-6 h-full relative overflow-hidden group">
+                        <TiltCard className="glass-panel rounded-3xl p-6 h-full overflow-hidden group">
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 text-zinc-100">
                                     <Clock className="w-5 h-5" />
@@ -265,16 +266,16 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                     ))}
                                 </div>
                             )}
-                        </div>
+                        </TiltCard>
 
                         {/* Local Shows Section */}
-                        <div className="glass-panel rounded-3xl p-6 relative overflow-hidden">
+                        <TiltCard className="glass-panel rounded-3xl p-6 overflow-hidden">
                              <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Tv className="w-5 h-5 text-blue-400" />
                                 <h3 className="text-[17px] font-semibold tracking-tight">Local Shows</h3>
                             </div>
                             <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
-                        </div>
+                        </TiltCard>
                     </div>
 
                     {/* Right Column: Subscriptions & Updates */}
@@ -282,7 +283,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         
                         {/* Channels Bento */}
                         {subscriptions && subscriptions.length > 0 && (
-                            <div className="glass-panel rounded-3xl p-6">
+                            <TiltCard className="glass-panel rounded-3xl p-6">
                                 <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                     <Youtube className="w-5 h-5 text-red-500" />
                                     <h3 className="text-[17px] font-semibold tracking-tight">Subscriptions</h3>
@@ -300,11 +301,11 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                         </motion.div>
                                     ))}
                                 </div>
-                            </div>
+                            </TiltCard>
                         )}
 
                         {/* Updates Bento */}
-                        <div className="glass-panel rounded-3xl p-6 flex-1 flex flex-col">
+                        <TiltCard className="glass-panel rounded-3xl p-6 flex-1 flex flex-col">
                             <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Bell className="w-5 h-5 text-amber-400" />
                                 <h3 className="text-[17px] font-semibold tracking-tight">Latest Videos</h3>
@@ -335,7 +336,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                     ))
                                 )}
                             </div>
-                        </div>
+                        </TiltCard>
 
                     </div>
                 </motion.div>
