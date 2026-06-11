@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Play, Trash2 } from 'lucide-react';
+import { X, Play, Trash2, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export interface FavoriteItem {

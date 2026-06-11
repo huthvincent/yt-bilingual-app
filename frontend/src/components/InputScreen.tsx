@@ -1,7 +1,7 @@
 import { api } from '../lib/api';
 import React, { useState, useEffect } from 'react';
 import { Search, Loader2, Play, Youtube, Clock, Tv, BellOff, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
@@ -26,12 +26,12 @@ const containerVariants = {
     }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
 
-export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel, onUnsubscribe }) => {
+export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel }) => {
     const [url, setUrl] = useState('');
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
