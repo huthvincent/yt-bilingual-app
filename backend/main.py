@@ -643,6 +643,43 @@ async def process_video(request: VideoRequest):
 # a cancelled run resumes (self-heals) on the next load.
 # ====================================================
 
+def _asr_available() -> bool:
+    """True if the optional faster-whisper dependency is installed."""
+    try:
+        import faster_whisper  # noqa: F401
+        return True
+    except ImportError:
+        return False
+
+
+def _transcribe_audio_with_whisper(url: str) -> list:
+    """Download the audio track and transcribe it locally with faster-whisper.
+
+    Used as a fallback for videos without English captions. Returns snippet
+    dicts compatible with group_transcript_blocks. Blocking — run in a thread.
+    """
+    import tempfile
+    from faster_whisper import WhisperModel
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        audio_path = os.path.join(tmpdir, "audio.m4a")
+        ydl_opts = {
+            "format": "bestaudio[ext=m4a]/bestaudio",
+            "outtmpl": audio_path,
+            "quiet": True,
+        }
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+
+        model_size = os.environ.get("WHISPER_MODEL", "base")
+        model = WhisperModel(model_size, device="auto", compute_type="int8")
+        segments, _info = model.transcribe(audio_path, language="en", vad_filter=True)
+        return [
+            {"text": seg.text.strip(), "start": seg.start, "duration": seg.end - seg.start}
+            for seg in segments if seg.text.strip()
+        ]
+
+
 def _sse(event: str, data: dict) -> str:
     return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
 
@@ -741,8 +778,26 @@ async def process_video_stream(request: VideoRequest):
                 try:
                     raw_transcript = fetch_english_transcript(video_id)
                 except HTTPException as e:
-                    yield _sse("error", {"detail": e.detail})
-                    return
+                    # No captions? Fall back to local ASR when available.
+                    if e.status_code == 422 and _asr_available():
+                        yield _sse("stage", {"stage": "asr"})
+                        try:
+                            raw_transcript = await asyncio.to_thread(_transcribe_audio_with_whisper, request.url)
+                        except Exception as asr_err:
+                            yield _sse("error", {"detail": f"该视频无字幕，本地转写也失败了:{asr_err}"})
+                            return
+                        if not raw_transcript:
+                            yield _sse("error", {"detail": "本地转写未识别出任何语音内容。"})
+                            return
+                    elif e.status_code == 422:
+                        yield _sse("error", {
+                            "detail": e.detail + " 提示：安装本地转写组件后可支持无字幕视频"
+                                                "（backend 环境运行 pip install faster-whisper）。"
+                        })
+                        return
+                    else:
+                        yield _sse("error", {"detail": e.detail})
+                        return
 
                 try:
                     metadata = get_video_metadata(request.url)

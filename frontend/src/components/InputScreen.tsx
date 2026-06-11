@@ -14,7 +14,7 @@ interface InputScreenProps {
     onLoadHistory: (filename: string) => void;
     onSelectEpisode: (showId: string, season: number, episode: number) => void;
     isLoading?: boolean;
-    loadingState?: 'processing' | 'loading' | null;
+    loadingState?: 'processing' | 'loading' | 'asr' | null;
     subscriptions?: { id: string; name: string }[];
     onSelectChannel: (channelName: string) => void;
     onUnsubscribe?: (channelId: string) => void;
@@ -112,10 +112,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                     >
                         <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
                         <h2 className="text-2xl font-bold text-zinc-100 mb-2">
-                            {loadingState === 'processing' ? 'Processing Video...' : 'Loading...'}
+                            {loadingState === 'asr' ? '本地 AI 转写中…' : loadingState === 'processing' ? '正在获取字幕…' : '加载中…'}
                         </h2>
                         {loadingState === 'processing' && (
-                            <p className="text-zinc-400">Extracting high-quality bilingual insights</p>
+                            <p className="text-zinc-400">英文字幕就绪后立即可看，翻译将逐句填充</p>
+                        )}
+                        {loadingState === 'asr' && (
+                            <p className="text-zinc-400">该视频没有字幕，正在用本地 Whisper 转写音频（首次运行需下载模型，请耐心等待）</p>
                         )}
                     </motion.div>
                 )}

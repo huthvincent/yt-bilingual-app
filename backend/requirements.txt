@@ -5,3 +5,7 @@ pydantic==2.6.4
 google-genai>=1.0.0
 yt-dlp>=2024.0.0
 python-dotenv>=1.0.0
+
+# Optional: local ASR fallback for videos without English captions
+# pip install faster-whisper  (downloads a Whisper model on first use;
+# set WHISPER_MODEL=small/base/medium to choose size, default: base)

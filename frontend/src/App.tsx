@@ -30,7 +30,7 @@ interface TranscriptItem {
 
 function App() {
   const [videoId, setVideoId] = useState('');
-  const [loadingState, setLoadingState] = useState<'processing' | 'loading' | null>(null);
+  const [loadingState, setLoadingState] = useState<'processing' | 'loading' | 'asr' | null>(null);
   const [transcript, setTranscript] = useState<TranscriptItem[]>([]);
   const [summary, setSummary] = useState<string>('');
   const [metadata, setMetadata] = useState<any>(null);
@@ -370,7 +370,12 @@ function App() {
             break;
           }
           case 'stage':
-            setTranslationProgress(prev => prev ? { ...prev, stage: evt.data.stage } : { done: 0, total: 0, stage: evt.data.stage });
+            if (evt.data.stage === 'asr') {
+              // Pre-meta: still in the loading overlay, switch its copy
+              setLoadingState('asr');
+            } else {
+              setTranslationProgress(prev => prev ? { ...prev, stage: evt.data.stage } : { done: 0, total: 0, stage: evt.data.stage });
+            }
             break;
           case 'summary':
             setSummary(evt.data.summary || '');
