@@ -114,7 +114,7 @@ interface TranscriptBlockProps {
     onWordLookup?: (word: string, sentence: string, start: number, e: React.MouseEvent) => void;
 }
 
-export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active', dictation = false, onWordLookup }) => {
+const TranscriptBlockInner: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active', dictation = false, onWordLookup }) => {
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
@@ -228,3 +228,20 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
         </div>
     );
 };
+
+// 477-sentence transcripts re-render in lockstep with playback otherwise.
+// Compare everything except the callback props (their captured values are
+// covered by the data props compared here).
+export const TranscriptBlock = React.memo(TranscriptBlockInner, (prev, next) =>
+    prev.id === next.id &&
+    prev.start === next.start &&
+    prev.end === next.end &&
+    prev.enText === next.enText &&
+    prev.zhText === next.zhText &&
+    prev.highlights === next.highlights &&
+    prev.isActive === next.isActive &&
+    prev.isFavorited === next.isFavorited &&
+    prev.translationMode === next.translationMode &&
+    prev.dictation === next.dictation &&
+    (prev.onWordLookup === undefined) === (next.onWordLookup === undefined)
+);

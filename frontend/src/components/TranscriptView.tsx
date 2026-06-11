@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { TranscriptBlock } from './TranscriptBlock';
-import { findActiveIndex, type TranslationMode } from '../lib/transcript';
+import type { TranslationMode } from '../lib/transcript';
 
 interface TranscriptItem {
     id: number;
@@ -17,7 +17,10 @@ interface TranscriptItem {
 
 interface TranscriptViewProps {
     transcript: TranscriptItem[];
-    currentTime: number;
+    /** Index of the sentence being spoken — computed upstream so this
+     *  component only re-renders when the active sentence changes, not on
+     *  every 100ms time tick. */
+    activeIndex: number;
     videoId: string;
     favorites: string[];
     onTranscriptClick: (time: number) => void;
@@ -27,9 +30,12 @@ interface TranscriptViewProps {
     onWordLookup?: (word: string, sentence: string, start: number, e: React.MouseEvent) => void;
 }
 
-export const TranscriptView: React.FC<TranscriptViewProps> = ({
+// How long auto-follow stays suspended after the user scrolls manually
+const USER_SCROLL_GRACE_MS = 4000;
+
+const TranscriptViewInner: React.FC<TranscriptViewProps> = ({
     transcript,
-    currentTime,
+    activeIndex,
     videoId,
     favorites,
     onTranscriptClick,
@@ -39,33 +45,42 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     onWordLookup
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const lastUserScrollRef = useRef(0);
 
-    const activeIndex = findActiveIndex(transcript, currentTime);
-
+    // Detect manual scrolling so auto-follow doesn't fight the reader
     useEffect(() => {
-        // Page-by-page scroll: only scroll when active block is outside the visible area
-        if (activeIndex !== -1 && containerRef.current) {
-            const container = containerRef.current;
-            const activeElement = container.querySelector<HTMLElement>(`[data-index="${activeIndex}"]`);
-            if (activeElement) {
-                const containerRect = container.getBoundingClientRect();
-                const activeRect = activeElement.getBoundingClientRect();
+        const el = containerRef.current;
+        if (!el) return;
+        const mark = () => { lastUserScrollRef.current = Date.now(); };
+        el.addEventListener('wheel', mark, { passive: true });
+        el.addEventListener('touchmove', mark, { passive: true });
+        return () => {
+            el.removeEventListener('wheel', mark);
+            el.removeEventListener('touchmove', mark);
+        };
+    }, []);
 
-                // Check if the active element is below the visible area
-                const isBelow = activeRect.bottom > containerRect.bottom - 40;
-                // Check if the active element is above the visible area
-                const isAbove = activeRect.top < containerRect.top + 40;
+    // Apple-Music-style lyric follow: keep the active sentence ~1/3 from the
+    // top, scrolling one small step per sentence instead of page jumps.
+    useEffect(() => {
+        if (activeIndex < 0) return;
+        const container = containerRef.current;
+        if (!container) return;
+        if (Date.now() - lastUserScrollRef.current < USER_SCROLL_GRACE_MS) return;
 
-                if (isBelow || isAbove) {
-                    // Scroll so the active element appears near the top of the container
-                    const scrollTarget = activeElement.offsetTop - container.offsetTop - 20;
-                    container.scrollTo({
-                        top: scrollTarget,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        }
+        const el = container.querySelector<HTMLElement>(`[data-index="${activeIndex}"]`);
+        if (!el) return;
+
+        const cRect = container.getBoundingClientRect();
+        const eRect = el.getBoundingClientRect();
+        const target = container.scrollTop + (eRect.top - cRect.top) - container.clientHeight * 0.32;
+
+        // Skip sub-pixel adjustments; smooth-scroll the rest. Reduced-motion
+        // users (and browsers that no-op smooth programmatic scrolls under it)
+        // get an instant jump instead.
+        if (Math.abs(target - container.scrollTop) < 4) return;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        container.scrollTo({ top: Math.max(0, target), behavior: reduceMotion ? 'auto' : 'smooth' });
     }, [activeIndex]);
 
     return (
@@ -73,7 +88,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
             ref={containerRef}
             className="h-full overflow-y-auto bg-transparent border-l border-white/5 custom-scrollbar px-6 py-6 relative"
         >
-            <div className="space-y-1.5 pb-32">
+            <div className="space-y-1.5 pb-[45vh]">
                 {transcript.map((item, index) => {
                     const isActive = index === activeIndex;
                     return (
@@ -104,3 +119,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
         </div>
     );
 };
+
+// Re-render only when the active sentence (or actual content/props) change —
+// never on raw playback time ticks.
+export const TranscriptView = React.memo(TranscriptViewInner);

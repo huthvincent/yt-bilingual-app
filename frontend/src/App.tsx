@@ -1,5 +1,5 @@
 import { apiFetch } from './lib/api';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Star, ChevronDown, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle, Repeat, Keyboard, EyeOff } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -224,7 +224,7 @@ function App() {
     }
   };
 
-  const handleToggleFavorite = (item: TranscriptItem) => {
+  const handleToggleFavorite = useCallback((item: TranscriptItem) => {
     const id = `${videoId}-${item.id}`;
     setFavorites(prev => {
       const exists = prev.find(f => f.id === id);
@@ -239,11 +239,11 @@ function App() {
           zh_text: item.zh_text,
           added_at: Date.now(),
           highlights: item.highlights,
-          type: 'sentence'
+          type: 'sentence' as const
         }];
       }
     });
-  };
+  }, [videoId]);
 
   const handleToggleVocabFavorite = (e: React.MouseEvent, item: any) => {
     e.stopPropagation();
@@ -508,6 +508,25 @@ function App() {
       setSeekCommand({ time, timestamp: Date.now() });
     }
   }, [metadata?.is_local_subtitle]);
+
+  // Active sentence index — TranscriptView depends on this, not on raw
+  // 100ms time ticks, so the 400+ sentence list re-renders only when the
+  // spoken sentence actually changes.
+  const activeTranscriptIndex = useMemo(
+    () => findActiveIndex(transcript, currentTime),
+    [transcript, currentTime]
+  );
+
+  const favoriteIds = useMemo(() => favorites.map(f => f.id), [favorites]);
+
+  const handleTranscriptClick = useCallback((time: number) => {
+    // Re-pin the loop to the clicked sentence
+    if (loopEnabled) {
+      const block = transcript.find(b => b.start === time);
+      if (block) loopBlockRef.current = { start: block.start, end: block.end };
+    }
+    seekTo(time);
+  }, [loopEnabled, transcript, seekTo]);
 
   const toggleLoop = useCallback(() => {
     setLoopEnabled(prev => {
@@ -975,17 +994,10 @@ function App() {
                   <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-[#09090b] to-transparent z-10 pointer-events-none"></div>
                   <TranscriptView
                     transcript={transcript}
-                    currentTime={currentTime}
+                    activeIndex={activeTranscriptIndex}
                     videoId={videoId}
-                    favorites={favorites.map(f => f.id)}
-                    onTranscriptClick={(time) => {
-                      // Re-pin the loop to the clicked sentence
-                      if (loopEnabled) {
-                        const block = transcript.find(b => b.start === time);
-                        if (block) loopBlockRef.current = { start: block.start, end: block.end };
-                      }
-                      seekTo(time);
-                    }}
+                    favorites={favoriteIds}
+                    onTranscriptClick={handleTranscriptClick}
                     onToggleFavorite={handleToggleFavorite}
                     translationMode={translationMode}
                     dictation={dictationMode}
