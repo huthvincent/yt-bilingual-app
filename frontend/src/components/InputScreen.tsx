@@ -1,3 +1,4 @@
+import { api } from '../lib/api';
 import React, { useState, useEffect } from 'react';
 import { Search, Loader2, Play, Youtube, Clock, Tv, BellOff, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,13 +41,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
     const [pendingUrl, setPendingUrl] = useState('');
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/history')
+        fetch(api('/api/history'))
             .then(res => res.json())
             .then(data => setHistory(data))
             .catch(err => console.error("Failed to fetch history:", err));
 
         if (subscriptions.length > 0) {
-            fetch('http://127.0.0.1:8000/api/channel-updates', {
+            fetch(api('/api/channel-updates'), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ channels: subscriptions.map(s => s.id) })
@@ -61,7 +62,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
         setIsEstimating(true);
         setPendingUrl(targetUrl);
         try {
-            const urlToFetch = `http://127.0.0.1:8000/api/estimate-cost?url=${encodeURIComponent(targetUrl)}`;
+            const urlToFetch = api(`/api/estimate-cost?url=${encodeURIComponent(targetUrl)}`);
             const response = await fetch(urlToFetch);
 
             if (!response.ok) {

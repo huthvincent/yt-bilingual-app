@@ -1,3 +1,4 @@
+import { api } from './lib/api';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Star, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
@@ -132,7 +133,7 @@ function App() {
 
   // Load favorites & subscriptions from backend on mount
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/favorites')
+    fetch(api('/api/favorites'))
       .then(r => r.json())
       .then(data => { setFavorites(data); favoritesLoaded.current = true; })
       .catch(() => {
@@ -141,7 +142,7 @@ function App() {
         if (saved) setFavorites(JSON.parse(saved));
         favoritesLoaded.current = true;
       });
-    fetch('http://127.0.0.1:8000/api/subscriptions')
+    fetch(api('/api/subscriptions'))
       .then(r => r.json())
       .then(data => { setSubscriptions(data); subsLoaded.current = true; })
       .catch(() => {
@@ -155,7 +156,7 @@ function App() {
   useEffect(() => {
     if (!favoritesLoaded.current) return; // Don't save on initial load
     localStorage.setItem('yt_bilingual_favorites', JSON.stringify(favorites));
-    fetch('http://127.0.0.1:8000/api/favorites', {
+    fetch(api('/api/favorites'), {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ favorites })
@@ -166,7 +167,7 @@ function App() {
   useEffect(() => {
     if (!subsLoaded.current) return;
     localStorage.setItem('yt_bilingual_subs', JSON.stringify(subscriptions));
-    fetch('http://127.0.0.1:8000/api/subscriptions', {
+    fetch(api('/api/subscriptions'), {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ subscriptions })
@@ -267,7 +268,7 @@ function App() {
 
     try {
       // Connect to FastAPI Backend
-      const response = await fetch('http://127.0.0.1:8000/api/process-video', {
+      const response = await fetch(api('/api/process-video'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -299,7 +300,7 @@ function App() {
     try {
       // Try loading from history cache first (already processed episodes)
       const cacheFilename = `${showId}_S${season.toString().padStart(2, '0')}E${episode.toString().padStart(2, '0')}.json`;
-      const cacheResponse = await fetch(`http://127.0.0.1:8000/api/history/${cacheFilename}`);
+      const cacheResponse = await fetch(api(`/api/history/${cacheFilename}`));
       
       if (cacheResponse.ok) {
         // Already processed — load directly from cache
@@ -312,7 +313,7 @@ function App() {
       } else {
         setLoadingState('processing');
         // Not yet processed — run the full processing pipeline
-        const response = await fetch('http://127.0.0.1:8000/api/process-subtitle', {
+        const response = await fetch(api('/api/process-subtitle'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ show_id: showId, season, episode }),
@@ -338,7 +339,7 @@ function App() {
   const handleLoadHistory = async (filename: string) => {
     setLoadingState('loading');
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/history/${filename}`);
+      const response = await fetch(api(`/api/history/${filename}`));
       if (!response.ok) throw new Error("Failed to load history");
 
       const data = await response.json();

@@ -1,3 +1,4 @@
+import { api } from '../lib/api';
 import React, { useState, useEffect } from 'react';
 import { X, Play, RefreshCw } from 'lucide-react';
 
@@ -30,7 +31,7 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
     useEffect(() => {
         if (isOpen && channelName) {
             setIsLoading(true);
-            fetch('http://127.0.0.1:8000/api/history')
+            fetch(api('/api/history'))
                 .then(res => res.json())
                 .then((data: HistoryItem[]) => {
                     // Filter by the selected channel name and sort by upload date (newest first)
