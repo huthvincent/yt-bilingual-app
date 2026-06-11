@@ -130,7 +130,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate,
                         <button
                             onClick={toggleFullscreen}
                             className="absolute bottom-4 right-4 p-2.5 bg-black/60 hover:bg-black/80 text-white rounded-lg backdrop-blur-md opacity-0 group-hover/video:opacity-100 transition-opacity flex items-center gap-2 z-50 pointer-events-auto"
-                            title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+                            title={isFullscreen ? "退出全屏" : "全屏"}
                         >
                             {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
                         </button>

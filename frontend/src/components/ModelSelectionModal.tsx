@@ -51,10 +51,10 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                     <div>
                         <h2 className="text-xl font-bold text-zinc-100 flex items-center gap-2">
                             <Cpu className="w-5 h-5 text-blue-400" />
-                            Model Selection & Estimation
+                            选择 AI 模型
                         </h2>
                         <p className="text-sm text-zinc-400 mt-1">
-                            Choose the AI model for processing this video
+                            为本视频选择翻译模型（费用为整段字幕的预估）
                         </p>
                     </div>
                     <button
@@ -75,16 +75,16 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                 {estimationData.metadata?.thumbnail ? (
                                     <img src={estimationData.metadata.thumbnail} className="w-full h-full object-cover" alt="thumbnail" />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-xs text-zinc-500">No Image</div>
+                                    <div className="w-full h-full flex items-center justify-center text-xs text-zinc-500">无封面</div>
                                 )}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h3 className="text-zinc-100 font-medium truncate mb-1">{estimationData.metadata?.title || 'Unknown Video'}</h3>
-                                <p className="text-sm text-zinc-400 truncate mb-3">{estimationData.metadata?.channel || 'Unknown Channel'}</p>
+                                <h3 className="text-zinc-100 font-medium truncate mb-1">{estimationData.metadata?.title || '未知视频'}</h3>
+                                <p className="text-sm text-zinc-400 truncate mb-3">{estimationData.metadata?.channel || '未知频道'}</p>
 
                                 <div className="flex items-center gap-4 text-xs font-medium bg-zinc-900/50 p-2 rounded-xl inline-flex border border-white/5">
-                                    <span className="text-blue-400">Word Count: <span className="text-zinc-100 ml-1">{estimationData.transcriptStats.wordCount.toLocaleString()}</span></span>
-                                    <span className="text-purple-400">Est. Tokens: <span className="text-zinc-100 ml-1">~{(estimationData.transcriptStats.estimatedInputTokens + estimationData.transcriptStats.estimatedOutputTokens).toLocaleString()}</span></span>
+                                    <span className="text-blue-400">词数： <span className="text-zinc-100 ml-1">{estimationData.transcriptStats.wordCount.toLocaleString()}</span></span>
+                                    <span className="text-purple-400">预估 Tokens： <span className="text-zinc-100 ml-1">~{(estimationData.transcriptStats.estimatedInputTokens + estimationData.transcriptStats.estimatedOutputTokens).toLocaleString()}</span></span>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
 
                     {/* Model Options */}
                     <div className="space-y-3">
-                        <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">Available Models</h3>
+                        <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">可选模型</h3>
 
                         {estimationData.models.map((model) => {
                             const isSelected = selectedModel === model.id;
@@ -128,7 +128,7 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                             </div>
                                         </div>
                                         <p className="text-sm text-zinc-400 flex items-center gap-1.5">
-                                            Quota: {model.quotaInfo}
+                                            {model.quotaInfo}
                                             {isAvailable && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 ml-1" />}
                                         </p>
                                     </div>
@@ -147,14 +147,12 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                     <button
                         onClick={onClose}
                         className="px-5 py-2.5 rounded-xl font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
-                    >
-                        Cancel
-                    </button>
+                    >取消</button>
                     <button
                         onClick={() => onConfirm(selectedModel)}
                         className="px-6 py-2.5 rounded-xl font-medium text-zinc-900 bg-zinc-100 hover:bg-white transition-all shadow-lg shadow-white/10 flex items-center gap-2 hover:scale-105 active:scale-95"
                     >
-                        Confirm & Process
+                        确认并开始
                     </button>
                 </div>
             </div>

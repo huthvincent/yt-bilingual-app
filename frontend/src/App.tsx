@@ -603,7 +603,7 @@ function App() {
           className="flex items-center gap-2 px-4 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 border border-white/5 text-zinc-300 hover:text-zinc-100 rounded-xl transition-colors shadow-sm"
         >
           <Star className="w-4 h-4 text-amber-400 fill-amber-400/20" />
-          <span className="font-medium text-sm">Favorites ({favorites.length})</span>
+          <span className="font-medium text-sm">收藏夹 ({favorites.length})</span>
         </button>
         {videoId && transcript.length > 0 && (
           <button
@@ -611,7 +611,7 @@ function App() {
             className="flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-xl transition-colors shadow-sm shadow-blue-900/10"
           >
             <ExternalLink className="w-4 h-4" />
-            <span className="font-medium text-sm">{pipWindow ? 'Close Popup' : 'Pop Out'}</span>
+            <span className="font-medium text-sm">{pipWindow ? '关闭弹窗' : '弹出字幕窗'}</span>
           </button>
         )}
       </div>
@@ -656,7 +656,7 @@ function App() {
             {metadata?.channel && (
               <div className="glass-panel border-t-0 border-r border-white/5 px-6 py-4 flex items-center justify-between shrink-0 z-10">
                 <div className="flex items-center gap-3">
-                  <span className="text-zinc-400 text-sm">YouTuber:</span>
+                  <span className="text-zinc-400 text-sm">频道：</span>
                   <button
                     onClick={() => setSelectedChannel(metadata.channel)}
                     className="px-3 py-1.5 bg-zinc-800/50 hover:bg-zinc-700/50 text-blue-400 text-sm font-medium rounded-lg border border-white/5 hover:border-blue-500/30 transition-colors"
@@ -671,7 +671,7 @@ function App() {
                         : 'bg-zinc-800/50 text-zinc-400 border-white/5 hover:text-white hover:bg-zinc-700/50'
                         }`}
                     >
-                      {subscriptions.some(s => s.id === metadata.channel_url) ? 'Subscribed ✓' : 'Subscribe +'}
+                      {subscriptions.some(s => s.id === metadata.channel_url) ? '已订阅 ✓' : '订阅 +'}
                     </button>
                   )}
                 </div>
@@ -689,7 +689,7 @@ function App() {
                     onClick={() => setIsSummaryOpen(prev => !prev)}
                     className="flex items-center justify-between w-full pb-2 cursor-pointer group"
                   >
-                    <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Video Summary</h2>
+                    <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">视频总结</h2>
                     <svg
                       className={`w-5 h-5 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isSummaryOpen ? 'rotate-180' : ''}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
@@ -726,11 +726,12 @@ function App() {
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl font-bold text-white mb-2 pb-2">Instructions</h2>
+                  <h2 className="text-xl font-bold text-white mb-2 pb-2">使用提示</h2>
                   <ul className="text-zinc-400 space-y-2 list-disc list-inside">
-                    <li>Video playback syncs directly with the interactive transcript on the right.</li>
-                    <li>Advanced keywords are highlighted with their Chinese translations underneath.</li>
-                    <li>The backend currently uses a mock LLM logic for quick local testing without token limits.</li>
+                    <li>点击右侧任意句子，视频会跳转到对应时间点</li>
+                    <li>点击句中任意单词可查看释义、发音，并一键加入生词本</li>
+                    <li>快捷键：空格 播放/暂停 · ← → 上下句 · R 重播本句 · L 单句循环</li>
+                    <li>用「听写模式」先听后看，训练精听</li>
                   </ul>
                 </>
               )}
@@ -765,7 +766,7 @@ function App() {
                       className="flex items-center justify-between w-full cursor-pointer group"
                     >
                       <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                        Vocabulary Summary
+                        生词总览
                         <span className="ml-2 text-sm font-normal text-zinc-500">({vocabItems.length})</span>
                       </h2>
                       <svg
@@ -818,7 +819,7 @@ function App() {
                   <button
                     onClick={() => setIsLeftCollapsed(prev => !prev)}
                     className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-zinc-800 border border-zinc-700 border-l-0 rounded-r-xl hover:bg-zinc-700 hover:text-purple-400 text-zinc-400 transition-colors shadow-lg shadow-black/50"
-                    title={isLeftCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+                    title={isLeftCollapsed ? "展开侧栏" : "收起侧栏"}
                   >
                     {isLeftCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
                   </button>
@@ -854,7 +855,7 @@ function App() {
                         )}
                       </button>
                       <span className="text-zinc-400 text-xs font-medium">
-                        {metadata?.title || 'Local Subtitle'}
+                        {metadata?.title || '本地字幕'}
                       </span>
                     </div>
                     <span className="text-zinc-500 text-xs font-mono tabular-nums">

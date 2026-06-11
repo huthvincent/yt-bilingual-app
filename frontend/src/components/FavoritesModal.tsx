@@ -34,7 +34,7 @@ import { HighlightedText } from './TranscriptBlock';
 
 // Help functions for grouping logic
 const getGroupTitle = (timestamp?: number) => {
-    if (!timestamp) return '更早 (Older)';
+    if (!timestamp) return '更早';
 
     const now = new Date();
     const date = new Date(timestamp);
@@ -46,9 +46,9 @@ const getGroupTitle = (timestamp?: number) => {
     const lastWeek = new Date(today);
     lastWeek.setDate(lastWeek.getDate() - 7);
 
-    if (date >= today) return '今天 (Today)';
-    if (date >= yesterday && date < today) return '昨天 (Yesterday)';
-    if (date >= lastWeek && date < yesterday) return '过去7天 (Last 7 days)';
+    if (date >= today) return '今天';
+    if (date >= yesterday && date < today) return '昨天';
+    if (date >= lastWeek && date < yesterday) return '过去 7 天';
     
     return `${date.getFullYear()}年${date.getMonth() + 1}月`;
 };
@@ -102,7 +102,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                         className="w-full flex flex-col h-full mx-auto max-w-5xl bg-[#09090b]/50 shadow-2xl"
                     >
                         <div className="flex items-center justify-between p-8 border-b border-white/5 shrink-0">
-                            <h2 className="text-3xl font-extrabold text-zinc-100 tracking-tight">My Favorites</h2>
+                            <h2 className="text-3xl font-extrabold text-zinc-100 tracking-tight">我的收藏</h2>
                             <div className="flex items-center gap-2">
                                 {favorites.length > 0 && (
                                     <>
@@ -132,8 +132,8 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                             {favorites.length === 0 ? (
                                 <div className="text-center py-20 text-zinc-500">
                                     <Star className="w-12 h-12 mx-auto mb-4 text-zinc-700" />
-                                    <p className="text-lg font-medium">No favorites yet.</p>
-                                    <p className="text-sm mt-2">Click the star icon next to a sentence to save it.</p>
+                                    <p className="text-lg font-medium">还没有收藏</p>
+                                    <p className="text-sm mt-2">观看时点击句子旁的星标收藏句子，查词后点星号加入生词本。</p>
                                 </div>
                             ) : (
                                 Object.entries(groups).map(([title, items]) => {
@@ -170,9 +170,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                                             {formatTime(fav.start)}
                                                                         </span>
                                                                         {fav.type === 'vocabulary' && (
-                                                                            <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2 py-1 rounded-md">
-                                                                                Vocabulary
-                                                                            </span>
+                                                                            <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2 py-1 rounded-md">生词</span>
                                                                         )}
                                                                     </div>
                                                                     {fav.type === 'vocabulary' && fav.en_text && fav.zh_text ? (
@@ -208,14 +206,14 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                                                                             }
                                                                         }}
                                                                         className="p-3 bg-zinc-100 hover:bg-white text-zinc-900 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-md"
-                                                                        title={fav.videoId.length > 11 ? "Go to Transcript" : "Play Video"}
+                                                                        title={fav.videoId.length > 11 ? "跳转到原文" : "播放片段"}
                                                                     >
                                                                         <Play className="w-4 h-4 fill-current" />
                                                                     </button>
                                                                     <button
                                                                         onClick={() => onRemoveFavorite(fav.id)}
                                                                         className="p-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-xl transition-colors"
-                                                                        title="Remove"
+                                                                        title="删除"
                                                                     >
                                                                         <Trash2 className="w-4 h-4" />
                                                                     </button>

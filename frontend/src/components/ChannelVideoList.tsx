@@ -60,8 +60,8 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
             <div className="bg-zinc-900 border border-zinc-800 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
                 <div className="flex items-center justify-between p-6 border-b border-zinc-800">
                     <div>
-                        <h2 className="text-2xl font-bold text-white">{channelName} <span className="text-zinc-400 font-normal">Videos</span></h2>
-                        <p className="text-sm text-zinc-500 mt-1">From your local learning history</p>
+                        <h2 className="text-2xl font-bold text-white">{channelName} <span className="text-zinc-400 font-normal">的视频</span></h2>
+                        <p className="text-sm text-zinc-500 mt-1">来自你的本地学习记录</p>
                     </div>
                     <button onClick={onClose} className="p-2 text-zinc-400 hover:text-white rounded-full hover:bg-zinc-800 transition-colors">
                         <X className="w-6 h-6" />
@@ -70,10 +70,10 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
 
                 <div className="p-6 overflow-y-auto flex-1 custom-scrollbar">
                     {isLoading ? (
-                        <div className="text-center py-12 text-zinc-500">Loading videos...</div>
+                        <div className="text-center py-12 text-zinc-500">加载中…</div>
                     ) : videos.length === 0 ? (
                         <div className="text-center py-12 text-zinc-500">
-                            <p>No other videos found for this channel.</p>
+                            <p>该频道还没有其他已处理的视频</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -94,7 +94,7 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                                             />
                                         ) : (
-                                            <div className="w-full h-full flex items-center justify-center text-zinc-700">No Thumbnail</div>
+                                            <div className="w-full h-full flex items-center justify-center text-zinc-700">无封面</div>
                                         )}
                                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                             <div className="bg-purple-600 p-3 rounded-full text-white shadow-lg shadow-purple-900/50">
@@ -104,10 +104,10 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                     </div>
                                     <div className="p-4 flex flex-col flex-1">
                                         <h3 className="text-zinc-200 font-medium line-clamp-2 text-sm leading-snug mb-2 group-hover:text-purple-300 transition-colors">
-                                            {video.metadata.title || 'Unknown Title'}
+                                            {video.metadata.title || '未知标题'}
                                         </h3>
                                         <div className="mt-auto flex items-center justify-between">
-                                            <span className="text-xs text-zinc-500">Uploaded: {formatDate(video.metadata.upload_date)}</span>
+                                            <span className="text-xs text-zinc-500">上传于 {formatDate(video.metadata.upload_date)}</span>
                                             {video.videoId && (
                                                 <button
                                                     onClick={(e) => {
@@ -116,7 +116,7 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                                         onReprocess(video.videoId!);
                                                     }}
                                                     className="p-1.5 text-zinc-500 hover:text-purple-400 hover:bg-zinc-800 rounded-lg transition-colors z-10"
-                                                    title="Reprocess Video"
+                                                    title="重新处理"
                                                 >
                                                     <RefreshCw className="w-4 h-4" />
                                                 </button>

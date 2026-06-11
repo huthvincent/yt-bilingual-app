@@ -1,6 +1,6 @@
 import { apiFetch } from '../lib/api';
 import React, { useState, useEffect } from 'react';
-import { Search, Loader2, Play, Youtube, Clock, Tv, BellOff, ArrowRight } from 'lucide-react';
+import { Search, Loader2, Play, Youtube, Clock, Tv, Bell, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
@@ -129,8 +129,8 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-md flex flex-col items-center justify-center"
                     >
                         <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
-                        <h2 className="text-2xl font-bold text-zinc-100 mb-2">Estimating Profile...</h2>
-                        <p className="text-zinc-400">Analyzing content length and complexity</p>
+                        <h2 className="text-2xl font-bold text-zinc-100 mb-2">正在分析视频…</h2>
+                        <p className="text-zinc-400">统计字幕长度，预估处理费用</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -155,10 +155,10 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         Lingua Nova Engine
                     </div>
                     <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-500 tracking-tight mb-4">
-                        Immersive Language Learning
+                        看 YouTube，学英语
                     </h2>
                     <p className="text-lg text-zinc-400 font-medium max-w-2xl mx-auto">
-                        Paste any YouTube or media link to generate a tailored, cinematic bilingual learning experience.
+                        粘贴视频链接，AI 生成同步双语字幕，按你的水平高亮生词，并附中文总结。
                     </p>
                 </motion.div>
 
@@ -175,7 +175,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                 disabled={isLoading}
                                 required
                                 className="w-full bg-transparent border-none outline-none text-zinc-100 placeholder-zinc-500 px-4 py-3 text-lg"
-                                placeholder="Paste any webpage, video, or content link..."
+                                placeholder="粘贴 YouTube 视频链接…"
                                 value={url}
                                 onChange={(e) => setUrl(e.target.value)}
                             />
@@ -184,7 +184,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                 disabled={isLoading || !url.trim()}
                                 className="flex items-center gap-2 bg-zinc-100 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100"
                             >
-                                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Analyze'}
+                                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : '开始学习'}
                                 {!isLoading && <ArrowRight className="w-4 h-4" />}
                             </button>
                         </div>
@@ -223,7 +223,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 text-zinc-100">
                                     <Clock className="w-5 h-5" />
-                                    <h3 className="font-semibold text-lg">Recent Learning</h3>
+                                    <h3 className="font-semibold text-lg">最近学习</h3>
                                 </div>
                                 <div className="flex gap-1">
                                     <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
@@ -234,7 +234,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
 
                             {history.length === 0 ? (
                                 <div className="flex flex-col items-center justify-center h-48 text-zinc-500">
-                                    <p>No recent videos found.</p>
+                                    <p>还没有学习记录，粘贴一个视频链接开始吧</p>
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-4">
@@ -281,7 +281,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         <div className="glass-panel rounded-3xl p-6 border border-zinc-800/50 relative overflow-hidden">
                              <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Tv className="w-5 h-5 text-blue-400" />
-                                <h3 className="font-semibold text-lg">Local Shows</h3>
+                                <h3 className="font-semibold text-lg">本地剧集</h3>
                             </div>
                             <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
                         </div>
@@ -295,7 +295,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <div className="glass-panel rounded-3xl p-6 border border-zinc-800/50">
                                 <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                     <Youtube className="w-5 h-5 text-red-500" />
-                                    <h3 className="font-semibold text-lg">Subscriptions</h3>
+                                    <h3 className="font-semibold text-lg">订阅频道</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {subscriptions.slice(0, 6).map(sub => (
@@ -315,13 +315,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         {/* Updates Bento */}
                         <div className="glass-panel rounded-3xl p-6 flex-1 border border-zinc-800/50 flex flex-col">
                             <div className="flex items-center gap-2 mb-6 text-zinc-100">
-                                <BellOff className="w-5 h-5 text-amber-400" />
-                                <h3 className="font-semibold text-lg">New Updates</h3>
+                                <Bell className="w-5 h-5 text-amber-400" />
+                                <h3 className="font-semibold text-lg">最新视频</h3>
                             </div>
                             
                             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
                                 {channelUpdates.length === 0 ? (
-                                    <p className="text-zinc-500 text-sm">No new updates from your channels.</p>
+                                    <p className="text-zinc-500 text-sm">暂无频道更新</p>
                                 ) : (
                                     channelUpdates.map((update, idx) => (
                                         <motion.div
