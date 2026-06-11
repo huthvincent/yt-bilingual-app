@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Star, Languages } from 'lucide-react';
-import { isUntranslated } from '../lib/transcript';
+import { isUntranslated, type TranslationMode } from '../lib/transcript';
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { motion } from 'framer-motion';
@@ -71,16 +71,20 @@ interface TranscriptBlockProps {
     isActive: boolean;
     isFavorited?: boolean;
     onToggleFavorite?: (e: React.MouseEvent) => void;
+    translationMode?: TranslationMode;
 }
 
-export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite }) => {
+export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active' }) => {
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     };
 
-    const [showTranslation, setShowTranslation] = useState(false);
+    // Per-sentence override on top of the global mode (null = follow mode)
+    const [overrideShow, setOverrideShow] = useState<boolean | null>(null);
+    const modeDefault = translationMode === 'all' || (translationMode === 'active' && isActive);
+    const showTranslation = overrideShow !== null ? overrideShow : modeDefault;
 
     const enHighlights = useMemo(() => highlights.map(h => ({ word: h.en_word, color: h.color, annotation: h.zh_word })), [highlights]);
     const zhHighlights = useMemo(() => highlights.map(h => ({ word: h.zh_word, color: h.color })), [highlights]);
@@ -111,13 +115,13 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
-                                setShowTranslation(prev => !prev);
+                                setOverrideShow(!showTranslation);
                             }}
                             className={cn(
                                 "p-1 rounded-md transition-colors",
                                 showTranslation ? "bg-blue-500/10 text-blue-400" : "hover:bg-zinc-700 text-zinc-500 hover:text-zinc-300"
                             )}
-                            title="Toggle Translation"
+                            title="显示/隐藏本句译文"
                         >
                             <Languages className="w-3.5 h-3.5" />
                         </button>

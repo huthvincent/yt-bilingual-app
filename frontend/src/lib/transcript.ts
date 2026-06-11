@@ -6,6 +6,19 @@ export const UNTRANSLATED_MARKER = '[未翻译]';
 export const isUntranslated = (zh?: string): boolean =>
     !zh || zh.startsWith(UNTRANSLATED_MARKER) || zh.includes('模拟中文翻译');
 
+// Global display policy for the Chinese translation line.
+//   all    — every sentence shows its translation
+//   active — only the currently playing sentence shows it (best for learning)
+//   hidden — translations hidden unless toggled per sentence
+export type TranslationMode = 'all' | 'active' | 'hidden';
+
+export const TRANSLATION_MODE_KEY = 'yt_bilingual_translation_mode';
+
+export function loadTranslationMode(): TranslationMode {
+    const saved = localStorage.getItem(TRANSLATION_MODE_KEY);
+    return saved === 'all' || saved === 'active' || saved === 'hidden' ? saved : 'active';
+}
+
 export interface SseEvent {
     event: string;
     data: any;

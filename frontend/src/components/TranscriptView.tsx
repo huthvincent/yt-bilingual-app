@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { TranscriptBlock } from './TranscriptBlock';
+import type { TranslationMode } from '../lib/transcript';
 
 interface TranscriptItem {
     id: number;
@@ -21,6 +22,7 @@ interface TranscriptViewProps {
     favorites: string[];
     onTranscriptClick: (time: number) => void;
     onToggleFavorite: (item: TranscriptItem) => void;
+    translationMode?: TranslationMode;
 }
 
 export const TranscriptView: React.FC<TranscriptViewProps> = ({
@@ -29,7 +31,8 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     videoId,
     favorites,
     onTranscriptClick,
-    onToggleFavorite
+    onToggleFavorite,
+    translationMode
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -104,6 +107,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
                                 isActive={isActive}
                                 isFavorited={favorites.includes(`${videoId}-${item.id}`)}
                                 onToggleFavorite={() => onToggleFavorite(item)}
+                                translationMode={translationMode}
                             />
                         </div>
                     );

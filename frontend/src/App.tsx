@@ -9,7 +9,7 @@ import { FavoritesModal, type FavoriteItem } from './components/FavoritesModal';
 import { ChannelVideoList } from './components/ChannelVideoList';
 import { Toaster } from './components/Toaster';
 import { toast, describeApiError } from './lib/toast';
-import { consumeSseStream, isUntranslated } from './lib/transcript';
+import { consumeSseStream, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
 import ReactMarkdown from 'react-markdown';
 
 interface TranscriptItem {
@@ -38,6 +38,12 @@ function App() {
   const fullscreenWrapperRef = useRef<HTMLDivElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
+
+  // Global policy for showing the Chinese line (persisted)
+  const [translationMode, setTranslationMode] = useState<TranslationMode>(loadTranslationMode);
+  useEffect(() => {
+    localStorage.setItem(TRANSLATION_MODE_KEY, translationMode);
+  }, [translationMode]);
 
   // Streaming translation: progress info + abort handle + deferred seek
   const [translationProgress, setTranslationProgress] = useState<{ done: number; total: number; stage?: string } | null>(null);
@@ -701,6 +707,30 @@ function App() {
                   </div>
                 )}
 
+                {/* Transcript toolbar: global translation display mode */}
+                <div className="flex-none flex items-center gap-3 px-4 py-2 bg-zinc-900/80 border-b border-white/5 z-20">
+                  <span className="text-xs text-zinc-500 font-medium shrink-0">中文译文</span>
+                  <div className="flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
+                    {([
+                      { key: 'all', label: '全显' },
+                      { key: 'active', label: '当前句' },
+                      { key: 'hidden', label: '隐藏' },
+                    ] as { key: TranslationMode; label: string }[]).map(opt => (
+                      <button
+                        key={opt.key}
+                        onClick={() => setTranslationMode(opt.key)}
+                        className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
+                          translationMode === opt.key
+                            ? 'bg-zinc-100 text-zinc-900 shadow-sm'
+                            : 'text-zinc-400 hover:text-zinc-200'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Streaming translation progress */}
                 {translationProgress && (
                   <div className="flex-none flex items-center gap-3 px-4 py-2 bg-blue-500/10 border-b border-blue-500/20 z-20">
@@ -746,6 +776,7 @@ function App() {
                       }
                     }}
                     onToggleFavorite={handleToggleFavorite}
+                    translationMode={translationMode}
                   />
                   <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#09090b] to-transparent z-10 pointer-events-none"></div>
                 </div>
