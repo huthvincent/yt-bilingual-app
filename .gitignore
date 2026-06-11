@@ -18,3 +18,7 @@ dist/
 
 # Zip archives (SRT files already extracted)
 *.zip
+
+# Local media content (copyright) & personal learning data (privacy)
+subtitles/
+history/
