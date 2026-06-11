@@ -1,7 +1,7 @@
 import { apiFetch } from './lib/api';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Star, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle, Repeat, Keyboard } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle, Repeat, Keyboard, EyeOff } from 'lucide-react';
 import { InputScreen } from './components/InputScreen';
 import { VideoPlayer } from './components/VideoPlayer';
 import { TranscriptView } from './components/TranscriptView';
@@ -38,6 +38,9 @@ function App() {
   const fullscreenWrapperRef = useRef<HTMLDivElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
+
+  // Dictation (blind listening) mode: English blurred until revealed per sentence
+  const [dictationMode, setDictationMode] = useState(false);
 
   // Playback controls: speed, play/pause command, single-sentence loop
   const [playbackRate, setPlaybackRate] = useState(1);
@@ -816,6 +819,24 @@ function App() {
                   <div className="w-px h-4 bg-white/10 shrink-0" />
 
                   <button
+                    onClick={() => {
+                      setDictationMode(prev => {
+                        if (!prev) setTranslationMode('hidden'); // 听写时默认全部隐藏
+                        return !prev;
+                      });
+                    }}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
+                      dictationMode
+                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/30'
+                        : 'bg-zinc-800/80 text-zinc-400 border-white/5 hover:text-zinc-200'
+                    }`}
+                    title="听写模式：隐藏英文原文，先听后看，点击句子揭示"
+                  >
+                    <EyeOff className="w-3.5 h-3.5" />
+                    听写模式
+                  </button>
+
+                  <button
                     onClick={toggleLoop}
                     className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
                       loopEnabled
@@ -898,6 +919,7 @@ function App() {
                     }}
                     onToggleFavorite={handleToggleFavorite}
                     translationMode={translationMode}
+                    dictation={dictationMode}
                   />
                   <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#09090b] to-transparent z-10 pointer-events-none"></div>
                 </div>

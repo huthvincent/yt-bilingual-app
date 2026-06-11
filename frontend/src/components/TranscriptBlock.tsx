@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Star, Languages } from 'lucide-react';
 import { isUntranslated, type TranslationMode } from '../lib/transcript';
 import { clsx, type ClassValue } from "clsx";
@@ -72,9 +72,10 @@ interface TranscriptBlockProps {
     isFavorited?: boolean;
     onToggleFavorite?: (e: React.MouseEvent) => void;
     translationMode?: TranslationMode;
+    dictation?: boolean;
 }
 
-export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active' }) => {
+export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active', dictation = false }) => {
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
@@ -85,6 +86,13 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
     const [overrideShow, setOverrideShow] = useState<boolean | null>(null);
     const modeDefault = translationMode === 'all' || (translationMode === 'active' && isActive);
     const showTranslation = overrideShow !== null ? overrideShow : modeDefault;
+
+    // Dictation mode: English stays blurred until the learner reveals it
+    const [revealed, setRevealed] = useState(false);
+    useEffect(() => {
+        setRevealed(false);
+    }, [dictation, enText]);
+    const blurred = dictation && !revealed;
 
     const enHighlights = useMemo(() => highlights.map(h => ({ word: h.en_word, color: h.color, annotation: h.zh_word })), [highlights]);
     const zhHighlights = useMemo(() => highlights.map(h => ({ word: h.zh_word, color: h.color })), [highlights]);
@@ -141,10 +149,15 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                 </div>
 
                 <div className="space-y-1">
-                    <p className={cn(
-                        "text-base leading-relaxed tracking-wide transition-colors",
-                        isActive ? "text-zinc-100 font-medium" : "text-zinc-400"
-                    )}>
+                    <p
+                        onClick={blurred ? (e) => { e.stopPropagation(); setRevealed(true); } : undefined}
+                        title={blurred ? '点击显示原文' : undefined}
+                        className={cn(
+                            "text-base leading-relaxed tracking-wide transition-all",
+                            isActive ? "text-zinc-100 font-medium" : "text-zinc-400",
+                            blurred && "blur-[6px] select-none opacity-60 hover:opacity-80 cursor-pointer"
+                        )}
+                    >
                         <HighlightedText text={enText} highlights={enHighlights} />
                     </p>
                     <div className={cn(

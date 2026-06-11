@@ -23,6 +23,7 @@ interface TranscriptViewProps {
     onTranscriptClick: (time: number) => void;
     onToggleFavorite: (item: TranscriptItem) => void;
     translationMode?: TranslationMode;
+    dictation?: boolean;
 }
 
 export const TranscriptView: React.FC<TranscriptViewProps> = ({
@@ -32,7 +33,8 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     favorites,
     onTranscriptClick,
     onToggleFavorite,
-    translationMode
+    translationMode,
+    dictation
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -90,6 +92,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
                                 isFavorited={favorites.includes(`${videoId}-${item.id}`)}
                                 onToggleFavorite={() => onToggleFavorite(item)}
                                 translationMode={translationMode}
+                                dictation={dictation}
                             />
                         </div>
                     );
