@@ -7,6 +7,7 @@ import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
 import { ShowBrowser } from './ShowBrowser';
 import { VOCAB_LEVELS, loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settings';
+import { progressPercent } from '../lib/progress';
 
 interface InputScreenProps {
     onSubmit: (url: string, model?: string) => void;
@@ -249,11 +250,22 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                                 <div className="absolute inset-0 bg-black/20 group-hover/card:bg-black/40 flex items-center justify-center transition-colors">
                                                     <Play className="w-5 h-5 text-white opacity-80" />
                                                 </div>
+                                                {item.videoId && progressPercent(item.videoId) !== null && (
+                                                    <div className="absolute bottom-0 inset-x-0 h-1 bg-black/60">
+                                                        <div
+                                                            className="h-full bg-emerald-500"
+                                                            style={{ width: `${progressPercent(item.videoId)}%` }}
+                                                        />
+                                                    </div>
+                                                )}
                                             </div>
                                             <div className="flex flex-col overflow-hidden">
                                                 <h4 className="text-zinc-200 font-medium truncate text-sm mb-1">{item.metadata?.title || 'Unknown Video'}</h4>
                                                 <p className="text-zinc-500 text-xs flex items-center gap-1">
                                                     <Youtube className="w-3 h-3" /> {item.metadata?.channel || 'Local File'}
+                                                    {item.videoId && progressPercent(item.videoId) !== null && (
+                                                        <span className="ml-1 text-emerald-500/90">· 已学 {progressPercent(item.videoId)}%</span>
+                                                    )}
                                                 </p>
                                             </div>
                                         </motion.div>

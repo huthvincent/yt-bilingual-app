@@ -12,6 +12,7 @@ import { WordPopover, type WordDefinition } from './components/WordPopover';
 import { toast, describeApiError } from './lib/toast';
 import { consumeSseStream, findActiveIndex, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
 import { loadVocabLevel } from './lib/settings';
+import { getProgress, saveProgress } from './lib/progress';
 import ReactMarkdown from 'react-markdown';
 
 interface TranscriptItem {
@@ -459,6 +460,39 @@ function App() {
   const handleTimeUpdate = useCallback((time: number) => {
     setCurrentTime(time);
   }, []);
+
+  // --- Playback progress: save (throttled) and resume ---
+  const lastSavedTimeRef = useRef(0);
+  const resumedVideoRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!videoId || transcript.length === 0 || currentTime < 5) return;
+    if (Math.abs(currentTime - lastSavedTimeRef.current) < 5) return;
+    lastSavedTimeRef.current = currentTime;
+    saveProgress(videoId, currentTime, transcript[transcript.length - 1]?.end ?? 0);
+  }, [currentTime, videoId, transcript]);
+
+  useEffect(() => {
+    if (!videoId || transcript.length === 0) return;
+    if (resumedVideoRef.current === videoId) return;
+    resumedVideoRef.current = videoId;
+    lastSavedTimeRef.current = 0;
+    if (pendingSeekRef.current != null) return; // a favorites jump takes precedence
+
+    const saved = getProgress(videoId);
+    const duration = transcript[transcript.length - 1]?.end ?? 0;
+    if (saved && saved.time > 15 && saved.time < duration - 30) {
+      const t = saved.time;
+      const mm = Math.floor(t / 60).toString().padStart(2, '0');
+      const ss = Math.floor(t % 60).toString().padStart(2, '0');
+      if (metadata?.is_local_subtitle) {
+        setCurrentTime(t);
+      } else {
+        setTimeout(() => setSeekCommand({ time: t, timestamp: Date.now() }), 1200);
+      }
+      toast.info(`已从上次学习位置 ${mm}:${ss} 继续`);
+    }
+  }, [videoId, transcript, metadata?.is_local_subtitle]);
 
   // Unified seek for both YouTube and local-subtitle modes
   const seekTo = useCallback((time: number) => {
