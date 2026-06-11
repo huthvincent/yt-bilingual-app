@@ -155,7 +155,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>
                         Lingua Nova Engine
                     </div>
-                    <h2 className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 tracking-[-0.015em] mb-4">
+                    <h2 className="hero-shimmer text-5xl md:text-6xl font-semibold tracking-[-0.015em] mb-4">
                         Watch YouTube. Learn English.
                     </h2>
                     <p className="text-lg text-zinc-400 font-normal leading-relaxed max-w-2xl mx-auto">
@@ -167,6 +167,8 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 <motion.form variants={itemVariants} className="max-w-3xl mx-auto w-full relative" onSubmit={handleSubmit}>
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/15 to-purple-500/15 rounded-full blur opacity-25 group-focus-within:opacity-60 transition-opacity duration-300 ease-apple"></div>
+                        {/* light running around the pill's edge */}
+                        <div className="conic-ring" aria-hidden="true"></div>
                         <div className="relative flex items-center glass-card rounded-full p-2 pl-6 pr-2 border border-white/10 hover:border-white/20 focus-within:border-brand/60 focus-within:ring-4 focus-within:ring-brand/15 transition-[border-color,box-shadow] duration-200 ease-apple">
                             <Search className="w-5 h-5 text-zinc-400" />
                             <input
