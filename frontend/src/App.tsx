@@ -623,7 +623,7 @@ function App() {
           className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/60 border border-white/5 text-zinc-300 hover:text-zinc-100 transition-[background-color,color,border-color,transform] duration-200 ease-apple active:scale-[0.97]"
         >
           <Star className="w-4 h-4 text-amber-400 fill-amber-400/20" />
-          <span className="font-medium text-sm tabular-nums">收藏夹 ({favorites.length})</span>
+          <span className="font-medium text-sm tabular-nums">Favorites ({favorites.length})</span>
         </button>
         {videoId && transcript.length > 0 && (
           <button
@@ -631,7 +631,7 @@ function App() {
             className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-blue-500/10 hover:bg-blue-500/15 border border-blue-500/20 text-blue-400 transition-[background-color,color,border-color,transform] duration-200 ease-apple active:scale-[0.97]"
           >
             <ExternalLink className="w-4 h-4" />
-            <span className="font-medium text-sm">{pipWindow ? '关闭弹窗' : '弹出字幕窗'}</span>
+            <span className="font-medium text-sm">{pipWindow ? 'Close Pop-out' : 'Pop Out'}</span>
           </button>
         )}
       </div>

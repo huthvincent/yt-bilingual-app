@@ -85,15 +85,15 @@ VOCAB_LEVELS = {
 MODEL_CATALOG = {
     "gemini-2.5-flash": {
         "name": "Gemini 2.5 Flash", "provider": "Google",
-        "in": 0.30, "out": 2.50, "quotaInfo": "默认 · 质量与速度均衡",
+        "in": 0.30, "out": 2.50, "quotaInfo": "Default · balanced quality & speed",
     },
     "gemini-2.5-flash-lite": {
         "name": "Gemini 2.5 Flash-Lite", "provider": "Google",
-        "in": 0.10, "out": 0.40, "quotaInfo": "最便宜 · 适合长视频",
+        "in": 0.10, "out": 0.40, "quotaInfo": "Cheapest · great for long videos",
     },
     "gemini-2.5-pro": {
         "name": "Gemini 2.5 Pro", "provider": "Google",
-        "in": 1.25, "out": 10.00, "quotaInfo": "最高质量 · 较慢",
+        "in": 1.25, "out": 10.00, "quotaInfo": "Highest quality · slower",
     },
 }
 DEFAULT_MODEL = "gemini-2.5-flash"

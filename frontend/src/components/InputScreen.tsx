@@ -112,13 +112,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                     >
                         <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
                         <h2 className="text-xl font-semibold tracking-tight text-zinc-100 mb-2">
-                            {loadingState === 'asr' ? '本地 AI 转写中…' : loadingState === 'processing' ? '正在获取字幕…' : '加载中…'}
+                            {loadingState === 'asr' ? 'Transcribing locally…' : loadingState === 'processing' ? 'Fetching subtitles…' : 'Loading…'}
                         </h2>
                         {loadingState === 'processing' && (
-                            <p className="text-zinc-400">英文字幕就绪后立即可看，翻译将逐句填充</p>
+                            <p className="text-zinc-400">English appears first — translations stream in while you watch</p>
                         )}
                         {loadingState === 'asr' && (
-                            <p className="text-zinc-400">该视频没有字幕，正在用本地 Whisper 转写音频（首次运行需下载模型，请耐心等待）</p>
+                            <p className="text-zinc-400">No captions on this video — transcribing the audio with local Whisper (first run downloads the model, hang tight)</p>
                         )}
                     </motion.div>
                 )}
@@ -129,8 +129,8 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         className="fixed inset-0 z-50 bg-zinc-950/70 backdrop-blur-md flex flex-col items-center justify-center"
                     >
                         <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
-                        <h2 className="text-xl font-semibold tracking-tight text-zinc-100 mb-2">正在分析视频…</h2>
-                        <p className="text-zinc-400">统计字幕长度，预估处理费用</p>
+                        <h2 className="text-xl font-semibold tracking-tight text-zinc-100 mb-2">Analyzing video…</h2>
+                        <p className="text-zinc-400">Counting words and estimating processing cost</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -155,10 +155,10 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         Lingua Nova Engine
                     </div>
                     <h2 className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 tracking-[-0.015em] mb-4">
-                        看 YouTube，学英语
+                        Watch YouTube. Learn English.
                     </h2>
                     <p className="text-lg text-zinc-400 font-normal leading-relaxed max-w-2xl mx-auto">
-                        粘贴视频链接，AI 生成同步双语字幕，按你的水平高亮生词，并附中文总结。
+                        Paste a link — get synced bilingual subtitles, vocabulary picked for your level, and an AI summary. Instantly.
                     </p>
                 </motion.div>
 
@@ -175,7 +175,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                 disabled={isLoading}
                                 required
                                 className="w-full bg-transparent border-none outline-none text-zinc-100 placeholder-zinc-500 px-4 py-3 text-lg"
-                                placeholder="粘贴 YouTube 视频链接…"
+                                placeholder="Paste a YouTube link…"
                                 value={url}
                                 onChange={(e) => setUrl(e.target.value)}
                             />
@@ -184,7 +184,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                 disabled={isLoading || !url.trim()}
                                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap shrink-0 h-12 px-6 rounded-full bg-zinc-100 text-zinc-900 text-sm font-semibold hover:bg-white active:scale-[0.98] transition-[background-color,transform,opacity] duration-200 ease-apple disabled:opacity-50"
                             >
-                                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : '开始学习'}
+                                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Start Learning'}
                                 {!isLoading && <ArrowRight className="w-4 h-4" />}
                             </button>
                         </div>
@@ -193,7 +193,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
 
                 {/* Learner level: calibrates which words get highlighted */}
                 <motion.div variants={itemVariants} className="max-w-3xl mx-auto w-full flex items-center justify-center gap-2 -mt-6">
-                    <span className="text-xs text-zinc-500">生词水平：</span>
+                    <span className="text-xs text-zinc-500">Vocabulary level</span>
                     <div className="inline-flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
                         {VOCAB_LEVELS.map(level => (
                             <button
@@ -217,7 +217,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             </button>
                         ))}
                     </div>
-                    <span className="text-[11px] text-zinc-600 hidden sm:inline">AI 只高亮超出此水平的词汇</span>
+                    <span className="text-[11px] text-zinc-600 hidden sm:inline">AI highlights only words above your level</span>
                 </motion.div>
 
                 {/* Bento Grid */}
@@ -230,7 +230,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 text-zinc-100">
                                     <Clock className="w-5 h-5" />
-                                    <h3 className="text-[17px] font-semibold tracking-tight">最近学习</h3>
+                                    <h3 className="text-[17px] font-semibold tracking-tight">Continue Learning</h3>
                                 </div>
                                 <div className="flex gap-1">
                                     <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
@@ -242,7 +242,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             {history.length === 0 ? (
                                 <div className="flex flex-col items-center justify-center py-16 text-center">
                                     <Clock className="w-10 h-10 text-zinc-700 mb-3" />
-                                    <p className="text-sm font-medium text-zinc-400">还没有学习记录，粘贴一个视频链接开始吧</p>
+                                    <p className="text-sm font-medium text-zinc-400">Nothing here yet — paste a link above to begin</p>
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-4">
@@ -278,7 +278,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                                 <p className="text-zinc-500 text-xs flex items-center gap-1">
                                                     <Youtube className="w-3 h-3" /> {item.metadata?.channel || 'Local File'}
                                                     {item.videoId && progressPercent(item.videoId) !== null && (
-                                                        <span className="ml-1 text-emerald-500/90">· 已学 {progressPercent(item.videoId)}%</span>
+                                                        <span className="ml-1 text-emerald-500/90">· {progressPercent(item.videoId)}% watched</span>
                                                     )}
                                                 </p>
                                             </div>
@@ -292,7 +292,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         <div className="glass-panel rounded-3xl p-6 relative overflow-hidden">
                              <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Tv className="w-5 h-5 text-blue-400" />
-                                <h3 className="text-[17px] font-semibold tracking-tight">本地剧集</h3>
+                                <h3 className="text-[17px] font-semibold tracking-tight">Local Shows</h3>
                             </div>
                             <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
                         </div>
@@ -306,7 +306,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <div className="glass-panel rounded-3xl p-6">
                                 <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                     <Youtube className="w-5 h-5 text-red-500" />
-                                    <h3 className="text-[17px] font-semibold tracking-tight">订阅频道</h3>
+                                    <h3 className="text-[17px] font-semibold tracking-tight">Subscriptions</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {subscriptions.slice(0, 6).map(sub => (
@@ -328,13 +328,13 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         <div className="glass-panel rounded-3xl p-6 flex-1 flex flex-col">
                             <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Bell className="w-5 h-5 text-amber-400" />
-                                <h3 className="text-[17px] font-semibold tracking-tight">最新视频</h3>
+                                <h3 className="text-[17px] font-semibold tracking-tight">Latest Videos</h3>
                             </div>
                             
                             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
                                 {channelUpdates.length === 0 ? (
                                     <div className="flex flex-col items-center justify-center py-16 text-center">
-                                        <p className="text-sm font-medium text-zinc-400">暂无频道更新</p>
+                                        <p className="text-sm font-medium text-zinc-400">No new uploads yet</p>
                                     </div>
                                 ) : (
                                     channelUpdates.map((update, idx) => (

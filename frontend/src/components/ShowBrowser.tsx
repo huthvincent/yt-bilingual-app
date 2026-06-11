@@ -74,9 +74,9 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
         return (
             <div className="flex flex-col items-center justify-center py-16 text-center">
                 <Tv className="w-10 h-10 text-zinc-700 mb-3" />
-                <p className="text-sm font-medium text-zinc-400">暂无本地剧集字幕</p>
+                <p className="text-sm font-medium text-zinc-400">No local shows yet</p>
                 <p className="text-xs text-zinc-600 mt-1">
-                    将 SRT 文件放入 subtitles/ 目录即可添加
+                    Drop .srt files into subtitles/ to add one
                 </p>
             </div>
         );
@@ -92,12 +92,12 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                         className="inline-flex items-center gap-1 h-7 px-2 -ml-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-colors"
                     >
                         <ChevronLeft className="w-4 h-4" />
-                        返回
+                        Back
                     </button>
                 )}
                 <h3 className="text-base font-semibold text-zinc-200 flex items-center gap-2">
                     <BookOpen className="w-5 h-5 text-blue-400" />
-                    {selectedShow ? selectedShow.title_zh || selectedShow.title : '本地剧集'}
+                    {selectedShow ? selectedShow.title_zh || selectedShow.title : 'Local Shows'}
                 </h3>
             </div>
 
@@ -123,7 +123,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                                 </h4>
                                 <p className="text-zinc-400 text-sm mt-0.5">{show.title}</p>
                                 <p className="text-zinc-500 text-xs mt-2">
-                                    {Object.keys(show.seasons_available).length} 季 · {show.total_episodes} 集可用
+                                    {Object.keys(show.seasons_available).length} seasons · {show.total_episodes} episodes
                                 </p>
                             </div>
                             <ChevronRight className="w-5 h-5 text-zinc-600 group-hover:text-zinc-300 transition-colors flex-shrink-0" />
@@ -155,8 +155,8 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                                     />
                                 )}
                                 <span className="relative z-10">
-                                    第 {s.season} 季
-                                    <span className="ml-1.5 text-xs opacity-70">({s.episode_count}集)</span>
+                                    Season {s.season}
+                                    <span className="ml-1.5 text-xs opacity-70">({s.episode_count} ep)</span>
                                 </span>
                             </button>
                         ))}
@@ -193,7 +193,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
 
                     {!selectedSeason && (
                         <p className="text-zinc-600 text-xs text-center py-4">
-                            选择一季开始学习
+                            Pick a season to start
                         </p>
                     )}
                 </div>

@@ -51,10 +51,10 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                     <div>
                         <h2 className="text-xl font-semibold tracking-tight text-zinc-100 flex items-center gap-2">
                             <Cpu className="w-5 h-5 text-blue-400" />
-                            选择 AI 模型
+                            Choose Your Model
                         </h2>
                         <p className="text-sm text-zinc-400 mt-0.5">
-                            为本视频选择翻译模型（费用为整段字幕的预估）
+                            Pick the translation model — cost is the estimate for the whole video
                         </p>
                     </div>
                     <button
@@ -75,16 +75,16 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                 {estimationData.metadata?.thumbnail ? (
                                     <img src={estimationData.metadata.thumbnail} className="w-full h-full object-cover" alt="thumbnail" />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-xs text-zinc-500">无封面</div>
+                                    <div className="w-full h-full flex items-center justify-center text-xs text-zinc-500">No thumbnail</div>
                                 )}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h3 className="text-zinc-100 font-medium truncate mb-1">{estimationData.metadata?.title || '未知视频'}</h3>
-                                <p className="text-sm text-zinc-400 truncate mb-3">{estimationData.metadata?.channel || '未知频道'}</p>
+                                <h3 className="text-zinc-100 font-medium truncate mb-1">{estimationData.metadata?.title || 'Unknown video'}</h3>
+                                <p className="text-sm text-zinc-400 truncate mb-3">{estimationData.metadata?.channel || 'Unknown channel'}</p>
 
                                 <div className="flex items-center gap-4 text-xs font-medium bg-zinc-900/50 p-2 rounded-lg inline-flex border border-white/5">
-                                    <span className="text-zinc-500">词数： <span className="text-zinc-100 tabular-nums ml-1">{estimationData.transcriptStats.wordCount.toLocaleString()}</span></span>
-                                    <span className="text-zinc-500">预估 Tokens： <span className="text-zinc-100 tabular-nums ml-1">~{(estimationData.transcriptStats.estimatedInputTokens + estimationData.transcriptStats.estimatedOutputTokens).toLocaleString()}</span></span>
+                                    <span className="text-zinc-500">Words:  <span className="text-zinc-100 tabular-nums ml-1">{estimationData.transcriptStats.wordCount.toLocaleString()}</span></span>
+                                    <span className="text-zinc-500">Est. tokens:  <span className="text-zinc-100 tabular-nums ml-1">~{(estimationData.transcriptStats.estimatedInputTokens + estimationData.transcriptStats.estimatedOutputTokens).toLocaleString()}</span></span>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
 
                     {/* Model Options */}
                     <div className="space-y-3">
-                        <h3 className="text-xs font-medium text-zinc-500 tracking-normal mb-2">可选模型</h3>
+                        <h3 className="text-xs font-medium text-zinc-500 tracking-normal mb-2">Available Models</h3>
 
                         {estimationData.models.map((model) => {
                             const isSelected = selectedModel === model.id;
@@ -147,12 +147,12 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                     <button
                         onClick={onClose}
                         className="h-10 px-5 rounded-xl text-sm font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-colors"
-                    >取消</button>
+                    >Cancel</button>
                     <button
                         onClick={() => onConfirm(selectedModel)}
                         className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-zinc-100 text-zinc-900 text-sm font-semibold hover:bg-white active:scale-[0.98] transition-all duration-200"
                     >
-                        确认并开始
+                        Confirm & Start
                     </button>
                 </div>
             </div>
