@@ -209,13 +209,14 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                     )}>
                         <div className="overflow-hidden">
                             {isUntranslated(zhText) ? (
-                                <p className="text-sm leading-relaxed text-zinc-600 italic animate-pulse">
+                                <p className="text-[15px] leading-relaxed text-zinc-600 italic animate-pulse">
                                     翻译中…
                                 </p>
                             ) : (
+                                // 中文字号略大于 text-sm：汉字在小字号低对比度下比拉丁字母更难读
                                 <p className={cn(
-                                    "text-sm leading-relaxed transition-colors",
-                                    isActive ? "text-zinc-300" : "text-zinc-500"
+                                    "text-[15px] leading-relaxed transition-colors",
+                                    isActive ? "text-zinc-200" : "text-zinc-400"
                                 )}>
                                     <HighlightedText text={zhText} highlights={zhHighlights} />
                                 </p>

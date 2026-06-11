@@ -57,22 +57,22 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-            <div className="bg-gray-900 border border-gray-800 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
-                <div className="flex items-center justify-between p-6 border-b border-gray-800">
+            <div className="bg-zinc-900 border border-zinc-800 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
+                <div className="flex items-center justify-between p-6 border-b border-zinc-800">
                     <div>
-                        <h2 className="text-2xl font-bold text-white">{channelName} <span className="text-gray-400 font-normal">Videos</span></h2>
-                        <p className="text-sm text-gray-500 mt-1">From your local learning history</p>
+                        <h2 className="text-2xl font-bold text-white">{channelName} <span className="text-zinc-400 font-normal">Videos</span></h2>
+                        <p className="text-sm text-zinc-500 mt-1">From your local learning history</p>
                     </div>
-                    <button onClick={onClose} className="p-2 text-gray-400 hover:text-white rounded-full hover:bg-gray-800 transition-colors">
+                    <button onClick={onClose} className="p-2 text-zinc-400 hover:text-white rounded-full hover:bg-zinc-800 transition-colors">
                         <X className="w-6 h-6" />
                     </button>
                 </div>
 
                 <div className="p-6 overflow-y-auto flex-1 custom-scrollbar">
                     {isLoading ? (
-                        <div className="text-center py-12 text-gray-500">Loading videos...</div>
+                        <div className="text-center py-12 text-zinc-500">Loading videos...</div>
                     ) : videos.length === 0 ? (
-                        <div className="text-center py-12 text-gray-500">
+                        <div className="text-center py-12 text-zinc-500">
                             <p>No other videos found for this channel.</p>
                         </div>
                     ) : (
@@ -84,9 +84,9 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                         onClose();
                                         onLoadHistory(video.filename);
                                     }}
-                                    className="bg-gray-800/40 rounded-xl border border-gray-700/50 overflow-hidden cursor-pointer hover:border-purple-500/50 hover:bg-gray-800/80 transition-all group flex flex-col"
+                                    className="bg-zinc-800/40 rounded-xl border border-zinc-700/50 overflow-hidden cursor-pointer hover:border-purple-500/50 hover:bg-zinc-800/80 transition-all group flex flex-col"
                                 >
-                                    <div className="relative aspect-video bg-gray-950 overflow-hidden">
+                                    <div className="relative aspect-video bg-zinc-950 overflow-hidden">
                                         {video.metadata.thumbnail ? (
                                             <img
                                                 src={video.metadata.thumbnail}
@@ -94,7 +94,7 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                                             />
                                         ) : (
-                                            <div className="w-full h-full flex items-center justify-center text-gray-700">No Thumbnail</div>
+                                            <div className="w-full h-full flex items-center justify-center text-zinc-700">No Thumbnail</div>
                                         )}
                                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                             <div className="bg-purple-600 p-3 rounded-full text-white shadow-lg shadow-purple-900/50">
@@ -103,11 +103,11 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                         </div>
                                     </div>
                                     <div className="p-4 flex flex-col flex-1">
-                                        <h3 className="text-gray-200 font-medium line-clamp-2 text-sm leading-snug mb-2 group-hover:text-purple-300 transition-colors">
+                                        <h3 className="text-zinc-200 font-medium line-clamp-2 text-sm leading-snug mb-2 group-hover:text-purple-300 transition-colors">
                                             {video.metadata.title || 'Unknown Title'}
                                         </h3>
                                         <div className="mt-auto flex items-center justify-between">
-                                            <span className="text-xs text-gray-500">Uploaded: {formatDate(video.metadata.upload_date)}</span>
+                                            <span className="text-xs text-zinc-500">Uploaded: {formatDate(video.metadata.upload_date)}</span>
                                             {video.videoId && (
                                                 <button
                                                     onClick={(e) => {
@@ -115,7 +115,7 @@ export const ChannelVideoList: React.FC<ChannelVideoListProps> = ({ isOpen, onCl
                                                         onClose();
                                                         onReprocess(video.videoId!);
                                                     }}
-                                                    className="p-1.5 text-gray-500 hover:text-purple-400 hover:bg-gray-800 rounded-lg transition-colors z-10"
+                                                    className="p-1.5 text-zinc-500 hover:text-purple-400 hover:bg-zinc-800 rounded-lg transition-colors z-10"
                                                     title="Reprocess Video"
                                                 >
                                                     <RefreshCw className="w-4 h-4" />

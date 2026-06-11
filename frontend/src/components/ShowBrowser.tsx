@@ -72,9 +72,9 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
     if (shows.length === 0) {
         return (
             <div className="text-center py-8">
-                <Tv className="w-12 h-12 text-gray-600 mx-auto mb-3" />
-                <p className="text-gray-500 text-sm">暂无本地剧集字幕</p>
-                <p className="text-gray-600 text-xs mt-1">
+                <Tv className="w-12 h-12 text-zinc-600 mx-auto mb-3" />
+                <p className="text-zinc-500 text-sm">暂无本地剧集字幕</p>
+                <p className="text-zinc-600 text-xs mt-1">
                     将 SRT 文件放入 subtitles/ 目录即可添加
                 </p>
             </div>
@@ -88,7 +88,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                 {selectedShow && (
                     <button
                         onClick={() => { setSelectedShow(null); setSeasons([]); setSelectedSeason(null); }}
-                        className="text-gray-400 hover:text-white text-sm transition-colors"
+                        className="text-zinc-400 hover:text-white text-sm transition-colors"
                     >
                         ← 返回
                     </button>
@@ -106,7 +106,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                         <button
                             key={show.id}
                             onClick={() => handleShowSelect(show)}
-                            className="flex items-center gap-4 p-4 bg-gray-800/60 hover:bg-gray-800 rounded-xl border border-gray-700/50 hover:border-purple-500/30 transition-all group text-left"
+                            className="flex items-center gap-4 p-4 bg-zinc-800/60 hover:bg-zinc-800 rounded-xl border border-zinc-700/50 hover:border-purple-500/30 transition-all group text-left"
                         >
                             {show.thumbnail && (
                                 <img
@@ -119,12 +119,12 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                                 <h4 className="text-white font-medium text-base group-hover:text-purple-300 transition-colors">
                                     {show.title_zh || show.title}
                                 </h4>
-                                <p className="text-gray-400 text-sm mt-0.5">{show.title}</p>
-                                <p className="text-gray-500 text-xs mt-2">
+                                <p className="text-zinc-400 text-sm mt-0.5">{show.title}</p>
+                                <p className="text-zinc-500 text-xs mt-2">
                                     {Object.keys(show.seasons_available).length} 季 · {show.total_episodes} 集可用
                                 </p>
                             </div>
-                            <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-400 transition-colors flex-shrink-0" />
+                            <ChevronRight className="w-5 h-5 text-zinc-600 group-hover:text-purple-400 transition-colors flex-shrink-0" />
                         </button>
                     ))}
                 </div>
@@ -142,7 +142,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                                     selectedSeason === s.season
                                         ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/20'
-                                        : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
+                                        : 'bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-700'
                                 }`}
                             >
                                 第 {s.season} 季
@@ -166,10 +166,10 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                                         onClick={() => onSelectEpisode(selectedShow.id, selectedSeason, ep)}
                                         className={`py-3 px-2 rounded-lg text-sm font-medium transition-all ${
                                             isLoading
-                                                ? 'bg-gray-800/50 text-gray-600 cursor-wait'
+                                                ? 'bg-zinc-800/50 text-zinc-600 cursor-wait'
                                                 : isProcessed
                                                     ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 hover:shadow-lg hover:shadow-emerald-500/10'
-                                                    : 'bg-gray-800 text-gray-300 hover:bg-purple-600/20 hover:text-purple-300 hover:border-purple-500/30 border border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/10'
+                                                    : 'bg-zinc-800 text-zinc-300 hover:bg-purple-600/20 hover:text-purple-300 hover:border-purple-500/30 border border-zinc-700/50 hover:shadow-lg hover:shadow-purple-500/10'
                                         }`}
                                     >
                                         E{ep.toString().padStart(2, '0')}
@@ -181,7 +181,7 @@ export const ShowBrowser: React.FC<ShowBrowserProps> = ({ onSelectEpisode, isLoa
                     )}
 
                     {!selectedSeason && (
-                        <p className="text-gray-500 text-sm text-center py-4">
+                        <p className="text-zinc-500 text-sm text-center py-4">
                             👆 选择一季开始学习
                         </p>
                     )}

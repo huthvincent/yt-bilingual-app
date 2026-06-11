@@ -117,7 +117,7 @@ function App() {
         setPipWindow(null);
       });
 
-      newPipWindow.document.body.className = "bg-gray-950 overflow-hidden m-0 p-0 h-screen flex flex-col";
+      newPipWindow.document.body.className = "bg-zinc-950 overflow-hidden m-0 p-0 h-screen flex flex-col";
       setPipWindow(newPipWindow);
     } catch (err) {
       console.error(err);
@@ -682,7 +682,7 @@ function App() {
             )}
             </>
           )}
-            <div className={`p-6 flex-1 min-h-0 bg-gray-900 border-gray-800 overflow-y-auto custom-scrollbar ${metadata?.is_local_subtitle ? 'border-none' : 'border-t hidden md:block'}`}>
+            <div className={`p-6 flex-1 min-h-0 bg-zinc-900 border-zinc-800 overflow-y-auto custom-scrollbar ${metadata?.is_local_subtitle ? 'border-none' : 'border-t hidden md:block'}`}>
               {summary ? (
                 <>
                   <button
@@ -691,7 +691,7 @@ function App() {
                   >
                     <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Video Summary</h2>
                     <svg
-                      className={`w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-transform duration-300 ${isSummaryOpen ? 'rotate-180' : ''}`}
+                      className={`w-5 h-5 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isSummaryOpen ? 'rotate-180' : ''}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -700,22 +700,22 @@ function App() {
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${isSummaryOpen ? 'max-h-[2000px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
                   >
-                    <div className="text-gray-300 text-sm leading-relaxed space-y-2">
+                    <div className="text-zinc-300 text-sm leading-relaxed space-y-2">
                       <ReactMarkdown
                         components={{
                           h1: ({ node, ...props }) => <h1 className="text-lg font-bold text-white mt-4 mb-2" {...props} />,
                           h2: ({ node, ...props }) => <h2 className="text-base font-bold text-pink-400 mt-4 mb-2" {...props} />,
                           h3: ({ node, ...props }) => <h3 className="text-sm font-bold text-purple-400 mt-3 mb-2" {...props} />,
-                          p: ({ node, ...props }) => <p className="text-gray-300 leading-relaxed" {...props} />,
-                          ul: ({ node, ...props }) => <ul className="list-disc pl-5 space-y-1 text-gray-300 marker:text-pink-500" {...props} />,
-                          ol: ({ node, ...props }) => <ol className="list-decimal pl-5 space-y-1 text-gray-300 marker:text-pink-500" {...props} />,
+                          p: ({ node, ...props }) => <p className="text-zinc-300 leading-relaxed" {...props} />,
+                          ul: ({ node, ...props }) => <ul className="list-disc pl-5 space-y-1 text-zinc-300 marker:text-pink-500" {...props} />,
+                          ol: ({ node, ...props }) => <ol className="list-decimal pl-5 space-y-1 text-zinc-300 marker:text-pink-500" {...props} />,
                           li: ({ node, ...props }) => <li className="pl-1" {...props} />,
                           strong: ({ node, ...props }) => <strong className="font-semibold text-white tracking-wide" {...props} />,
                           code: ({ node, className, children, ...props }: any) => {
                             const isInline = !className && !String(children).includes('\n');
                             return isInline
-                              ? <code className="bg-gray-800 text-pink-300 px-1.5 py-0.5 rounded text-xs border border-gray-700 font-mono" {...props}>{children}</code>
-                              : <code className="block bg-gray-800 text-gray-300 p-3 rounded-lg text-xs overflow-x-auto my-2 border border-gray-700 font-mono" {...props}>{children}</code>;
+                              ? <code className="bg-zinc-800 text-pink-300 px-1.5 py-0.5 rounded text-xs border border-zinc-700 font-mono" {...props}>{children}</code>
+                              : <code className="block bg-zinc-800 text-zinc-300 p-3 rounded-lg text-xs overflow-x-auto my-2 border border-zinc-700 font-mono" {...props}>{children}</code>;
                           }
                         }}
                       >
@@ -727,7 +727,7 @@ function App() {
               ) : (
                 <>
                   <h2 className="text-xl font-bold text-white mb-2 pb-2">Instructions</h2>
-                  <ul className="text-gray-400 space-y-2 list-disc list-inside">
+                  <ul className="text-zinc-400 space-y-2 list-disc list-inside">
                     <li>Video playback syncs directly with the interactive transcript on the right.</li>
                     <li>Advanced keywords are highlighted with their Chinese translations underneath.</li>
                     <li>The backend currently uses a mock LLM logic for quick local testing without token limits.</li>
@@ -759,17 +759,17 @@ function App() {
                 }
                 if (vocabItems.length === 0) return null;
                 return (
-                  <div className="mt-6 pt-6 border-t border-gray-800">
+                  <div className="mt-6 pt-6 border-t border-zinc-800">
                     <button
                       onClick={() => setIsVocabOpen(prev => !prev)}
                       className="flex items-center justify-between w-full cursor-pointer group"
                     >
                       <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
                         Vocabulary Summary
-                        <span className="ml-2 text-sm font-normal text-gray-500">({vocabItems.length})</span>
+                        <span className="ml-2 text-sm font-normal text-zinc-500">({vocabItems.length})</span>
                       </h2>
                       <svg
-                        className={`w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-transform duration-300 ${isVocabOpen ? 'rotate-180' : ''}`}
+                        className={`w-5 h-5 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isVocabOpen ? 'rotate-180' : ''}`}
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -786,14 +786,14 @@ function App() {
                             <button
                               key={idx}
                               onClick={() => setSeekCommand({ time: item.start, timestamp: Date.now() })}
-                              className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/80 transition-colors group/row cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+                              className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-zinc-800/80 transition-colors group/row cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
                             >
                               <span className="text-purple-300 font-medium text-sm text-left group-hover/row:text-purple-200 transition-colors flex-1">{item.en}</span>
                               <div className="flex items-center gap-3">
-                                <span className="text-gray-400 text-sm text-right group-hover/row:text-gray-300 transition-colors">{item.zh}</span>
+                                <span className="text-zinc-400 text-sm text-right group-hover/row:text-zinc-300 transition-colors">{item.zh}</span>
                                 <div 
                                   onClick={(e) => handleToggleVocabFavorite(e, item)}
-                                  className={`p-1.5 rounded-md hover:bg-gray-700 transition-colors ${isFav ? 'text-yellow-500' : 'text-gray-500 opacity-0 group-hover/row:opacity-100 hover:text-yellow-500'}`}
+                                  className={`p-1.5 rounded-md hover:bg-zinc-700 transition-colors ${isFav ? 'text-yellow-500' : 'text-zinc-500 opacity-0 group-hover/row:opacity-100 hover:text-yellow-500'}`}
                                 >
                                   <Star className="w-4 h-4" fill={isFav ? "currentColor" : "none"} />
                                 </div>
@@ -817,7 +817,7 @@ function App() {
                 {!pipWindow && metadata?.is_local_subtitle && (
                   <button
                     onClick={() => setIsLeftCollapsed(prev => !prev)}
-                    className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-gray-800 border border-gray-700 border-l-0 rounded-r-xl hover:bg-gray-700 hover:text-purple-400 text-gray-400 transition-colors shadow-lg shadow-black/50"
+                    className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-zinc-800 border border-zinc-700 border-l-0 rounded-r-xl hover:bg-zinc-700 hover:text-purple-400 text-zinc-400 transition-colors shadow-lg shadow-black/50"
                     title={isLeftCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
                   >
                     {isLeftCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
@@ -826,7 +826,7 @@ function App() {
 
                 {/* Local subtitle playback controls */}
                 {metadata?.is_local_subtitle && (
-                  <div className="flex-none flex items-center justify-between px-4 py-2 bg-gray-900/95 border-b border-gray-800 z-20">
+                  <div className="flex-none flex items-center justify-between px-4 py-2 bg-zinc-900/95 border-b border-zinc-800 z-20">
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => {
@@ -853,11 +853,11 @@ function App() {
                           </svg>
                         )}
                       </button>
-                      <span className="text-gray-400 text-xs font-medium">
+                      <span className="text-zinc-400 text-xs font-medium">
                         {metadata?.title || 'Local Subtitle'}
                       </span>
                     </div>
-                    <span className="text-gray-500 text-xs font-mono tabular-nums">
+                    <span className="text-zinc-500 text-xs font-mono tabular-nums">
                       {Math.floor(currentTime / 60).toString().padStart(2, '0')}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}
                     </span>
                   </div>
