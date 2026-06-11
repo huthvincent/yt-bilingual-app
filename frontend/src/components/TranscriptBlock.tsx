@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Star, Languages } from 'lucide-react';
+import { isUntranslated } from '../lib/transcript';
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { motion } from 'framer-motion';
@@ -147,12 +148,18 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                         showTranslation ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0 mt-0"
                     )}>
                         <div className="overflow-hidden">
-                            <p className={cn(
-                                "text-sm leading-relaxed transition-colors",
-                                isActive ? "text-zinc-300" : "text-zinc-500"
-                            )}>
-                                <HighlightedText text={zhText} highlights={zhHighlights} />
-                            </p>
+                            {isUntranslated(zhText) ? (
+                                <p className="text-sm leading-relaxed text-zinc-600 italic animate-pulse">
+                                    翻译中…
+                                </p>
+                            ) : (
+                                <p className={cn(
+                                    "text-sm leading-relaxed transition-colors",
+                                    isActive ? "text-zinc-300" : "text-zinc-500"
+                                )}>
+                                    <HighlightedText text={zhText} highlights={zhHighlights} />
+                                </p>
+                            )}
                         </div>
                     </div>
                 </div>

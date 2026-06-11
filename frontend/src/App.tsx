@@ -1,7 +1,7 @@
 import { apiFetch } from './lib/api';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Star, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle } from 'lucide-react';
 import { InputScreen } from './components/InputScreen';
 import { VideoPlayer } from './components/VideoPlayer';
 import { TranscriptView } from './components/TranscriptView';
@@ -9,6 +9,7 @@ import { FavoritesModal, type FavoriteItem } from './components/FavoritesModal';
 import { ChannelVideoList } from './components/ChannelVideoList';
 import { Toaster } from './components/Toaster';
 import { toast, describeApiError } from './lib/toast';
+import { consumeSseStream, isUntranslated } from './lib/transcript';
 import ReactMarkdown from 'react-markdown';
 
 interface TranscriptItem {
@@ -37,6 +38,17 @@ function App() {
   const fullscreenWrapperRef = useRef<HTMLDivElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
+
+  // Streaming translation: progress info + abort handle + deferred seek
+  const [translationProgress, setTranslationProgress] = useState<{ done: number; total: number; stage?: string } | null>(null);
+  const streamAbortRef = useRef<AbortController | null>(null);
+  const pendingSeekRef = useRef<number | null>(null);
+
+  const cancelTranslationStream = () => {
+    streamAbortRef.current?.abort();
+    streamAbortRef.current = null;
+    setTranslationProgress(null);
+  };
 
   const togglePipMode = async () => {
     if (pipWindow) {
@@ -246,9 +258,9 @@ function App() {
       }
     } else {
       if (favVideoId !== videoId) {
-        handleUrlSubmit(`https://youtube.com/watch?v=${favVideoId}`).then(() => {
-          setTimeout(() => setSeekCommand({ time: start, timestamp: Date.now() }), 1000); // Wait for load
-        });
+        // Seek as soon as the stream's meta event arrives (don't wait for full translation)
+        pendingSeekRef.current = start;
+        handleUrlSubmit(`https://youtube.com/watch?v=${favVideoId}`);
       } else {
         setSeekCommand({ time: start, timestamp: Date.now() });
       }
@@ -266,32 +278,72 @@ function App() {
       return;
     }
 
+    // Replace any in-flight stream
+    streamAbortRef.current?.abort();
+    const controller = new AbortController();
+    streamAbortRef.current = controller;
+
     setLoadingState('processing');
 
     try {
-      // Connect to FastAPI Backend
-      const response = await apiFetch('/api/process-video', {
+      const response = await apiFetch('/api/process-video-stream', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url }),
+        signal: controller.signal,
       });
 
-      if (!response.ok) {
+      if (!response.ok || !response.body) {
         throw new Error(await describeApiError(response));
       }
 
-      const data = await response.json();
-      setTranscript(data.transcript);
-      setSummary(data.summary || '');
-      setMetadata(data.metadata || null);
-      setVideoId(id);
-      setCurrentTime(0);
-
-    } catch (error) {
+      await consumeSseStream(response.body, (evt) => {
+        switch (evt.event) {
+          case 'meta': {
+            const blocks = evt.data.blocks || [];
+            setTranscript(blocks);
+            setMetadata(evt.data.metadata || null);
+            setSummary('');
+            setVideoId(evt.data.videoId || id);
+            setCurrentTime(0);
+            setLoadingState(null); // English is visible — drop the overlay
+            const untranslated = blocks.filter((b: TranscriptItem) => isUntranslated(b.zh_text)).length;
+            setTranslationProgress(untranslated > 0 ? { done: 0, total: untranslated } : null);
+            if (pendingSeekRef.current != null) {
+              const t = pendingSeekRef.current;
+              pendingSeekRef.current = null;
+              setTimeout(() => setSeekCommand({ time: t, timestamp: Date.now() }), 1000);
+            }
+            break;
+          }
+          case 'batch': {
+            const byId = new Map<number, TranscriptItem>((evt.data.blocks || []).map((b: TranscriptItem) => [b.id, b]));
+            setTranscript(prev => prev.map(b => byId.get(b.id) ?? b));
+            if (evt.data.progress) setTranslationProgress(prev => ({ ...prev, ...evt.data.progress }));
+            break;
+          }
+          case 'stage':
+            setTranslationProgress(prev => prev ? { ...prev, stage: evt.data.stage } : { done: 0, total: 0, stage: evt.data.stage });
+            break;
+          case 'summary':
+            setSummary(evt.data.summary || '');
+            break;
+          case 'error':
+            throw new Error(evt.data.detail || '处理失败，请重试。');
+          case 'done':
+            setTranslationProgress(null);
+            break;
+        }
+      });
+      setTranslationProgress(null);
+    } catch (error: any) {
+      if (error?.name === 'AbortError') {
+        setTranslationProgress(null);
+        return;
+      }
       console.error(error);
       toast.error(await describeApiError(error));
+      setTranslationProgress(null);
     } finally {
       setLoadingState(null);
     }
@@ -363,6 +415,7 @@ function App() {
   }, []);
 
   const handleGoHome = () => {
+    cancelTranslationStream();
     setVideoId('');
     setTranscript([]);
     setSummary('');
@@ -645,6 +698,36 @@ function App() {
                     <span className="text-gray-500 text-xs font-mono tabular-nums">
                       {Math.floor(currentTime / 60).toString().padStart(2, '0')}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}
                     </span>
+                  </div>
+                )}
+
+                {/* Streaming translation progress */}
+                {translationProgress && (
+                  <div className="flex-none flex items-center gap-3 px-4 py-2 bg-blue-500/10 border-b border-blue-500/20 z-20">
+                    <Loader2 className="w-4 h-4 text-blue-400 animate-spin shrink-0" />
+                    <span className="text-xs text-blue-300 font-medium flex-1 truncate">
+                      {translationProgress.stage === 'summary'
+                        ? 'AI 正在生成视频总结…'
+                        : `字幕翻译中 ${translationProgress.done}/${translationProgress.total} 句 — 可以先开始观看`}
+                    </span>
+                    {translationProgress.total > 0 && (
+                      <div className="w-24 h-1.5 rounded-full bg-zinc-800 overflow-hidden shrink-0">
+                        <div
+                          className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                          style={{ width: `${Math.round((translationProgress.done / translationProgress.total) * 100)}%` }}
+                        />
+                      </div>
+                    )}
+                    <button
+                      onClick={() => {
+                        cancelTranslationStream();
+                        toast.info('已停止翻译；已完成的部分已保存，下次打开会自动续译。');
+                      }}
+                      className="flex items-center gap-1 text-xs text-zinc-400 hover:text-red-400 transition-colors shrink-0"
+                      title="停止翻译"
+                    >
+                      <XCircle className="w-3.5 h-3.5" /> 停止
+                    </button>
                   </div>
                 )}
 

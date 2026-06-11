@@ -1,7 +1,7 @@
 import re
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 from youtube_transcript_api import (
     YouTubeTranscriptApi,
@@ -610,6 +610,170 @@ async def process_video(request: VideoRequest):
         json.dump(result_payload, f, ensure_ascii=False, indent=2)
             
     return result_payload
+
+# ====================================================
+# Streaming processing (SSE) — English subtitles appear immediately,
+# translations fill in batch by batch, partial progress is persisted so
+# a cancelled run resumes (self-heals) on the next load.
+# ====================================================
+
+def _sse(event: str, data: dict) -> str:
+    return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+
+def _history_filename(metadata: dict, video_id: str) -> str:
+    safe_channel = "".join([c for c in metadata.get("channel", "") if c.isalpha() or c.isdigit() or c == ' ']).rstrip()
+    if not safe_channel:
+        safe_channel = "Unknown"
+    return f"{safe_channel}_{metadata.get('upload_date', '')}_{video_id}.json".replace(" ", "_")
+
+
+async def _stream_translate(transcript: list, indices: list, payload: dict, save_path: str):
+    """Translate the given transcript indices batch by batch.
+
+    Yields a dict per batch with the freshly translated blocks and overall
+    progress. Persists the payload after every batch so interrupted runs
+    keep their progress (untranslated blocks stay marked and self-heal).
+    """
+    total = len(indices)
+    done = 0
+    batch_size = 20
+    for batch_start in range(0, total, batch_size):
+        batch_indices = indices[batch_start:batch_start + batch_size]
+        batch_blocks = [{
+            "id": transcript[i].get("id"),
+            "start": transcript[i]["start"],
+            "end": transcript[i]["end"],
+            "text": transcript[i]["en_text"],
+        } for i in batch_indices]
+
+        try:
+            result = await process_llm_batch(batch_blocks)
+            for j, idx in enumerate(batch_indices):
+                if j < len(result):
+                    transcript[idx] = result[j]
+        except Exception as e:
+            print(f"Streaming batch failed (blocks stay marked for retry): {e}")
+
+        done += len(batch_indices)
+        payload["transcript"] = transcript
+        with open(save_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+
+        yield {
+            "blocks": [transcript[i] for i in batch_indices],
+            "progress": {"done": done, "total": total},
+        }
+        if batch_start + batch_size < total:
+            await asyncio.sleep(4)  # free-tier 15 RPM pacing
+
+
+@app.post("/api/process-video-stream")
+async def process_video_stream(request: VideoRequest):
+    async def gen():
+        try:
+            try:
+                video_id = extract_video_id(request.url)
+            except ValueError:
+                yield _sse("error", {"detail": "无效的 YouTube 链接，请检查后重试。"})
+                return
+
+            # --- Cached video: send everything we have, then repair gaps ---
+            cached_path = find_history_file_for_video(video_id)
+            cached = None
+            if cached_path:
+                try:
+                    with open(cached_path, "r", encoding="utf-8") as f:
+                        cached = json.load(f)
+                except json.JSONDecodeError:
+                    cached = None
+
+            if cached and cached.get("transcript"):
+                transcript = cached["transcript"]
+                yield _sse("meta", {
+                    "videoId": cached.get("videoId", video_id),
+                    "metadata": cached.get("metadata", {}),
+                    "blocks": transcript,
+                    "cached": True,
+                })
+                pending = [i for i, b in enumerate(transcript) if needs_retranslation(b.get("zh_text", ""))]
+                if pending:
+                    async for update in _stream_translate(transcript, pending, cached, cached_path):
+                        yield _sse("batch", update)
+                yield _sse("summary", {"summary": cached.get("summary", "")})
+                yield _sse("done", {"cached": True})
+                return
+
+            # --- Fresh video ---
+            try:
+                raw_transcript = fetch_english_transcript(video_id)
+            except HTTPException as e:
+                yield _sse("error", {"detail": e.detail})
+                return
+
+            try:
+                metadata = get_video_metadata(request.url)
+            except Exception as e:
+                print(f"Failed to fetch metadata: {e}")
+                metadata = {
+                    "title": "Unknown Title",
+                    "channel": "Unknown Channel",
+                    "upload_date": datetime.datetime.now().strftime("%Y%m%d"),
+                    "thumbnail": ""
+                }
+
+            en_blocks = group_transcript_blocks(raw_transcript)
+            transcript = []
+            for idx, b in enumerate(en_blocks):
+                transcript.append({
+                    "id": idx + 1,
+                    "start": b["start"],
+                    "end": b["end"],
+                    "en_text": b["text"].replace("\n", " ").strip(),
+                    "zh_text": UNTRANSLATED_MARKER,
+                    "highlights": [],
+                })
+
+            payload = {
+                "videoId": video_id,
+                "metadata": metadata,
+                "transcript": transcript,
+                "summary": "",
+            }
+            save_path = os.path.join(HISTORY_DIR, _history_filename(metadata, video_id))
+            with open(save_path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+
+            # English is ready — let the user start watching now
+            yield _sse("meta", {
+                "videoId": video_id,
+                "metadata": metadata,
+                "blocks": transcript,
+                "cached": False,
+            })
+
+            async for update in _stream_translate(transcript, list(range(len(transcript))), payload, save_path):
+                yield _sse("batch", update)
+
+            yield _sse("stage", {"stage": "summary"})
+            summary_text = await summarize_video_transcript([{"text": b["en_text"]} for b in transcript])
+            payload["summary"] = summary_text
+            with open(save_path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+
+            yield _sse("summary", {"summary": summary_text})
+            yield _sse("done", {"cached": False})
+
+        except Exception as e:
+            print(f"Stream processing error: {e}")
+            yield _sse("error", {"detail": f"处理失败：{e}"})
+
+    return StreamingResponse(
+        gen(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
+
 
 @app.get("/api/history")
 def list_history():
