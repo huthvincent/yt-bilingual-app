@@ -14,7 +14,9 @@ import asyncio
 import yt_dlp
 import json
 import os
+import time
 import datetime
+from concurrent.futures import ThreadPoolExecutor
 from dotenv import load_dotenv
 
 # Load .env file (for GEMINI_API_KEY etc.)
@@ -624,41 +626,58 @@ async def get_history(filename: str):
 class ChannelUpdatesRequest(BaseModel):
     channels: list[str]
 
-@app.post("/api/channel-updates")
-def get_channel_updates(request: ChannelUpdatesRequest):
+# Channel feeds change slowly; cache per-channel results so revisiting the
+# dashboard doesn't re-run yt-dlp for every subscription.
+_channel_cache: dict = {}  # channel_url -> (fetched_at, updates)
+CHANNEL_CACHE_TTL_SECONDS = 900
+
+
+def _fetch_channel_videos(channel_url: str) -> list:
+    """Fetch the latest videos for one channel (blocking, run in a thread)."""
+    cached = _channel_cache.get(channel_url)
+    if cached and time.time() - cached[0] < CHANNEL_CACHE_TTL_SECONDS:
+        return cached[1]
+
     updates = []
     ydl_opts = {
         'extract_flat': 'in_playlist',
-        'playlistend': 5, # Top 5 recent videos per channel
+        'playlistend': 5,  # Top 5 recent videos per channel
         'quiet': True,
-        'dateafter': 'now-7days'
     }
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        for channel_url in request.channels:
-            if not channel_url:
+    try:
+        target_url = channel_url.rstrip("/") + "/videos" if not channel_url.endswith("/videos") else channel_url
+        # One YoutubeDL instance per call: instances are not thread-safe
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(target_url, download=False)
+
+        channel_name = info.get('uploader', info.get('title', 'Unknown Channel'))
+        for entry in info.get('entries') or []:
+            if not entry:
                 continue
-            try:
-                target_url = channel_url.rstrip("/") + "/videos" if not channel_url.endswith("/videos") else channel_url
-                info = ydl.extract_info(target_url, download=False)
-                
-                channel_name = info.get('uploader', info.get('title', 'Unknown Channel'))
-                if 'entries' in info:
-                    for entry in info['entries']:
-                        if not entry: continue
-                        video_id = entry.get('id')
-                        # Sometimes title is None in flat extract depending on YT layout, try to fetch it
-                        title = entry.get('title')
-                        if video_id and title:
-                            updates.append({
-                                "videoId": video_id,
-                                "title": title,
-                                "channel": channel_name,
-                                "thumbnail": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg"
-                            })
-            except Exception as e:
-                print(f"Error fetching updates for {channel_url}: {e}")
-                
-    return {"updates": updates}
+            video_id = entry.get('id')
+            title = entry.get('title')
+            if video_id and title:
+                updates.append({
+                    "videoId": video_id,
+                    "title": title,
+                    "channel": channel_name,
+                    "thumbnail": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg"
+                })
+        _channel_cache[channel_url] = (time.time(), updates)
+    except Exception as e:
+        print(f"Error fetching updates for {channel_url}: {e}")
+    return updates
+
+
+@app.post("/api/channel-updates")
+def get_channel_updates(request: ChannelUpdatesRequest):
+    channels = [c for c in request.channels if c]
+    if not channels:
+        return {"updates": []}
+    # Fetch all subscribed channels concurrently instead of one-by-one
+    with ThreadPoolExecutor(max_workers=min(8, len(channels))) as pool:
+        results = pool.map(_fetch_channel_videos, channels)
+    return {"updates": [u for channel_updates in results for u in channel_updates]}
 
 # ====================================================
 # Local Subtitle (SRT) Integration
