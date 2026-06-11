@@ -35,6 +35,16 @@ body {
   width: 6px;
 }
 
+/* Ruby annotations (vocabulary glosses above highlighted words) */
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+ruby rt {
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
 .glass-panel {
   background: rgba(24, 24, 27, 0.6); /* zinc-900 / 60% */
   backdrop-filter: blur(20px);

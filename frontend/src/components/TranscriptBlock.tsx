@@ -69,22 +69,22 @@ export const HighlightedText: React.FC<{
             parts.push(renderPlain(text.slice(currentIndex, match.index), `text-${i}`));
         }
         const phrase = text.slice(match.index, match.index + match.length);
+        const clickProps = {
+            className: cn(match.color, onWordClick && "cursor-pointer hover:bg-purple-500/15 rounded-sm"),
+            onClick: onWordClick ? (e: React.MouseEvent) => { e.stopPropagation(); onWordClick(phrase, e); } : undefined,
+        };
+        // Annotation rendered as ruby above the word instead of inline
+        // parentheses, so the Chinese gloss doesn't interrupt the English flow.
         parts.push(
-            <span
-                key={`hl-${i}`}
-                className={cn(match.color, onWordClick && "cursor-pointer hover:bg-purple-500/15 rounded-sm")}
-                onClick={onWordClick ? (e) => { e.stopPropagation(); onWordClick(phrase, e); } : undefined}
-            >
-                {phrase}
-            </span>
+            match.annotation ? (
+                <ruby key={`hl-${i}`} {...clickProps}>
+                    {phrase}
+                    <rt className="text-[10px] text-purple-300/80 font-normal select-none">{match.annotation}</rt>
+                </ruby>
+            ) : (
+                <span key={`hl-${i}`} {...clickProps}>{phrase}</span>
+            )
         );
-        if (match.annotation) {
-            parts.push(
-                <span key={`ann-${i}`} className="text-xs text-purple-300/70 ml-0.5">
-                    ({match.annotation})
-                </span>
-            );
-        }
         currentIndex = match.index + match.length;
     });
 
