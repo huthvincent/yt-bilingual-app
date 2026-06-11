@@ -1,0 +1,11 @@
+{
+  "name": "lingua-nova-media-capture",
+  "private": true,
+  "type": "module",
+  "description": "Capture README screenshots and GIFs with Playwright",
+  "devDependencies": {
+    "playwright": "^1.49.0",
+    "gifenc": "^1.0.3",
+    "pngjs": "^7.0.0"
+  }
+}
