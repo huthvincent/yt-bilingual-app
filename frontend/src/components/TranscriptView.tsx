@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { TranscriptBlock } from './TranscriptBlock';
-import type { TranslationMode } from '../lib/transcript';
+import { findActiveIndex, type TranslationMode } from '../lib/transcript';
 
 interface TranscriptItem {
     id: number;
@@ -36,25 +36,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Add an offset so the text moves slightly before the rigid timestamp boundary.
-    // YouTube transcripts can be slightly padded, and humans read ahead of the spoken word.
-    const effectiveTime = currentTime + 0.8;
-
-    let activeIndex = -1;
-    for (let i = 0; i < transcript.length; i++) {
-        const item = transcript[i];
-        if (effectiveTime >= item.start && effectiveTime < item.end) {
-            // Exact match inside the block
-            activeIndex = i;
-            break;
-        } else if (effectiveTime >= item.end) {
-            // Video has passed this block, it might be a gap, keep it as the active one until the next one starts
-            activeIndex = i;
-        } else {
-            // We have reached a block that starts in the future, stop searching
-            break;
-        }
-    }
+    const activeIndex = findActiveIndex(transcript, currentTime);
 
     useEffect(() => {
         // Page-by-page scroll: only scroll when active block is outside the visible area

@@ -19,6 +19,31 @@ export function loadTranslationMode(): TranslationMode {
     return saved === 'all' || saved === 'active' || saved === 'hidden' ? saved : 'active';
 }
 
+// Lookahead so the highlight moves slightly before the rigid timestamp
+// boundary — YouTube transcripts are padded and humans read ahead.
+export const ACTIVE_LOOKAHEAD_SECONDS = 0.8;
+
+/** Index of the sentence being spoken at currentTime (-1 before the first). */
+export function findActiveIndex(
+    transcript: Array<{ start: number; end: number }>,
+    currentTime: number,
+): number {
+    const effectiveTime = currentTime + ACTIVE_LOOKAHEAD_SECONDS;
+    let activeIndex = -1;
+    for (let i = 0; i < transcript.length; i++) {
+        const item = transcript[i];
+        if (effectiveTime >= item.start && effectiveTime < item.end) {
+            return i;
+        } else if (effectiveTime >= item.end) {
+            // Inside a gap — the previous block stays active until the next starts
+            activeIndex = i;
+        } else {
+            break;
+        }
+    }
+    return activeIndex;
+}
+
 export interface SseEvent {
     event: string;
     data: any;

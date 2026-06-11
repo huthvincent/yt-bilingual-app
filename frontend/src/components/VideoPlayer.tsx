@@ -8,11 +8,30 @@ interface VideoPlayerProps {
     onTimeUpdate: (time: number) => void;
     seekCommand?: { time: number; timestamp: number } | null;
     wrapperRef?: React.RefObject<HTMLDivElement | null>;
+    playbackRate?: number;
+    playToggleCommand?: number | null; // timestamp; toggles play/pause when it changes
 }
 
-export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate, seekCommand, wrapperRef }) => {
+export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate, seekCommand, wrapperRef, playbackRate = 1, playToggleCommand }) => {
     const playerRef = useRef<any>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const isPlayingRef = useRef(false);
+
+    // Apply playback rate (also re-applied when a new video loads)
+    useEffect(() => {
+        try {
+            playerRef.current?.setPlaybackRate(playbackRate);
+        } catch { /* player not ready yet */ }
+    }, [playbackRate, videoId]);
+
+    // Toggle play/pause on command (keyboard space)
+    useEffect(() => {
+        if (!playToggleCommand || !playerRef.current) return;
+        try {
+            if (isPlayingRef.current) playerRef.current.pauseVideo();
+            else playerRef.current.playVideo();
+        } catch { /* ignore */ }
+    }, [playToggleCommand]);
 
     // Watch for seek commands
     useEffect(() => {
@@ -59,6 +78,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, onTimeUpdate,
     const onStateChange: YouTubeProps['onStateChange'] = (event) => {
         // PlayerState.PLAYING = 1
         setIsPlaying(event.data === 1);
+        isPlayingRef.current = event.data === 1;
     };
 
     const [isFullscreen, setIsFullscreen] = useState(false);

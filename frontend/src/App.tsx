@@ -1,7 +1,7 @@
 import { apiFetch } from './lib/api';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Star, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle, Repeat, Keyboard } from 'lucide-react';
 import { InputScreen } from './components/InputScreen';
 import { VideoPlayer } from './components/VideoPlayer';
 import { TranscriptView } from './components/TranscriptView';
@@ -9,7 +9,7 @@ import { FavoritesModal, type FavoriteItem } from './components/FavoritesModal';
 import { ChannelVideoList } from './components/ChannelVideoList';
 import { Toaster } from './components/Toaster';
 import { toast, describeApiError } from './lib/toast';
-import { consumeSseStream, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
+import { consumeSseStream, findActiveIndex, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
 import ReactMarkdown from 'react-markdown';
 
 interface TranscriptItem {
@@ -38,6 +38,12 @@ function App() {
   const fullscreenWrapperRef = useRef<HTMLDivElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
+
+  // Playback controls: speed, play/pause command, single-sentence loop
+  const [playbackRate, setPlaybackRate] = useState(1);
+  const [playToggleCommand, setPlayToggleCommand] = useState<number | null>(null);
+  const [loopEnabled, setLoopEnabled] = useState(false);
+  const loopBlockRef = useRef<{ start: number; end: number } | null>(null);
 
   // Global policy for showing the Chinese line (persisted)
   const [translationMode, setTranslationMode] = useState<TranslationMode>(loadTranslationMode);
@@ -420,6 +426,81 @@ function App() {
     setCurrentTime(time);
   }, []);
 
+  // Unified seek for both YouTube and local-subtitle modes
+  const seekTo = useCallback((time: number) => {
+    if (metadata?.is_local_subtitle) {
+      startSubtitleTimer(time);
+    } else {
+      setSeekCommand({ time, timestamp: Date.now() });
+    }
+  }, [metadata?.is_local_subtitle]);
+
+  const toggleLoop = useCallback(() => {
+    setLoopEnabled(prev => {
+      if (prev) {
+        loopBlockRef.current = null;
+        return false;
+      }
+      const idx = findActiveIndex(transcript, currentTime);
+      if (idx < 0) return false;
+      loopBlockRef.current = { start: transcript[idx].start, end: transcript[idx].end };
+      return true;
+    });
+  }, [transcript, currentTime]);
+
+  // Single-sentence loop: jump back when playback passes the pinned block
+  useEffect(() => {
+    if (!loopEnabled || !loopBlockRef.current) return;
+    if (currentTime > loopBlockRef.current.end + 0.05) {
+      seekTo(loopBlockRef.current.start);
+    }
+  }, [currentTime, loopEnabled, seekTo]);
+
+  // Keyboard shortcuts: Space play/pause, ←→ prev/next sentence, R replay, L loop
+  useEffect(() => {
+    if (!videoId || transcript.length === 0) return;
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) return;
+
+      switch (e.key) {
+        case ' ':
+          e.preventDefault();
+          if (metadata?.is_local_subtitle) {
+            if (isSubtitlePlaying) pauseSubtitleTimer();
+            else startSubtitleTimer(currentTime);
+          } else {
+            setPlayToggleCommand(Date.now());
+          }
+          break;
+        case 'ArrowLeft': {
+          e.preventDefault();
+          const idx = findActiveIndex(transcript, currentTime);
+          const prev = transcript[Math.max(0, idx - 1)];
+          if (prev) seekTo(prev.start);
+          break;
+        }
+        case 'ArrowRight': {
+          e.preventDefault();
+          const idx = findActiveIndex(transcript, currentTime);
+          const next = transcript[Math.min(transcript.length - 1, idx + 1)];
+          if (next) seekTo(next.start);
+          break;
+        }
+        case 'r': case 'R': {
+          const idx = findActiveIndex(transcript, currentTime);
+          if (idx >= 0) seekTo(transcript[idx].start);
+          break;
+        }
+        case 'l': case 'L':
+          toggleLoop();
+          break;
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [videoId, transcript, currentTime, metadata?.is_local_subtitle, isSubtitlePlaying, seekTo, toggleLoop]);
+
   const handleGoHome = () => {
     cancelTranslationStream();
     setVideoId('');
@@ -495,6 +576,8 @@ function App() {
                 seekCommand={seekCommand}
                 onTimeUpdate={handleTimeUpdate}
                 wrapperRef={fullscreenWrapperRef}
+                playbackRate={playbackRate}
+                playToggleCommand={playToggleCommand}
               />
             </div>
             {metadata?.channel && (
@@ -707,7 +790,7 @@ function App() {
                   </div>
                 )}
 
-                {/* Transcript toolbar: global translation display mode */}
+                {/* Transcript toolbar: translation mode, loop, speed */}
                 <div className="flex-none flex items-center gap-3 px-4 py-2 bg-zinc-900/80 border-b border-white/5 z-20">
                   <span className="text-xs text-zinc-500 font-medium shrink-0">中文译文</span>
                   <div className="flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
@@ -729,6 +812,43 @@ function App() {
                       </button>
                     ))}
                   </div>
+
+                  <div className="w-px h-4 bg-white/10 shrink-0" />
+
+                  <button
+                    onClick={toggleLoop}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
+                      loopEnabled
+                        ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
+                        : 'bg-zinc-800/80 text-zinc-400 border-white/5 hover:text-zinc-200'
+                    }`}
+                    title="单句循环（快捷键 L）"
+                  >
+                    <Repeat className="w-3.5 h-3.5" />
+                    单句循环
+                  </button>
+
+                  {!metadata?.is_local_subtitle && (
+                    <select
+                      value={playbackRate}
+                      onChange={(e) => setPlaybackRate(parseFloat(e.target.value))}
+                      className="bg-zinc-800/80 text-zinc-300 text-xs font-medium rounded-lg border border-white/5 px-2 py-1 outline-none cursor-pointer hover:text-zinc-100 shrink-0"
+                      title="播放速度"
+                    >
+                      {[0.5, 0.75, 1, 1.25, 1.5, 2].map(r => (
+                        <option key={r} value={r}>{r}x</option>
+                      ))}
+                    </select>
+                  )}
+
+                  <div className="flex-1" />
+
+                  <span
+                    className="hidden lg:flex items-center gap-1 text-[11px] text-zinc-600 shrink-0 cursor-default"
+                    title="空格：播放/暂停 · ← →：上一句/下一句 · R：重播本句 · L：单句循环"
+                  >
+                    <Keyboard className="w-3.5 h-3.5" /> 空格 ← → R L
+                  </span>
                 </div>
 
                 {/* Streaming translation progress */}
@@ -769,11 +889,12 @@ function App() {
                     videoId={videoId}
                     favorites={favorites.map(f => f.id)}
                     onTranscriptClick={(time) => {
-                      if (metadata?.is_local_subtitle) {
-                        startSubtitleTimer(time);
-                      } else {
-                        setSeekCommand({ time, timestamp: Date.now() });
+                      // Re-pin the loop to the clicked sentence
+                      if (loopEnabled) {
+                        const block = transcript.find(b => b.start === time);
+                        if (block) loopBlockRef.current = { start: block.start, end: block.end };
                       }
+                      seekTo(time);
                     }}
                     onToggleFavorite={handleToggleFavorite}
                     translationMode={translationMode}
