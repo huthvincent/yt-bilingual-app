@@ -1,5 +1,6 @@
 import React from 'react';
-import { X, Play, Trash2, Star } from 'lucide-react';
+import { X, Play, Trash2, Star, Download, FileSpreadsheet } from 'lucide-react';
+import { exportAnkiTsv, exportCsv } from '../lib/exporter';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export interface FavoriteItem {
@@ -102,9 +103,29 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({ isOpen, onClose,
                     >
                         <div className="flex items-center justify-between p-8 border-b border-white/5 shrink-0">
                             <h2 className="text-3xl font-extrabold text-zinc-100 tracking-tight">My Favorites</h2>
-                            <button onClick={onClose} className="p-2 text-zinc-400 hover:text-white rounded-full hover:bg-zinc-800 transition-colors">
-                                <X className="w-6 h-6" />
-                            </button>
+                            <div className="flex items-center gap-2">
+                                {favorites.length > 0 && (
+                                    <>
+                                        <button
+                                            onClick={() => exportAnkiTsv(favorites)}
+                                            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white bg-zinc-800/60 hover:bg-zinc-700/60 border border-white/5 rounded-xl transition-colors"
+                                            title="导出为 Anki 可导入的 TSV 文件（前面：英文，背面：中文+例句）"
+                                        >
+                                            <Download className="w-4 h-4" /> 导出 Anki
+                                        </button>
+                                        <button
+                                            onClick={() => exportCsv(favorites)}
+                                            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white bg-zinc-800/60 hover:bg-zinc-700/60 border border-white/5 rounded-xl transition-colors"
+                                            title="导出为 CSV 表格（含完整上下文）"
+                                        >
+                                            <FileSpreadsheet className="w-4 h-4" /> 导出 CSV
+                                        </button>
+                                    </>
+                                )}
+                                <button onClick={onClose} className="p-2 text-zinc-400 hover:text-white rounded-full hover:bg-zinc-800 transition-colors">
+                                    <X className="w-6 h-6" />
+                                </button>
+                            </div>
                         </div>
 
                         <div className="p-8 overflow-y-auto flex-1 custom-scrollbar space-y-8">
