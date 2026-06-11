@@ -72,7 +72,7 @@ interface TranscriptBlockProps {
     onToggleFavorite?: (e: React.MouseEvent) => void;
 }
 
-export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, end, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite }) => {
+export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite }) => {
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);

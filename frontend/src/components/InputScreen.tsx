@@ -206,7 +206,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-4">
-                                    {history.slice(0, 3).map((item, i) => (
+                                    {history.slice(0, 3).map((item) => (
                                         <motion.div
                                             key={item.filename}
                                             whileHover={{ scale: 1.02 }}
