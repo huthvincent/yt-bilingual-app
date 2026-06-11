@@ -2,7 +2,14 @@ import re
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api import (
+    YouTubeTranscriptApi,
+    TranscriptsDisabled,
+    NoTranscriptFound,
+    VideoUnavailable,
+    IpBlocked,
+    RequestBlocked,
+)
 import asyncio
 import yt_dlp
 import json
@@ -147,6 +154,22 @@ def group_transcript_blocks(transcript: list) -> list:
         blocks.append(current_block)
         
     return blocks
+
+def fetch_english_transcript(video_id: str):
+    """Fetch the English transcript, mapping failures to actionable errors."""
+    try:
+        return YouTubeTranscriptApi().fetch(video_id, languages=['en'])
+    except TranscriptsDisabled:
+        raise HTTPException(status_code=422, detail="该视频关闭了字幕功能，无法获取英文字幕。")
+    except NoTranscriptFound:
+        raise HTTPException(status_code=422, detail="该视频没有英文字幕（包括自动生成字幕）。")
+    except VideoUnavailable:
+        raise HTTPException(status_code=404, detail="视频不可用：可能已删除、设为私密或有地区限制。")
+    except (IpBlocked, RequestBlocked):
+        raise HTTPException(status_code=429, detail="YouTube 暂时限制了当前 IP 的字幕请求，请稍后再试。")
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"获取字幕失败：{e}")
+
 
 def get_video_metadata(url: str):
     """Fetch video metadata using yt-dlp"""
@@ -318,8 +341,8 @@ async def summarize_video_transcript(blocks: list) -> str:
 def estimate_cost(url: str):
     try:
         video_id = extract_video_id(url)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    except ValueError:
+        raise HTTPException(status_code=400, detail="无效的 YouTube 链接，请检查后重试。")
         
     try:
         metadata = get_video_metadata(url)
@@ -327,13 +350,10 @@ def estimate_cost(url: str):
         print(f"Failed to fetch metadata for estimate: {e}")
         metadata = {"title": "Unknown Title", "channel": "Unknown Channel", "thumbnail": ""}
 
-    try:
-        # Fetch English transcript to calculate length
-        api = YouTubeTranscriptApi()
-        transcript = api.fetch(video_id, languages=['en'])
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Could not fetch English transcript: {str(e)}")
-        
+    # Fetch English transcript to calculate length
+    transcript = fetch_english_transcript(video_id)
+
+
     # Calculate rough token estimate. (English word ~ 1.3 tokens).
     # We also have the system prompt and Chinese output.
     # Chinese output is usually roughly similar token count to English input in some tokenizers, or slightly more.
@@ -462,8 +482,8 @@ async def retranslate_marked_blocks(data: dict, cache_path: str) -> dict:
 async def process_video(request: VideoRequest):
     try:
         video_id = extract_video_id(request.url)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    except ValueError:
+        raise HTTPException(status_code=400, detail="无效的 YouTube 链接，请检查后重试。")
 
     # Already processed? Serve the cached result (repairing any failed
     # translations) instead of re-fetching and re-paying for the whole video.
@@ -488,13 +508,10 @@ async def process_video(request: VideoRequest):
             "thumbnail": ""
         }
 
-    try:
-        # Fetch English transcript
-        api = YouTubeTranscriptApi()
-        transcript = api.fetch(video_id, languages=['en'])
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Could not fetch English transcript: {str(e)}")
-        
+    # Fetch English transcript
+    transcript = fetch_english_transcript(video_id)
+
+
     # Group transcript snippets into sentences/blocks
     blocks = group_transcript_blocks(transcript)
     

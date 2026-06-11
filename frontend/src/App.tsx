@@ -7,6 +7,8 @@ import { VideoPlayer } from './components/VideoPlayer';
 import { TranscriptView } from './components/TranscriptView';
 import { FavoritesModal, type FavoriteItem } from './components/FavoritesModal';
 import { ChannelVideoList } from './components/ChannelVideoList';
+import { Toaster } from './components/Toaster';
+import { toast, describeApiError } from './lib/toast';
 import ReactMarkdown from 'react-markdown';
 
 interface TranscriptItem {
@@ -43,7 +45,7 @@ function App() {
     }
 
     if (!('documentPictureInPicture' in window)) {
-      alert("Your browser doesn't support the Document Picture-in-Picture API. Please use Chrome or Edge 116+.");
+      toast.error('当前浏览器不支持画中画窗口（Document PiP），请使用 Chrome / Edge 116+。');
       return;
     }
 
@@ -82,7 +84,7 @@ function App() {
       setPipWindow(newPipWindow);
     } catch (err) {
       console.error(err);
-      alert("Failed to open OS popup window.");
+      toast.error('打开悬浮窗失败，请重试。');
     }
   };
 
@@ -260,7 +262,7 @@ function App() {
     const id = match ? match[1] : null;
 
     if (!id) {
-      alert("Invalid YouTube URL");
+      toast.error('无效的 YouTube 链接，请检查后重试。');
       return;
     }
 
@@ -277,7 +279,7 @@ function App() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to process video");
+        throw new Error(await describeApiError(response));
       }
 
       const data = await response.json();
@@ -289,7 +291,7 @@ function App() {
 
     } catch (error) {
       console.error(error);
-      alert("Failed to process video. Please check the backend is running and the video has closed captions.");
+      toast.error(await describeApiError(error));
     } finally {
       setLoadingState(null);
     }
@@ -319,7 +321,7 @@ function App() {
           body: JSON.stringify({ show_id: showId, season, episode }),
         });
 
-        if (!response.ok) throw new Error('Failed to process subtitle');
+        if (!response.ok) throw new Error(await describeApiError(response));
 
         const data = await response.json();
         setTranscript(data.transcript);
@@ -330,7 +332,7 @@ function App() {
       }
     } catch (error) {
       console.error(error);
-      alert('Failed to process subtitle file.');
+      toast.error(await describeApiError(error));
     } finally {
       setLoadingState(null);
     }
@@ -340,7 +342,7 @@ function App() {
     setLoadingState('loading');
     try {
       const response = await fetch(api(`/api/history/${filename}`));
-      if (!response.ok) throw new Error("Failed to load history");
+      if (!response.ok) throw new Error(await describeApiError(response));
 
       const data = await response.json();
       setTranscript(data.transcript);
@@ -350,7 +352,7 @@ function App() {
       setCurrentTime(0);
     } catch (error) {
       console.error(error);
-      alert("Failed to load history file.");
+      toast.error(await describeApiError(error));
     } finally {
       setLoadingState(null);
     }
@@ -700,6 +702,8 @@ function App() {
         onLoadHistory={handleLoadHistory}
         onReprocess={(videoId) => handleUrlSubmit(`https://www.youtube.com/watch?v=${videoId}`)}
       />
+
+      <Toaster />
     </div>
   );
 }
