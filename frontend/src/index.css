@@ -10,12 +10,24 @@ body {
   color: #f4f4f5; /* zinc-100 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Custom Webkit Scrollbar */
+/* Keyboard focus: one consistent ring across the product */
+:focus-visible {
+  outline: 2px solid rgba(10, 132, 255, 0.65);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+::selection {
+  background: rgba(10, 132, 255, 0.3);
+}
+
+/* Custom Webkit Scrollbar — thin, quiet, macOS-like */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -23,12 +35,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background-clip: padding-box;
+  border: 1px solid transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -219,17 +233,27 @@ ruby rt {
   letter-spacing: 0;
 }
 
+/* Vibrancy materials: saturate() makes background color bleed through the
+   blur the way macOS materials do; the inset highlight is the top hairline
+   catch-light that sells the "pane of glass" read. */
 .glass-panel {
-  background: rgba(24, 24, 27, 0.6); /* zinc-900 / 60% */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(24, 24, 27, 0.55); /* zinc-900 */
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 1px 1px rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .glass-card {
-  background: rgba(39, 39, 42, 0.4); /* zinc-800 / 40% */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: rgba(39, 39, 42, 0.4); /* zinc-800 */
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 1px 1px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.2);
 }

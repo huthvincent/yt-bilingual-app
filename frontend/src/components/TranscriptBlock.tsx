@@ -24,7 +24,7 @@ const ClickableWords: React.FC<{ text: string; onWordClick: WordClickHandler }> 
                 <span
                     key={i}
                     onClick={(e) => { e.stopPropagation(); onWordClick(word, e); }}
-                    className="cursor-pointer rounded-sm hover:bg-blue-500/15 hover:text-blue-300 transition-colors"
+                    className="cursor-pointer rounded-sm hover:bg-white/10 transition-colors"
                 >
                     {token}
                 </span>
@@ -70,7 +70,7 @@ export const HighlightedText: React.FC<{
         }
         const phrase = text.slice(match.index, match.index + match.length);
         const clickProps = {
-            className: cn(match.color, onWordClick && "cursor-pointer hover:bg-purple-500/15 rounded-sm"),
+            className: cn(match.color, onWordClick && "cursor-pointer hover:bg-white/10 rounded-sm"),
             onClick: onWordClick ? (e: React.MouseEvent) => { e.stopPropagation(); onWordClick(phrase, e); } : undefined,
         };
         // Annotation rendered as ruby above the word instead of inline
@@ -79,7 +79,7 @@ export const HighlightedText: React.FC<{
             match.annotation ? (
                 <ruby key={`hl-${i}`} {...clickProps}>
                     {phrase}
-                    <rt className="text-[10px] text-purple-300/80 font-normal select-none">{match.annotation}</rt>
+                    <rt className="text-[10px] font-medium text-purple-300/90 select-none">{match.annotation}</rt>
                 </ruby>
             ) : (
                 <span key={`hl-${i}`} {...clickProps}>{phrase}</span>
@@ -139,25 +139,25 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
     return (
         <div
             className={cn(
-                "relative px-4 py-3 rounded-2xl transition-colors duration-300 ease-in-out cursor-pointer group",
+                "relative px-4 py-3 rounded-2xl transition-colors duration-200 ease-apple cursor-pointer group",
                 !isActive && "hover:bg-zinc-800/40"
             )}
         >
             {isActive && (
                 <motion.div
                     layoutId="activeTranscript"
-                    className="absolute inset-0 bg-zinc-800/60 rounded-2xl border border-zinc-700/50 shadow-lg shadow-black/20"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="absolute inset-0 bg-zinc-800/60 rounded-2xl border border-white/10 shadow-[0_1px_1px_rgba(0,0,0,0.3),0_8px_24px_-8px_rgba(0,0,0,0.5)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
             )}
             <div className="relative z-10">
                 <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3">
                         <span className={cn(
-                            "text-xs font-mono tracking-wider",
+                            "text-[11px] font-medium tabular-nums",
                             isActive ? "text-blue-400" : "text-zinc-500"
                         )}>
-                            [{formatTime(start)}]
+                            {formatTime(start)}
                         </span>
                         <button
                             onClick={(e) => {
@@ -165,8 +165,8 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                                 setOverrideShow(!showTranslation);
                             }}
                             className={cn(
-                                "p-1 rounded-md transition-colors",
-                                showTranslation ? "bg-blue-500/10 text-blue-400" : "hover:bg-zinc-700 text-zinc-500 hover:text-zinc-300"
+                                "p-1.5 rounded-lg transition-colors",
+                                showTranslation ? "bg-blue-500/10 text-blue-400" : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                             )}
                             title="显示/隐藏本句译文"
                         >
@@ -179,7 +179,7 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                             e.stopPropagation();
                             onToggleFavorite?.(e);
                         }}
-                        className="p-1.5 rounded-md hover:bg-zinc-700/50 transition-colors opacity-0 group-hover:opacity-100 [@media(pointer:coarse)]:opacity-100"
+                        className="p-1.5 rounded-lg hover:bg-white/5 transition-[opacity,background-color] duration-200 opacity-0 group-hover:opacity-100 [@media(pointer:coarse)]:opacity-100"
                     >
                         <Star
                             className={cn("w-4 h-4 transition-colors", isFavorited ? "fill-amber-400 text-amber-400 opacity-100" : "text-zinc-500 hover:text-zinc-300")}
@@ -192,8 +192,8 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                         onClick={blurred ? (e) => { e.stopPropagation(); setRevealed(true); } : undefined}
                         title={blurred ? '点击显示原文' : undefined}
                         className={cn(
-                            "text-base leading-relaxed tracking-wide transition-all",
-                            isActive ? "text-zinc-100 font-medium" : "text-zinc-400",
+                            "text-base leading-relaxed tracking-normal transition-[filter,opacity,color] duration-300 ease-apple",
+                            isActive ? "text-zinc-50" : "text-zinc-400",
                             blurred && "blur-[6px] select-none opacity-60 hover:opacity-80 cursor-pointer"
                         )}
                     >
@@ -204,19 +204,19 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                         />
                     </p>
                     <div className={cn(
-                        "grid transition-all duration-300 ease-in-out",
+                        "grid transition-[grid-template-rows,opacity,margin] duration-300 ease-apple",
                         showTranslation ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0 mt-0"
                     )}>
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden min-h-0">
                             {isUntranslated(zhText) ? (
-                                <p className="text-[15px] leading-relaxed text-zinc-600 italic animate-pulse">
+                                <p className="text-[15px] leading-relaxed text-zinc-600 animate-pulse">
                                     翻译中…
                                 </p>
                             ) : (
                                 // 中文字号略大于 text-sm：汉字在小字号低对比度下比拉丁字母更难读
                                 <p className={cn(
-                                    "text-[15px] leading-relaxed transition-colors",
-                                    isActive ? "text-zinc-200" : "text-zinc-400"
+                                    "text-[15px] leading-relaxed transition-colors duration-300 ease-apple",
+                                    isActive ? "text-zinc-400" : "text-zinc-500"
                                 )}>
                                     <HighlightedText text={zhText} highlights={zhHighlights} />
                                 </p>

@@ -41,25 +41,25 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div
-                className="absolute inset-0 bg-zinc-950/80 backdrop-blur-md transition-opacity"
+                className="absolute inset-0 bg-zinc-950/70 backdrop-blur-md animate-[fadeIn_0.25s_ease-out]"
                 onClick={onClose}
             />
 
-            <div className="relative bg-[#09090b]/90 rounded-3xl w-full max-w-2xl border border-white/5 shadow-2xl flex flex-col overflow-hidden animate-[fadeIn_0.2s_ease-out] ring-1 ring-white/10">
+            <div className="relative bg-zinc-900/90 backdrop-blur-2xl rounded-2xl w-full max-w-2xl border border-white/10 shadow-2xl shadow-black/60 flex flex-col overflow-hidden animate-[slideUp_0.32s_cubic-bezier(0.25,1,0.5,1)]">
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-white/5 bg-white/5">
+                <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
                     <div>
-                        <h2 className="text-xl font-bold text-zinc-100 flex items-center gap-2">
+                        <h2 className="text-xl font-semibold tracking-tight text-zinc-100 flex items-center gap-2">
                             <Cpu className="w-5 h-5 text-blue-400" />
                             选择 AI 模型
                         </h2>
-                        <p className="text-sm text-zinc-400 mt-1">
+                        <p className="text-sm text-zinc-400 mt-0.5">
                             为本视频选择翻译模型（费用为整段字幕的预估）
                         </p>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-zinc-800 rounded-full text-zinc-400 hover:text-white transition-colors"
+                        className="p-2 rounded-full text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-colors"
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -69,9 +69,9 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                 <div className="p-6 space-y-6 flex-1 overflow-y-auto custom-scrollbar">
 
                     {/* Video Stats */}
-                    <div className="bg-zinc-800/30 rounded-2xl p-4 border border-white/5">
+                    <div className="bg-zinc-800/30 rounded-xl p-4 border border-white/5">
                         <div className="flex gap-4">
-                            <div className="w-32 h-20 bg-zinc-900 rounded-xl overflow-hidden shrink-0 border border-white/5">
+                            <div className="w-32 aspect-video bg-zinc-900 rounded-lg overflow-hidden shrink-0 border border-white/5">
                                 {estimationData.metadata?.thumbnail ? (
                                     <img src={estimationData.metadata.thumbnail} className="w-full h-full object-cover" alt="thumbnail" />
                                 ) : (
@@ -82,9 +82,9 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                 <h3 className="text-zinc-100 font-medium truncate mb-1">{estimationData.metadata?.title || '未知视频'}</h3>
                                 <p className="text-sm text-zinc-400 truncate mb-3">{estimationData.metadata?.channel || '未知频道'}</p>
 
-                                <div className="flex items-center gap-4 text-xs font-medium bg-zinc-900/50 p-2 rounded-xl inline-flex border border-white/5">
-                                    <span className="text-blue-400">词数： <span className="text-zinc-100 ml-1">{estimationData.transcriptStats.wordCount.toLocaleString()}</span></span>
-                                    <span className="text-purple-400">预估 Tokens： <span className="text-zinc-100 ml-1">~{(estimationData.transcriptStats.estimatedInputTokens + estimationData.transcriptStats.estimatedOutputTokens).toLocaleString()}</span></span>
+                                <div className="flex items-center gap-4 text-xs font-medium bg-zinc-900/50 p-2 rounded-lg inline-flex border border-white/5">
+                                    <span className="text-zinc-500">词数： <span className="text-zinc-100 tabular-nums ml-1">{estimationData.transcriptStats.wordCount.toLocaleString()}</span></span>
+                                    <span className="text-zinc-500">预估 Tokens： <span className="text-zinc-100 tabular-nums ml-1">~{(estimationData.transcriptStats.estimatedInputTokens + estimationData.transcriptStats.estimatedOutputTokens).toLocaleString()}</span></span>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
 
                     {/* Model Options */}
                     <div className="space-y-3">
-                        <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">可选模型</h3>
+                        <h3 className="text-xs font-medium text-zinc-500 tracking-normal mb-2">可选模型</h3>
 
                         {estimationData.models.map((model) => {
                             const isSelected = selectedModel === model.id;
@@ -103,8 +103,8 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                     key={model.id}
                                     onClick={() => isAvailable && setSelectedModel(model.id)}
                                     className={`
-                                        relative p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-4
-                                        ${isSelected ? 'border-blue-500/50 bg-blue-500/10' : 'border-white/5 bg-zinc-800/30 hover:border-white/10 hover:bg-zinc-800/50'}
+                                        relative p-4 rounded-xl border transition-[background-color,border-color] duration-200 active:scale-[0.99] cursor-pointer flex items-center gap-4
+                                        ${isSelected ? 'border-blue-500/50 bg-blue-500/10' : 'border-white/5 bg-zinc-800/30 hover:border-white/10 hover:bg-zinc-800/60'}
                                         ${!isAvailable ? 'opacity-50 cursor-not-allowed' : ''}
                                     `}
                                 >
@@ -118,11 +118,11 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                         <div className="flex items-center justify-between mb-1">
                                             <div className="flex items-center gap-2">
                                                 <h4 className="text-zinc-100 font-medium">{model.name}</h4>
-                                                <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 border border-white/5 text-zinc-300 font-medium">
+                                                <span className="text-[11px] px-2 py-0.5 rounded-full bg-zinc-800 border border-white/5 text-zinc-400 font-medium">
                                                     {model.provider}
                                                 </span>
                                             </div>
-                                            <div className="flex items-center gap-1 text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-1 rounded-md">
+                                            <div className="flex items-center gap-1 text-[11px] font-medium tabular-nums text-zinc-100 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
                                                 <DollarSign className="w-3 h-3" />
                                                 {model.estimatedCost.toFixed(4)}
                                             </div>
@@ -134,7 +134,7 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                                     </div>
 
                                     {!isAvailable && (
-                                        <div className="absolute inset-0 bg-zinc-950/40 rounded-2xl" />
+                                        <div className="absolute inset-0 bg-zinc-950/40 rounded-xl" />
                                     )}
                                 </div>
                             );
@@ -143,14 +143,14 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
                 </div>
 
                 {/* Footer */}
-                <div className="p-5 border-t border-white/5 bg-zinc-900/50 flex justify-end gap-3">
+                <div className="px-6 py-4 border-t border-white/5 flex justify-end gap-3">
                     <button
                         onClick={onClose}
-                        className="px-5 py-2.5 rounded-xl font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
+                        className="h-10 px-5 rounded-xl text-sm font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-colors"
                     >取消</button>
                     <button
                         onClick={() => onConfirm(selectedModel)}
-                        className="px-6 py-2.5 rounded-xl font-medium text-zinc-900 bg-zinc-100 hover:bg-white transition-all shadow-lg shadow-white/10 flex items-center gap-2 hover:scale-105 active:scale-95"
+                        className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-zinc-100 text-zinc-900 text-sm font-semibold hover:bg-white active:scale-[0.98] transition-all duration-200"
                     >
                         确认并开始
                     </button>

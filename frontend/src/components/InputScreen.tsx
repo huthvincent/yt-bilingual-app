@@ -25,13 +25,13 @@ const containerVariants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: { staggerChildren: 0.1 }
+        transition: { staggerChildren: 0.06 }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+    hidden: { opacity: 0, y: 16 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 340, damping: 30, mass: 0.9 } }
 };
 
 export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel }) => {
@@ -108,10 +108,10 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 {((isLoading || loadingState) && !isEstimating) && (
                     <motion.div 
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-md flex flex-col items-center justify-center"
+                        className="fixed inset-0 z-50 bg-zinc-950/70 backdrop-blur-md flex flex-col items-center justify-center"
                     >
                         <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
-                        <h2 className="text-2xl font-bold text-zinc-100 mb-2">
+                        <h2 className="text-xl font-semibold tracking-tight text-zinc-100 mb-2">
                             {loadingState === 'asr' ? '本地 AI 转写中…' : loadingState === 'processing' ? '正在获取字幕…' : '加载中…'}
                         </h2>
                         {loadingState === 'processing' && (
@@ -126,10 +126,10 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 {isEstimating && (
                     <motion.div 
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-md flex flex-col items-center justify-center"
+                        className="fixed inset-0 z-50 bg-zinc-950/70 backdrop-blur-md flex flex-col items-center justify-center"
                     >
                         <Loader2 className="w-12 h-12 text-zinc-300 animate-spin mb-6" />
-                        <h2 className="text-2xl font-bold text-zinc-100 mb-2">正在分析视频…</h2>
+                        <h2 className="text-xl font-semibold tracking-tight text-zinc-100 mb-2">正在分析视频…</h2>
                         <p className="text-zinc-400">统计字幕长度，预估处理费用</p>
                     </motion.div>
                 )}
@@ -154,10 +154,10 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>
                         Lingua Nova Engine
                     </div>
-                    <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-500 tracking-tight mb-4">
+                    <h2 className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 tracking-[-0.015em] mb-4">
                         看 YouTube，学英语
                     </h2>
-                    <p className="text-lg text-zinc-400 font-medium max-w-2xl mx-auto">
+                    <p className="text-lg text-zinc-400 font-normal leading-relaxed max-w-2xl mx-auto">
                         粘贴视频链接，AI 生成同步双语字幕，按你的水平高亮生词，并附中文总结。
                     </p>
                 </motion.div>
@@ -165,8 +165,8 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 {/* Search Bar - Floating Arc Style */}
                 <motion.form variants={itemVariants} className="max-w-3xl mx-auto w-full relative" onSubmit={handleSubmit}>
                     <div className="relative group">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-[32px] blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                        <div className="relative flex items-center glass-card rounded-[32px] p-2 pl-6 pr-2 border border-zinc-700/50 hover:border-zinc-500/50 transition-colors">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/15 to-purple-500/15 rounded-full blur opacity-25 group-focus-within:opacity-60 transition-opacity duration-300 ease-apple"></div>
+                        <div className="relative flex items-center glass-card rounded-full p-2 pl-6 pr-2 border border-white/10 hover:border-white/20 focus-within:border-brand/60 focus-within:ring-4 focus-within:ring-brand/15 transition-[border-color,box-shadow] duration-200 ease-apple">
                             <Search className="w-5 h-5 text-zinc-400" />
                             <input
                                 id="video-url"
@@ -182,7 +182,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <button
                                 type="submit"
                                 disabled={isLoading || !url.trim()}
-                                className="flex items-center gap-2 whitespace-nowrap shrink-0 bg-zinc-100 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                                className="inline-flex items-center justify-center gap-2 whitespace-nowrap shrink-0 h-12 px-6 rounded-full bg-zinc-100 text-zinc-900 text-sm font-semibold hover:bg-white active:scale-[0.98] transition-[background-color,transform,opacity] duration-200 ease-apple disabled:opacity-50"
                             >
                                 {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : '开始学习'}
                                 {!isLoading && <ArrowRight className="w-4 h-4" />}
@@ -194,19 +194,26 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 {/* Learner level: calibrates which words get highlighted */}
                 <motion.div variants={itemVariants} className="max-w-3xl mx-auto w-full flex items-center justify-center gap-2 -mt-6">
                     <span className="text-xs text-zinc-500">生词水平：</span>
-                    <div className="flex items-center rounded-lg bg-zinc-800/60 p-0.5 border border-white/5">
+                    <div className="inline-flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
                         {VOCAB_LEVELS.map(level => (
                             <button
                                 key={level.id}
                                 type="button"
                                 onClick={() => handleVocabLevelChange(level.id)}
-                                className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
+                                className={`relative px-2.5 py-1 text-xs font-medium rounded-md whitespace-nowrap transition-colors ${
                                     vocabLevel === level.id
-                                        ? 'bg-zinc-100 text-zinc-900 shadow-sm'
+                                        ? 'text-zinc-900'
                                         : 'text-zinc-400 hover:text-zinc-200'
                                 }`}
                             >
-                                {level.label}
+                                {vocabLevel === level.id && (
+                                    <motion.span
+                                        layoutId="vocabLevelThumb"
+                                        className="absolute inset-0 bg-zinc-100 rounded-md shadow-sm"
+                                        transition={{ type: 'spring', stiffness: 420, damping: 36 }}
+                                    />
+                                )}
+                                <span className="relative z-10">{level.label}</span>
                             </button>
                         ))}
                     </div>
@@ -219,11 +226,11 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                     {/* Left Column: Recent Learning */}
                     <div className="md:col-span-7 flex flex-col gap-6">
                         {/* History Card */}
-                        <div className="glass-panel rounded-3xl p-6 h-full border border-zinc-800/50 relative overflow-hidden group">
+                        <div className="glass-panel rounded-3xl p-6 h-full relative overflow-hidden group">
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 text-zinc-100">
                                     <Clock className="w-5 h-5" />
-                                    <h3 className="font-semibold text-lg">最近学习</h3>
+                                    <h3 className="text-[17px] font-semibold tracking-tight">最近学习</h3>
                                 </div>
                                 <div className="flex gap-1">
                                     <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
@@ -233,25 +240,29 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             </div>
 
                             {history.length === 0 ? (
-                                <div className="flex flex-col items-center justify-center h-48 text-zinc-500">
-                                    <p>还没有学习记录，粘贴一个视频链接开始吧</p>
+                                <div className="flex flex-col items-center justify-center py-16 text-center">
+                                    <Clock className="w-10 h-10 text-zinc-700 mb-3" />
+                                    <p className="text-sm font-medium text-zinc-400">还没有学习记录，粘贴一个视频链接开始吧</p>
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-4">
                                     {history.slice(0, 3).map((item) => (
                                         <motion.div
                                             key={item.filename}
-                                            whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
+                                            transition={{ type: "spring", stiffness: 550, damping: 35 }}
                                             onClick={() => onLoadHistory(item.filename)}
-                                            className="flex items-center gap-4 bg-zinc-800/30 hover:bg-zinc-800/60 p-3 rounded-2xl cursor-pointer transition-colors border border-zinc-700/30"
+                                            data-testid="history-card"
+                                            className="group/card flex items-center gap-4 p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 border border-white/5 hover:border-white/10 transition-colors cursor-pointer"
                                         >
-                                            <div className="relative w-24 h-16 rounded-xl overflow-hidden bg-zinc-900 shrink-0">
+                                            <div className="relative w-24 aspect-video rounded-lg overflow-hidden bg-zinc-900 shrink-0">
                                                 {item.metadata?.thumbnail && (
                                                     <img src={item.metadata.thumbnail} alt="thumb" className="w-full h-full object-cover" />
                                                 )}
-                                                <div className="absolute inset-0 bg-black/20 group-hover/card:bg-black/40 flex items-center justify-center transition-colors">
-                                                    <Play className="w-5 h-5 text-white opacity-80" />
+                                                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
+                                                    <span className="bg-white/15 backdrop-blur-md p-3 rounded-full">
+                                                        <Play className="w-5 h-5 text-white fill-current" />
+                                                    </span>
                                                 </div>
                                                 {item.videoId && progressPercent(item.videoId) !== null && (
                                                     <div className="absolute bottom-0 inset-x-0 h-1 bg-black/60">
@@ -278,10 +289,10 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         </div>
 
                         {/* Local Shows Section */}
-                        <div className="glass-panel rounded-3xl p-6 border border-zinc-800/50 relative overflow-hidden">
+                        <div className="glass-panel rounded-3xl p-6 relative overflow-hidden">
                              <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Tv className="w-5 h-5 text-blue-400" />
-                                <h3 className="font-semibold text-lg">本地剧集</h3>
+                                <h3 className="text-[17px] font-semibold tracking-tight">本地剧集</h3>
                             </div>
                             <ShowBrowser onSelectEpisode={onSelectEpisode} isLoading={!!isLoading} />
                         </div>
@@ -292,18 +303,19 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         
                         {/* Channels Bento */}
                         {subscriptions && subscriptions.length > 0 && (
-                            <div className="glass-panel rounded-3xl p-6 border border-zinc-800/50">
+                            <div className="glass-panel rounded-3xl p-6">
                                 <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                     <Youtube className="w-5 h-5 text-red-500" />
-                                    <h3 className="font-semibold text-lg">订阅频道</h3>
+                                    <h3 className="text-[17px] font-semibold tracking-tight">订阅频道</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {subscriptions.slice(0, 6).map(sub => (
-                                        <motion.div 
-                                            whileHover={{ scale: 1.05 }}
+                                        <motion.div
+                                            whileTap={{ scale: 0.98 }}
+                                            transition={{ type: "spring", stiffness: 550, damping: 35 }}
                                             key={sub.id}
                                             onClick={() => onSelectChannel(sub.name)}
-                                            className="px-4 py-2 rounded-xl bg-zinc-800/40 border border-zinc-700/50 hover:bg-zinc-700/50 text-sm text-zinc-300 font-medium cursor-pointer transition-colors"
+                                            className="inline-flex items-center h-8 px-3 rounded-lg bg-zinc-800/60 hover:bg-zinc-700/60 border border-white/5 text-sm font-medium text-zinc-300 hover:text-zinc-100 cursor-pointer transition-colors"
                                         >
                                             {sub.name}
                                         </motion.div>
@@ -313,24 +325,27 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         )}
 
                         {/* Updates Bento */}
-                        <div className="glass-panel rounded-3xl p-6 flex-1 border border-zinc-800/50 flex flex-col">
+                        <div className="glass-panel rounded-3xl p-6 flex-1 flex flex-col">
                             <div className="flex items-center gap-2 mb-6 text-zinc-100">
                                 <Bell className="w-5 h-5 text-amber-400" />
-                                <h3 className="font-semibold text-lg">最新视频</h3>
+                                <h3 className="text-[17px] font-semibold tracking-tight">最新视频</h3>
                             </div>
                             
                             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-4">
                                 {channelUpdates.length === 0 ? (
-                                    <p className="text-zinc-500 text-sm">暂无频道更新</p>
+                                    <div className="flex flex-col items-center justify-center py-16 text-center">
+                                        <p className="text-sm font-medium text-zinc-400">暂无频道更新</p>
+                                    </div>
                                 ) : (
                                     channelUpdates.map((update, idx) => (
                                         <motion.div
-                                            whileHover={{ x: 4 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            transition={{ type: "spring", stiffness: 550, damping: 35 }}
                                             key={`${update.videoId}-${idx}`}
                                             onClick={() => handleInterceptSubmit(`https://youtube.com/watch?v=${update.videoId}`)}
-                                            className="flex gap-4 cursor-pointer group"
+                                            className="flex gap-4 p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 border border-white/5 hover:border-white/10 transition-colors cursor-pointer group"
                                         >
-                                            <div className="w-20 h-12 rounded-lg bg-zinc-800 overflow-hidden shrink-0 relative">
+                                            <div className="w-24 aspect-video rounded-lg bg-zinc-800 overflow-hidden shrink-0 relative">
                                                 {update.thumbnail && <img src={update.thumbnail} className="w-full h-full object-cover" alt="" />}
                                             </div>
                                             <div className="flex flex-col justify-center">

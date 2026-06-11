@@ -22,3 +22,4 @@ dist/
 # Local media content (copyright) & personal learning data (privacy)
 subtitles/
 history/
+.design-audit.json

@@ -30,16 +30,17 @@ export const Toaster = () => {
                     <motion.div
                         key={t.id}
                         layout
-                        initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                        initial={{ opacity: 0, y: 12, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.96 }}
-                        className={`pointer-events-auto flex items-start gap-3 px-4 py-3 rounded-2xl bg-zinc-900/95 backdrop-blur-xl border ${styles[t.type].border} shadow-2xl shadow-black/40`}
+                        exit={{ opacity: 0, y: 8, scale: 0.96, transition: { duration: 0.18, ease: [0.4, 0, 1, 1] } }}
+                        transition={{ type: "spring", stiffness: 480, damping: 34, mass: 0.9 }}
+                        className={`pointer-events-auto flex items-start gap-3 px-4 py-3 rounded-2xl bg-zinc-900/85 backdrop-blur-xl backdrop-saturate-150 border ${styles[t.type].border} shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_16px_-6px_rgba(0,0,0,0.5),0_24px_64px_-16px_rgba(0,0,0,0.6)]`}
                     >
                         {styles[t.type].icon}
                         <p className="text-sm text-zinc-200 leading-relaxed flex-1">{t.message}</p>
                         <button
                             onClick={() => setToasts(prev => prev.filter(x => x.id !== t.id))}
-                            className="p-0.5 text-zinc-500 hover:text-zinc-300 transition-colors shrink-0"
+                            className="p-1.5 rounded-full text-zinc-500 hover:text-zinc-300 hover:bg-white/5 transition-colors shrink-0"
                         >
                             <X className="w-4 h-4" />
                         </button>

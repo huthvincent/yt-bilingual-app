@@ -1,7 +1,8 @@
 import { apiFetch } from './lib/api';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Star, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle, Repeat, Keyboard, EyeOff } from 'lucide-react';
+import { Star, ChevronDown, ChevronLeft, ChevronRight, ExternalLink, Loader2, XCircle, Repeat, Keyboard, EyeOff } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { InputScreen } from './components/InputScreen';
 import { VideoPlayer } from './components/VideoPlayer';
 import { TranscriptView } from './components/TranscriptView';
@@ -587,11 +588,11 @@ function App() {
   const renderTopBar = () => (
     <div className="flex-none h-16 bg-zinc-950/60 backdrop-blur-xl border-b border-white/5 px-6 flex items-center justify-between z-20">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-2xl overflow-hidden shadow-lg shadow-purple-500/30 cursor-pointer flex-shrink-0" onClick={handleGoHome}>
+        <div className="w-10 h-10 rounded-[10px] overflow-hidden shadow-md shadow-black/40 ring-1 ring-white/10 cursor-pointer flex-shrink-0" onClick={handleGoHome}>
             <img src="/hero_icon.png" alt="Logo" className="w-full h-full object-cover" />
         </div>
         <h1
-          className="text-xl font-extrabold text-zinc-100 cursor-pointer tracking-tight hover:text-white transition-colors"
+          className="text-xl font-semibold text-zinc-100 cursor-pointer tracking-tight hover:text-white transition-colors"
           onClick={handleGoHome}
         >
           Lingua Nova
@@ -600,15 +601,15 @@ function App() {
       <div className="flex items-center gap-3">
         <button
           onClick={() => setIsFavoritesOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 border border-white/5 text-zinc-300 hover:text-zinc-100 rounded-xl transition-colors shadow-sm"
+          className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/60 border border-white/5 text-zinc-300 hover:text-zinc-100 transition-[background-color,color,border-color,transform] duration-200 ease-apple active:scale-[0.97]"
         >
           <Star className="w-4 h-4 text-amber-400 fill-amber-400/20" />
-          <span className="font-medium text-sm">收藏夹 ({favorites.length})</span>
+          <span className="font-medium text-sm tabular-nums">收藏夹 ({favorites.length})</span>
         </button>
         {videoId && transcript.length > 0 && (
           <button
             onClick={togglePipMode}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-xl transition-colors shadow-sm shadow-blue-900/10"
+            className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-blue-500/10 hover:bg-blue-500/15 border border-blue-500/20 text-blue-400 transition-[background-color,color,border-color,transform] duration-200 ease-apple active:scale-[0.97]"
           >
             <ExternalLink className="w-4 h-4" />
             <span className="font-medium text-sm">{pipWindow ? '关闭弹窗' : '弹出字幕窗'}</span>
@@ -640,7 +641,7 @@ function App() {
           {/* Left Column: Video/Summary */}
           <div className={`w-full ${metadata?.is_local_subtitle ? 'hidden md:flex' : ''} ${
             pipWindow ? 'md:w-full' : (isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-0 md:opacity-0 md:overflow-hidden' : 'md:w-1/2')
-          } transition-all duration-300 h-1/2 md:h-full flex flex-col shrink-0`}>
+          } transition-[width,opacity] duration-300 ease-apple h-1/2 md:h-full flex flex-col shrink-0`}>
             {!metadata?.is_local_subtitle && (
               <>
             <div className="flex-1 min-h-0 relative bg-transparent">
@@ -656,19 +657,19 @@ function App() {
             {metadata?.channel && (
               <div className="glass-panel border-t-0 border-r border-white/5 px-6 py-4 flex items-center justify-between shrink-0 z-10">
                 <div className="flex items-center gap-3">
-                  <span className="text-zinc-400 text-sm">频道：</span>
+                  <span className="text-xs font-medium text-zinc-500 whitespace-nowrap">频道：</span>
                   <button
                     onClick={() => setSelectedChannel(metadata.channel)}
-                    className="px-3 py-1.5 bg-zinc-800/50 hover:bg-zinc-700/50 text-blue-400 text-sm font-medium rounded-lg border border-white/5 hover:border-blue-500/30 transition-colors"
+                    className="inline-flex items-center h-8 px-3 rounded-lg bg-zinc-800/60 hover:bg-zinc-700/60 border border-white/5 hover:border-white/10 text-blue-400 text-sm font-medium whitespace-nowrap transition-colors"
                   >
-                    {metadata.channel}
+                    <span className="truncate max-w-[160px]">{metadata.channel}</span>
                   </button>
                   {metadata.channel_url && (
                     <button
                       onClick={handleToggleSubscription}
-                      className={`px-3 py-1.5 text-sm font-medium rounded-lg border transition-colors shadow-sm ${subscriptions.some(s => s.id === metadata.channel_url)
-                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20'
-                        : 'bg-zinc-800/50 text-zinc-400 border-white/5 hover:text-white hover:bg-zinc-700/50'
+                      className={`inline-flex items-center h-8 px-3 text-sm font-medium rounded-lg border whitespace-nowrap transition-colors ${subscriptions.some(s => s.id === metadata.channel_url)
+                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/15'
+                        : 'bg-zinc-800/60 text-zinc-300 border-white/5 hover:text-zinc-100 hover:bg-zinc-700/60'
                         }`}
                     >
                       {subscriptions.some(s => s.id === metadata.channel_url) ? '已订阅 ✓' : '订阅 +'}
@@ -682,40 +683,37 @@ function App() {
             )}
             </>
           )}
-            <div className={`p-6 flex-1 min-h-0 bg-zinc-900 border-zinc-800 overflow-y-auto custom-scrollbar ${metadata?.is_local_subtitle ? 'border-none' : 'border-t hidden md:block'}`}>
+            <div className={`p-6 flex-1 min-h-0 bg-zinc-900/60 backdrop-blur-xl border-white/5 overflow-y-auto custom-scrollbar ${metadata?.is_local_subtitle ? 'border-none' : 'border-t hidden md:block'}`}>
               {summary ? (
                 <>
                   <button
                     onClick={() => setIsSummaryOpen(prev => !prev)}
                     className="flex items-center justify-between w-full pb-2 cursor-pointer group"
                   >
-                    <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">视频总结</h2>
-                    <svg
-                      className={`w-5 h-5 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isSummaryOpen ? 'rotate-180' : ''}`}
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <h2 className="text-[17px] font-semibold tracking-tight text-zinc-100 group-hover:text-purple-300 transition-colors">视频总结</h2>
+                    <ChevronDown
+                      className={`w-4 h-4 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isSummaryOpen ? 'rotate-180' : ''}`}
+                    />
                   </button>
                   <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isSummaryOpen ? 'max-h-[2000px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-apple ${isSummaryOpen ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}
                   >
-                    <div className="text-zinc-300 text-sm leading-relaxed space-y-2">
+                    <div className="overflow-hidden min-h-0 text-zinc-300 text-sm leading-relaxed space-y-2">
                       <ReactMarkdown
                         components={{
-                          h1: ({ node, ...props }) => <h1 className="text-lg font-bold text-white mt-4 mb-2" {...props} />,
-                          h2: ({ node, ...props }) => <h2 className="text-base font-bold text-pink-400 mt-4 mb-2" {...props} />,
-                          h3: ({ node, ...props }) => <h3 className="text-sm font-bold text-purple-400 mt-3 mb-2" {...props} />,
+                          h1: ({ node, ...props }) => <h1 className="text-base font-semibold text-zinc-100 mt-5 mb-2" {...props} />,
+                          h2: ({ node, ...props }) => <h2 className="text-[15px] font-semibold text-zinc-100 mt-4 mb-1.5" {...props} />,
+                          h3: ({ node, ...props }) => <h3 className="text-sm font-semibold text-zinc-300 mt-3 mb-1.5" {...props} />,
                           p: ({ node, ...props }) => <p className="text-zinc-300 leading-relaxed" {...props} />,
-                          ul: ({ node, ...props }) => <ul className="list-disc pl-5 space-y-1 text-zinc-300 marker:text-pink-500" {...props} />,
-                          ol: ({ node, ...props }) => <ol className="list-decimal pl-5 space-y-1 text-zinc-300 marker:text-pink-500" {...props} />,
+                          ul: ({ node, ...props }) => <ul className="list-disc pl-5 space-y-1 text-zinc-300 marker:text-zinc-600" {...props} />,
+                          ol: ({ node, ...props }) => <ol className="list-decimal pl-5 space-y-1 text-zinc-300 marker:text-zinc-600" {...props} />,
                           li: ({ node, ...props }) => <li className="pl-1" {...props} />,
-                          strong: ({ node, ...props }) => <strong className="font-semibold text-white tracking-wide" {...props} />,
+                          strong: ({ node, ...props }) => <strong className="font-semibold text-zinc-100" {...props} />,
                           code: ({ node, className, children, ...props }: any) => {
                             const isInline = !className && !String(children).includes('\n');
                             return isInline
-                              ? <code className="bg-zinc-800 text-pink-300 px-1.5 py-0.5 rounded text-xs border border-zinc-700 font-mono" {...props}>{children}</code>
-                              : <code className="block bg-zinc-800 text-zinc-300 p-3 rounded-lg text-xs overflow-x-auto my-2 border border-zinc-700 font-mono" {...props}>{children}</code>;
+                              ? <code className="bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded text-xs border border-white/10 font-mono" {...props}>{children}</code>
+                              : <code className="block bg-zinc-800 text-zinc-300 p-3 rounded-lg text-xs overflow-x-auto my-2 border border-white/10 font-mono" {...props}>{children}</code>;
                           }
                         }}
                       >
@@ -726,7 +724,7 @@ function App() {
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl font-bold text-white mb-2 pb-2">使用提示</h2>
+                  <h2 className="text-[17px] font-semibold tracking-tight text-zinc-100 mb-2 pb-2">使用提示</h2>
                   <ul className="text-zinc-400 space-y-2 list-disc list-inside">
                     <li>点击右侧任意句子，视频会跳转到对应时间点</li>
                     <li>点击句中任意单词可查看释义、发音，并一键加入生词本</li>
@@ -760,26 +758,23 @@ function App() {
                 }
                 if (vocabItems.length === 0) return null;
                 return (
-                  <div className="mt-6 pt-6 border-t border-zinc-800">
+                  <div className="mt-6 pt-6 border-t border-white/5">
                     <button
                       onClick={() => setIsVocabOpen(prev => !prev)}
                       className="flex items-center justify-between w-full cursor-pointer group"
                     >
-                      <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                      <h2 className="text-[17px] font-semibold tracking-tight text-zinc-100 group-hover:text-purple-300 transition-colors">
                         生词总览
-                        <span className="ml-2 text-sm font-normal text-zinc-500">({vocabItems.length})</span>
+                        <span className="ml-2 text-sm font-normal text-zinc-500 tabular-nums">({vocabItems.length})</span>
                       </h2>
-                      <svg
-                        className={`w-5 h-5 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isVocabOpen ? 'rotate-180' : ''}`}
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
+                      <ChevronDown
+                        className={`w-4 h-4 text-zinc-400 group-hover:text-purple-400 transition-transform duration-300 ${isVocabOpen ? 'rotate-180' : ''}`}
+                      />
                     </button>
                     <div
-                      className={`transition-all duration-300 ease-in-out ${isVocabOpen ? 'max-h-[20000px] opacity-100 mt-3' : 'max-h-0 opacity-0 overflow-hidden'}`}
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-apple ${isVocabOpen ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0'}`}
                     >
-                      <div className="space-y-1">
+                      <div className="overflow-hidden min-h-0 space-y-1">
                         {vocabItems.map((item, idx) => {
                           const vocabId = `vocab-${videoId}-${item.en.replace(/\s+/g, '-')}`;
                           const isFav = favorites.some(f => f.id === vocabId);
@@ -787,14 +782,14 @@ function App() {
                             <button
                               key={idx}
                               onClick={() => setSeekCommand({ time: item.start, timestamp: Date.now() })}
-                              className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-zinc-800/80 transition-colors group/row cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+                              className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-zinc-800/80 transition-colors group/row cursor-pointer"
                             >
                               <span className="text-purple-300 font-medium text-sm text-left group-hover/row:text-purple-200 transition-colors flex-1">{item.en}</span>
                               <div className="flex items-center gap-3">
                                 <span className="text-zinc-400 text-sm text-right group-hover/row:text-zinc-300 transition-colors">{item.zh}</span>
                                 <div 
                                   onClick={(e) => handleToggleVocabFavorite(e, item)}
-                                  className={`p-1.5 rounded-md hover:bg-zinc-700 transition-colors ${isFav ? 'text-yellow-500' : 'text-zinc-500 opacity-0 group-hover/row:opacity-100 [@media(pointer:coarse)]:opacity-100 hover:text-yellow-500'}`}
+                                  className={`p-1.5 rounded-lg hover:bg-white/5 transition-[opacity,background-color,color] duration-200 ${isFav ? 'text-amber-400' : 'text-zinc-500 opacity-0 group-hover/row:opacity-100 [@media(pointer:coarse)]:opacity-100 hover:text-amber-400'}`}
                                 >
                                   <Star className="w-4 h-4" fill={isFav ? "currentColor" : "none"} />
                                 </div>
@@ -818,7 +813,7 @@ function App() {
                 {!pipWindow && metadata?.is_local_subtitle && (
                   <button
                     onClick={() => setIsLeftCollapsed(prev => !prev)}
-                    className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-zinc-800 border border-zinc-700 border-l-0 rounded-r-xl hover:bg-zinc-700 hover:text-purple-400 text-zinc-400 transition-colors shadow-lg shadow-black/50"
+                    className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-50 p-1.5 bg-zinc-900/80 backdrop-blur-md border border-white/10 border-l-0 rounded-r-lg hover:bg-zinc-800/80 text-zinc-400 hover:text-zinc-200 transition-colors shadow-lg shadow-black/40"
                     title={isLeftCollapsed ? "展开侧栏" : "收起侧栏"}
                   >
                     {isLeftCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
@@ -827,7 +822,7 @@ function App() {
 
                 {/* Local subtitle playback controls */}
                 {metadata?.is_local_subtitle && (
-                  <div className="flex-none flex items-center justify-between px-4 py-2 bg-zinc-900/95 border-b border-zinc-800 z-20">
+                  <div className="flex-none flex items-center justify-between px-4 py-2 bg-zinc-950/60 backdrop-blur-xl border-b border-white/5 z-20">
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => {
@@ -837,11 +832,7 @@ function App() {
                             startSubtitleTimer(currentTime);
                           }
                         }}
-                        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-                          isSubtitlePlaying
-                            ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 ring-1 ring-amber-500/40'
-                            : 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 ring-1 ring-emerald-500/40'
-                        }`}
+                        className="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200 active:scale-[0.95] bg-white/10 text-zinc-100 hover:bg-white/15 ring-1 ring-white/15"
                       >
                         {isSubtitlePlaying ? (
                           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -858,16 +849,16 @@ function App() {
                         {metadata?.title || '本地字幕'}
                       </span>
                     </div>
-                    <span className="text-zinc-500 text-xs font-mono tabular-nums">
+                    <span className="text-[11px] font-medium text-zinc-500 tabular-nums">
                       {Math.floor(currentTime / 60).toString().padStart(2, '0')}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}
                     </span>
                   </div>
                 )}
 
                 {/* Transcript toolbar: translation mode, loop, speed */}
-                <div className="flex-none flex items-center gap-3 px-4 py-2 bg-zinc-900/80 border-b border-white/5 z-20">
-                  <span className="text-xs text-zinc-500 font-medium shrink-0">中文译文</span>
-                  <div className="flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
+                <div className="flex-none flex flex-wrap items-center gap-x-3 gap-y-1.5 px-4 py-2 bg-zinc-950/60 backdrop-blur-xl border-b border-white/5 z-20">
+                  <span className="text-xs text-zinc-500 font-medium shrink-0 whitespace-nowrap">中文译文</span>
+                  <div className="inline-flex items-center rounded-lg bg-zinc-800/80 p-0.5 border border-white/5">
                     {([
                       { key: 'all', label: '全显' },
                       { key: 'active', label: '当前句' },
@@ -876,13 +867,20 @@ function App() {
                       <button
                         key={opt.key}
                         onClick={() => setTranslationMode(opt.key)}
-                        className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
+                        className={`relative px-2.5 py-1 text-xs font-medium rounded-md whitespace-nowrap transition-colors ${
                           translationMode === opt.key
-                            ? 'bg-zinc-100 text-zinc-900 shadow-sm'
+                            ? 'text-zinc-900'
                             : 'text-zinc-400 hover:text-zinc-200'
                         }`}
                       >
-                        {opt.label}
+                        {translationMode === opt.key && (
+                          <motion.span
+                            layoutId="transModeThumb"
+                            className="absolute inset-0 bg-zinc-100 rounded-md shadow-sm"
+                            transition={{ type: 'spring', stiffness: 420, damping: 36 }}
+                          />
+                        )}
+                        <span className="relative z-10">{opt.label}</span>
                       </button>
                     ))}
                   </div>
@@ -896,7 +894,7 @@ function App() {
                         return !prev;
                       });
                     }}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
+                    className={`inline-flex items-center gap-1.5 h-7 px-2.5 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
                       dictationMode
                         ? 'bg-amber-500/15 text-amber-300 border-amber-500/30'
                         : 'bg-zinc-800/80 text-zinc-400 border-white/5 hover:text-zinc-200'
@@ -909,9 +907,9 @@ function App() {
 
                   <button
                     onClick={toggleLoop}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
+                    className={`inline-flex items-center gap-1.5 h-7 px-2.5 text-xs font-medium rounded-lg border transition-colors shrink-0 ${
                       loopEnabled
-                        ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
+                        ? 'bg-blue-500/15 text-blue-300 border-blue-500/30'
                         : 'bg-zinc-800/80 text-zinc-400 border-white/5 hover:text-zinc-200'
                     }`}
                     title="单句循环（快捷键 L）"
@@ -924,7 +922,7 @@ function App() {
                     <select
                       value={playbackRate}
                       onChange={(e) => setPlaybackRate(parseFloat(e.target.value))}
-                      className="bg-zinc-800/80 text-zinc-300 text-xs font-medium rounded-lg border border-white/5 px-2 py-1 outline-none cursor-pointer hover:text-zinc-100 shrink-0"
+                      className="appearance-none bg-zinc-800/80 text-zinc-300 text-xs font-medium rounded-lg border border-white/5 h-7 pl-2.5 pr-6 outline-none cursor-pointer hover:text-zinc-100 shrink-0 bg-no-repeat bg-[right_0.5rem_center] bg-[length:10px] bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2010%206%22><path%20d=%22M1%201l4%204%204-4%22%20stroke=%22%2371717a%22%20stroke-width=%221.5%22%20fill=%22none%22%20stroke-linecap=%22round%22/></svg>')]"
                       title="播放速度"
                     >
                       {[0.5, 0.75, 1, 1.25, 1.5, 2].map(r => (
@@ -945,9 +943,9 @@ function App() {
 
                 {/* Streaming translation progress */}
                 {translationProgress && (
-                  <div className="flex-none flex items-center gap-3 px-4 py-2 bg-blue-500/10 border-b border-blue-500/20 z-20">
+                  <div className="flex-none flex items-center gap-3 px-4 py-2 bg-zinc-900/80 backdrop-blur-md backdrop-saturate-150 border-b border-white/5 z-20">
                     <Loader2 className="w-4 h-4 text-blue-400 animate-spin shrink-0" />
-                    <span className="text-xs text-blue-300 font-medium flex-1 truncate">
+                    <span className="text-xs text-zinc-300 font-medium tabular-nums flex-1 truncate">
                       {translationProgress.stage === 'summary'
                         ? 'AI 正在生成视频总结…'
                         : `字幕翻译中 ${translationProgress.done}/${translationProgress.total} 句 — 可以先开始观看`}
@@ -955,7 +953,7 @@ function App() {
                     {translationProgress.total > 0 && (
                       <div className="w-24 h-1.5 rounded-full bg-zinc-800 overflow-hidden shrink-0">
                         <div
-                          className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                          className="h-full bg-blue-500 rounded-full transition-[width] duration-500 ease-out"
                           style={{ width: `${Math.round((translationProgress.done / translationProgress.total) * 100)}%` }}
                         />
                       </div>
@@ -1008,7 +1006,7 @@ function App() {
             }
 
             return (
-              <div className={`w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-all duration-300 h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-white/5 bg-transparent`}>
+              <div className={`w-full ${isLeftCollapsed && metadata?.is_local_subtitle ? 'md:w-full' : 'md:w-1/2'} transition-[width,opacity] duration-300 ease-apple h-1/2 md:h-full flex flex-col relative border-t md:border-t-0 border-white/5 bg-transparent`}>
                 {transcriptContent}
               </div>
             );
@@ -1032,17 +1030,19 @@ function App() {
         onReprocess={(videoId) => handleUrlSubmit(`https://www.youtube.com/watch?v=${videoId}`)}
       />
 
-      {wordLookup && (
-        <WordPopover
-          word={wordLookup.word}
-          context={wordLookup.context}
-          x={wordLookup.x}
-          y={wordLookup.y}
-          onClose={() => setWordLookup(null)}
-          onToggleFavorite={handleToggleDictFavorite}
-          isFavorited={favorites.some(f => f.id === `vocab-${videoId}-${wordLookup.word.replace(/\s+/g, '-')}`)}
-        />
-      )}
+      <AnimatePresence>
+        {wordLookup && (
+          <WordPopover
+            word={wordLookup.word}
+            context={wordLookup.context}
+            x={wordLookup.x}
+            y={wordLookup.y}
+            onClose={() => setWordLookup(null)}
+            onToggleFavorite={handleToggleDictFavorite}
+            isFavorited={favorites.some(f => f.id === `vocab-${videoId}-${wordLookup.word.replace(/\s+/g, '-')}`)}
+          />
+        )}
+      </AnimatePresence>
 
       <Toaster />
     </div>

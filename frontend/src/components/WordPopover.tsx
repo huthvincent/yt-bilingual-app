@@ -66,20 +66,22 @@ export const WordPopover: React.FC<WordPopoverProps> = ({ word, context, x, y, o
             <motion.div
                 initial={{ opacity: 0, y: 6, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                className="fixed z-[90] w-80 rounded-2xl bg-zinc-900/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 p-4"
+                exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.12, ease: "easeIn" } }}
+                transition={{ type: "spring", stiffness: 550, damping: 35, mass: 0.8 }}
+                className="fixed z-[90] w-80 rounded-2xl bg-zinc-900/85 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_16px_-6px_rgba(0,0,0,0.5),0_24px_64px_-16px_rgba(0,0,0,0.6)] p-4"
                 style={{ left, top }}
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex items-start justify-between gap-2 mb-1">
                     <div className="flex items-baseline gap-2 flex-wrap min-w-0">
-                        <span className="text-lg font-bold text-zinc-100 break-all">{definition?.word || word}</span>
-                        {definition?.ipa && <span className="text-xs text-zinc-400 font-mono">{definition.ipa}</span>}
-                        {definition?.pos && <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/15 text-purple-300 font-medium">{definition.pos}</span>}
+                        <span className="text-[17px] font-semibold tracking-tight text-zinc-100 break-all">{definition?.word || word}</span>
+                        {definition?.ipa && <span className="text-xs text-zinc-400">{definition.ipa}</span>}
+                        {definition?.pos && <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-300">{definition.pos}</span>}
                     </div>
                     <div className="flex items-center gap-1 shrink-0">
                         <button
                             onClick={() => speak(definition?.word || word)}
-                            className="p-1.5 rounded-lg text-zinc-400 hover:text-blue-400 hover:bg-zinc-800 transition-colors"
+                            className="p-1.5 rounded-lg text-zinc-500 hover:text-blue-400 hover:bg-white/5 transition-colors"
                             title="朗读"
                         >
                             <Volume2 className="w-4 h-4" />
@@ -87,13 +89,13 @@ export const WordPopover: React.FC<WordPopoverProps> = ({ word, context, x, y, o
                         {definition && (
                             <button
                                 onClick={() => onToggleFavorite(definition)}
-                                className={`p-1.5 rounded-lg transition-colors hover:bg-zinc-800 ${isFavorited ? 'text-amber-400' : 'text-zinc-400 hover:text-amber-400'}`}
+                                className={`p-1.5 rounded-lg transition-colors hover:bg-white/5 ${isFavorited ? 'text-amber-400' : 'text-zinc-500 hover:text-amber-400'}`}
                                 title={isFavorited ? '移出生词本' : '加入生词本'}
                             >
                                 <Star className="w-4 h-4" fill={isFavorited ? 'currentColor' : 'none'} />
                             </button>
                         )}
-                        <button onClick={onClose} className="p-1.5 rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800 transition-colors">
+                        <button onClick={onClose} className="p-1.5 rounded-full text-zinc-500 hover:text-zinc-300 hover:bg-white/5 transition-colors">
                             <X className="w-4 h-4" />
                         </button>
                     </div>
@@ -116,7 +118,7 @@ export const WordPopover: React.FC<WordPopoverProps> = ({ word, context, x, y, o
                         {definition.example && (
                             <button
                                 onClick={() => speak(definition.example!)}
-                                className="w-full text-left text-xs text-zinc-500 italic leading-relaxed border-l-2 border-zinc-700 pl-2 hover:text-zinc-300 transition-colors"
+                                className="w-full text-left text-xs text-zinc-500 italic leading-relaxed border-l-2 border-white/10 pl-2 hover:text-zinc-300 transition-colors"
                                 title="点击朗读例句"
                             >
                                 {definition.example}
