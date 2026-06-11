@@ -7,6 +7,7 @@ import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
 import { ShowBrowser } from './ShowBrowser';
 import { VOCAB_LEVELS, loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settings';
+import { AuroraBackground } from './AuroraBackground';
 import { progressPercent } from '../lib/progress';
 
 interface InputScreenProps {
@@ -100,9 +101,8 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
 
     return (
         <div className="min-h-screen flex flex-col items-center p-8 pt-20 overflow-y-auto custom-scrollbar relative bg-[#09090b]">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-            <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
+            {/* Layered animated background: aurora, halo, grid, particles, spotlight */}
+            <AuroraBackground />
 
             <AnimatePresence>
                 {((isLoading || loadingState) && !isEstimating) && (
@@ -182,7 +182,7 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                             <button
                                 type="submit"
                                 disabled={isLoading || !url.trim()}
-                                className="flex items-center gap-2 bg-zinc-100 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                                className="flex items-center gap-2 whitespace-nowrap shrink-0 bg-zinc-100 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100"
                             >
                                 {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : '开始学习'}
                                 {!isLoading && <ArrowRight className="w-4 h-4" />}

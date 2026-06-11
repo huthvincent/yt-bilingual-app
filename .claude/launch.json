@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "frontend", "run", "dev"],
+      "port": 5173
+    },
+    {
+      "name": "backend",
+      "runtimeExecutable": "backend/venv/bin/python",
+      "runtimeArgs": ["-m", "uvicorn", "main:app", "--port", "8000", "--app-dir", "backend"],
+      "port": 8000
+    }
+  ]
+}

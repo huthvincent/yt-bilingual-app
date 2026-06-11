@@ -35,6 +35,180 @@ body {
   width: 6px;
 }
 
+/* ===================================================================== */
+/* Fancy home background (AuroraBackground.tsx)                          */
+/* ===================================================================== */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  --mx: 50vw;
+  --my: 35vh;
+}
+
+/* --- Drifting aurora blobs --- */
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px) saturate(1.35);
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.aurora-blob-1 {
+  width: 55vw; height: 55vw; left: -15vw; top: -22vw;
+  background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.65), transparent 65%);
+  animation: aurora-drift-1 26s ease-in-out infinite alternate;
+}
+.aurora-blob-2 {
+  width: 46vw; height: 46vw; right: -14vw; top: 4vh;
+  background: radial-gradient(circle at 70% 40%, rgba(168, 85, 247, 0.6), transparent 65%);
+  animation: aurora-drift-2 32s ease-in-out infinite alternate;
+}
+.aurora-blob-3 {
+  width: 42vw; height: 42vw; left: 18vw; bottom: -20vw;
+  background: radial-gradient(circle at 50% 60%, rgba(236, 72, 153, 0.45), transparent 65%);
+  animation: aurora-drift-3 38s ease-in-out infinite alternate;
+}
+.aurora-blob-4 {
+  width: 32vw; height: 32vw; right: 16vw; bottom: -10vw;
+  background: radial-gradient(circle at 40% 40%, rgba(45, 212, 191, 0.42), transparent 65%);
+  animation: aurora-drift-4 30s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift-1 {
+  from { transform: translate(0, 0) scale(1) rotate(0deg); }
+  to   { transform: translate(9vw, 7vh) scale(1.18) rotate(18deg); }
+}
+@keyframes aurora-drift-2 {
+  from { transform: translate(0, 0) scale(1.1); }
+  to   { transform: translate(-11vw, 9vh) scale(0.92); }
+}
+@keyframes aurora-drift-3 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(7vw, -7vh) scale(1.22); }
+}
+@keyframes aurora-drift-4 {
+  from { transform: translate(0, 0) scale(0.9); }
+  to   { transform: translate(-7vw, -6vh) scale(1.12); }
+}
+
+/* --- Slow rotating conic halo behind the hero --- */
+.aurora-halo {
+  position: absolute;
+  left: 50%; top: 36%;
+  width: 72vw; height: 72vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(99, 102, 241, 0.14) 55deg,
+    transparent 120deg,
+    rgba(236, 72, 153, 0.12) 200deg,
+    transparent 265deg,
+    rgba(59, 130, 246, 0.14) 330deg,
+    transparent 360deg
+  );
+  filter: blur(42px);
+  animation: aurora-halo-spin 48s linear infinite;
+  will-change: transform;
+}
+@keyframes aurora-halo-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* --- Faint grid, masked to the hero area --- */
+.aurora-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 72% 56% at 50% 36%, black 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 72% 56% at 50% 36%, black 25%, transparent 78%);
+}
+
+/* --- Rising glow particles --- */
+.aurora-particles span {
+  position: absolute;
+  bottom: -10px;
+  left: calc(var(--i) * 4.17% + 0.8%);
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(165, 180, 252, 0.75);
+  box-shadow: 0 0 6px 1px rgba(129, 140, 248, 0.45);
+  opacity: 0;
+  animation: aurora-rise calc(13s + var(--i) * 1.4s) linear infinite;
+  animation-delay: calc(var(--i) * -2.1s);
+  will-change: transform, opacity;
+}
+.aurora-particles span:nth-child(3n) { width: 2px; height: 2px; }
+.aurora-particles span:nth-child(4n) {
+  width: 4px; height: 4px;
+  background: rgba(216, 180, 254, 0.7);
+  box-shadow: 0 0 9px 2px rgba(192, 132, 252, 0.4);
+}
+.aurora-particles span:nth-child(5n) {
+  background: rgba(110, 231, 183, 0.6);
+  box-shadow: 0 0 7px 1px rgba(52, 211, 153, 0.35);
+}
+@keyframes aurora-rise {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 0.85; }
+  60%  { opacity: 0.5; }
+  100% { transform: translate(4vw, -108vh); opacity: 0; }
+}
+
+/* --- Occasional shooting stars --- */
+.aurora-shooting {
+  position: absolute;
+  width: 150px; height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(165, 180, 252, 0.4), transparent);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.aurora-shooting-1 {
+  top: 14%; right: 8%;
+  transform: rotate(-32deg);
+  animation: aurora-shoot 11s linear infinite;
+  animation-delay: 3s;
+}
+.aurora-shooting-2 {
+  top: 6%; right: 38%;
+  transform: rotate(-28deg);
+  animation: aurora-shoot 13s linear infinite;
+  animation-delay: 8.5s;
+}
+@keyframes aurora-shoot {
+  0%, 90%  { opacity: 0; transform: translate(0, 0) rotate(-30deg); }
+  92%      { opacity: 0.9; }
+  100%     { opacity: 0; transform: translate(-46vw, 26vw) rotate(-30deg); }
+}
+
+/* --- Mouse-following spotlight --- */
+.aurora-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(580px circle at var(--mx) var(--my), rgba(99, 102, 241, 0.16), transparent 70%);
+}
+
+/* --- Film grain --- */
+.aurora-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob, .aurora-halo { animation: none; }
+  .aurora-particles, .aurora-shooting { display: none; }
+}
+
 /* Ruby annotations (vocabulary glosses above highlighted words) */
 ruby {
   ruby-position: over;
