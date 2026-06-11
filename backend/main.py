@@ -1204,6 +1204,80 @@ def get_processed_episodes(show_id: str):
     return {"processed": processed}
 
 
+# ====================================================
+# Click-to-define dictionary
+# ====================================================
+
+DICT_CACHE_FILE = os.path.join(HISTORY_DIR, "dictionary_cache.json")
+DICT_MODEL = "gemini-2.5-flash-lite"  # fast + cheap for single-word lookups
+
+
+class DefineRequest(BaseModel):
+    word: str
+    context: str | None = None
+
+
+def _load_dict_cache() -> dict:
+    if os.path.exists(DICT_CACHE_FILE):
+        try:
+            with open(DICT_CACHE_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            pass
+    return {}
+
+
+@app.post("/api/define")
+async def define_word(request: DefineRequest):
+    word = request.word.strip()
+    if not word or len(word) > 100:
+        raise HTTPException(status_code=400, detail="无效的查询词。")
+
+    # Cache by lowercase word; first lookup wins (context only refines the
+    # initial generation — good enough and keeps repeat lookups free).
+    cache = _load_dict_cache()
+    key = word.lower()
+    if key in cache:
+        return cache[key]
+
+    context_part = f'It appears in this sentence: "{request.context.strip()}"' if request.context else ""
+    prompt = f"""You are an English-Chinese dictionary for Chinese learners of English.
+Explain the English word or phrase "{word}". {context_part}
+Return ONLY a JSON object with exactly these fields:
+{{
+  "word": "{word}",
+  "lemma": "base/dictionary form",
+  "ipa": "IPA pronunciation like /ˈwɜːrd/",
+  "pos": "part of speech abbreviation (n. / v. / adj. / adv. / phrase ...)",
+  "zh": "简明中文释义，优先该语境下的含义，不超过 20 字",
+  "definition_en": "concise English definition (one sentence)",
+  "example": "one short, natural example sentence in English"
+}}"""
+
+    try:
+        client = genai.Client()
+        response = client.models.generate_content(
+            model=DICT_MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(response_mime_type="application/json"),
+        )
+        result = json.loads(response.text)
+        if isinstance(result, list):
+            result = result[0] if result else {}
+        result.setdefault("word", word)
+    except Exception as e:
+        print(f"Dictionary lookup failed for '{word}': {e}")
+        raise HTTPException(status_code=502, detail="查词失败，请稍后重试。")
+
+    cache[key] = result
+    try:
+        with open(DICT_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+    except OSError as e:
+        print(f"Failed to persist dictionary cache: {e}")
+    return result
+
+
 # --- Favorites persistence ---
 FAVORITES_FILE = os.path.join(HISTORY_DIR, "favorites.json")
 

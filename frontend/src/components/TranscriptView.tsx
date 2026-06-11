@@ -24,6 +24,7 @@ interface TranscriptViewProps {
     onToggleFavorite: (item: TranscriptItem) => void;
     translationMode?: TranslationMode;
     dictation?: boolean;
+    onWordLookup?: (word: string, sentence: string, start: number, e: React.MouseEvent) => void;
 }
 
 export const TranscriptView: React.FC<TranscriptViewProps> = ({
@@ -34,7 +35,8 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
     onTranscriptClick,
     onToggleFavorite,
     translationMode,
-    dictation
+    dictation,
+    onWordLookup
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -93,6 +95,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({
                                 onToggleFavorite={() => onToggleFavorite(item)}
                                 translationMode={translationMode}
                                 dictation={dictation}
+                                onWordLookup={onWordLookup}
                             />
                         </div>
                     );

@@ -9,8 +9,41 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export const HighlightedText: React.FC<{ text: string; highlights: Array<{ word: string; color: string; annotation?: string }> }> = ({ text, highlights }) => {
-    if (!highlights || highlights.length === 0) return <span>{text}</span>;
+export type WordClickHandler = (word: string, e: React.MouseEvent) => void;
+
+/** Strip leading/trailing punctuation for dictionary lookup. */
+const cleanWord = (token: string) => token.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, '');
+
+/** Render plain text with each word clickable for dictionary lookup. */
+const ClickableWords: React.FC<{ text: string; onWordClick: WordClickHandler }> = ({ text, onWordClick }) => (
+    <>
+        {text.split(/(\s+)/).map((token, i) => {
+            const word = cleanWord(token);
+            if (!word || /^\s+$/.test(token)) return <span key={i}>{token}</span>;
+            return (
+                <span
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); onWordClick(word, e); }}
+                    className="cursor-pointer rounded-sm hover:bg-blue-500/15 hover:text-blue-300 transition-colors"
+                >
+                    {token}
+                </span>
+            );
+        })}
+    </>
+);
+
+export const HighlightedText: React.FC<{
+    text: string;
+    highlights: Array<{ word: string; color: string; annotation?: string }>;
+    onWordClick?: WordClickHandler;
+}> = ({ text, highlights, onWordClick }) => {
+    const renderPlain = (segment: string, key: string | number) =>
+        onWordClick
+            ? <span key={key}><ClickableWords text={segment} onWordClick={onWordClick} /></span>
+            : <span key={key}>{segment}</span>;
+
+    if (!highlights || highlights.length === 0) return renderPlain(text, 'all');
 
     const parts: React.ReactNode[] = [];
     let currentIndex = 0;
@@ -29,15 +62,20 @@ export const HighlightedText: React.FC<{ text: string; highlights: Array<{ word:
         }
     }
 
-    if (validMatches.length === 0) return <span>{text}</span>;
+    if (validMatches.length === 0) return renderPlain(text, 'all');
 
     validMatches.forEach((match, i) => {
         if (match.index > currentIndex) {
-            parts.push(<span key={`text-${i}`}>{text.slice(currentIndex, match.index)}</span>);
+            parts.push(renderPlain(text.slice(currentIndex, match.index), `text-${i}`));
         }
+        const phrase = text.slice(match.index, match.index + match.length);
         parts.push(
-            <span key={`hl-${i}`} className={match.color}>
-                {text.slice(match.index, match.index + match.length)}
+            <span
+                key={`hl-${i}`}
+                className={cn(match.color, onWordClick && "cursor-pointer hover:bg-purple-500/15 rounded-sm")}
+                onClick={onWordClick ? (e) => { e.stopPropagation(); onWordClick(phrase, e); } : undefined}
+            >
+                {phrase}
             </span>
         );
         if (match.annotation) {
@@ -51,7 +89,7 @@ export const HighlightedText: React.FC<{ text: string; highlights: Array<{ word:
     });
 
     if (currentIndex < text.length) {
-        parts.push(<span key={`text-end`}>{text.slice(currentIndex)}</span>);
+        parts.push(renderPlain(text.slice(currentIndex), `text-end`));
     }
 
     return <>{parts}</>;
@@ -73,9 +111,10 @@ interface TranscriptBlockProps {
     onToggleFavorite?: (e: React.MouseEvent) => void;
     translationMode?: TranslationMode;
     dictation?: boolean;
+    onWordLookup?: (word: string, sentence: string, start: number, e: React.MouseEvent) => void;
 }
 
-export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active', dictation = false }) => {
+export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText, zhText, highlights, isActive, isFavorited, onToggleFavorite, translationMode = 'active', dictation = false, onWordLookup }) => {
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
@@ -158,7 +197,11 @@ export const TranscriptBlock: React.FC<TranscriptBlockProps> = ({ start, enText,
                             blurred && "blur-[6px] select-none opacity-60 hover:opacity-80 cursor-pointer"
                         )}
                     >
-                        <HighlightedText text={enText} highlights={enHighlights} />
+                        <HighlightedText
+                            text={enText}
+                            highlights={enHighlights}
+                            onWordClick={!blurred && onWordLookup ? (word, e) => onWordLookup(word, enText, start, e) : undefined}
+                        />
                     </p>
                     <div className={cn(
                         "grid transition-all duration-300 ease-in-out",

@@ -8,6 +8,7 @@ import { TranscriptView } from './components/TranscriptView';
 import { FavoritesModal, type FavoriteItem } from './components/FavoritesModal';
 import { ChannelVideoList } from './components/ChannelVideoList';
 import { Toaster } from './components/Toaster';
+import { WordPopover, type WordDefinition } from './components/WordPopover';
 import { toast, describeApiError } from './lib/toast';
 import { consumeSseStream, findActiveIndex, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
 import ReactMarkdown from 'react-markdown';
@@ -41,6 +42,13 @@ function App() {
 
   // Dictation (blind listening) mode: English blurred until revealed per sentence
   const [dictationMode, setDictationMode] = useState(false);
+
+  // Click-to-define dictionary popover
+  const [wordLookup, setWordLookup] = useState<{ word: string; context: string; start: number; x: number; y: number } | null>(null);
+
+  const handleWordLookup = useCallback((word: string, sentence: string, start: number, e: React.MouseEvent) => {
+    setWordLookup({ word, context: sentence, start, x: e.clientX, y: e.clientY });
+  }, []);
 
   // Playback controls: speed, play/pause command, single-sentence loop
   const [playbackRate, setPlaybackRate] = useState(1);
@@ -260,6 +268,28 @@ function App() {
 
   const handleRemoveFavorite = (id: string) => {
     setFavorites(prev => prev.filter(fav => fav.id !== id));
+  };
+
+  // Add/remove a dictionary lookup to the vocabulary favorites
+  const handleToggleDictFavorite = (def: WordDefinition) => {
+    if (!wordLookup) return;
+    const id = `vocab-${videoId}-${def.word.replace(/\s+/g, '-')}`;
+    setFavorites(prev => {
+      const exists = prev.find(f => f.id === id);
+      if (exists) return prev.filter(f => f.id !== id);
+      return [...prev, {
+        id,
+        videoId,
+        start: wordLookup.start,
+        en_text: def.word,
+        zh_text: [def.ipa, def.zh].filter(Boolean).join(' '),
+        context_en: wordLookup.context,
+        context_zh: '',
+        added_at: Date.now(),
+        highlights: [],
+        type: 'vocabulary' as const
+      }];
+    });
   };
 
   const handlePlayFavorite = (favVideoId: string, start: number) => {
@@ -920,6 +950,7 @@ function App() {
                     onToggleFavorite={handleToggleFavorite}
                     translationMode={translationMode}
                     dictation={dictationMode}
+                    onWordLookup={handleWordLookup}
                   />
                   <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#09090b] to-transparent z-10 pointer-events-none"></div>
                 </div>
@@ -959,6 +990,18 @@ function App() {
         onLoadHistory={handleLoadHistory}
         onReprocess={(videoId) => handleUrlSubmit(`https://www.youtube.com/watch?v=${videoId}`)}
       />
+
+      {wordLookup && (
+        <WordPopover
+          word={wordLookup.word}
+          context={wordLookup.context}
+          x={wordLookup.x}
+          y={wordLookup.y}
+          onClose={() => setWordLookup(null)}
+          onToggleFavorite={handleToggleDictFavorite}
+          isFavorited={favorites.some(f => f.id === `vocab-${videoId}-${wordLookup.word.replace(/\s+/g, '-')}`)}
+        />
+      )}
 
       <Toaster />
     </div>
