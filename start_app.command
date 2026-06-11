@@ -34,10 +34,20 @@ cd "$SCRIPT_DIR/frontend"
 npm run dev > /dev/null 2>&1 &
 FRONTEND_PID=$!
 
-# 启动公网穿透隧道 (Localtunnel) 这样手机在任何地方都能访问
-echo "[3/3] 启动全网穿透隧道 (使得你在蜂窝网络下也可访问)..."
-npx localtunnel --port 8000 --subdomain yt-bilingual-app-rui > /dev/null 2>&1 &
-TUNNEL_PID=$!
+# 公网穿透隧道 (Localtunnel)：默认关闭。
+# 开启会把后端暴露到公网——请先在 .env 设置 API_AUTH_KEY，再设 ENABLE_TUNNEL=1。
+TUNNEL_PID=""
+if [ "$ENABLE_TUNNEL" = "1" ]; then
+    if [ -z "$API_AUTH_KEY" ]; then
+        echo "⚠️  ENABLE_TUNNEL=1 但未设置 API_AUTH_KEY——公网隧道将无鉴权暴露你的 Gemini 配额，已跳过。"
+    else
+        echo "[3/3] 启动公网穿透隧道..."
+        npx localtunnel --port 8000 --subdomain "${TUNNEL_SUBDOMAIN:-yt-bilingual-app-rui}" > /dev/null 2>&1 &
+        TUNNEL_PID=$!
+    fi
+else
+    echo "[3/3] 公网隧道未开启（如需手机远程访问：在 .env 设置 API_AUTH_KEY 与 ENABLE_TUNNEL=1）"
+fi
 
 sleep 3
 open http://localhost:5173
