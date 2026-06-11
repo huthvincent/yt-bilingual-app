@@ -169,6 +169,27 @@ from google.genai import types
 import json
 import os
 
+# Marker for blocks whose translation is missing/failed; such blocks are
+# re-translated automatically the next time the video is loaded.
+UNTRANSLATED_MARKER = "[未翻译]"
+
+def _norm_id(v):
+    """Normalize block ids for matching (models sometimes return '1' for 1)."""
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return v
+
+def needs_retranslation(zh_text: str) -> bool:
+    """True if a stored zh_text is a mock/failed translation placeholder."""
+    if not zh_text:
+        return True
+    return (
+        "模拟中文翻译" in zh_text
+        or zh_text == "翻译失败"
+        or zh_text.startswith(UNTRANSLATED_MARKER)
+    )
+
 async def process_llm_batch(blocks: list) -> list:
     """Use Gemini API to return Chinese translations and highlights"""
     client = genai.Client()
@@ -213,20 +234,36 @@ async def process_llm_batch(blocks: list) -> list:
         
         # Parse the response back into our block format
         result_data = json.loads(response.text)
-        
-        # Merge back with start/end times if necessary, though we asked LLM to keep IDs
+
+        # Match results back by id — models occasionally drop or reorder items,
+        # and a positional zip would silently attach translations to the wrong
+        # sentences (and truncate the batch when items are missing).
+        results_list = result_data if isinstance(result_data, list) else []
+        by_id = {}
+        for res in results_list:
+            if isinstance(res, dict) and res.get("id") is not None:
+                by_id[_norm_id(res["id"])] = res
+        use_positional = not by_id  # model dropped ids entirely
+
         processed_blocks = []
-        for orig, res in zip(input_data, result_data):
-            # Ensure it matches
+        for i, orig in enumerate(input_data):
+            if use_positional:
+                res = results_list[i] if i < len(results_list) and isinstance(results_list[i], dict) else {}
+            else:
+                res = by_id.get(_norm_id(orig["id"]), {})
             processed_blocks.append({
                 "id": orig["id"],
                 "start": orig["start"],
                 "end": orig["end"],
                 "en_text": orig["text"],
-                "zh_text": res.get("zh_text", "翻译失败"),
-                "highlights": res.get("highlights", [])
+                "zh_text": res.get("zh_text") or UNTRANSLATED_MARKER,
+                "highlights": res.get("highlights") or []
             })
-            
+
+        missing = sum(1 for b in processed_blocks if b["zh_text"] == UNTRANSLATED_MARKER)
+        if missing:
+            print(f"Warning: {missing}/{len(input_data)} blocks came back untranslated in this batch")
+
         return processed_blocks
         
     except Exception as e:
@@ -751,8 +788,7 @@ async def process_subtitle(request: SubtitleRequest):
         # Check for mock translations that need re-processing
         mock_indices = []
         for i, block in enumerate(cached_data.get("transcript", [])):
-            zh = block.get("zh_text", "")
-            if "模拟中文翻译" in zh:
+            if needs_retranslation(block.get("zh_text", "")):
                 mock_indices.append(i)
         
         if not mock_indices:
