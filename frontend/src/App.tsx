@@ -11,6 +11,7 @@ import { Toaster } from './components/Toaster';
 import { WordPopover, type WordDefinition } from './components/WordPopover';
 import { toast, describeApiError } from './lib/toast';
 import { consumeSseStream, findActiveIndex, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
+import { loadVocabLevel } from './lib/settings';
 import ReactMarkdown from 'react-markdown';
 
 interface TranscriptItem {
@@ -334,7 +335,7 @@ function App() {
       const response = await apiFetch('/api/process-video-stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, model }),
+        body: JSON.stringify({ url, model, vocab_level: loadVocabLevel() }),
         signal: controller.signal,
       });
 

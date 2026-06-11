@@ -67,6 +67,17 @@ async def require_api_key(request, call_next):
 class VideoRequest(BaseModel):
     url: str
     model: str | None = None
+    vocab_level: str | None = None
+
+
+# Learner level -> description used to calibrate which words get highlighted
+VOCAB_LEVELS = {
+    "cet4": "CET-4 (大学英语四级, roughly CEFR B1). Highlight words above ~4500-word vocabulary.",
+    "cet6": "CET-6 (大学英语六级, roughly CEFR B2). Highlight words above ~6000-word vocabulary.",
+    "kaoyan": "考研英语 (roughly CEFR B2+). Highlight low-frequency words, idioms and phrasal verbs.",
+    "ielts": "IELTS 6.5+/TOEFL (roughly CEFR C1). Only highlight genuinely advanced or idiomatic usage.",
+    "advanced": "near-native (CEFR C2). Only highlight rare idioms, slang, or cultural references.",
+}
 
 
 # Real, selectable models. Prices are USD per 1M tokens (approximate,
@@ -265,9 +276,16 @@ def needs_retranslation(zh_text: str) -> bool:
         or zh_text.startswith(UNTRANSLATED_MARKER)
     )
 
-async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL) -> list:
+async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL, vocab_level: str | None = None) -> list:
     """Use Gemini API to return Chinese translations and highlights"""
     client = genai.Client()
+
+    level_instruction = ""
+    if vocab_level in VOCAB_LEVELS:
+        level_instruction = (
+            f"\n    The learner's English level: {VOCAB_LEVELS[vocab_level]}"
+            "\n    Only highlight words/phrases likely ABOVE this level; skip anything they already know."
+        )
     
     # We will format the prompt to request a JSON response
     # We pass the strings we want translated
@@ -286,7 +304,7 @@ async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL) -> list:
     I will provide a JSON list of transcript blocks.
     For each block, you must:
     1. Provide a natural Chinese translation.
-    2. Identify 0 to 2 advanced words or phrases (idioms, phrasal verbs, hard vocabulary).
+    2. Identify 0 to 2 advanced words or phrases (idioms, phrasal verbs, hard vocabulary).{level_instruction}
     3. Return the exact substring of the advanced word in English, and its exact translated substring in the Chinese sentence.
     
     CRITICAL: YOU MUST Return a JSON list with exactly the same IDs, adding these fields:
@@ -636,7 +654,7 @@ def _history_filename(metadata: dict, video_id: str) -> str:
     return f"{safe_channel}_{metadata.get('upload_date', '')}_{video_id}.json".replace(" ", "_")
 
 
-async def _stream_translate(transcript: list, indices: list, payload: dict, save_path: str, model: str = DEFAULT_MODEL):
+async def _stream_translate(transcript: list, indices: list, payload: dict, save_path: str, model: str = DEFAULT_MODEL, vocab_level: str | None = None):
     """Translate the given transcript indices batch by batch.
 
     Yields a dict per batch with the freshly translated blocks and overall
@@ -656,7 +674,7 @@ async def _stream_translate(transcript: list, indices: list, payload: dict, save
         } for i in batch_indices]
 
         try:
-            result = await process_llm_batch(batch_blocks, model=model)
+            result = await process_llm_batch(batch_blocks, model=model, vocab_level=vocab_level)
             for j, idx in enumerate(batch_indices):
                 if j < len(result):
                     transcript[idx] = result[j]
@@ -769,7 +787,7 @@ async def process_video_stream(request: VideoRequest):
                 "cached": False,
             })
 
-            async for update in _stream_translate(transcript, list(range(len(transcript))), payload, save_path, model=model):
+            async for update in _stream_translate(transcript, list(range(len(transcript))), payload, save_path, model=model, vocab_level=request.vocab_level):
                 yield _sse("batch", update)
 
             yield _sse("stage", {"stage": "summary"})

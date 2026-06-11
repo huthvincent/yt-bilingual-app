@@ -6,6 +6,7 @@ import type { HistoryItem } from './ChannelVideoList';
 import { ModelSelectionModal } from './ModelSelectionModal';
 import type { EstimationData } from './ModelSelectionModal';
 import { ShowBrowser } from './ShowBrowser';
+import { VOCAB_LEVELS, loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settings';
 
 interface InputScreenProps {
     onSubmit: (url: string, model?: string) => void;
@@ -39,6 +40,12 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
     const [estimationData, setEstimationData] = useState<EstimationData | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [pendingUrl, setPendingUrl] = useState('');
+    const [vocabLevel, setVocabLevel] = useState<VocabLevelId>(loadVocabLevel);
+
+    const handleVocabLevelChange = (level: VocabLevelId) => {
+        setVocabLevel(level);
+        saveVocabLevel(level);
+    };
 
     useEffect(() => {
         apiFetch('/api/history')
@@ -179,6 +186,28 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                         </div>
                     </div>
                 </motion.form>
+
+                {/* Learner level: calibrates which words get highlighted */}
+                <motion.div variants={itemVariants} className="max-w-3xl mx-auto w-full flex items-center justify-center gap-2 -mt-6">
+                    <span className="text-xs text-zinc-500">生词水平：</span>
+                    <div className="flex items-center rounded-lg bg-zinc-800/60 p-0.5 border border-white/5">
+                        {VOCAB_LEVELS.map(level => (
+                            <button
+                                key={level.id}
+                                type="button"
+                                onClick={() => handleVocabLevelChange(level.id)}
+                                className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
+                                    vocabLevel === level.id
+                                        ? 'bg-zinc-100 text-zinc-900 shadow-sm'
+                                        : 'text-zinc-400 hover:text-zinc-200'
+                                }`}
+                            >
+                                {level.label}
+                            </button>
+                        ))}
+                    </div>
+                    <span className="text-[11px] text-zinc-600 hidden sm:inline">AI 只高亮超出此水平的词汇</span>
+                </motion.div>
 
                 {/* Bento Grid */}
                 <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8">
