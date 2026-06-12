@@ -139,6 +139,8 @@ cd frontend && npm run dev
 
 欢迎 Issue 和 PR。Fork → `git checkout -b feature/amazing` → 提交 → PR。
 
+项目按 [spec-kit](https://github.com/github/spec-kit) 的规格驱动方式管理：架构、设计规范、各功能规格在 [`docs/`](docs/) 与 [`specs/`](specs/)，项目原则见 [`.specify/memory/constitution.md`](.specify/memory/constitution.md)。
+
 ## 📄 许可
 
 MIT — 见 [LICENSE](LICENSE)。
