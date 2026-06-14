@@ -10,12 +10,14 @@ import { loadVocabLevel, saveVocabLevel, type VocabLevelId } from '../lib/settin
 import { VocabAxis } from './VocabAxis';
 import { TiltCard } from './TiltCard';
 import { AuroraBackground } from './AuroraBackground';
+import { SentencePacks } from './SentencePacks';
 import { progressPercent } from '../lib/progress';
 
 interface InputScreenProps {
     onSubmit: (url: string, model?: string) => void;
     onLoadHistory: (filename: string) => void;
     onSelectEpisode: (showId: string, season: number, episode: number) => void;
+    onSelectSentenceLevel: (id: number) => void;
     isLoading?: boolean;
     loadingState?: 'processing' | 'loading' | 'asr' | null;
     subscriptions?: { id: string; name: string }[];
@@ -36,7 +38,7 @@ const itemVariants: Variants = {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 340, damping: 30, mass: 0.9 } }
 };
 
-export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, isLoading, loadingState, subscriptions = [], onSelectChannel }) => {
+export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistory, onSelectEpisode, onSelectSentenceLevel, isLoading, loadingState, subscriptions = [], onSelectChannel }) => {
     const [url, setUrl] = useState('');
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [channelUpdates, setChannelUpdates] = useState<any[]>([]);
@@ -198,6 +200,11 @@ export const InputScreen: React.FC<InputScreenProps> = ({ onSubmit, onLoadHistor
                 {/* Learner level: calibrates which words get highlighted */}
                 <motion.div variants={itemVariants} className="-mt-4">
                     <VocabAxis value={vocabLevel} onChange={handleVocabLevelChange} />
+                </motion.div>
+
+                {/* Sentence Packs — the third learning mode */}
+                <motion.div variants={itemVariants}>
+                    <SentencePacks onSelectLevel={onSelectSentenceLevel} />
                 </motion.div>
 
                 {/* Bento Grid */}

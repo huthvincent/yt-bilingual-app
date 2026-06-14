@@ -22,3 +22,4 @@
 | [006](./006-local-shows/spec.md) | 本地剧集 | 导入 SRT，双语看自己的剧 | 已实现 |
 | [007](./007-subscriptions-resume/spec.md) | 订阅与续播 | 关注频道、记忆进度、自动续播 | 已实现 |
 | [008](./008-asr-fallback/spec.md) | 无字幕转写回退 | 没字幕时本地 Whisper 转写 | 已实现（可选依赖） |
+| [009](./009-sentence-packs/spec.md) | 句子精背 | 背一批精选地道句子，与看视频并列的第三模式 | 已实现 |

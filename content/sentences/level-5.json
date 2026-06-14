@@ -1,0 +1,2396 @@
+{
+ "id": 5,
+ "title": "第五册",
+ "subtitle": "精选地道表达 · 精通",
+ "count": 100,
+ "days": 10,
+ "sentences": [
+  {
+   "d": 1,
+   "n": 1,
+   "cat": "think",
+   "zh": "身份从来不是一块一锤定音的石头;它更像一个递归的循环——你的所作所为塑造了你的所信,而你的所信又反过来悄悄决定了你下一步会做什么。",
+   "seg": [
+    "Identity is never a settled thing; it's more of a ",
+    {
+     "t": "recursive",
+     "g": "递归自指的",
+     "c": "adv"
+    },
+    " loop — what you do shapes what you believe, and what you believe quietly ",
+    {
+     "t": "dictates",
+     "g": "决定左右",
+     "c": "adv"
+    },
+    " what you do next."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 2,
+   "cat": "think",
+   "zh": "Dan Koe让我重新审视的一点是:无聊根本不是该被消灭的敌人,而是一种生成性的状态——正是那片寂静的空地,孕育出了你尚未想到的念头。",
+   "seg": [
+    "What Dan Koe got me ",
+    {
+     "t": "rethinking",
+     "g": "重新审视",
+     "c": "phr"
+    },
+    " is that boredom isn't the enemy to be killed off; it's a ",
+    {
+     "t": "generative",
+     "g": "孕育生成的",
+     "c": "adv"
+    },
+    " state — the quiet clearing where the ideas you haven't had yet come from."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 3,
+   "cat": "think",
+   "zh": "潜伏在大多数拖延背后的,很少是懒惰;它无一例外地是一种恐惧——怕那个本该全力以赴的自己,最终被证明根本配不上这件事。",
+   "seg": [
+    {
+     "t": "Latent",
+     "g": "潜藏未显的",
+     "c": "adv"
+    },
+    " in most procrastination is rarely laziness; it's ",
+    {
+     "t": "invariably",
+     "g": "无一例外地",
+     "c": "adv"
+    },
+    " a fear that the self you'd have to become might ",
+    {
+     "t": "not be up to it",
+     "g": "配不上/胜任不了",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 4,
+   "cat": "think",
+   "zh": "有一条心照不宣的契约,几乎人人都默默签了:为了换取归属感,你愿意收敛锋芒、磨平那些最不合群的棱角。",
+   "seg": [
+    "There's a ",
+    {
+     "t": "tacit",
+     "g": "心照不宣的",
+     "c": "adv"
+    },
+    " contract almost everyone quietly signs: in exchange for belonging, you agree to ",
+    {
+     "t": "dial yourself down",
+     "g": "收敛锋芒",
+     "c": "idi"
+    },
+    " and sand off the parts that fit least."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 5,
+   "cat": "think",
+   "zh": "回望任何一年,最显著的从来不是那些喧闹的大事件,而是那个你几乎没察觉、却一砖一瓦把你重塑成今天模样的小习惯。",
+   "seg": [
+    "Look back on any given year and the most ",
+    {
+     "t": "salient",
+     "g": "最突出显著的",
+     "c": "adv"
+    },
+    " thing is never the loud, big event, but the small habit you barely noticed ",
+    {
+     "t": "brick by brick",
+     "g": "一砖一瓦地",
+     "c": "idi"
+    },
+    " remaking you into who you are now."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 6,
+   "cat": "think",
+   "zh": "你究竟有多自由,完全取决于你能在多大程度上忍受身边人短暂的失望,而不立刻动摇、缴械投降。",
+   "seg": [
+    "How free you actually are is wholly ",
+    {
+     "t": "contingent on",
+     "g": "取决于",
+     "c": "col"
+    },
+    " how much of other people's short-lived disappointment you can sit with without ",
+    {
+     "t": "caving in",
+     "g": "动摇屈服",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 7,
+   "cat": "think",
+   "zh": "忙碌之所以让人安心,是因为我们早已把它当成了价值的替代指标;可塞满日程表,远不等于活出了一种真正经得起推敲的人生。",
+   "seg": [
+    "Busyness reassures us because we've long treated it as ",
+    {
+     "t": "a proxy for",
+     "g": "…的替代指标",
+     "c": "col"
+    },
+    " worth; yet a packed calendar is a far cry from a life that actually ",
+    {
+     "t": "holds up under scrutiny",
+     "g": "经得起推敲",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 8,
+   "cat": "think",
+   "zh": "看待你自己的那副视角,你很少是亲手挑选的——它多半是从父母、算法和你那帮同龄人那儿,一点点东拼西凑借来的。",
+   "seg": [
+    {
+     "t": "The lens through which",
+     "g": "看待…的视角",
+     "c": "col"
+    },
+    " you see yourself is one you rarely chose; it was mostly ",
+    {
+     "t": "cobbled together",
+     "g": "东拼西凑",
+     "c": "idi"
+    },
+    " on loan from your parents, the algorithm, and whoever you happened to grow up around."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 9,
+   "cat": "think",
+   "zh": "一个目标表面上越是无可指摘、人人称道,就越值得你停下来追问一句:这究竟是你自己想要的,还是你被悄悄教着去想要的?",
+   "seg": [
+    {
+     "t": "To the extent that",
+     "g": "在…程度上",
+     "c": "col"
+    },
+    " a goal looks ",
+    {
+     "t": "ostensibly",
+     "g": "表面上",
+     "c": "adv"
+    },
+    " admirable and beyond reproach, it's all the more worth ",
+    {
+     "t": "pausing to ask",
+     "g": "停下来追问",
+     "c": "col"
+    },
+    " whether you want it, or were quietly taught to."
+   ]
+  },
+  {
+   "d": 1,
+   "n": 10,
+   "cat": "think",
+   "zh": "重塑自我并不是某天醒来你突然变了个人;它是几十次细微的选择,日积月累、悄无声息地,把过去那个你慢慢挤出了局。",
+   "seg": [
+    "Reinventing yourself isn't waking up one day as someone new; it's dozens of small choices that, ",
+    {
+     "t": "compounded over time",
+     "g": "日积月累",
+     "c": "col"
+    },
+    ", quietly ",
+    {
+     "t": "crowd out",
+     "g": "挤出排挤掉",
+     "c": "phr"
+    },
+    " the person you used to be."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 11,
+   "cat": "think",
+   "zh": "我并不是断然否定雄心本身;我反对的,是那种把别人对你的看法误当成你人生意义的雄心。",
+   "seg": [
+    "I'm not ",
+    {
+     "t": "categorically",
+     "g": "断然地",
+     "c": "adv"
+    },
+    " against ambition; what I push back on is the kind that ",
+    {
+     "t": "mistakes other people's opinion of you for",
+     "g": "把他人看法误当成",
+     "c": "col"
+    },
+    " the meaning of your life."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 12,
+   "cat": "think",
+   "zh": "有一种安静,本身就是有价值的——它的价值并不取决于事后你能从中榨出多少灵感或产出。",
+   "seg": [
+    "There's a kind of stillness that is ",
+    {
+     "t": "intrinsically",
+     "g": "内在地",
+     "c": "adv"
+    },
+    " worthwhile, whose worth doesn't ",
+    {
+     "t": "hinge on",
+     "g": "取决于",
+     "c": "col"
+    },
+    " how much inspiration or output you can later squeeze out of it."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 13,
+   "cat": "think",
+   "zh": "我们不成比例地高估了那些响亮的、可见的成功,却几乎从不去为那些悄无声息的日常坚持鼓掌。",
+   "seg": [
+    "Disproportionately, we ",
+    {
+     "t": "overvalue",
+     "g": "高估",
+     "c": "adv"
+    },
+    " the loud, visible wins, while almost never ",
+    {
+     "t": "clapping for",
+     "g": "为…鼓掌",
+     "c": "col"
+    },
+    " the quiet, daily kind of persistence that nobody sees."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 14,
+   "cat": "think",
+   "zh": "倘若一种身份认同得靠你不断逃避独处才撑得住,那它在哲学上就站不住脚——它需要的不是辩护,而是审视。",
+   "seg": [
+    "If an identity only ",
+    {
+     "t": "holds up",
+     "g": "撑得住",
+     "c": "phr"
+    },
+    " when you keep running from your own company, then it is philosophically ",
+    {
+     "t": "untenable",
+     "g": "站不住脚",
+     "c": "adv"
+    },
+    " — it doesn't need defending so much as examining."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 15,
+   "cat": "think",
+   "zh": "纪律和自由,凭什么非得二选一?把它们摆成非此即彼的伪命题,恰恰是我们逃避真正去整合二者的方式。",
+   "seg": [
+    "Since when must it be discipline or freedom? Framing them as ",
+    {
+     "t": "a false dichotomy",
+     "g": "非此即彼的伪命题",
+     "c": "phr"
+    },
+    " is precisely how we ",
+    {
+     "t": "dodge the work of",
+     "g": "逃避去做",
+     "c": "col"
+    },
+    " actually reconciling the two."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 16,
+   "cat": "think",
+   "zh": "把「想活得更从容」歪曲成「什么都不想干」,然后再去攻击这个被你扭曲过的版本——你打倒的不过是个稻草人罢了。",
+   "seg": [
+    "Twisting \"I want a slower life\" into \"I want to do nothing\" and then attacking that distorted version is just ",
+    {
+     "t": "knocking down a strawman",
+     "g": "打倒稻草人论点",
+     "c": "idi"
+    },
+    " — you've ",
+    {
+     "t": "beaten a version of the argument nobody made",
+     "g": "驳的是没人提的观点",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 17,
+   "cat": "think",
+   "zh": "「年轻人就是没有定力」——这种以偏概全的说法听着痛快,却经不起任何一个反例的轻轻一推。",
+   "seg": [
+    "\"Young people just have no discipline\" is ",
+    {
+     "t": "a sweeping generalization",
+     "g": "以偏概全",
+     "c": "phr"
+    },
+    " that feels satisfying to say yet ",
+    {
+     "t": "falls apart at",
+     "g": "一…就垮掉",
+     "c": "col"
+    },
+    " the first counterexample anyone gently pushes back with."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 18,
+   "cat": "think",
+   "zh": "我们太容易把忙碌和重要混为一谈,仿佛日程排得越满,就越能证明这条人生路走得没错。",
+   "seg": [
+    "Far too easily do we ",
+    {
+     "t": "conflate",
+     "g": "混为一谈",
+     "c": "adv"
+    },
+    " being busy with being important, as if a fuller calendar somehow ",
+    {
+     "t": "vindicated the path",
+     "g": "证明这条路对",
+     "c": "col"
+    },
+    " we're on."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 19,
+   "cat": "think",
+   "zh": "在你给自己贴上「懒」这个标签之前,先把「疲惫」「恐惧」和「提不起兴趣」一项项理清楚——它们感觉相似,根子却完全不同。",
+   "seg": [
+    "Before you ",
+    {
+     "t": "slap the label \"lazy\" on yourself",
+     "g": "给自己贴懒的标签",
+     "c": "col"
+    },
+    ", learn to ",
+    {
+     "t": "disentangle",
+     "g": "理清/区分",
+     "c": "adv"
+    },
+    " exhaustion, fear, and plain disinterest — they feel alike but run on completely different roots."
+   ]
+  },
+  {
+   "d": 2,
+   "n": 20,
+   "cat": "think",
+   "zh": "每当你强烈地想去捍卫某个信念时,不妨审视一下它底下的那个假设;同时也为你可能从头到尾都错了这种可能,留一点余地。",
+   "seg": [
+    "Whenever you feel the urge to defend a belief, ",
+    {
+     "t": "interrogate the assumption",
+     "g": "审视那个假设",
+     "c": "phr"
+    },
+    " underneath it; and while you're at it, ",
+    {
+     "t": "hold space for",
+     "g": "为…保留余地",
+     "c": "phr"
+    },
+    " the chance that you've been wrong the whole time."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 21,
+   "cat": "think",
+   "zh": "成熟的标志,与其说是想通了什么,不如说是你终于学会了同时容纳两种相互矛盾的观点而不急着选边站。",
+   "seg": [
+    "Maturity isn't so much arriving at an answer as learning to ",
+    {
+     "t": "hold two ideas at once",
+     "g": "同时容纳两种观点",
+     "c": "adv"
+    },
+    " — two ideas that ",
+    {
+     "t": "flatly contradict",
+     "g": "彻底矛盾",
+     "c": "col"
+    },
+    " each other — without rushing to ",
+    {
+     "t": "pick a side",
+     "g": "选边站",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 22,
+   "cat": "think",
+   "zh": "把自由说成想做什么就做什么,充其量只是个粗略的初步估算;真到生活里,它更像是有底气拒绝大半你本可以去做的事。",
+   "seg": [
+    "Calling freedom \"doing whatever you want\" is, ",
+    {
+     "t": "at best",
+     "g": "充其量",
+     "c": "phr"
+    },
+    ", ",
+    {
+     "t": "a first approximation",
+     "g": "初步估算",
+     "c": "adv"
+    },
+    "; lived out, it looks more like the nerve to ",
+    {
+     "t": "turn down",
+     "g": "拒绝",
+     "c": "phr"
+    },
+    " most of what you could be doing."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 23,
+   "cat": "think",
+   "zh": "纵观Dan Koe那些看似零散的主张,真正贯穿始终的主线,是他对你成为谁的关注,远胜于对你产出了什么的关注。",
+   "seg": [
+    "Trace his scattered claims back far enough, and ",
+    {
+     "t": "the through line",
+     "g": "贯穿主线",
+     "c": "adv"
+    },
+    " in Dan Koe's thinking is plain: he ",
+    {
+     "t": "cares far more about",
+     "g": "远更在乎",
+     "c": "col"
+    },
+    " who you become than about what you ",
+    {
+     "t": "churn out",
+     "g": "批量产出",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 24,
+   "cat": "think",
+   "zh": "注意力之所以宝贵,正在于它逼你日复一日地去分辨什么是真正要紧的信号,什么不过是聒噪的噪声。",
+   "seg": [
+    "What makes attention so precious is that it forces you, day after day, to ",
+    {
+     "t": "tell signal from noise",
+     "g": "分辨信号与噪声",
+     "c": "adv"
+    },
+    " — to ask what genuinely ",
+    {
+     "t": "moves the needle",
+     "g": "真正起作用",
+     "c": "idi"
+    },
+    " and what merely makes a racket."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 25,
+   "cat": "think",
+   "zh": "纪律是把双刃剑,双向起作用:它既能把你从惰性里解救出来,也能在你不留神时悄悄变成又一座你亲手砌起的牢笼。",
+   "seg": [
+    "Discipline ",
+    {
+     "t": "cuts both ways",
+     "g": "双向起作用",
+     "c": "adv"
+    },
+    ": it can ",
+    {
+     "t": "pull you out of",
+     "g": "把你拉出",
+     "c": "phr"
+    },
+    " your own inertia, yet, left unexamined, it quietly hardens into one more cage you built yourself."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 26,
+   "cat": "think",
+   "zh": "若想真正重塑身份,先得给你过去的那个自己应有的重视——不是急着否定他,而是承认正是他一路把你扛到了今天。",
+   "seg": [
+    "Before you can reinvent yourself, ",
+    {
+     "t": "give your old self its due",
+     "g": "给旧的自己应有重视",
+     "c": "adv"
+    },
+    ": instead of ",
+    {
+     "t": "writing him off",
+     "g": "全盘否定",
+     "c": "phr"
+    },
+    ", admit it was him who ",
+    {
+     "t": "carried you this far",
+     "g": "把你扛到今天",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 27,
+   "cat": "think",
+   "zh": "为什么我们就不能按无聊本身的逻辑去看待它呢?它未必是个需要消灭的敌人,倒更像是心智在悄悄告诉你,它已经准备好换个方向了。",
+   "seg": [
+    "Why can't we take boredom ",
+    {
+     "t": "on its own terms",
+     "g": "按其本身逻辑",
+     "c": "adv"
+    },
+    "? It needn't be an enemy to ",
+    {
+     "t": "stamp out",
+     "g": "消灭",
+     "c": "phr"
+    },
+    ", so much as the mind's quiet way of telling you it's ready to ",
+    {
+     "t": "change course",
+     "g": "换个方向",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 28,
+   "cat": "think",
+   "zh": "就意义本身而言,没有哪件事是自带意义的;意义从来不是被你发现的,而是你长期投入、反复用心后,亲手赋予它的。",
+   "seg": [
+    "Nothing carries meaning ",
+    {
+     "t": "in and of itself",
+     "g": "就其本身而言",
+     "c": "adv"
+    },
+    "; meaning is never something you ",
+    {
+     "t": "stumble upon",
+     "g": "无意中发现",
+     "c": "phr"
+    },
+    " so much as something you confer through long, repeated ",
+    {
+     "t": "investment of care",
+     "g": "用心投入",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 29,
+   "cat": "think",
+   "zh": "一旦不再追问自己究竟是谁,人实际上就等于把方向盘交了出去,任由别人的种种期待替自己开车。",
+   "seg": [
+    "Having stopped asking who you really are, you've ",
+    {
+     "t": "for all intents and purposes",
+     "g": "实际上几乎等于",
+     "c": "adv"
+    },
+    " ",
+    {
+     "t": "handed over the wheel",
+     "g": "交出方向盘",
+     "c": "idi"
+    },
+    ", letting other people's expectations ",
+    {
+     "t": "drive on your behalf",
+     "g": "替你开车",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 3,
+   "n": 30,
+   "cat": "think",
+   "zh": "抽象地讲,纪律听起来既高尚又简单;可一旦落到周二清晨那个具体的你身上,它马上就显出本来面目——一连串不起眼的小拒绝。",
+   "seg": [
+    "In the abstract, discipline sounds noble and almost easy; ",
+    {
+     "t": "brought down to",
+     "g": "落到具体",
+     "c": "phr"
+    },
+    " the actual you on a Tuesday morning, though, it ",
+    {
+     "t": "shows its true colors",
+     "g": "显出本来面目",
+     "c": "idi"
+    },
+    " as a string of small, unglamorous refusals."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 31,
+   "cat": "think",
+   "zh": "真正的自由,与其说是想做什么就做什么,不如说是亲手挑出那几件值得一辈子去坚持的事。",
+   "seg": [
+    "Real freedom is ",
+    {
+     "t": "not so much",
+     "g": "与其说",
+     "c": "adv"
+    },
+    " doing whatever you want ",
+    {
+     "t": "as",
+     "g": "不如说",
+     "c": "adv"
+    },
+    " choosing the handful of things worth ",
+    {
+     "t": "committing to",
+     "g": "坚持去做",
+     "c": "phr"
+    },
+    " for a lifetime."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 32,
+   "cat": "think",
+   "zh": "按理说,一个习惯被你重复了千百遍,它早晚会反过来塑造你究竟是谁。",
+   "seg": [
+    "It ",
+    {
+     "t": "stands to reason that",
+     "g": "按理说",
+     "c": "adv"
+    },
+    " a habit you've repeated a thousand times will, sooner or later, ",
+    {
+     "t": "loop back to",
+     "g": "反过来作用于",
+     "c": "phr"
+    },
+    " shape who you actually are."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 33,
+   "cat": "think",
+   "zh": "你真正信服一个想法时,靠的从来不是论证有多严密,而是一种切身的体感:它就是对的。",
+   "seg": [
+    "What truly convinces you of an idea is rarely the ",
+    {
+     "t": "airtight",
+     "g": "无懈可击的",
+     "c": "adv"
+    },
+    " logic; more often it's ",
+    {
+     "t": "a felt sense",
+     "g": "切身的体感",
+     "c": "col"
+    },
+    " that it simply ",
+    {
+     "t": "rings true",
+     "g": "听着就对",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 34,
+   "cat": "think",
+   "zh": "对任何把复杂人生压缩成三步走的建议,姑且听之就好——它能火,多半是因为听着省心,而非因为它管用。",
+   "seg": [
+    "Take any advice that ",
+    {
+     "t": "boils life down to",
+     "g": "把人生压缩成",
+     "c": "col"
+    },
+    " three neat steps ",
+    {
+     "t": "with a grain of salt",
+     "g": "姑且听之",
+     "c": "idi"
+    },
+    "; it spreads because it's comforting, not because it works."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 35,
+   "cat": "think",
+   "zh": "尽管纪律听起来枯燥又压抑,它仍是迄今为止人类发明出的、最接近自由的那样东西。",
+   "seg": [
+    {
+     "t": "For all its",
+     "g": "尽管它",
+     "c": "col"
+    },
+    " dull, joyless reputation, discipline ",
+    {
+     "t": "still",
+     "g": "仍",
+     "c": "col"
+    },
+    " remains the closest thing to freedom we've ever ",
+    {
+     "t": "managed to invent",
+     "g": "设法发明出",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 36,
+   "cat": "think",
+   "zh": "无聊有其可取之处:正是在那些没什么可做的间隙里,心思才会飘向你平时不敢碰的问题。",
+   "seg": [
+    "There is ",
+    {
+     "t": "something to be said for",
+     "g": "有其可取之处",
+     "c": "col"
+    },
+    " boredom: it's in those empty, ",
+    {
+     "t": "unstructured",
+     "g": "没安排的",
+     "c": "adv"
+    },
+    " gaps that the mind ",
+    {
+     "t": "drifts toward",
+     "g": "飘向",
+     "c": "phr"
+    },
+    " the questions you'd normally avoid."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 37,
+   "cat": "think",
+   "zh": "一旦你真正弄清楚了自己想成为谁,从前那些让你心痒的认可,就显得相形见绌了。",
+   "seg": [
+    "Once you've genuinely ",
+    {
+     "t": "figured out",
+     "g": "弄清楚",
+     "c": "phr"
+    },
+    " who you want to become, the approval you used to ",
+    {
+     "t": "crave",
+     "g": "渴求",
+     "c": "adv"
+    },
+    " starts to ",
+    {
+     "t": "pale in comparison to",
+     "g": "相形见绌",
+     "c": "col"
+    },
+    " that quiet certainty."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 38,
+   "cat": "think",
+   "zh": "说\"做你自己\"听着没错,但这恰恰引出一个疑问:如果那个\"自己\"本就是别人一点点喂给你的呢?",
+   "seg": [
+    "Telling someone to just \"be themselves\" sounds harmless, but it ",
+    {
+     "t": "begs the question",
+     "g": "引出疑问",
+     "c": "col"
+    },
+    ": what if that self was ",
+    {
+     "t": "spoon-fed to you",
+     "g": "被一点点喂给你",
+     "c": "idi"
+    },
+    " by everyone else?"
+   ]
+  },
+  {
+   "d": 4,
+   "n": 39,
+   "cat": "think",
+   "zh": "正是凭借日复一日地露面,而非凭着什么灵光一现,普通人才慢慢长成了自己都认不出的样子。",
+   "seg": [
+    {
+     "t": "By virtue of",
+     "g": "凭借",
+     "c": "col"
+    },
+    " showing up day after day, not by any ",
+    {
+     "t": "flash of brilliance",
+     "g": "灵光一现",
+     "c": "idi"
+    },
+    ", ordinary people slowly grow into someone they can barely recognize."
+   ]
+  },
+  {
+   "d": 4,
+   "n": 40,
+   "cat": "think",
+   "zh": "人们常以\"还没准备好\"为由推掉一件事,可推迟这种结构,本身就特别适合让人无限期地拖下去。",
+   "seg": [
+    "People often turn something down ",
+    {
+     "t": "on the grounds that",
+     "g": "以…为由",
+     "c": "col"
+    },
+    " they're \"not ready yet,\" yet that very framing ",
+    {
+     "t": "lends itself to",
+     "g": "特别适合于",
+     "c": "col"
+    },
+    " putting things off ",
+    {
+     "t": "indefinitely",
+     "g": "无限期地",
+     "c": "adv"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 41,
+   "cat": "think",
+   "zh": "如果你想真正影响一个人,就先放下你希望他身处的样子,转而顺着他当下的真实境况去待他——剩下的,几乎都是从这一步水到渠成的。",
+   "seg": [
+    "If you actually want to reach someone, drop the version of them you wish you were dealing with and ",
+    {
+     "t": "meet them where they are",
+     "g": "顺其当下境况待人",
+     "c": "idi"
+    },
+    " — almost everything else ",
+    {
+     "t": "follows from",
+     "g": "由…自然而来",
+     "c": "phr"
+    },
+    " that first move."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 42,
+   "cat": "think",
+   "zh": "总是急着证明自己不容小觑,他却没意识到,正是那股憋着的劲,让满屋子人一眼就看出了他最想藏起来的那份不安全感。",
+   "seg": [
+    "Forever bristling to prove he can't be overlooked, he never clocked that ",
+    {
+     "t": "the chip on his shoulder",
+     "g": "心里憋着的那股劲",
+     "c": "idi"
+    },
+    " was exactly what ",
+    {
+     "t": "telegraphed",
+     "g": "无意中暴露出",
+     "c": "adv"
+    },
+    " the insecurity he most wanted to hide to everyone in the room."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 43,
+   "cat": "think",
+   "zh": "有一种特别的孤独,只属于那些与所处环境格格不入的人——不是因为你不够好,而是这个房间的形状,从一开始就不是为你这样的人量身造的。",
+   "seg": [
+    "There's a particular loneliness reserved for the ",
+    {
+     "t": "square peg in a round hole",
+     "g": "格格不入之人",
+     "c": "idi"
+    },
+    " — not because you fall short, but because the room was never ",
+    {
+     "t": "cut out for",
+     "g": "天生适合",
+     "c": "idi"
+    },
+    " someone shaped like you in the first place."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 44,
+   "cat": "think",
+   "zh": "你有没有过这种时刻:本是去追求一个目标,半路却完全跑偏,以致到头来连自己究竟在为谁、为何而拼,都已说不清楚了?",
+   "seg": [
+    "Have you ever set out after some goal only to ",
+    {
+     "t": "lose the plot",
+     "g": "中途乱了方寸跑偏",
+     "c": "idi"
+    },
+    " so thoroughly that, by the end, you could no longer ",
+    {
+     "t": "articulate",
+     "g": "清楚说明",
+     "c": "adv"
+    },
+    " whom you were striving for, or why?"
+   ]
+  },
+  {
+   "d": 5,
+   "n": 45,
+   "cat": "think",
+   "zh": "认定自己注定不被人喜欢,你便会不自觉地退缩、防备、提前关上门——而这,恰恰把那个念头变成了一则自我实现的预言。",
+   "seg": [
+    "Convince yourself you're bound to be disliked and you'll quietly ",
+    {
+     "t": "shrink back",
+     "g": "退缩防备",
+     "c": "phr"
+    },
+    ", guard up, doors pre-closed — which is precisely how the thought becomes ",
+    {
+     "t": "a self-fulfilling prophecy",
+     "g": "自我实现的预言",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 46,
+   "cat": "think",
+   "zh": "试图把每一个人都说服到完全认同你,无异于一桩徒劳无功的差事;成熟,恰恰是从你坦然接受有些人就是不会买账的那一刻开始的。",
+   "seg": [
+    "Trying to argue everyone into wholehearted agreement is ",
+    {
+     "t": "a fool's errand",
+     "g": "徒劳无功之事",
+     "c": "idi"
+    },
+    "; maturity begins the moment you ",
+    {
+     "t": "make your peace with",
+     "g": "坦然接受",
+     "c": "idi"
+    },
+    " the fact that some people simply won't buy what you're selling."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 47,
+   "cat": "think",
+   "zh": "我们对自己讲的那套故事,听上去往往无懈可击;真正的考验在于,当现实摊开在桌上时,它究竟印证了那套说法,还是悄悄拆穿了它。",
+   "seg": [
+    "The stories we tell ourselves tend to sound airtight; the real test is whether reality, once it's ",
+    {
+     "t": "laid out on the table",
+     "g": "摊开在眼前",
+     "c": "idi"
+    },
+    ", ",
+    {
+     "t": "bears them out",
+     "g": "印证证实",
+     "c": "phr"
+    },
+    " or quietly gives them the lie."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 48,
+   "cat": "think",
+   "zh": "迟早要正视的一笔账,是这个清醒得发冷的事实:你回避的每一段对话,并不会自行消散,只会带着复利,在某个最不合时宜的时刻找上门来。",
+   "seg": [
+    "Sooner or later, what you have to ",
+    {
+     "t": "reckon with",
+     "g": "正视清算",
+     "c": "phr"
+    },
+    " is the cold-sober fact that every conversation you dodge doesn't vanish; it ",
+    {
+     "t": "comes back to bite you",
+     "g": "反过来找上门来",
+     "c": "idi"
+    },
+    ", with interest, at the worst possible moment."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 49,
+   "cat": "think",
+   "zh": "你不妨留意一下,一个人嘴上信誓旦旦的那套价值观,有多少时候与他没人盯着时实际的取舍对不上号;而真正泄露底细的,从来是后者。",
+   "seg": [
+    "Notice how often the values someone professes so earnestly fail to ",
+    {
+     "t": "square with",
+     "g": "与…相符吻合",
+     "c": "phr"
+    },
+    " the trade-offs they actually make when no one's watching — and it's the latter that ",
+    {
+     "t": "gives the game away",
+     "g": "泄露真实底细",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 5,
+   "n": 50,
+   "cat": "think",
+   "zh": "别再把别人的成功当成对你的评判:他人在做什么,与你该如何度过这一天,本质上是两条互不相干的轴——一旦你真正想透这点,嫉妒便几乎失去了立足之地。",
+   "seg": [
+    "Stop treating someone else's success as a verdict on you: what others do is largely ",
+    {
+     "t": "orthogonal",
+     "g": "互不相干的",
+     "c": "adv"
+    },
+    " to how you ought to spend your day, and once that ",
+    {
+     "t": "truly lands",
+     "g": "真正想透",
+     "c": "idi"
+    },
+    ", envy loses most of its footing."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 51,
+   "cat": "think",
+   "zh": "我们老想着去优化自己产出了什么,却几乎从不去追问那个东西是为谁、为什么而产出的——而问题的症结,恰恰就藏在这儿。",
+   "seg": [
+    {
+     "t": "Therein lies",
+     "g": "症结正在于此",
+     "c": "idi"
+    },
+    " the rub: we obsess over optimizing what we produce, yet almost never ",
+    {
+     "t": "interrogate",
+     "g": "追问审视",
+     "c": "adv"
+    },
+    " who, or what, we're producing it for."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 52,
+   "cat": "think",
+   "zh": "就「成功」无非是别人替你定义的某个东西而言,去追逐它,其实和把人生的方向盘整个交到陌生人手里,没什么两样。",
+   "seg": [
+    {
+     "t": "Insofar as",
+     "g": "就…而言",
+     "c": "adv"
+    },
+    " \"success\" is just something other people have defined for you, chasing it is hardly distinguishable from ",
+    {
+     "t": "handing the wheel to",
+     "g": "把方向盘交给",
+     "c": "idi"
+    },
+    " a stranger."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 53,
+   "cat": "think",
+   "zh": "把一团乱麻般的人生焦虑,拆解成一个真正可下手解决的小问题——这种本事,才是从空想者迈向实干者的那道分水岭。",
+   "seg": [
+    "What separates a doer from a dreamer is the knack for cutting a tangled mess of life-anxiety down to one ",
+    {
+     "t": "tractable",
+     "g": "可着手解决的",
+     "c": "adv"
+    },
+    " problem you can actually ",
+    {
+     "t": "get your hands on",
+     "g": "动手解决",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 54,
+   "cat": "think",
+   "zh": "在创业圈里,有一条几乎被奉为公理的信条:动作要快、东西要糙;可这条铁律,放到信任和人际关系上,却往往败得一塌糊涂。",
+   "seg": [
+    "It is treated as almost ",
+    {
+     "t": "axiomatic",
+     "g": "公理般不证自明的",
+     "c": "adv"
+    },
+    " in startup circles that you should move fast and ship rough — a maxim that ",
+    {
+     "t": "falls flat",
+     "g": "彻底失效",
+     "c": "idi"
+    },
+    " the moment it meets trust and relationships."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 55,
+   "cat": "think",
+   "zh": "在你急着去反驳之前,先试着把对方的观点按最强、最有说服力的版本重述一遍;倘若连那个版本你都驳不倒,那也许真正该松动的,是你自己。",
+   "seg": [
+    {
+     "t": "Steelman",
+     "g": "以最强版本重述",
+     "c": "adv"
+    },
+    " the other side before you rush to tear it down; if even its strongest form ",
+    {
+     "t": "holds water",
+     "g": "站得住脚",
+     "c": "idi"
+    },
+    ", maybe the one who needs to move is you."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 56,
+   "cat": "think",
+   "zh": "地图终究不是疆域本身——你脑子里那套关于「自己是谁」的精巧叙事,远不等于你真正活出来的样子。",
+   "seg": [
+    "The map is not the territory: the tidy narrative you carry around about who you are is a ",
+    {
+     "t": "far cry from",
+     "g": "与…相去甚远",
+     "c": "idi"
+    },
+    " the life you ",
+    {
+     "t": "actually live out",
+     "g": "真正活出来的",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 57,
+   "cat": "think",
+   "zh": "放大来看,这同一种逃避独处的冲动,正悄悄驱动着整个文化:刷不完的信息流、永不下班的工作、连一秒钟安静都填得满满当当。",
+   "seg": [
+    {
+     "t": "Writ large",
+     "g": "放大到普遍来看",
+     "c": "adv"
+    },
+    ", the very same flight from solitude quietly ",
+    {
+     "t": "drives",
+     "g": "驱动支配着",
+     "c": "adv"
+    },
+    " a whole culture — endless feeds, work that never clocks off, every second of silence ",
+    {
+     "t": "filled to the brim",
+     "g": "填得满满当当",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 58,
+   "cat": "think",
+   "zh": "那些既敢直白说出真实想法、又不让你觉得被审判的人,实在是寥寥无几;而一旦遇上一个,千万别轻易放手。",
+   "seg": [
+    "Few and far between are the people who can ",
+    {
+     "t": "tell you the unvarnished truth",
+     "g": "对你直言不讳",
+     "c": "col"
+    },
+    " without leaving you feeling judged — so when you do find one, ",
+    {
+     "t": "hold on to them",
+     "g": "好好珍惜别放手",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 59,
+   "cat": "think",
+   "zh": "靠通知声和待办清单把焦虑暂时压住,这招或许能管几个钟头;可你迟早得明白:有些念头,只有在你停下来之后,才肯露面。",
+   "seg": [
+    {
+     "t": "Keeping anxiety at bay",
+     "g": "把焦虑压住不近身",
+     "c": "idi"
+    },
+    " with notifications and to-do lists might buy you a few hours, but sooner or later you learn that some thoughts ",
+    {
+     "t": "only surface",
+     "g": "只在…才浮现",
+     "c": "col"
+    },
+    " once you've stopped moving."
+   ]
+  },
+  {
+   "d": 6,
+   "n": 60,
+   "cat": "think",
+   "zh": "与那种喧嚣浮夸、自我标榜的「成长」相去甚远的,是这样一种安静的转变——它发生得如此不动声色,以至于多年以后回望,你才后知后觉地认出它来。",
+   "seg": [
+    "A far cry from the loud, ",
+    {
+     "t": "self-congratulatory",
+     "g": "自我标榜的",
+     "c": "adv"
+    },
+    " kind of \"growth\" is the quiet sort that happens so ",
+    {
+     "t": "undramatically",
+     "g": "不动声色地",
+     "c": "adv"
+    },
+    " you only recognize it years later, after the fact."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 61,
+   "cat": "think",
+   "zh": "刚把一个信念当成自己的,你往往就开始拿它去过滤所有迎面而来的证据了——而那种过滤,恰恰是它最经不起推敲的地方。",
+   "seg": [
+    {
+     "t": "No sooner",
+     "g": "刚一",
+     "c": "col"
+    },
+    " have you made a belief your own ",
+    {
+     "t": "than",
+     "g": "就",
+     "c": "col"
+    },
+    " you start using it to filter every piece of evidence that comes your way — and that filtering is exactly where it ",
+    {
+     "t": "doesn't hold up under scrutiny",
+     "g": "经不起推敲",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 62,
+   "cat": "think",
+   "zh": "只有当一个想法跟你的利益相左时,你才真正看清自己到底有多信它。",
+   "seg": [
+    {
+     "t": "Only when",
+     "g": "只有当",
+     "c": "col"
+    },
+    " an idea ",
+    {
+     "t": "cuts against",
+     "g": "相左于",
+     "c": "phr"
+    },
+    " your own interests ",
+    {
+     "t": "do",
+     "g": "才(倒装)",
+     "c": "col"
+    },
+    " you find out how much you actually believe it."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 63,
+   "cat": "think",
+   "zh": "一条建议有价值,仅仅在于它能改变你下一步实际会怎么做;否则,再漂亮的措辞也不过是耳边的装饰罢了。",
+   "seg": [
+    "A piece of advice is worth anything ",
+    {
+     "t": "in so far as it",
+     "g": "只要它",
+     "c": "col"
+    },
+    " changes what you actually do next; otherwise, even the most elegant phrasing is just ",
+    {
+     "t": "decoration for the ear",
+     "g": "耳边的装饰",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 64,
+   "cat": "think",
+   "zh": "怀疑论者会说,自我提升那套话术大半是包装精美的废话;即便如此,真正去较劲、去打磨的那个人,最后总归是赢家。",
+   "seg": [
+    "Skeptics will tell you that most self-improvement talk is ",
+    {
+     "t": "dressed-up",
+     "g": "包装精美的",
+     "c": "adv"
+    },
+    " nonsense; ",
+    {
+     "t": "be that as it may",
+     "g": "即便如此",
+     "c": "col"
+    },
+    ", the person who actually shows up and ",
+    {
+     "t": "grinds at it",
+     "g": "死磕到底",
+     "c": "phr"
+    },
+    " still tends to come out ahead."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 65,
+   "cat": "work",
+   "zh": "你最早是在哪个项目上练的手?往往就是那个你彻底搞砸、却又被逼着熬夜补救的项目,教会你的东西最多。",
+   "seg": [
+    "Which project did you first ",
+    {
+     "t": "cut your teeth on",
+     "g": "初试身手",
+     "c": "idi"
+    },
+    "? More often than not, it's the one you ",
+    {
+     "t": "botched",
+     "g": "搞砸",
+     "c": "adv"
+    },
+    " and were forced to salvage overnight that taught you the most."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 66,
+   "cat": "work",
+   "zh": "在每个项目里,总会到这么一刻:再讨论也讨论不出什么新东西,你只能停止纸上谈兵,埋头发奋,把活儿真正做出来。",
+   "seg": [
+    "There comes a point in every project when more discussion ",
+    {
+     "t": "yields diminishing returns",
+     "g": "收益递减",
+     "c": "col"
+    },
+    ", and you simply have to stop ",
+    {
+     "t": "talking it to death",
+     "g": "光说不练",
+     "c": "idi"
+    },
+    " and ",
+    {
+     "t": "knuckle down",
+     "g": "专心发奋",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 67,
+   "cat": "work",
+   "zh": "真正把一个尚可的工程师变成放大整支团队效能的杠杆的,不是他写代码的速度,而是他把别人甩开的那些含糊地带主动揽下来的本事。",
+   "seg": [
+    "What turns a decent engineer into ",
+    {
+     "t": "a force multiplier",
+     "g": "放大效能的杠杆",
+     "c": "col"
+    },
+    " for the whole team isn't how fast he codes, but his knack for ",
+    {
+     "t": "picking up",
+     "g": "主动揽下",
+     "c": "phr"
+    },
+    " the ambiguous bits everyone else ",
+    {
+     "t": "quietly sidesteps",
+     "g": "悄悄绕开",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 68,
+   "cat": "work",
+   "zh": "给每个含糊地带都指派一名专责负责人,胜过把它平摊给六个人——因为人人有责,往往意味着到头来谁也不真负责。",
+   "seg": [
+    "Assigning ",
+    {
+     "t": "a single-threaded owner",
+     "g": "专责负责人",
+     "c": "col"
+    },
+    " to each gray area beats ",
+    {
+     "t": "spreading it across",
+     "g": "平摊给",
+     "c": "phr"
+    },
+    " six people, because shared responsibility usually means nobody truly ",
+    {
+     "t": "owns the outcome",
+     "g": "对结果负责",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 69,
+   "cat": "work",
+   "zh": "十有八九,真正卡住整个发布的最关键瓶颈,根本不是代码,而是迟迟拿不到的那个法务批复。",
+   "seg": [
+    {
+     "t": "Nine times out of ten",
+     "g": "十有八九",
+     "c": "idi"
+    },
+    ", ",
+    {
+     "t": "the long pole in the tent",
+     "g": "最关键的瓶颈",
+     "c": "col"
+    },
+    " on a launch isn't the code at all — it's the legal sign-off that ",
+    {
+     "t": "keeps slipping",
+     "g": "迟迟拿不到",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 7,
+   "n": 70,
+   "cat": "work",
+   "zh": "首发当周需求改个三四回,在这个团队里早就是意料之中的常态了;真正会让你栽跟头的,是你天真地以为这回不会改。",
+   "seg": [
+    "Requirements ",
+    {
+     "t": "shifting",
+     "g": "变来变去",
+     "c": "adv"
+    },
+    " three or four times in launch week is ",
+    {
+     "t": "par for the course",
+     "g": "意料之中的常态",
+     "c": "idi"
+    },
+    " on this team; what actually ",
+    {
+     "t": "trips you up",
+     "g": "让你栽跟头",
+     "c": "phr"
+    },
+    " is naively assuming they won't this time."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 71,
+   "cat": "think",
+   "zh": "我们太容易把「忙碌」和「要紧」划等号,仿佛但凡填满日程的事,就自动值得我们投入注意力似的。",
+   "seg": [
+    "We are far too quick to ",
+    {
+     "t": "conflate",
+     "g": "混淆等同",
+     "c": "col"
+    },
+    " being busy ",
+    {
+     "t": "with",
+     "g": "与",
+     "c": "col"
+    },
+    " being important, as though anything that ",
+    {
+     "t": "fills the calendar",
+     "g": "填满日程",
+     "c": "col"
+    },
+    " automatically earns our attention."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 72,
+   "cat": "think",
+   "zh": "真相往往比任何利落的口号都要微妙复杂得多;凡是能塞进一条推文的东西,八成已经把大半的实情给磨掉了。",
+   "seg": [
+    "The truth is almost always ",
+    {
+     "t": "more nuanced than",
+     "g": "比…更微妙复杂",
+     "c": "col"
+    },
+    " any tidy slogan; whatever ",
+    {
+     "t": "fits inside a tweet",
+     "g": "塞进一条推文",
+     "c": "col"
+    },
+    " has probably had most of its substance ",
+    {
+     "t": "sanded off",
+     "g": "被磨掉",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 73,
+   "cat": "think",
+   "zh": "与其在两种说法该用哪个词上钻牛角尖,不如退一步问问:这个区分到底有没有改变你接下来真正要做的事。",
+   "seg": [
+    "Rather than ",
+    {
+     "t": "splitting hairs",
+     "g": "咬文嚼字钻牛角尖",
+     "c": "idi"
+    },
+    " over which word is the right one, ",
+    {
+     "t": "step back",
+     "g": "退一步",
+     "c": "phr"
+    },
+    " and ask whether the distinction actually ",
+    {
+     "t": "changes what you'd do next",
+     "g": "改变你接下来的行动",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 74,
+   "cat": "think",
+   "zh": "没有哪个决定是在真空里做出的;你今天觉得「理性」的那个选择,其实早已被一整套你看不见的假设悄悄定了调。",
+   "seg": [
+    "No decision is ever made ",
+    {
+     "t": "in a vacuum",
+     "g": "孤立脱离背景地",
+     "c": "col"
+    },
+    "; the choice that strikes you as \"rational\" today has already been quietly ",
+    {
+     "t": "framed",
+     "g": "定调框定",
+     "c": "col"
+    },
+    " by a host of assumptions you ",
+    {
+     "t": "can't even see",
+     "g": "根本看不见",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 75,
+   "cat": "think",
+   "zh": "往往要等到一个旧信念彻底失灵,我们才肯认真去检视它当初究竟是怎么悄无声息地住进我们脑子里的。",
+   "seg": [
+    "It is not until ",
+    {
+     "t": "an old belief flatly fails us",
+     "g": "旧信念彻底失灵",
+     "c": "col"
+    },
+    " that ",
+    {
+     "t": "we bother to examine",
+     "g": "我们才肯检视",
+     "c": "col"
+    },
+    " how it ever ",
+    {
+     "t": "took up residence",
+     "g": "住进来",
+     "c": "idi"
+    },
+    " in our heads in the first place."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 76,
+   "cat": "think",
+   "zh": "一个想法若不能让你彻底改变行为,那至少也该让你坐立难安一阵——否则你不过是把它当消遣消费掉了。",
+   "seg": [
+    "If an idea doesn't change how you act, then ",
+    {
+     "t": "at least",
+     "g": "至少",
+     "c": "col"
+    },
+    " it ought to ",
+    {
+     "t": "unsettle you",
+     "g": "让你坐立难安",
+     "c": "col"
+    },
+    " for a while; ",
+    {
+     "t": "short of that",
+     "g": "否则达不到这点",
+     "c": "col"
+    },
+    ", you've merely consumed it as entertainment."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 77,
+   "cat": "work",
+   "zh": "我们漂亮的仪表盘上有一半指标,坦白说根本不带来任何实质改变;它们只是看着勤勉,好让我们自我感觉良好罢了。",
+   "seg": [
+    "Half the metrics on our shiny dashboard, ",
+    {
+     "t": "if we're honest",
+     "g": "说实话",
+     "c": "col"
+    },
+    ", don't ",
+    {
+     "t": "move the needle",
+     "g": "带来实质改变",
+     "c": "idi"
+    },
+    " at all; they just ",
+    {
+     "t": "look like diligence",
+     "g": "看着像勤勉",
+     "c": "col"
+    },
+    " so we can feel good about ourselves."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 78,
+   "cat": "work",
+   "zh": "在这种地方,光靠简历漂亮远远不够;你得在那些没人愿意接的烂摊子项目里,实打实地把资历一点点挣回来。",
+   "seg": [
+    "Around here, a polished résumé only gets you ",
+    {
+     "t": "so far",
+     "g": "也就到此为止",
+     "c": "col"
+    },
+    "; you have to ",
+    {
+     "t": "earn your stripes",
+     "g": "挣得资历历练",
+     "c": "idi"
+    },
+    " on the messy projects ",
+    {
+     "t": "nobody else will touch",
+     "g": "没人愿接的",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 79,
+   "cat": "work",
+   "zh": "那些一上来就想跳过苦活、直奔风光时刻的人,迟早会发现:还没熬够资历就想坐到桌前,根本坐不稳。",
+   "seg": [
+    "Anyone hoping to ",
+    {
+     "t": "skip the grunt work",
+     "g": "跳过苦活",
+     "c": "col"
+    },
+    " and go straight to the glamorous part sooner or later learns that you can't ",
+    {
+     "t": "hold a seat at the table",
+     "g": "稳坐桌前",
+     "c": "idi"
+    },
+    " before you've ",
+    {
+     "t": "paid your dues",
+     "g": "熬够资历付出代价",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 8,
+   "n": 80,
+   "cat": "work",
+   "zh": "把「成功」钉成一个固定的标准,会让人很安心;可现实是,它是个不断变动的靶子,而真正押了身家进去的人,早就学会了与这种不确定共处。",
+   "seg": [
+    "Pinning \"success\" to one fixed definition feels reassuring, but in reality it's ",
+    {
+     "t": "a moving target",
+     "g": "不断变动的目标",
+     "c": "idi"
+    },
+    ", and the people who actually ",
+    {
+     "t": "have skin in the game",
+     "g": "押了身家亲身投入",
+     "c": "idi"
+    },
+    " long ago ",
+    {
+     "t": "made peace with",
+     "g": "学会与…共处",
+     "c": "phr"
+    },
+    " that uncertainty."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 81,
+   "cat": "work",
+   "zh": "招聘说到底就是个拼基数的概率游戏:你面的人越多,撞上一个真正合适人选的几率就越大,而不是把宝全押在第一份递到你桌上的简历上。",
+   "seg": [
+    "Hiring is, at the end of the day, ",
+    {
+     "t": "a numbers game",
+     "g": "拼基数概率",
+     "c": "idi"
+    },
+    ": the more candidates you talk to, the better your odds of ",
+    {
+     "t": "landing",
+     "g": "拿下找到",
+     "c": "col"
+    },
+    " someone who actually fits, rather than ",
+    {
+     "t": "betting everything on",
+     "g": "把宝全押在",
+     "c": "col"
+    },
+    " the first résumé that crosses your desk."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 82,
+   "cat": "work",
+   "zh": "与其漫无目的地把整份报告从头扫到尾,不如紧盯那两三个真正决定结论走向的数字。",
+   "seg": [
+    "Rather than scanning the whole report ",
+    {
+     "t": "from top to bottom",
+     "g": "从头到尾",
+     "c": "col"
+    },
+    " with no particular aim, ",
+    {
+     "t": "hone in on",
+     "g": "逼近紧盯",
+     "c": "phr"
+    },
+    " the two or three figures that genuinely ",
+    {
+     "t": "drive the conclusion",
+     "g": "决定结论走向",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 83,
+   "cat": "work",
+   "zh": "耐人寻味的是,他在压力之下并没有死扛自己原先那个大胆的预测,反而悄悄把话往回收了一截。",
+   "seg": [
+    "What's telling is that, under pressure, he didn't ",
+    {
+     "t": "stand by",
+     "g": "坚守捍卫",
+     "c": "phr"
+    },
+    " his bold forecast at all; instead he quietly ",
+    {
+     "t": "walked",
+     "g": "收回淡化",
+     "c": "phr"
+    },
+    " the whole claim ",
+    {
+     "t": "back",
+     "g": "(收)回去",
+     "c": "phr"
+    },
+    " a notch or two."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 84,
+   "cat": "work",
+   "zh": "积压的技术债不会一夜之间凭空消失;你能做的只是每个冲刺啃下一小块,直到那座大山终于不再压得团队喘不过气。",
+   "seg": [
+    "Technical debt doesn't ",
+    {
+     "t": "vanish overnight",
+     "g": "一夜消失",
+     "c": "col"
+    },
+    "; all you can do is ",
+    {
+     "t": "chip away at",
+     "g": "一点点啃下",
+     "c": "phr"
+    },
+    " it one sprint at a time, until the mountain finally ",
+    {
+     "t": "stops looming over",
+     "g": "不再压得喘不过气",
+     "c": "col"
+    },
+    " the team."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 85,
+   "cat": "work",
+   "zh": "硬着头皮把一份枯燥的待办清单埋头做完是一回事;真正的难处在于你能否在中途还守得住自己的判断力,不被一点点消磨殆尽。",
+   "seg": [
+    "Plowing ",
+    {
+     "t": "through",
+     "g": "埋头硬做完",
+     "c": "phr"
+    },
+    " a dull backlog is ",
+    {
+     "t": "one thing",
+     "g": "一回事",
+     "c": "col"
+    },
+    "; the real trick is keeping your judgment intact somewhere in the middle, before it ",
+    {
+     "t": "wears thin",
+     "g": "被消磨殆尽",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 86,
+   "cat": "work",
+   "zh": "再多开两个钟头的会也无济于事——这种棘手程度的问题,只有等大家真正沉下心来苦干上整整一周才解得开。",
+   "seg": [
+    "Another two hours of meetings won't ",
+    {
+     "t": "cut it",
+     "g": "管用顶事",
+     "c": "idi"
+    },
+    "—a problem this gnarly only gets solved once everyone actually ",
+    {
+     "t": "buckles down",
+     "g": "沉下心苦干",
+     "c": "phr"
+    },
+    " and ",
+    {
+     "t": "grinds it out",
+     "g": "硬磨出来",
+     "c": "col"
+    },
+    " for a solid week."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 87,
+   "cat": "work",
+   "zh": "把流程精调到位远不止是省下几分钟那么简单;它悄悄改变的,是整个团队对「这事到底能多顺」所抱的那套预期。",
+   "seg": [
+    "Getting the process ",
+    {
+     "t": "dialed in",
+     "g": "精调到位",
+     "c": "phr"
+    },
+    " is about far more than ",
+    {
+     "t": "shaving off a few minutes",
+     "g": "省下几分钟",
+     "c": "col"
+    },
+    "; what it quietly shifts is the team's whole sense of ",
+    {
+     "t": "how smooth things can be",
+     "g": "事情能多顺",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 88,
+   "cat": "work",
+   "zh": "我们当初满怀信心定下的那份时间表,如今一头撞上了一个谁都没料到的合规难题,整个计划都得推倒重排。",
+   "seg": [
+    "The timeline we'd ",
+    {
+     "t": "set with such confidence",
+     "g": "满怀信心定下",
+     "c": "col"
+    },
+    " has now ",
+    {
+     "t": "run up against",
+     "g": "撞上(难题)",
+     "c": "phr"
+    },
+    " a compliance snag ",
+    {
+     "t": "nobody saw coming",
+     "g": "谁都没料到",
+     "c": "col"
+    },
+    ", and the whole plan needs reshuffling."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 89,
+   "cat": "work",
+   "zh": "聪明人会先把这个想法在几位关键干系人那儿吹吹风、探探口风,等粗糙的棱角都磨掉了,再坐下来谈正事。",
+   "seg": [
+    "Anyone with sense will ",
+    {
+     "t": "socialize the idea",
+     "g": "先吹吹风",
+     "c": "col"
+    },
+    " with a few key stakeholders first and ",
+    {
+     "t": "test the waters",
+     "g": "探探口风",
+     "c": "idi"
+    },
+    ", then sit down to talk seriously once ",
+    {
+     "t": "the rough edges are smoothed out",
+     "g": "粗糙棱角磨掉了",
+     "c": "col"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 9,
+   "n": 90,
+   "cat": "work",
+   "zh": "两个团队为这条接口的归属来回拉扯了整整三周,最后总算磨出了一份谁都谈不上喜欢、却人人能将就接受的共识。",
+   "seg": [
+    "After three solid weeks of ",
+    {
+     "t": "going back and forth",
+     "g": "来回拉扯",
+     "c": "idi"
+    },
+    " over who owned the interface, the two teams finally ",
+    {
+     "t": "hammered out an agreement",
+     "g": "艰难谈成共识",
+     "c": "col"
+    },
+    " that nobody loved but everyone ",
+    {
+     "t": "could live with",
+     "g": "能将就接受",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 91,
+   "cat": "work",
+   "zh": "牵头这项倡议的不是哪位资深总监,而是一个去年才入职的工程师——这件事本身就很能说明问题。",
+   "seg": [
+    "What's telling is that the person who ",
+    {
+     "t": "spearheaded the initiative",
+     "g": "牵头这项倡议",
+     "c": "col"
+    },
+    " wasn't some seasoned director but an engineer who'd ",
+    {
+     "t": "come on board",
+     "g": "入职",
+     "c": "phr"
+    },
+    " only last year."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 92,
+   "cat": "work",
+   "zh": "光有漂亮的策略毫无意义,真正考验人的,是你能不能日复一日地按计划执行而不偷工减料。",
+   "seg": [
+    "A pretty strategy counts for nothing; what actually ",
+    {
+     "t": "separates the wheat from the chaff",
+     "g": "区分高下",
+     "c": "idi"
+    },
+    " is whether you can ",
+    {
+     "t": "execute against the plan",
+     "g": "按计划执行",
+     "c": "col"
+    },
+    " day after day without ",
+    {
+     "t": "cutting corners",
+     "g": "偷工减料",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 93,
+   "cat": "work",
+   "zh": "别误会,我并不是想陷进每一个细节里,但有些假设含糊到我实在没法假装看不见。",
+   "seg": [
+    "Don't get me wrong—I'm not looking to ",
+    {
+     "t": "get into the weeds",
+     "g": "陷入细节",
+     "c": "col"
+    },
+    " on every line, but a few of these assumptions are too ",
+    {
+     "t": "hand-wavy",
+     "g": "含糊敷衍",
+     "c": "adv"
+    },
+    " for me to just ",
+    {
+     "t": "look the other way",
+     "g": "假装没看见",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 94,
+   "cat": "work",
+   "zh": "与其等到把每个边界情况都想透,他们更崇尚快速行动,因为大多数决策本来就是可逆的。",
+   "seg": [
+    "Rather than waiting until every edge case is ",
+    {
+     "t": "ironed out",
+     "g": "理顺解决",
+     "c": "phr"
+    },
+    ", they default to a ",
+    {
+     "t": "bias for action",
+     "g": "崇尚快速行动",
+     "c": "col"
+    },
+    ", reasoning that most calls are ",
+    {
+     "t": "a two-way door",
+     "g": "可逆决策",
+     "c": "col"
+    },
+    " anyway."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 95,
+   "cat": "work",
+   "zh": "在房间里把异议讲得清清楚楚之后,我就保留异议但执行了——再继续争下去,就只是为了赢而争了。",
+   "seg": [
+    "Having made my reservations crystal clear in the room, I chose to ",
+    {
+     "t": "disagree and commit",
+     "g": "保留异议但执行",
+     "c": "col"
+    },
+    "; relitigating it any further would just be arguing ",
+    {
+     "t": "for the sake of it",
+     "g": "为争而争",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 96,
+   "cat": "work",
+   "zh": "把问题摆上台面从来不会让人显得软弱;真正会把团队拖下水的,是那种一直闷着、直到无可挽回的人。",
+   "seg": [
+    "Surfacing a problem early never makes you look weak; what actually ",
+    {
+     "t": "sinks a team",
+     "g": "拖垮团队",
+     "c": "idi"
+    },
+    " is the person who ",
+    {
+     "t": "sits on it",
+     "g": "闷着不说",
+     "c": "phr"
+    },
+    " until it's ",
+    {
+     "t": "past the point of no return",
+     "g": "无可挽回",
+     "c": "idi"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 97,
+   "cat": "work",
+   "zh": "她可不会把坏消息说得好听:数字摆在那儿,情绪她一概留给走廊里去聊。",
+   "seg": [
+    "There's no ",
+    {
+     "t": "sugarcoating",
+     "g": "粉饰美化",
+     "c": "col"
+    },
+    " bad news with her—the numbers go on the slide as they are, and the sentiment gets ",
+    {
+     "t": "saved for the hallway",
+     "g": "私下再聊",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 98,
+   "cat": "work",
+   "zh": "我提议暂时把这场讨论搁置,不是想回避,而是因为我们目前手里的数据,根本撑不起这么大的一个决定。",
+   "seg": [
+    "Can we ",
+    {
+     "t": "table this discussion",
+     "g": "暂时搁置讨论",
+     "c": "col"
+    },
+    " for now—not to dodge it, but because the data we're sitting on simply can't ",
+    {
+     "t": "carry a decision",
+     "g": "支撑一个决定",
+     "c": "col"
+    },
+    " this big?"
+   ]
+  },
+  {
+   "d": 10,
+   "n": 99,
+   "cat": "work",
+   "zh": "拿不准的时候,宁可谨慎些;事后多走了一步固然烦人,但总好过把一个根本退不回来的决定搞砸。",
+   "seg": [
+    "When in doubt, ",
+    {
+     "t": "err on the side of caution",
+     "g": "宁可谨慎些",
+     "c": "col"
+    },
+    "; an extra step in hindsight is annoying, but it ",
+    {
+     "t": "beats",
+     "g": "好过",
+     "c": "phr"
+    },
+    " botching a call you can't ",
+    {
+     "t": "walk back",
+     "g": "撤回",
+     "c": "phr"
+    },
+    "."
+   ]
+  },
+  {
+   "d": 10,
+   "n": 100,
+   "cat": "work",
+   "zh": "说实话,这两个方案没一个让人省心——我们其实是在两害之中挑了那个比较好收拾烂摊子的。",
+   "seg": [
+    "Neither option is anything to ",
+    {
+     "t": "write home about",
+     "g": "值得称道",
+     "c": "idi"
+    },
+    ", if we're being honest; we're really just picking ",
+    {
+     "t": "the lesser of two evils",
+     "g": "两害取其轻",
+     "c": "col"
+    },
+    "—the one whose ",
+    {
+     "t": "mess is easier to clean up",
+     "g": "烂摊子好收拾",
+     "c": "phr"
+    },
+    "."
+   ]
+  }
+ ]
+}

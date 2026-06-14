@@ -1395,6 +1395,37 @@ async def save_subscriptions(request: dict):
     return {"status": "ok", "count": len(subs)}
 
 
+# ====================================================
+# Sentence Packs（句子精背）— 静态精选句子，按级提供
+# 详见 specs/009-sentence-packs/
+# ====================================================
+
+SENTENCES_DIR = os.environ.get(
+    "SENTENCES_DIR",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "content", "sentences"),
+)
+
+
+@app.get("/api/sentences/levels")
+def list_sentence_levels():
+    """各级索引：[{ id, title, subtitle, count, days }]"""
+    index_path = os.path.join(SENTENCES_DIR, "index.json")
+    if not os.path.exists(index_path):
+        return []
+    with open(index_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+@app.get("/api/sentences/level/{level_id}")
+def get_sentence_level(level_id: int):
+    """某一级的全部句子。"""
+    path = os.path.join(SENTENCES_DIR, f"level-{int(level_id)}.json")
+    if not os.path.exists(path):
+        raise HTTPException(status_code=404, detail="该级句子不存在。")
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 @app.get("/health")
 def health_check():
     return {"status": "ok"}

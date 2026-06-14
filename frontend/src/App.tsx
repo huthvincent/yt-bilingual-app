@@ -10,6 +10,8 @@ import { FavoritesModal, type FavoriteItem } from './components/FavoritesModal';
 import { ChannelVideoList } from './components/ChannelVideoList';
 import { Toaster } from './components/Toaster';
 import { WordPopover, type WordDefinition } from './components/WordPopover';
+import { SentenceView, sentenceFavId } from './components/SentenceView';
+import { segToPlain, CHUNK_STYLE, type Sentence, type SegChunk } from './lib/sentences';
 import { toast, describeApiError } from './lib/toast';
 import { consumeSseStream, findActiveIndex, isUntranslated, loadTranslationMode, TRANSLATION_MODE_KEY, type TranslationMode } from './lib/transcript';
 import { loadVocabLevel } from './lib/settings';
@@ -42,6 +44,9 @@ function App() {
   const fullscreenWrapperRef = useRef<HTMLDivElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekCommand, setSeekCommand] = useState<{ time: number, timestamp: number } | null>(null);
+
+  // Sentence Packs — third learning mode (null = not in this mode)
+  const [sentenceLevel, setSentenceLevel] = useState<number | null>(null);
 
   // Dictation (blind listening) mode: English blurred until revealed per sentence
   const [dictationMode, setDictationMode] = useState(false);
@@ -317,6 +322,7 @@ function App() {
   };
 
   const handleUrlSubmit = async (url: string, model?: string) => {
+    setSentenceLevel(null); // leave sentence mode if a video is loaded
     // Basic extraction
     const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/);
     const id = match ? match[1] : null;
@@ -403,6 +409,7 @@ function App() {
   };
 
   const handleSelectEpisode = async (showId: string, season: number, episode: number) => {
+    setSentenceLevel(null);
     setLoadingState('loading');
     try {
       // Try loading from history cache first (already processed episodes)
@@ -444,6 +451,7 @@ function App() {
   };
 
   const handleLoadHistory = async (filename: string) => {
+    setSentenceLevel(null);
     setLoadingState('loading');
     try {
       const response = await apiFetch(`/api/history/${filename}`);
@@ -602,7 +610,29 @@ function App() {
     setMetadata(null);
     setCurrentTime(0);
     setSeekCommand(null);
+    setSentenceLevel(null);
   };
+
+  // Star a sentence into the existing vocabulary book (exportable to Anki)
+  const handleToggleSentenceFavorite = useCallback((s: Sentence, levelId: number) => {
+    const id = sentenceFavId(levelId, s.n);
+    setFavorites(prev => {
+      if (prev.find(f => f.id === id)) return prev.filter(f => f.id !== id);
+      return [...prev, {
+        id,
+        // >11 chars so the favorites modal never mistakes it for a YouTube id
+        videoId: `sentence-pack-L${levelId}`,
+        start: 0,
+        en_text: segToPlain(s.seg),
+        zh_text: s.zh,
+        added_at: Date.now(),
+        highlights: s.seg
+          .filter((p): p is SegChunk => typeof p !== 'string')
+          .map(p => ({ en_word: p.t, zh_word: p.g, color: CHUNK_STYLE[p.c].text })),
+        type: 'sentence' as const,
+      }];
+    });
+  }, []);
 
   const renderTopBar = () => (
     <div className="flex-none h-16 bg-zinc-950/60 backdrop-blur-xl border-b border-white/5 px-6 flex items-center justify-between z-20">
@@ -644,7 +674,23 @@ function App() {
 
       {/* Keyed motion.divs crossfade views on mount; no exit-gating so a
           backgrounded tab (throttled rAF) can never stall the switch. */}
-      {!videoId || transcript.length === 0 ? (
+      {sentenceLevel != null ? (
+        <motion.div
+          key="sentences"
+          initial={{ opacity: 0, scale: 0.99, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+          className="flex-1 min-h-0 flex flex-col overflow-hidden"
+        >
+          <SentenceView
+            levelId={sentenceLevel}
+            onSelectLevel={setSentenceLevel}
+            onWordLookup={handleWordLookup}
+            onToggleFavorite={handleToggleSentenceFavorite}
+            favoriteIds={favoriteIds}
+          />
+        </motion.div>
+      ) : !videoId || transcript.length === 0 ? (
         <motion.div
           key="home"
           initial={{ opacity: 0, scale: 0.99, y: 8 }}
@@ -656,6 +702,7 @@ function App() {
             onSubmit={handleUrlSubmit}
             onLoadHistory={handleLoadHistory}
             onSelectEpisode={handleSelectEpisode}
+            onSelectSentenceLevel={setSentenceLevel}
             isLoading={loadingState !== null}
             loadingState={loadingState}
             subscriptions={subscriptions}

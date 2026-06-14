@@ -15,7 +15,7 @@ export type WordClickHandler = (word: string, e: React.MouseEvent) => void;
 const cleanWord = (token: string) => token.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, '');
 
 /** Render plain text with each word clickable for dictionary lookup. */
-const ClickableWords: React.FC<{ text: string; onWordClick: WordClickHandler }> = ({ text, onWordClick }) => (
+export const ClickableWords: React.FC<{ text: string; onWordClick: WordClickHandler }> = ({ text, onWordClick }) => (
     <>
         {text.split(/(\s+)/).map((token, i) => {
             const word = cleanWord(token);
