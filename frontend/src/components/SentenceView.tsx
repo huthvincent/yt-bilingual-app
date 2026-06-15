@@ -4,6 +4,7 @@ import { Search, Volume2, Star, Eye, EyeOff, CalendarCheck, Check } from 'lucide
 import {
     fetchSentenceLevels, fetchSentenceLevel, segToPlain,
     isDayDone, setDayDone, levelDoneDays, loadZhHidden, saveZhHidden,
+    getReviews, toggleReview,
     CHUNK_STYLE, CAT_LABEL,
     type SentenceLevel, type SentenceLevelMeta, type Sentence,
 } from '../lib/sentences';
@@ -152,14 +153,34 @@ export const SentenceView: React.FC<SentenceViewProps> = ({
                                     <div className="flex items-center gap-3 px-5 py-3 bg-zinc-800/30 border-b border-white/5">
                                         <span className="text-sm font-semibold tracking-tight text-zinc-100">Day {d}</span>
                                         <span className="text-[11px] text-zinc-500 tabular-nums">第 {items[0].n}–{items[items.length - 1].n} 句</span>
-                                        <button
-                                            onClick={() => { setDayDone(levelId, d, !done); setDoneTick(t => t + 1); }}
-                                            className={`ml-auto inline-flex items-center gap-1.5 h-7 px-3 text-xs font-medium rounded-lg border transition-colors ${
-                                                done ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' : 'bg-zinc-800/60 text-zinc-400 border-white/5 hover:text-zinc-200'
-                                            }`}
-                                        >
-                                            <Check className="w-3.5 h-3.5" /> {done ? '已背完' : '标记已背'}
-                                        </button>
+                                        <div className="ml-auto flex items-center gap-3">
+                                            <button
+                                                onClick={() => { setDayDone(levelId, d, !done); setDoneTick(t => t + 1); }}
+                                                className={`inline-flex items-center gap-1.5 h-7 px-3 text-xs font-medium rounded-lg border transition-colors ${
+                                                    done ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' : 'bg-zinc-800/60 text-zinc-400 border-white/5 hover:text-zinc-200'
+                                                }`}
+                                            >
+                                                <Check className="w-3.5 h-3.5" /> {done ? '已背完' : '标记已背'}
+                                            </button>
+                                            {/* 复习打卡：每复习一遍勾一个 */}
+                                            <div className="flex items-center gap-1.5" title="每复习一遍打一个勾">
+                                                <span className="text-[11px] text-zinc-500 hidden sm:inline">复习</span>
+                                                {getReviews(levelId, d).map((checked, i) => (
+                                                    <button
+                                                        key={i}
+                                                        onClick={() => { toggleReview(levelId, d, i); setDoneTick(t => t + 1); }}
+                                                        title={`第 ${i + 1} 遍`}
+                                                        className={`w-5 h-5 rounded-md border flex items-center justify-center transition-colors ${
+                                                            checked
+                                                                ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
+                                                                : 'bg-zinc-800/60 border-white/10 text-transparent hover:border-white/25'
+                                                        }`}
+                                                    >
+                                                        <Check className="w-3 h-3" strokeWidth={3} />
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="divide-y divide-white/5">
                                         {shown.map(s => {

@@ -79,6 +79,20 @@ export function levelPercent(lv: number, totalDays: number): number {
     return Math.round((levelDoneDays(lv, totalDays) / totalDays) * 100);
 }
 
+// --- 复习打卡：每天 4 格，复习一遍勾一个（按级×天，存 localStorage） ---
+export const REVIEW_COUNT = 4;
+const revKey = (lv: number, d: number) => `sentence-lv${lv}-rev${d}`;
+
+export function getReviews(lv: number, d: number): boolean[] {
+    const raw = localStorage.getItem(revKey(lv, d)) || '';
+    return Array.from({ length: REVIEW_COUNT }, (_, i) => raw[i] === '1');
+}
+export function toggleReview(lv: number, d: number, i: number) {
+    const arr = getReviews(lv, d);
+    arr[i] = !arr[i];
+    localStorage.setItem(revKey(lv, d), arr.map(b => (b ? '1' : '0')).join(''));
+}
+
 // --- 自测：是否隐藏译文（全局开关，持久化） ---
 const ZH_HIDDEN_KEY = 'sentence-zh-hidden';
 export function loadZhHidden(): boolean {
