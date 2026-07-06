@@ -5,7 +5,7 @@
 | 文件 | 内容 |
 |---|---|
 | `index.json` | 册索引：`[{ id, title, subtitle, count, days }]` |
-| `level-1.json` … `level-5.json` | 每册全部句子 |
+| `level-1.json` … `level-5.json` | 每册全部句子。**顶层是包装对象**：`{ id, title, subtitle, count, days, sentences: [单句…] }`，不是裸数组 |
 
 ## 单句结构
 

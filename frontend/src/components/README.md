@@ -4,7 +4,7 @@
 
 | 组件 | 用在哪 | 职责 |
 |---|---|---|
-| `InputScreen.tsx` | 首页 | 搜索框、词汇轴、四张 bento 卡（最近学习/本地剧集/订阅/最新视频/句子精背入口） |
+| `InputScreen.tsx` | 首页 | 搜索框、词汇轴、句子精背整宽入口卡、四张 bento 卡（最近学习/本地剧集/订阅/最新视频） |
 | `AuroraBackground.tsx` | 首页 | 极光背景：光斑漂移、旋转光环、粒子、流星、鼠标聚光 |
 | `TiltCard.tsx` | 首页 | bento 卡的 3D 倾斜 + 光斑悬停（CSS 变量驱动，零重渲染） |
 | `VocabAxis.tsx` | 首页 | 词汇水平轴（Liftoff→Supernova 六站，见 specs/004） |
