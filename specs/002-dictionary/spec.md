@@ -1,6 +1,6 @@
 # 规格：点查词典
 
-**状态：** 已实现 ｜ **对应代码：** `backend/main.py`（`/api/define`）、`frontend/src/components/WordPopover.tsx`、`frontend/src/lib/tts.ts`
+**状态：** 已实现 ｜ **对应代码：** `backend/routes_user.py`（`/api/define`）、`frontend/src/components/WordPopover.tsx`、`frontend/src/lib/tts.ts`
 
 ---
 
@@ -16,7 +16,7 @@
 - **必须**：字幕里**每个**单词（不只是 AI 预选的高亮词）都可点击。
 - **必须**：弹出卡片含——单词、音标(IPA)、词性、贴合语境的中文释义、英文释义、例句。
 - **必须**：释义结合该词所在句子的语境生成。
-- **必须**：同一个词只调一次 AI，之后从缓存返回（[宪法原则 4](../../.specify/memory/constitution.md)）。
+- **必须**：同一个词只调一次 AI，之后从缓存返回（[宪法原则 4](../../CONSTITUTION.md)）。
 - **必须**：卡片内可朗读单词与例句、可一键加入/移出生词本。
 - **应当**：卡片自动避让，始终留在视口内。
 

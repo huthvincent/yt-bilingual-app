@@ -1,6 +1,6 @@
 # 规格：本地剧集
 
-**状态：** 已实现 ｜ **对应代码：** `backend/main.py`（`parse_srt`、`list_shows`、`process_subtitle`）、`frontend/src/components/ShowBrowser.tsx`
+**状态：** 已实现 ｜ **对应代码：** `backend/transcripts.py`（`parse_srt`、`group_srt_blocks`）、`backend/routes_content.py`（剧集路由）、`frontend/src/components/ShowBrowser.tsx`
 
 ---
 
@@ -24,4 +24,4 @@
 
 ## 边界与非目标
 - 只解析 SRT 格式；不内置视频画面（仅字幕 + 模拟时间轴）。
-- `subtitles/` 内容不入库（版权，见 [宪法原则 6](../../.specify/memory/constitution.md) 与 `.gitignore`）。
+- `subtitles/` 内容不入库（版权，见 [宪法原则 6](../../CONSTITUTION.md) 与 `.gitignore`）。

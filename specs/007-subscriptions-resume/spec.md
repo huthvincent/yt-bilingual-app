@@ -1,6 +1,6 @@
 # 规格：订阅与续播
 
-**状态：** 已实现 ｜ **对应代码：** `backend/main.py`（`/api/subscriptions`、`/api/channel-updates`）、`frontend/src/lib/progress.ts`、`frontend/src/components/InputScreen.tsx`
+**状态：** 已实现 ｜ **对应代码：** `backend/routes_user.py`（订阅）、`backend/routes_videos.py`（`/api/channel-updates`）、`frontend/src/lib/progress.ts`、`frontend/src/components/InputScreen.tsx`
 
 ---
 
@@ -15,7 +15,7 @@
 ## 功能需求
 - **必须**：可订阅/取消订阅频道，持久化（`subscriptions.json`）。
 - **必须**：聚合订阅频道的最新视频，点击即可开课。
-- **必须**：抓取频道更新要**并行**且带缓存，不能让首页变慢（[宪法原则 3](../../.specify/memory/constitution.md)）。
+- **必须**：抓取频道更新要**并行**且带缓存，不能让首页变慢（[宪法原则 3](../../CONSTITUTION.md)）。
 - **必须**：按视频记忆播放位置；重新打开自动续播并提示从哪续。
 - **必须**：历史卡片显示"已学 N%"进度。
 

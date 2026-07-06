@@ -1,6 +1,6 @@
 # 规格：生词水平轴
 
-**状态：** 已实现 ｜ **对应代码：** `frontend/src/components/VocabAxis.tsx`、`frontend/src/lib/settings.ts`、`backend/main.py`（`VOCAB_LEVELS`、`process_llm_batch`）
+**状态：** 已实现 ｜ **对应代码：** `frontend/src/components/VocabAxis.tsx`、`frontend/src/lib/settings.ts`、`backend/config.py`（`VOCAB_LEVELS`）、`backend/translate.py`（`process_llm_batch`）
 
 ---
 

@@ -1,6 +1,6 @@
 # 规格：句子精背（Sentence Packs）
 
-**状态：** 已实现 ｜ **对应代码：** `content/sentences/`、`backend/main.py`（`/api/sentences`）、`frontend/src/components/SentenceView.tsx`、`frontend/src/lib/sentences.ts`
+**状态：** 已实现 ｜ **对应代码：** `content/sentences/`、`backend/routes_content.py`（`/api/sentences`）、`frontend/src/components/SentenceView.tsx`、`frontend/src/lib/sentences.ts`
 
 ---
 

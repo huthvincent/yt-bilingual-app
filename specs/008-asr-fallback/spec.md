@@ -1,6 +1,6 @@
 # 规格：无字幕转写回退
 
-**状态：** 已实现（可选依赖） ｜ **对应代码：** `backend/main.py`（`_asr_available`、`_transcribe_audio_with_whisper`）
+**状态：** 已实现（可选依赖） ｜ **对应代码：** `backend/transcripts.py`（`_asr_available`、`_transcribe_audio_with_whisper`）、`backend/routes_videos.py`（流式回退分支）
 
 ---
 

@@ -1,6 +1,6 @@
 # 规格：收藏与导出
 
-**状态：** 已实现 ｜ **对应代码：** `backend/main.py`（`/api/favorites`）、`frontend/src/components/FavoritesModal.tsx`、`frontend/src/lib/exporter.ts`
+**状态：** 已实现 ｜ **对应代码：** `backend/routes_user.py`（`/api/favorites`）、`frontend/src/components/FavoritesModal.tsx`、`frontend/src/lib/exporter.ts`
 
 ---
 

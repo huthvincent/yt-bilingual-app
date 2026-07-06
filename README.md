@@ -139,7 +139,7 @@ Open **http://localhost:5173**, paste a YouTube link, set your level on the axis
 
 Issues and PRs welcome. Fork → `git checkout -b feature/amazing` → commit → PR.
 
-Architecture, design language, and per-feature specs (spec-kit style) live in [`docs/`](docs/) and [`specs/`](specs/), with project principles in [`.specify/memory/constitution.md`](.specify/memory/constitution.md). These docs are in Chinese.
+Architecture, design language, and per-feature specs (spec-kit style) live in [`docs/`](docs/) and [`specs/`](specs/), with project principles in [`CONSTITUTION.md`](CONSTITUTION.md). These docs are in Chinese.
 
 ## 📄 License
 

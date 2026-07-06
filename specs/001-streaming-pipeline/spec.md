@@ -1,11 +1,11 @@
 # 规格：字幕流式管线
 
-**状态：** 已实现 ｜ **对应代码：** `backend/main.py`（`process_video_stream` 等）、`frontend/src/lib/transcript.ts`、`frontend/src/App.tsx`
+**状态：** 已实现 ｜ **对应代码：** `backend/routes_videos.py`（`process_video_stream`）、`backend/translate.py`（`_stream_translate` 等）、`frontend/src/lib/transcript.ts`、`frontend/src/App.tsx`
 
 ---
 
 ## 目标
-把"处理一个视频"从"对着加载圈干等几分钟"变成"几秒就能看，翻译边看边补"。这是整个产品体验的地基（[宪法原则 3](../../.specify/memory/constitution.md)）。
+把"处理一个视频"从"对着加载圈干等几分钟"变成"几秒就能看，翻译边看边补"。这是整个产品体验的地基（[宪法原则 3](../../CONSTITUTION.md)）。
 
 ## 用户故事
 - 作为用户，我粘贴链接后想**立刻**开始看视频和英文字幕，而不是等全部翻译完。
