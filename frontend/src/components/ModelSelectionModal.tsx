@@ -34,7 +34,7 @@ export const ModelSelectionModal: React.FC<ModelSelectionModalProps> = ({
     onConfirm,
     estimationData
 }) => {
-    const [selectedModel, setSelectedModel] = React.useState<string>('gemini-2.5-flash');
+    const [selectedModel, setSelectedModel] = React.useState<string>('deepseek-v4-flash');
 
     if (!isOpen || !estimationData) return null;
 

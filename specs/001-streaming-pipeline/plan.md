@@ -33,7 +33,7 @@
 | `backend/routes_videos.py · process_video_stream` | SSE 端点、缓存/新建分支 |
 | `backend/translate.py · _stream_translate` | 逐批翻译 + 落盘 + yield |
 | `backend/translate.py · retranslate_marked_blocks` | 补译未完成块（流式/历史加载共用） |
-| `backend/translate.py · process_llm_batch` | 调 Gemini、按 id 合并、按水平挑生词 |
+| `backend/translate.py · process_llm_batch` | 调 DeepSeek、按 id 合并、按水平挑生词 |
 | `frontend/src/lib/transcript.ts` | `consumeSseStream` / `isUntranslated` / `UNTRANSLATED_MARKER` |
 | `frontend/src/App.tsx` | 接流、进度、取消、续播衔接 |
 
@@ -42,5 +42,5 @@
 - **为什么逐批落盘而非内存累积**：用一点写盘开销换"任何中断都不丢、自愈零额外逻辑"。
 
 ## 风险与缓解
-- **Gemini 限流（429）**：批间退避重试，仍失败则该批保留 `[未翻译]`，下次自愈。
+- **DeepSeek 限流（429）**：批间退避重试，仍失败则该批保留 `[未翻译]`，下次自愈。
 - **大视频批次多、耗时长**：英文已先可用，用户无感等待；进度条 + 可取消。

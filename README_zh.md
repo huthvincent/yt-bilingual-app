@@ -15,7 +15,7 @@ AI 双语字幕实时流式生成 · 点击任意单词即查词典 · 内置精
 [![License](https://img.shields.io/github/license/huthvincent/yt-bilingual-app?style=for-the-badge&color=34C759)](LICENSE)
 ![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini_2.5-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)
+![DeepSeek](https://img.shields.io/badge/DeepSeek_V4-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white)
 
 [功能演示](#实际效果) · [手机端](#随时随地学习) · [快速开始](#-快速开始) · [English](README.md)
 
@@ -81,14 +81,14 @@ AI 双语字幕实时流式生成 · 点击任意单词即查词典 · 内置精
 
 ## 🚀 快速开始
 
-> **环境要求：** Node 18+、Python 3.10+、一个免费的 [Gemini API key](https://aistudio.google.com/apikey)。
+> **环境要求：** Node 18+、Python 3.10+、一个 [DeepSeek API key](https://platform.deepseek.com/api_keys)。
 
 ```bash
 git clone https://github.com/huthvincent/yt-bilingual-app.git
 cd yt-bilingual-app
 
 ./setup.sh                       # 安装前后端依赖
-cp .env.example .env             # 填入你的 GEMINI_API_KEY
+cp .env.example .env             # 填入你的 DEEPSEEK_API_KEY
 
 ./start_app.command              # macOS 一键启动（或手动起两个服务，见下）
 ```
@@ -111,10 +111,11 @@ cd frontend && npm run dev
 
 | 变量 | 位置 | 用途 |
 |---|---|---|
-| `GEMINI_API_KEY` | `.env` | **必填。** 翻译、总结、词典。 |
+| `DEEPSEEK_API_KEY` | `.env` | **必填。** 翻译、总结、词典。 |
+| `DEEPSEEK_BASE_URL` | `.env` | 可选。默认 `https://api.deepseek.com`。 |
 | `WHISPER_MODEL` | `.env` | 无字幕 ASR 回退使用的 Whisper 模型大小（默认 `base`）。 |
 | `CORS_ORIGINS` | `.env` | 允许的跨域来源（逗号分隔）——公网部署前务必设置。 |
-| `API_AUTH_KEY` | `.env` | 设置后所有 API 调用必须携带 `X-API-Key`，保护你的 Gemini 配额。 |
+| `API_AUTH_KEY` | `.env` | 设置后所有 API 调用必须携带 `X-API-Key`，保护你的 DeepSeek 配额。 |
 | `VITE_API_BASE` / `VITE_API_KEY` | 前端环境 | 让 Web 端指向远程后端 / 发送其 API key。 |
 | `HISTORY_DIR` / `SUBTITLES_DIR` | 环境变量 | 自定义 JSON 缓存 / 本地剧集字幕目录。 |
 
