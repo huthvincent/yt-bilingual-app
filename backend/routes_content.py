@@ -106,7 +106,7 @@ class SubtitleRequest(BaseModel):
 
 @router.post("/api/process-subtitle")
 async def process_subtitle(request: SubtitleRequest):
-    """Process a local SRT subtitle file through Gemini translation."""
+    """Process a local SRT subtitle file through DeepSeek translation."""
     srt_path = os.path.join(
         SUBTITLES_DIR, request.show_id,
         f"S{request.season:02d}", f"E{request.episode:02d}.srt"
@@ -149,7 +149,7 @@ async def process_subtitle(request: SubtitleRequest):
         "is_local_subtitle": True
     }
 
-    # Process through Gemini translation (same batching as YouTube)
+    # Process through DeepSeek translation (same batching as YouTube)
     processed_blocks = []
     batch_size = 20
     has_mock_fallback = False  # Track if any batch used mock

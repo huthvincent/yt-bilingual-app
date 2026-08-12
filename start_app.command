@@ -39,7 +39,7 @@ FRONTEND_PID=$!
 TUNNEL_PID=""
 if [ "$ENABLE_TUNNEL" = "1" ]; then
     if [ -z "$API_AUTH_KEY" ]; then
-        echo "⚠️  ENABLE_TUNNEL=1 但未设置 API_AUTH_KEY——公网隧道将无鉴权暴露你的 Gemini 配额，已跳过。"
+        echo "⚠️  ENABLE_TUNNEL=1 但未设置 API_AUTH_KEY——公网隧道将无鉴权暴露你的 DeepSeek 配额，已跳过。"
     else
         echo "[3/3] 启动公网穿透隧道..."
         npx localtunnel --port 8000 --subdomain "${TUNNEL_SUBDOMAIN:-yt-bilingual-app-rui}" > /dev/null 2>&1 &

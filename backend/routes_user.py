@@ -1,17 +1,17 @@
 """用户数据路由：点查词典、收藏、订阅。
 
-词典释义按小写单词落盘缓存（每词只调一次 Gemini）；
+词典释义按小写单词落盘缓存（每词只调一次 DeepSeek）；
 收藏与订阅是简单的整存整取 JSON 文件。
 """
+import asyncio
 import json
 import os
 
 from fastapi import APIRouter, HTTPException
-from google import genai
-from google.genai import types
 from pydantic import BaseModel
 
-from config import HISTORY_DIR
+from config import DEFAULT_MODEL, HISTORY_DIR
+from llm import chat_complete
 
 router = APIRouter()
 
@@ -20,7 +20,7 @@ router = APIRouter()
 # ====================================================
 
 DICT_CACHE_FILE = os.path.join(HISTORY_DIR, "dictionary_cache.json")
-DICT_MODEL = "gemini-2.5-flash-lite"  # fast + cheap for single-word lookups
+DICT_MODEL = DEFAULT_MODEL  # DeepSeek V4 Flash — fast + cheap for lookups
 
 
 class DefineRequest(BaseModel):
@@ -66,13 +66,23 @@ Return ONLY a JSON object with exactly these fields:
 }}"""
 
     try:
-        client = genai.Client()
-        response = client.models.generate_content(
+        content = await asyncio.to_thread(
+            chat_complete,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are an English-Chinese dictionary for Chinese learners. "
+                        "Return ONLY valid JSON matching the schema in the user message."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
             model=DICT_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(response_mime_type="application/json"),
+            json_mode=True,
+            max_tokens=1024,
         )
-        result = json.loads(response.text)
+        result = json.loads(content)
         if isinstance(result, list):
             result = result[0] if result else {}
         result.setdefault("word", word)

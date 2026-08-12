@@ -15,7 +15,7 @@ Designed for Chinese learners. Built like Apple would.
 [![License](https://img.shields.io/github/license/huthvincent/yt-bilingual-app?style=for-the-badge&color=34C759)](LICENSE)
 ![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini_2.5-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)
+![DeepSeek](https://img.shields.io/badge/DeepSeek_V4-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white)
 
 [Demo](#see-it-in-action) · [On your phone](#learn-on-the-go) · [Quick Start](#-quick-start) · [中文文档](README_zh.md)
 
@@ -81,14 +81,14 @@ The interface is fully responsive — the same synced bilingual transcript, tap-
 
 ## 🚀 Quick Start
 
-> **Prereqs:** Node 18+, Python 3.10+, and a free [Gemini API key](https://aistudio.google.com/apikey).
+> **Prereqs:** Node 18+, Python 3.10+, and a [DeepSeek API key](https://platform.deepseek.com/api_keys).
 
 ```bash
 git clone https://github.com/huthvincent/yt-bilingual-app.git
 cd yt-bilingual-app
 
 ./setup.sh                       # installs frontend + backend deps
-cp .env.example .env             # then paste your GEMINI_API_KEY
+cp .env.example .env             # then paste your DEEPSEEK_API_KEY
 
 ./start_app.command              # macOS one-click (or run the two commands below)
 ```
@@ -111,10 +111,11 @@ Open **http://localhost:5173**, paste a YouTube link, set your level on the axis
 
 | Variable | Where | Purpose |
 |---|---|---|
-| `GEMINI_API_KEY` | `.env` | **Required.** Translation, summaries, dictionary. |
+| `DEEPSEEK_API_KEY` | `.env` | **Required.** Translation, summaries, dictionary. |
+| `DEEPSEEK_BASE_URL` | `.env` | Optional. Defaults to `https://api.deepseek.com`. |
 | `WHISPER_MODEL` | `.env` | Whisper size for the no-captions ASR fallback (`base` default). |
 | `CORS_ORIGINS` | `.env` | Comma-separated allowed origins — set before deploying publicly. |
-| `API_AUTH_KEY` | `.env` | When set, every API call must send `X-API-Key`. Protects your Gemini quota on public deployments. |
+| `API_AUTH_KEY` | `.env` | When set, every API call must send `X-API-Key`. Protects your DeepSeek quota on public deployments. |
 | `VITE_API_BASE` / `VITE_API_KEY` | frontend env | Point the web app at a remote backend / send its API key. |
 | `HISTORY_DIR` / `SUBTITLES_DIR` | env | Relocate the JSON cache / local-show subtitles. |
 

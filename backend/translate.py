@@ -1,4 +1,4 @@
-"""AI 翻译核心：Gemini 分批翻译、按 id 对齐、自愈续译、流式生成、总结。
+"""AI 翻译核心：DeepSeek 分批翻译、按 id 对齐、自愈续译、流式生成、总结。
 
 关键约定：
 - 翻译失败/缺失的句子 zh_text 标为 UNTRANSLATED_MARKER，
@@ -9,10 +9,8 @@ import asyncio
 import json
 import os
 
-from google import genai
-from google.genai import types
-
 from config import DEFAULT_MODEL, HISTORY_DIR, VOCAB_LEVELS
+from llm import chat_complete
 
 # Marker for blocks whose translation is missing/failed; such blocks are
 # re-translated automatically the next time the video is loaded.
@@ -27,6 +25,18 @@ def _norm_id(v):
         return v
 
 
+def _parse_blocks_json(text: str) -> list:
+    """Parse model JSON that may be a list or {"blocks": [...]}."""
+    data = json.loads(text)
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        blocks = data.get("blocks")
+        if isinstance(blocks, list):
+            return blocks
+    return []
+
+
 def needs_retranslation(zh_text: str) -> bool:
     """True if a stored zh_text is a mock/failed translation placeholder."""
     if not zh_text:
@@ -39,9 +49,7 @@ def needs_retranslation(zh_text: str) -> bool:
 
 
 async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL, vocab_level: str | None = None) -> list:
-    """Use Gemini API to return Chinese translations and highlights"""
-    client = genai.Client()
-
+    """Use DeepSeek API to return Chinese translations and highlights"""
     level_instruction = ""
     if vocab_level in VOCAB_LEVELS:
         level_instruction = (
@@ -61,39 +69,42 @@ async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL, vocab_leve
             "end": block["end"]
         })
 
-    prompt = f"""
-    You are an expert bilingual English-Chinese teacher.
+    system_prompt = """You are an expert bilingual English-Chinese teacher.
+Return ONLY valid JSON of the form {"blocks": [...]} — no markdown fences."""
+
+    user_prompt = f"""
     I will provide a JSON list of transcript blocks.
     For each block, you must:
     1. Provide a natural Chinese translation.
     2. Identify 0 to 2 advanced words or phrases (idioms, phrasal verbs, hard vocabulary).{level_instruction}
     3. Return the exact substring of the advanced word in English, and its exact translated substring in the Chinese sentence.
 
-    CRITICAL: YOU MUST Return a JSON list with exactly the same IDs, adding these fields:
+    CRITICAL: YOU MUST return a JSON object with a "blocks" array. Each item keeps the same id and adds:
     - en_text: the original text
     - zh_text: the Chinese translation
     - highlights: list of objects with 'en_word', 'zh_word', and 'color'. The color MUST be exactly "text-purple-400 border-b border-dashed border-purple-400"
+
+    EXAMPLE JSON OUTPUT:
+    {{"blocks": [{{"id": 1, "en_text": "Hello world", "zh_text": "你好世界", "highlights": []}}]}}
 
     Input data:
     {json.dumps(input_data, ensure_ascii=False)}
     """
 
     try:
-        response = client.models.generate_content(
+        # OpenAI SDK is sync; run in a thread so the event loop stays responsive.
+        content = await asyncio.to_thread(
+            chat_complete,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
             model=model,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-            ),
+            json_mode=True,
+            max_tokens=8192,
         )
 
-        # Parse the response back into our block format
-        result_data = json.loads(response.text)
-
-        # Match results back by id — models occasionally drop or reorder items,
-        # and a positional zip would silently attach translations to the wrong
-        # sentences (and truncate the batch when items are missing).
-        results_list = result_data if isinstance(result_data, list) else []
+        results_list = _parse_blocks_json(content)
         by_id = {}
         for res in results_list:
             if isinstance(res, dict) and res.get("id") is not None:
@@ -122,7 +133,7 @@ async def process_llm_batch(blocks: list, model: str = DEFAULT_MODEL, vocab_leve
         return processed_blocks
 
     except Exception as e:
-        print(f"Gemini API Error: {e}")
+        print(f"DeepSeek API Error: {e}")
         # Fallback to mock if API fails or parsing fails
         return await mock_llm_processing(blocks)
 
@@ -145,13 +156,12 @@ async def mock_llm_processing(blocks: list) -> list:
 
 
 async def summarize_video_transcript(blocks: list, model: str = DEFAULT_MODEL) -> str:
-    """Use Gemini API to generate a summary of the video based on the transcript"""
+    """Use DeepSeek API to generate a summary of the video based on the transcript"""
     full_text = " ".join([b["text"] for b in blocks])
     # If it's too long, truncate it to save tokens (approx 20 mins of speech)
     if len(full_text) > 20000:
         full_text = full_text[:20000] + "..."
 
-    client = genai.Client()
     summary_prompt = f"""
     Please read the following English transcript from a YouTube video and provide a concise summary in Chinese.
     Focus on extracting the core knowledge points and main ideas.
@@ -162,11 +172,15 @@ async def summarize_video_transcript(blocks: list, model: str = DEFAULT_MODEL) -
     """
 
     try:
-        response = client.models.generate_content(
+        return await asyncio.to_thread(
+            chat_complete,
+            messages=[
+                {"role": "system", "content": "You summarize YouTube transcripts for Chinese learners of English."},
+                {"role": "user", "content": summary_prompt},
+            ],
             model=model,
-            contents=summary_prompt,
+            max_tokens=2048,
         )
-        return response.text
     except Exception as e:
         print(f"Summary Gen Error: {e}")
         return "无法生成总结，请稍后再试或检查 API 配额。"
@@ -271,4 +285,4 @@ async def _stream_translate(transcript: list, indices: list, payload: dict, save
             "progress": {"done": done, "total": total},
         }
         if batch_start + batch_size < total:
-            await asyncio.sleep(4)  # free-tier 15 RPM pacing
+            await asyncio.sleep(1)  # mild pacing between batches

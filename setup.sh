@@ -57,8 +57,8 @@ echo ""
 echo "[3/3] 🔑 检查配置..."
 cd "$SCRIPT_DIR"
 if [ ! -f ".env" ]; then
-    echo "GEMINI_API_KEY=\"your_gemini_api_key_here\"" > .env
-    echo "  ⚠️  已创建 .env 文件，请编辑并填入你的 Gemini API Key："
+    echo "DEEPSEEK_API_KEY=\"your_deepseek_api_key_here\"" > .env
+    echo "  ⚠️  已创建 .env 文件，请编辑并填入你的 DeepSeek API Key："
     echo "     $SCRIPT_DIR/.env"
 else
     echo "  ✅ .env 文件已存在"
@@ -73,7 +73,7 @@ echo "✅ 安装完成！"
 echo "====================================="
 echo ""
 echo "📝 下一步："
-echo "  1. 编辑 .env 文件，填入你的 GEMINI_API_KEY"
+echo "  1. 编辑 .env 文件，填入你的 DEEPSEEK_API_KEY"
 echo "  2. 双击 start_app.command 启动应用"
 echo "  3. 或运行: ./start_app.command"
 echo ""
